@@ -1,12 +1,12 @@
 {
   "entries": [
-    "components/bcgov-header/bcgov-header.js",
     "components/bcgov-beta/bcgov-beta.js",
-    "components/bcgov-footer/bcgov-footer.js",
     "components/bcgov-button/bcgov-button.js",
-    "components/bcgov-menu/bcgov-menu.js",
+    "components/bcgov-callout/bcgov-callout.js",
+    "components/bcgov-footer/bcgov-footer.js",
+    "components/bcgov-header/bcgov-header.js",
     "components/bcgov-section-divider/bcgov-section-divider.js",
-    "components/bcgov-callout/bcgov-callout.js"
+    "components/bcgov-menu/bcgov-menu.js"
   ],
   "compiler": {
     "name": "@stencil/core",

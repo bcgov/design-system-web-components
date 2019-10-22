@@ -12,7 +12,8 @@
   "unpkg": "dist/bcgov-web-components/bcgov-web-components.js",
   "files": [
     "dist/",
-    "src/"
+    "src/",
+    "loader/"
   ],
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack/webpack.config.prod.js  --colors && stencil build --prod --docs-readme",

@@ -35,6 +35,12 @@ export class BcgovButton {
     }
     static get is() { return "bcgov-button"; }
     static get encapsulation() { return "scoped"; }
+    static get originalStyleUrls() { return {
+        "$": ["bcgov-button.scss"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["bcgov-button.css"]
+    }; }
     static get properties() { return {
         "link": {
             "type": "string",
