@@ -11,7 +11,8 @@
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/bcgov-web-components/bcgov-web-components.js",
   "files": [
-    "dist/"
+    "dist/",
+    "src/"
   ],
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack/webpack.config.prod.js  --colors && stencil build --prod --docs-readme",

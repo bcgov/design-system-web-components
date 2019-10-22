@@ -1,0 +1,9 @@
+:host {
+  width: 100%;
+}
+:host .divider {
+  background-color: rgba(154, 154, 154, 0.33);
+  height: 1px;
+  width: 100%;
+  margin: 3rem 0;
+}
