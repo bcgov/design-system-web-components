@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<%= require('html-loader!./partials/head.html') %>
+
+<body is="bcgov-styles">
+  <%= require('html-loader!./partials/header.html') %>
+  <main class="bcgov-main" id="main-content">
+    <%= htmlWebpackPlugin.options.bodyHtml %>
+  </main>
+  <%= require('html-loader!./partials/footer.html') %>
+</body>
+
+</html>

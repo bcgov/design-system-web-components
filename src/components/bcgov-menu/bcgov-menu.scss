@@ -1,0 +1,135 @@
+bcgov-menu {
+  padding: 0 $gutter-primary;
+  color: #fff;
+  color: var(--bcgov-white);
+  @include flexbox();
+
+  &.expandable {
+    display: list-item;
+    padding: 0;
+  }
+  &[primary] {
+    background-color: $bcgov-blue-background;
+    background-color: var(--bcgov-blue-background);
+  }
+
+  bcgov-nav-submenu {
+    @include flexbox();
+  }
+
+  &.primary {
+    background-color: $bcgov-blue-background;
+    background-color: var(--bcgov-blue-background);
+  }
+  a,
+  a:hover,
+  a:visited,
+  a:active,
+  a:focus {
+    color: #fff;
+    color: var(--bcgov-white) !important;
+
+    padding: 10px;
+    display: flex;
+  }
+
+  ul {
+    list-style: none;
+    @include flexbox();
+    position: relative;
+    margin: 0;
+    padding: 0;
+
+    &.align-right {
+      justify-content: flex-end;
+      > li:last-child {
+        a {
+          padding-right: 0;
+        }
+      }
+    }
+    &.align-left {
+      justify-content: flex-start;
+      > li:first-child {
+        a {
+          padding-left: 0;
+        }
+      }
+    }
+    &.align-center {
+      justify-content: center;
+    }
+    li,
+    bcgov-menu {
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+      &:hover,
+      &:focus,
+      &.expanded {
+        background-color: $bcgov-blue-links;
+        background-color: var(--bcgov-blue-links);
+      }
+      &.expanded > ul {
+        @include flexbox();
+      }
+
+      &.expandable {
+        > a {
+          @include flexbox();
+          flex-flow: row nowrap;
+          align-items: center;
+          &:after {
+            content: "";
+            display: block;
+            width: 5px;
+            height: 5px;
+            margin-top: -1px;
+            margin-left: 5px;
+            border-bottom: 2px solid #fff;
+            border-right: 2px solid #fff;
+            transform: rotateZ(45deg);
+          }
+        }
+      }
+      ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        width: 200px;
+        height: auto;
+        background-color: var(--bcgov-blue-links);
+
+        li {
+          -webkit-box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.25),
+            inset 1px 1px 0 rgba(255, 255, 255, 0.25);
+          -moz-box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.25),
+            inset 1px 1px 0 rgba(255, 255, 255, 0.25);
+          box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.25),
+            inset 1px 1px 0 rgba(255, 255, 255, 0.25);
+          &:hover,
+          &:focus,
+          &.expanded {
+            background-color: var(--bcgov-blue-links);
+          }
+          &.expandable {
+            > a {
+              box-sizing: border-box;
+              width: 100%;
+              justify-content: space-between;
+              &:after {
+                margin-top: 1px;
+                transform: rotateZ(-45deg);
+              }
+            }
+          }
+          ul {
+            position: absolute;
+            left: 100%;
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+body {
+  color: var(--bcgov-color);
+  background-color: var(--bcgov-color-background);
+  font-size: 18px;
+
+  font-family: var(--bcgov-font-family);
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 16px;
+  }
+}
+
+table {
+  td,
+  th {
+    padding: 8px 15px;
+    border-bottom: 1px solid #ccc;
+    font-size: 0.9rem;
+  }
+  margin: 15px 0;
+}
+
+.sr-only {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  text-indent: -10000px;
+}
+
+.bcgov-main {
+  margin: 0 $gutter-primary;
+  padding: 30px;
+  min-height: 600px;
+  background: var(--bcgov-white);
+  a {
+    &.active,
+    &:active,
+    &:visited,
+    &:focus {
+      color: var(--bcgov-blue-links);
+    }
+    &:hover {
+      color: var(--bcgov-blue-links);
+      text-decoration: underline;
+    }
+    i {
+      color: var(--bcgov-blue-links);
+    }
+  }
+
+  p {
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+}
+bcgov-aria-instructions {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  text-indent: -10000px;
+  display: block;
+}
+*:focus {
+  outline: 4px solid var(--bcgov-color-accessibility);
+  outline-offset: 1px;
+}
