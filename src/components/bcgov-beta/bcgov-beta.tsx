@@ -2,6 +2,7 @@ import { Component, Host, h, Element, Prop } from "@stencil/core";
 
 @Component({
   tag: "bcgov-beta",
+  styleUrl: "bcgov-beta.scss",
   scoped: true
 })
 export class BcgovBeta {

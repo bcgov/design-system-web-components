@@ -1,1 +1,0 @@
-import{r,h as o,H as s}from"./p-253721a6.js";const t=class{constructor(o){r(this,o)}render(){return o(s,null,o("slot",null))}};export{t as bcgov_footer};

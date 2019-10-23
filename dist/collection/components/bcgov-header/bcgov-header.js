@@ -37,6 +37,12 @@ export class BcgovHeader {
     }
     static get is() { return "bcgov-header"; }
     static get encapsulation() { return "scoped"; }
+    static get originalStyleUrls() { return {
+        "$": ["bcgov-header.scss"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["bcgov-header.css"]
+    }; }
     static get properties() { return {
         "href": {
             "type": "string",

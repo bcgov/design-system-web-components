@@ -1,4 +1,4 @@
-bcgov-menu {
+:host {
   padding: 0 $gutter-primary;
   color: #fff;
   color: var(--bcgov-white);
@@ -11,10 +11,6 @@ bcgov-menu {
   &[primary] {
     background-color: $bcgov-blue-background;
     background-color: var(--bcgov-blue-background);
-  }
-
-  bcgov-nav-submenu {
-    @include flexbox();
   }
 
   &.primary {
@@ -60,7 +56,7 @@ bcgov-menu {
       justify-content: center;
     }
     li,
-    bcgov-menu {
+    :host {
       position: relative;
       cursor: pointer;
       transition: background-color 0.2s ease-in-out;

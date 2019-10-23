@@ -13,6 +13,12 @@ export class BcgovBeta {
     }
     static get is() { return "bcgov-beta"; }
     static get encapsulation() { return "scoped"; }
+    static get originalStyleUrls() { return {
+        "$": ["bcgov-beta.scss"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["bcgov-beta.css"]
+    }; }
     static get properties() { return {
         "content": {
             "type": "string",

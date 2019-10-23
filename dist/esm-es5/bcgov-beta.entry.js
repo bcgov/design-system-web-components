@@ -17,6 +17,11 @@ var BcgovBeta = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(BcgovBeta, "style", {
+        get: function () { return ".sc-bcgov-beta-h{color:var(--bcgov-yellow-primary);position:relative;top:-5px;text-transform:uppercase;font-weight:200;margin-left:8px;font-size:.95rem}"; },
+        enumerable: true,
+        configurable: true
+    });
     return BcgovBeta;
 }());
 export { BcgovBeta as bcgov_beta };

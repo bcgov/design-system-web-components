@@ -1,4 +1,4 @@
-bcgov-header {
+:host {
   position: relative;
   background-color: $bcgov-blue-primary;
   background-color: var(--bcgov-blue-primary);
@@ -13,7 +13,10 @@ bcgov-header {
     position: relative;
   }
 
-  *,
+  a {
+    color: #fff;
+  }
+
   a,
   a:hover,
   a:visited,

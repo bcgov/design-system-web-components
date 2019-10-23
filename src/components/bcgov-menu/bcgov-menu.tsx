@@ -3,6 +3,7 @@ import { menuElement } from "../../utils/utils";
 
 @Component({
   tag: "bcgov-menu",
+  styleUrl: "bcgov-menu.scss",
   scoped: true
 })
 export class BcgovMenu {

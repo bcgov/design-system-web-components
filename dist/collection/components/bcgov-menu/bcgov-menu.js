@@ -63,6 +63,12 @@ export class BcgovMenu {
     }
     static get is() { return "bcgov-menu"; }
     static get encapsulation() { return "scoped"; }
+    static get originalStyleUrls() { return {
+        "$": ["bcgov-menu.scss"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["bcgov-menu.css"]
+    }; }
     static get properties() { return {
         "alignment": {
             "type": "string",

@@ -5,8 +5,8 @@
     "components/bcgov-callout/bcgov-callout.js",
     "components/bcgov-footer/bcgov-footer.js",
     "components/bcgov-header/bcgov-header.js",
-    "components/bcgov-section-divider/bcgov-section-divider.js",
-    "components/bcgov-menu/bcgov-menu.js"
+    "components/bcgov-menu/bcgov-menu.js",
+    "components/bcgov-section-divider/bcgov-section-divider.js"
   ],
   "compiler": {
     "name": "@stencil/core",

@@ -6,4 +6,10 @@ export class BcgovFooter {
     }
     static get is() { return "bcgov-footer"; }
     static get encapsulation() { return "scoped"; }
+    static get originalStyleUrls() { return {
+        "$": ["bcgov-footer.scss"]
+    }; }
+    static get styleUrls() { return {
+        "$": ["bcgov-footer.css"]
+    }; }
 }

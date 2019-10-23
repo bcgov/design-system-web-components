@@ -3,6 +3,7 @@ import { moveElement } from "../../utils/utils";
 
 @Component({
   tag: "bcgov-header",
+  styleUrl: "bcgov-header.scss",
   scoped: true
 })
 export class BcgovHeader {

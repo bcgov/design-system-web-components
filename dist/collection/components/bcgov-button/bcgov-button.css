@@ -1,5 +1,5 @@
-bcgov-button a,
-bcgov-button button {
+:host a,
+:host button {
   display: inline-block;
   background-color: var(--bcgov-blue-primary);
   border: 2px solid var(--bcgov-blue-primary);
@@ -14,37 +14,37 @@ bcgov-button button {
   line-height: 1.2;
   cursor: pointer;
 }
-bcgov-button a, bcgov-button a:visited, bcgov-button a:active, bcgov-button a:focus,
-bcgov-button button,
-bcgov-button button:visited,
-bcgov-button button:active,
-bcgov-button button:focus {
+:host a, :host a:visited, :host a:active, :host a:focus,
+:host button,
+:host button:visited,
+:host button:active,
+:host button:focus {
   color: var(--bcgov-white);
 }
-bcgov-button a.primary,
-bcgov-button button.primary {
+:host a.primary,
+:host button.primary {
   color: var(--bcgov-white) !important;
 }
-bcgov-button a.secondary,
-bcgov-button button.secondary {
+:host a.secondary,
+:host button.secondary {
   background: none;
   color: var(--bcgov-blue-primary) !important;
 }
-bcgov-button a.dark,
-bcgov-button button.dark {
+:host a.dark,
+:host button.dark {
   background: none;
   border: 2px solid var(--bcgov-white);
 }
-bcgov-button a.dark:hover,
-bcgov-button button.dark:hover {
+:host a.dark:hover,
+:host button.dark:hover {
   background-color: var(--bcgov-color-background);
   color: var(--bcgov-color);
 }
-bcgov-button a:hover,
-bcgov-button button:hover {
+:host a:hover,
+:host button:hover {
   text-decoration: underline;
 }
-bcgov-button a:disabled,
-bcgov-button button:disabled {
+:host a:disabled,
+:host button:disabled {
   cursor: not-allowed;
 }

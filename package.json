@@ -16,8 +16,9 @@
     "loader/"
   ],
   "scripts": {
-    "build": "NODE_ENV=production webpack --config webpack/webpack.config.prod.js  --colors && stencil build --prod --docs-readme",
+    "build": "NODE_ENV=production webpack --config webpack/webpack.config.prod.js  --colors && stencil build --prod   --docs-readme",
     "start": "webpack-dev-server  --watch  --open  --config webpack/webpack.config.dev.js ",
+    "start.sjs": "stencil build --dev  --watch --serve ",
     "test": "stencil test --spec",
     "docs": "stencil build --docs-readme",
     "test.e2e": "stencil test --e2e",
