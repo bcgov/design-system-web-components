@@ -3,6 +3,7 @@ import { sass } from "@stencil/sass";
 
 export const config: Config = {
   namespace: "bcgov-web-components",
+  hashFileNames: false,
   devServer: {
     reloadStrategy: null
   },
