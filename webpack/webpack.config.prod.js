@@ -3,7 +3,6 @@ const Webpack = require("webpack");
 const merge = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const common = require("./webpack.common.js");
-const theoImporter = require("../theo-importer");
 
 module.exports = merge(common, {
   mode: "production",
@@ -34,10 +33,7 @@ module.exports = merge(common, {
       },
       {
         test: /\.(s?css|ya?ml)$/i,
-        loader: "sass-loader",
-        options: {
-          importer: [theoImporter]
-        }
+        loader: "sass-loader"
       }
     ]
   }

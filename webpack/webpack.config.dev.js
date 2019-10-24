@@ -3,7 +3,6 @@ const Webpack = require("webpack");
 const merge = require("webpack-merge");
 const common = require("./webpack.common.js");
 const WebpackShellPlugin = require("webpack-shell-plugin");
-const theoImporter = require("../theo-importer");
 
 class WatchRunPlugin {
   apply(compiler) {
@@ -49,10 +48,7 @@ module.exports = merge(common, {
       },
       {
         test: /\.(s?css|ya?ml)$/i,
-        loader: "sass-loader",
-        options: {
-          importer: [theoImporter]
-        }
+        loader: "sass-loader"
       },
       {
         test: /\.md$/i

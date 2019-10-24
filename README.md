@@ -6,9 +6,52 @@
 npm i git+https://github.com/bcgov/design-system-web-components.git
 ```
 
-## Use
+### Use with CSS
+-index.js file
+```javascript
+import "core-js/stable"; // makes it ie compatible.
+import "@bcgov/web-components/build/dist/bcgov-web-components/bcgov-web-components.css";
+import { applyPolyfills, defineCustomElements } from "@bcgov/web-components/build/dist/loader";
 
+applyPolyfills().then(() => {
+  defineCustomElements(window);
+});
+```
 
+### Use with SCSS
+-index.js file
+```javascript
+import "core-js/stable"; // makes it ie compatible.
+import "@bcgov/web-components/src/components/sass/style.scss";
+import { applyPolyfills, defineCustomElements } from "@bcgov/web-components/build/dist/loader";
+
+applyPolyfills().then(() => {
+  defineCustomElements(window);
+});
+```
+
+* See [StencilJS implementation into frameworks](https://stenciljs.com/docs/overview)
+
+### Making IE11 compatable.
+``` npm i corejs ```
+-package.json file
+```json
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "usage",
+          "corejs": "3.0.0",
+          "targets": {
+            "esmodules": true,
+            "ie": "11"
+          }
+        }
+      ]
+    ]
+  }
+```
 
 
 ## Description

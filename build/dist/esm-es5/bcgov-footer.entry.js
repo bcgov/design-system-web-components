@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host } from './core-5b448c27.js';
+import { r as registerInstance, h, H as Host } from './core-06b3e689.js';
 var BcgovFooter = /** @class */ (function () {
     function BcgovFooter(hostRef) {
         registerInstance(this, hostRef);
