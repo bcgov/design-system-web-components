@@ -13,9 +13,6 @@ class WatchRunPlugin {
         .map(file => `\n  ${file}`)
         .join("");
       if (changedFiles.length) {
-        console.log("====================================");
-        console.log("NEW BUILD FILES CHANGED:", changedFiles);
-        console.log("====================================");
       }
     });
   }

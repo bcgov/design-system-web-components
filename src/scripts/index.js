@@ -1,8 +1,6 @@
+import "core-js/stable";
 import "../html/styles/index.scss";
-import "../html/styles/fallback.scss";
-//import "../global/components.scss";
-import "../html/styles/design-tokens.scss";
-import { applyPolyfills, defineCustomElements } from "../../loader";
+import { applyPolyfills, defineCustomElements } from "../../build/dist/loader";
 
 applyPolyfills().then(() => {
   defineCustomElements(window);

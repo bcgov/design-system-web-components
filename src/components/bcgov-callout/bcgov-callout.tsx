@@ -1,9 +1,7 @@
 import { Component, Host, h } from "@stencil/core";
 
 @Component({
-  tag: "bcgov-callout",
-  styleUrl: "bcgov-callout.scss",
-  scoped: true
+  tag: "bcgov-callout"
 })
 export class BcgovCallout {
   render() {

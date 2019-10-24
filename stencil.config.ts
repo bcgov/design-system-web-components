@@ -9,6 +9,7 @@ export const config: Config = {
   outputTargets: [
     {
       type: "dist",
+      dir: "build/dist",
       esmLoaderPath: "./loader"
     },
     {
@@ -17,12 +18,14 @@ export const config: Config = {
     {
       type: "www",
       serviceWorker: null,
-      dir: "dist/www"
+      dir: "build/dist/www"
     }
   ],
+  globalStyle: "src/components/sass/style.scss",
+  globalScript: "src/components/scripts/components.ts",
   plugins: [
     sass({
-      injectGlobalPaths: ["src/global/variables.scss", "src/global/mixins.scss"]
+      injectGlobalPaths: ["src/components/sass/variables.scss", "src/components/sass/mixins.scss"]
     })
   ]
 };

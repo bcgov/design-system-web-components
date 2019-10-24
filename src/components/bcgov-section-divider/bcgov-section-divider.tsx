@@ -1,9 +1,7 @@
 import { Component, h, Prop } from "@stencil/core";
 
 @Component({
-  tag: "bcgov-section-divider",
-  styleUrl: "bcgov-section-divider.scss",
-  scoped: true
+  tag: "bcgov-section-divider"
 })
 export class BcgovSectionDivider {
   @Prop() thickness;

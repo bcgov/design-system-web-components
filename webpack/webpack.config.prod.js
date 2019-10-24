@@ -11,8 +11,8 @@ module.exports = merge(common, {
   stats: "errors-only",
   bail: true,
   output: {
-    filename: "www/js/[name].js",
-    chunkFilename: "www/js/[name].[chunkhash:8].js"
+    filename: "js/[name].js",
+    chunkFilename: "js/[name].[chunkhash:8].js"
   },
   plugins: [
     new Webpack.optimize.LimitChunkCountPlugin({
@@ -23,7 +23,7 @@ module.exports = merge(common, {
     }),
     new Webpack.optimize.ModuleConcatenationPlugin(),
     new MiniCssExtractPlugin({
-      filename: "www/css/[name].css"
+      filename: "css/[name].css"
     })
   ],
   module: {
@@ -38,8 +38,7 @@ module.exports = merge(common, {
         options: {
           importer: [theoImporter]
         }
-      },
-
+      }
     ]
   }
 });

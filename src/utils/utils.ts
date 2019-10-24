@@ -6,6 +6,7 @@ const filterATags = element => {
   }
   if (element.hasAttribute("aria")) {
     element.setAttribute("aria-label", element.textContent);
+    element.removeAttribute("aria");
   }
 };
 

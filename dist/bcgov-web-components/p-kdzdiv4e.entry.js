@@ -1,1 +1,0 @@
-import{r as t,h as r,H as s}from"./p-253721a6.js";const l=class{constructor(r){t(this,r)}render(){return r(s,null,r("slot",null))}static get style(){return".sc-bcgov-callout-h{display:block;padding:25px;border-left:10px solid var(--bcgov-blue-background);margin:16px 0;background-color:#f2f2f2}"}};export{l as bcgov_callout};

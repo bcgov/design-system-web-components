@@ -2,9 +2,7 @@ import { Component, Host, h, Prop, Element, Listen } from "@stencil/core";
 import { menuElement } from "../../utils/utils";
 
 @Component({
-  tag: "bcgov-menu",
-  styleUrl: "bcgov-menu.scss",
-  scoped: true
+  tag: "bcgov-menu"
 })
 export class BcgovMenu {
   @Prop() alignment: string = "left";

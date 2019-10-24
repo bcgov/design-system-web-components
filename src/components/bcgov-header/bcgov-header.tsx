@@ -2,9 +2,7 @@ import { Component, Prop, h, Host, Element } from "@stencil/core";
 import { moveElement } from "../../utils/utils";
 
 @Component({
-  tag: "bcgov-header",
-  styleUrl: "bcgov-header.scss",
-  scoped: true
+  tag: "bcgov-header"
 })
 export class BcgovHeader {
   @Prop() href: string;

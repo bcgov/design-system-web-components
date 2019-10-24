@@ -24,8 +24,9 @@ const createPages = () => {
   })
     .filter(dirent => dirent.isDirectory())
     .map(dirent => {
-      dirent.name;
-      pages.push(dirent.name);
+      if (!("sass" === dirent.name || "scripts" === dirent.name)) {
+        pages.push(dirent.name);
+      }
     });
   // creates home resource.
 
@@ -57,7 +58,7 @@ const settings = {
     bootloader: Path.resolve(__dirname, "../src/scripts/index.js")
   },
   output: {
-    path: Path.join(__dirname, "../www"),
+    path: Path.join(__dirname, "../build"),
     filename: "js/[name].js"
   },
   optimization: {
@@ -66,7 +67,7 @@ const settings = {
       name: false
     }
   },
-  plugins: [new CleanWebpackPlugin()].concat(createPages()),
+  plugins: [].concat(createPages()),
   resolve: {
     alias: {
       "~": Path.resolve(__dirname, "../src")

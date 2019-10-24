@@ -1,9 +1,7 @@
 import { Component, h, Prop, Element } from "@stencil/core";
 
 @Component({
-  tag: "bcgov-button",
-  scoped: true,
-  styleUrl: "bcgov-button.scss"
+  tag: "bcgov-button"
 })
 export class BcgovButton {
   /** The action of the button. */
