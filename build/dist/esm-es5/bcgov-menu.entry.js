@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-06b3e689.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './core-6fb69b7f.js';
 import { a as menuElement } from './utils-fda4c146.js';
 var BcgovMenu = /** @class */ (function () {
     function BcgovMenu(hostRef) {

@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host } from './core-06b3e689.js';
+import { r as registerInstance, h, H as Host } from './core-6fb69b7f.js';
 
 const BcgovCallout = class {
     constructor(hostRef) {

@@ -1,9 +1,9 @@
 body {
-  color: var(--bcgov-color);
-  background-color: var(--bcgov-color-background);
+  color: var $bcgov-color;
+  background-color: $bcgov-color-background;
   font-size: 18px;
 
-  font-family: var(--bcgov-font-family);
+  font-family: $bcgov-font-family;
 
   h2,
   h3,
@@ -35,20 +35,20 @@ table {
   margin: 0 $gutter-primary;
   padding: 30px;
   min-height: 600px;
-  background: var(--bcgov-white);
+  background: $bcgov-white;
   a {
     &.active,
     &:active,
     &:visited,
     &:focus {
-      color: var(--bcgov-blue-links);
+      color: $bcgov-blue-links;
     }
     &:hover {
-      color: var(--bcgov-blue-links);
+      color: $bcgov-blue-links;
       text-decoration: underline;
     }
     i {
-      color: var(--bcgov-blue-links);
+      color: $bcgov-blue-links;
     }
   }
 
@@ -65,6 +65,6 @@ bcgov-aria-instructions {
   display: block;
 }
 *:focus {
-  outline: 4px solid var(--bcgov-color-accessibility);
+  outline: 4px solid $bcgov-color-accessibility;
   outline-offset: 1px;
 }

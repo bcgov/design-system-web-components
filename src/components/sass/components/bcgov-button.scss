@@ -2,8 +2,8 @@ bcgov-button {
   a,
   button {
     display: inline-block;
-    background-color: var(--bcgov-blue-primary);
-    border: 2px solid var(--bcgov-blue-primary);
+    background-color: $bcgov-blue-primary;
+    border: 2px solid $bcgov-blue-primary;
     margin: 4px 4px 4px 0;
     border-radius: 4px;
     padding: 0.75rem 1.5rem;
@@ -19,23 +19,23 @@ bcgov-button {
     &:visited,
     &:active,
     &:focus {
-      color: var(--bcgov-white);
+      color: $bcgov-white;
     }
 
     &.primary {
-      color: var(--bcgov-white) !important;
+      color: $bcgov-white !important;
     }
 
     &.secondary {
       background: none;
-      color: var(--bcgov-blue-primary) !important;
+      color: $bcgov-blue-primary !important;
     }
     &.dark {
       background: none;
-      border: 2px solid var(--bcgov-white);
+      border: 2px solid $bcgov-white;
       &:hover {
-        background-color: var(--bcgov-color-background);
-        color: var(--bcgov-color);
+        background-color: $bcgov-color-background;
+        color: $bcgov-color;
       }
     }
 

@@ -1,7 +1,6 @@
 bcgov-menu {
   padding: 0 $gutter-primary;
-  color: #fff;
-  color: var(--bcgov-white);
+  color: $bcgov-white;
   @include flexbox();
 
   &.expandable {
@@ -10,21 +9,17 @@ bcgov-menu {
   }
   &[primary] {
     background-color: $bcgov-blue-background;
-    background-color: var(--bcgov-blue-background);
   }
 
   &.primary {
     background-color: $bcgov-blue-background;
-    background-color: var(--bcgov-blue-background);
   }
   a,
   a:hover,
   a:visited,
   a:active,
   a:focus {
-    color: #fff;
-    color: var(--bcgov-white) !important;
-
+    color: $bcgov-white !important;
     padding: 10px;
     display: flex;
   }
@@ -64,7 +59,6 @@ bcgov-menu {
       &:focus,
       &.expanded {
         background-color: $bcgov-blue-links;
-        background-color: var(--bcgov-blue-links);
       }
       &.expanded > ul {
         @include flexbox();
@@ -82,8 +76,8 @@ bcgov-menu {
             height: 5px;
             margin-top: -1px;
             margin-left: 5px;
-            border-bottom: 2px solid #fff;
-            border-right: 2px solid #fff;
+            border-bottom: 2px solid $bcgov-white;
+            border-right: 2px solid $bcgov-white;
             transform: rotateZ(45deg);
           }
         }
@@ -94,7 +88,7 @@ bcgov-menu {
         position: absolute;
         width: 200px;
         height: auto;
-        background-color: var(--bcgov-blue-links);
+        background-color: $bcgov-blue-links;
 
         li {
           -webkit-box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.25),
@@ -106,7 +100,7 @@ bcgov-menu {
           &:hover,
           &:focus,
           &.expanded {
-            background-color: var(--bcgov-blue-links);
+            background-color: $bcgov-blue-links;
           }
           &.expandable {
             > a {

@@ -1,7 +1,7 @@
 bcgov-footer {
-  background-color: var(--bcgov-blue-primary);
-  border-top: 2px solid var(--bcgov-yellow-primary);
-  color: var(--bcgov-white);
+  background-color: $bcgov-blue-primary;
+  border-top: 2px solid $bcgov-yellow-primary;
+  color: $bcgov-white;
   min-height: 50px;
   padding: 0 15px;
   @include flexbox();
@@ -11,10 +11,10 @@ bcgov-footer {
     &:visited,
     &:active,
     &:focus {
-      color: var(--bcgov-white) !important;
+      color: $bcgov-white !important;
     }
   }
   a {
-    color: #fff;
+    color: $bcgov-white;
   }
 }

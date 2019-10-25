@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-06b3e689.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './core-6fb69b7f.js';
 import { m as moveElement } from './utils-fda4c146.js';
 var BcgovHeader = /** @class */ (function () {
     function BcgovHeader(hostRef) {

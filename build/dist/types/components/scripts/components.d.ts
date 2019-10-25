@@ -1,1 +1,1 @@
-declare const style: HTMLElement;
+import "core-js/stable";
