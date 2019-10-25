@@ -1,5 +1,5 @@
 import { h, Host } from "@stencil/core";
-import { moveElement } from "../../utils/utils";
+import { moveElement } from "../utils/utils";
 export class BcgovHeader {
     componentWillLoad() {
         this.aTags = this.el.querySelectorAll("a[aria]");

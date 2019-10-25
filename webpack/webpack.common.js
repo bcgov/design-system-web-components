@@ -24,32 +24,44 @@ const createPages = () => {
   })
     .filter(dirent => dirent.isDirectory())
     .map(dirent => {
-      if (!("sass" === dirent.name || "scripts" === dirent.name)) {
-        pages.push(dirent.name);
+      if (!("sass" === dirent.name || "scripts" === dirent.name || "utils" === dirent.name)) {
+        const page = dirent.name;
+        htmlplugin.push(
+          new HtmlWebpackPlugin({
+            filename: `${page.replace("bcgov-", "")}.html`,
+            bodyHtml: converter.makeHtml(
+              marked(
+                String(readFileSync(Path.join(__dirname, `../src/components/${page}/readme.md`)))
+              )
+            ),
+            template: Path.resolve(__dirname, `../src/html/index.html`)
+          })
+        );
       }
     });
-  // creates home resource.
 
-  htmlplugin.push(
-    new HtmlWebpackPlugin({
-      bodyHtml: converter.makeHtml(
-        marked(String(readFileSync(Path.join(__dirname, "../readme.md"))))
-      ),
-      template: Path.resolve(__dirname, `../src/html/index.html`)
-    })
-  );
-
-  pages.map(page => {
+  /** Creates pages from md files */
+  readdirSync(Path.resolve(__dirname, "../src/html/pages"), {
+    withFileTypes: true
+  }).map(dirent => {
+    const page = dirent.name;
     htmlplugin.push(
       new HtmlWebpackPlugin({
-        filename: `${page.replace("bcgov-", "")}.html`,
-        bodyHtml: marked(
-          String(readFileSync(Path.join(__dirname, `../src/components/${page}/readme.md`)))
+        filename: `${page.replace(".md", ".html")}`,
+        bodyHtml: converter.makeHtml(
+          String(readFileSync(Path.join(__dirname, `../src/html/pages/${page}`)))
         ),
         template: Path.resolve(__dirname, `../src/html/index.html`)
       })
     );
   });
+  htmlplugin.push(
+    new HtmlWebpackPlugin({
+      filename: `readme.html`,
+      bodyHtml: converter.makeHtml(String(readFileSync(Path.join(__dirname, `../README.md`)))),
+      template: Path.resolve(__dirname, `../src/html/index.html`)
+    })
+  );
   return htmlplugin;
 };
 

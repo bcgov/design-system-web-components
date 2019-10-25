@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, Element, Listen } from "@stencil/core";
-import { menuElement } from "../../utils/utils";
+import { menuElement } from "../utils/utils";
 
 @Component({
   tag: "bcgov-menu"

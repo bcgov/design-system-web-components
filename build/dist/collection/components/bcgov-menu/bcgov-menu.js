@@ -1,5 +1,5 @@
 import { Host, h } from "@stencil/core";
-import { menuElement } from "../../utils/utils";
+import { menuElement } from "../utils/utils";
 export class BcgovMenu {
     constructor() {
         this.alignment = "left";

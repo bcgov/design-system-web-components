@@ -2,14 +2,17 @@
 
 ## Install
 
-```npm
+```
 npm i git+https://github.com/bcgov/design-system-web-components.git
 ```
+
+## Use with module bundler (Webpack, React, Angular)
 
 ### Use with CSS
 -index.js file
 ```javascript
-import "core-js/stable"; // makes it ie compatible.
+import "core-js/stable"; // makes it ie11 compatible, needs to be first item.
+.....
 import "@bcgov/web-components/build/dist/bcgov-web-components/bcgov-web-components.css";
 import { applyPolyfills, defineCustomElements } from "@bcgov/web-components/build/dist/loader";
 
@@ -19,9 +22,11 @@ applyPolyfills().then(() => {
 ```
 
 ### Use with SCSS
--index.js file
+
+index.js file
 ```javascript
-import "core-js/stable"; // makes it ie compatible.
+import "core-js/stable"; // makes it ie11 compatible, needs to be first item.
+.....
 import "@bcgov/web-components/src/components/sass/style.scss";
 import { applyPolyfills, defineCustomElements } from "@bcgov/web-components/build/dist/loader";
 
@@ -33,8 +38,9 @@ applyPolyfills().then(() => {
 * See [StencilJS implementation into frameworks](https://stenciljs.com/docs/overview)
 
 ### Making IE11 compatable.
-``` npm i corejs ```
--package.json file
+```npm npm i corejs ```
+
+package.json file
 ```json
   "babel": {
     "presets": [
@@ -62,8 +68,7 @@ Here is how it does it:
 - Uses a compiler that generates Web Components called [StencilJS](https://stenciljs.com/)
 - Uses a testing framework [Jest](https://jestjs.io/) and [Puppeteer](https://pptr.dev/).
 - Uses [sass](https://sass-lang.com/) files
-- Uses [Theo](https://github.com/salesforce-ux/theo) Design Tokens
-- Uses **Webpack** for creating web pages
+- Uses **Webpack** for creating web pages for the Design System.
 
 
 ## Accessibility
@@ -72,19 +77,19 @@ All components should meet or exceed [WCAG 2.0 AA](https://www.w3.org/TR/WCAG20/
 
 ## Components
 
-- **Collapse** [Collapse](collapse.html) `<bcgov-collapse>` *Not Implenented*
+- **Collapse**  `<bcgov-collapse>` *Not Implenented*
 - **Beta** [Beta](beta.html) `<bcgov-beta>`
 - **Button** [Button](button.html) `<bcgov-button>`
 - **Callout** [Callout](callout.html) `bcgov-callout>`
 - **Footer** [Footer](footer.html) `<bcgov-footer>`
-- **Forms** [Forms](forms.html) `<bcgov-forms><bcgov-radio><bcgov-checkbox>` *Not Implemented*
+- **Forms**  `<bcgov-forms><bcgov-radio><bcgov-checkbox>` *Not Implemented*
 - **Header** [Header](header.html) `<bcgov-header>`
-  - logo
-  - headline
-  - skip links for accessibility
+    - logo
+    - headline
+    - skip links for accessibility
 - **Menu** [Menu](menu.html) `<bcgov-menu>`
-  - links
-  - format (alignment: {left|center|right})
-  - submenu
-  - accessibility, and accessibility instructions
-- **Tabs** [Tabs](tab.html) `<bcgov-tabs><bcgov-tab>` *Not Implemented*
+    - links
+    - format (alignment: {left|center|right})
+    - submenu
+    - accessibility, and accessibility instructions
+- **Tabs**  `<bcgov-tabs><bcgov-tab>` *Not Implemented*
