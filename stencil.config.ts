@@ -11,7 +11,7 @@ export const config: Config = {
   outputTargets: [
     {
       type: "dist",
-      dir: "build/dist",
+      dir: "html/dist",
       esmLoaderPath: "./loader"
     },
     {
@@ -20,7 +20,7 @@ export const config: Config = {
     {
       type: "www",
       serviceWorker: null,
-      dir: "build/dist/www"
+      dir: "html/dist/www"
     }
   ],
   globalStyle: "src/components/sass/style.scss",

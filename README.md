@@ -13,8 +13,8 @@ npm i git+https://github.com/bcgov/design-system-web-components.git
 ```javascript
 import "core-js/stable"; // makes it ie11 compatible, needs to be first item.
 .....
-import "@bcgov/web-components/build/dist/bcgov-web-components/bcgov-web-components.css";
-import { applyPolyfills, defineCustomElements } from "@bcgov/web-components/build/dist/loader";
+import "@bcgov/web-components/html/dist/bcgov-web-components/bcgov-web-components.css";
+import { applyPolyfills, defineCustomElements } from "@bcgov/web-components/html/dist/loader";
 
 applyPolyfills().then(() => {
   defineCustomElements(window);
@@ -28,7 +28,7 @@ index.js file
 import "core-js/stable"; // makes it ie11 compatible, needs to be first item.
 .....
 import "@bcgov/web-components/src/components/sass/style.scss";
-import { applyPolyfills, defineCustomElements } from "@bcgov/web-components/build/dist/loader";
+import { applyPolyfills, defineCustomElements } from "@bcgov/web-components/html/dist/loader";
 
 applyPolyfills().then(() => {
   defineCustomElements(window);

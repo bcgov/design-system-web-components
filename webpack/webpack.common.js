@@ -70,7 +70,7 @@ const settings = {
     bootloader: Path.resolve(__dirname, "../src/scripts/index.js")
   },
   output: {
-    path: Path.join(__dirname, "../build"),
+    path: Path.join(__dirname, "../html"),
     filename: "js/[name].js"
   },
   optimization: {
