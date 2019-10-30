@@ -1,12 +1,16 @@
 <bcgov-header>
   <img
+    slot="logo"
     src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
     alt="Branding logo"
   />
-  <div class="test">Design System<bcgov-beta></bcgov-beta></div>
-  <a aria href="#main-navigation">Skip to navigation</a>
-  <a aria href="#main-content">Skip to Contents</a>
-  <a aria href="accessibility">Skip to Accessibility Statement</a>
+  <div class="test" slot="headline">Design System<bcgov-beta></bcgov-beta></div>
+  <a slot="hidden-link" aria href="#main-navigation">Skip to navigation</a>
+  <a slot="hidden-link" aria href="#main-content">Skip to Contents</a>
+  <a slot="hidden-link" aria href="accessibility">Skip to Accessibility Statement</a>
+  <div>
+    <bcgov-hamburger target="main-navigation">Menu</bcgov-hamburger>
+  </div>
 </bcgov-header>
 
 <bcgov-menu
@@ -14,6 +18,8 @@
   instructions="Use arrow keys to navigate between menuitems, spacebar to expand submenus, escape key to close
   submenus, enter to activate menuitems."
   primary
+  alignment="left"
+  breakpoint="1100"
 >
   <a href="index.html">Home</a>
   <a href="readme.html">How to Use</a>

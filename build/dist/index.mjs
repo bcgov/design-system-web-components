@@ -1,1 +1,1 @@
-export * from './esm-es5/index.mjs';
+export * from './esm/index.mjs';

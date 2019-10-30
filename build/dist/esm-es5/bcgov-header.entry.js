@@ -1,37 +1,18 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-06b3e689.js';
-import { m as moveElement } from './utils-41a40086.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './core-f0efafd8.js';
+import { f as filterATags } from './utils-db4e3472.js';
 var BcgovHeader = /** @class */ (function () {
     function BcgovHeader(hostRef) {
         registerInstance(this, hostRef);
+        /** link for logo */
+        this.href = "https://www2.gov.bc.ca/gov/content/home";
     }
-    BcgovHeader.prototype.componentWillLoad = function () {
-        this.aTags = this.el.querySelectorAll("a[aria]");
-        this.imgTags = this.el.querySelectorAll("img");
-        this.headlineTags = this.el.querySelectorAll("div");
-    };
     BcgovHeader.prototype.componentDidRender = function () {
-        var elements = [
-            {
-                current: this.aTags,
-                container: this.el.querySelector(".access")
-            },
-            {
-                current: this.imgTags,
-                container: this.el.querySelector(".branding-logo")
-            },
-            {
-                current: this.headlineTags,
-                container: this.el.querySelector(".hl")
-            }
-        ];
-        elements.map(function (item) {
-            [].forEach.call(item["current"], function (element) {
-                moveElement(element, item["container"]);
-            });
+        [].forEach.call(this.el.querySelectorAll('a[slot="hidden-link"]'), function (element) {
+            filterATags(element);
         });
     };
     BcgovHeader.prototype.render = function () {
-        return (h(Host, null, h("header", { class: "bcgov-header" }, h("div", { class: "banner" }, h("a", { class: "branding-logo", href: "", "aria-label": "branding logo" }), h("div", { class: "hl" }), h("div", { class: "access" })))));
+        return (h(Host, null, h("header", { class: "bcgov-header" }, h("div", { class: "banner" }, h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, h("slot", { name: "logo" })), h("div", { class: "hl" }, h("slot", { name: "headline" })), h("div", { class: "access" }, h("slot", { name: "hidden-link" }))), h("slot", null))));
     };
     Object.defineProperty(BcgovHeader.prototype, "el", {
         get: function () { return getElement(this); },

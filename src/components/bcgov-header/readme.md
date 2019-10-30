@@ -75,24 +75,26 @@ As read using ChromeVox
 ```html
 <bcgov-header >
   <img
+    slot="logo"
     src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
     alt="Branding logo"
   />
-  <div>DevHub<bcgov-beta></bcgov-beta></div>
-  <a aria href="#main-navigation">Skip to navigation</a>
-  <a aria href="#main-content">Skip to Contents</a>
-  <a aria href="accessibility">Skip to Accessibility Statement</a>
+  <div slot="headline" >DevHub<bcgov-beta></bcgov-beta></div>
+  <a slot="hidden-link"  href="#main-navigation">Skip to navigation</a>
+  <a slot="hidden-link"  href="#main-content">Skip to Contents</a>
+  <a  slot="hidden-link"  href="accessibility">Skip to Accessibility Statement</a>
+  <bcogv-hamburger>Menu</bcgov-hamburger>
 </bcgov-header>
 ```
 
 ## Component
 
 <bcgov-header id="header-example" >
-  <img src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF" alt="Branding logo" />
-  <div>DevHub<bcgov-beta></bcgov-beta></div>
-  <a aria href="#main-navigation">Skip to navigation</a>
-  <a aria href="#main-content">Skip to Contents</a>
-  <a aria href="accessibility">Skip to Accessibility Statement</a>
+  <img  slot="logo" src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF" alt="Branding logo" />
+  <div slot="headline">DevHub<bcgov-beta></bcgov-beta></div>
+  <a slot="hidden-link"   href="#main-navigation">Skip to navigation</a>
+  <a slot="hidden-link"   href="#main-content">Skip to Contents</a>
+  <a slot="hidden-link"   href="accessibility">Skip to Accessibility Statement</a>
 </bcgov-header>
 
 <!-- Auto Generated Below -->
@@ -100,13 +102,9 @@ As read using ChromeVox
 
 ## Properties
 
-| Property       | Attribute  | Description | Type       | Default     |
-| -------------- | ---------- | ----------- | ---------- | ----------- |
-| `aTags`        | --         |             | `NodeList` | `undefined` |
-| `headline`     | `headline` |             | `string`   | `undefined` |
-| `headlineTags` | --         |             | `NodeList` | `undefined` |
-| `href`         | `href`     |             | `string`   | `undefined` |
-| `imgTags`      | --         |             | `NodeList` | `undefined` |
+| Property | Attribute | Description   | Type     | Default                                     |
+| -------- | --------- | ------------- | -------- | ------------------------------------------- |
+| `href`   | `href`    | link for logo | `string` | `"https://www2.gov.bc.ca/gov/content/home"` |
 
 
 ----------------------------------------------

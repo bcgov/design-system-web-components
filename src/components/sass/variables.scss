@@ -1,13 +1,29 @@
+/** padding */
 $gutter-primary: 10%;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
 
+$padding-x: 15px;
+$padding-y: 15px;
+
+/** Colours **/
 $bcgov-color: #494949;
 $bcgov-color-background: #f2f2f2;
 $bcgov-color-components: #606060;
 $bcgov-color-accessibility: #3b99fc;
+$bcgov-color-menu: #2b4777;
+$bcgov-color-submenu: #38598a;
+$bcgov-color-menu-border: #5f79a2;
 $bcgov-white: #fff;
 $bcgov-blue-primary: #036;
 $bcgov-blue-background: #38598a;
 $bcgov-blue-links: #1a5a96;
+
 $bcgov-yellow-primary: #fcba19;
 $bcgov-red-primary: #d8292f;
 $bcgov-green-primary: #2e8540;

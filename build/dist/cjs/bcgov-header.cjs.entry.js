@@ -2,41 +2,22 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const core = require('./core-f89eaf2b.js');
-const utils = require('./utils-190b7177.js');
+const core = require('./core-822b4972.js');
+const utils = require('./utils-e4d259e5.js');
 
 const BcgovHeader = class {
     constructor(hostRef) {
         core.registerInstance(this, hostRef);
-    }
-    componentWillLoad() {
-        this.aTags = this.el.querySelectorAll("a[aria]");
-        this.imgTags = this.el.querySelectorAll("img");
-        this.headlineTags = this.el.querySelectorAll("div");
+        /** link for logo */
+        this.href = "https://www2.gov.bc.ca/gov/content/home";
     }
     componentDidRender() {
-        const elements = [
-            {
-                current: this.aTags,
-                container: this.el.querySelector(".access")
-            },
-            {
-                current: this.imgTags,
-                container: this.el.querySelector(".branding-logo")
-            },
-            {
-                current: this.headlineTags,
-                container: this.el.querySelector(".hl")
-            }
-        ];
-        elements.map(item => {
-            [].forEach.call(item["current"], function (element) {
-                utils.moveElement(element, item["container"]);
-            });
+        [].forEach.call(this.el.querySelectorAll('a[slot="hidden-link"]'), function (element) {
+            utils.filterATags(element);
         });
     }
     render() {
-        return (core.h(core.Host, null, core.h("header", { class: "bcgov-header" }, core.h("div", { class: "banner" }, core.h("a", { class: "branding-logo", href: "", "aria-label": "branding logo" }), core.h("div", { class: "hl" }), core.h("div", { class: "access" })))));
+        return (core.h(core.Host, null, core.h("header", { class: "bcgov-header" }, core.h("div", { class: "banner" }, core.h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, core.h("slot", { name: "logo" })), core.h("div", { class: "hl" }, core.h("slot", { name: "headline" })), core.h("div", { class: "access" }, core.h("slot", { name: "hidden-link" }))), core.h("slot", null))));
     }
     get el() { return core.getElement(this); }
 };

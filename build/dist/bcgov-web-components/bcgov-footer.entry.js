@@ -1,1 +1,12 @@
-import{r,h as o,H as s}from"./p-9ae496aa.js";const t=class{constructor(o){r(this,o)}render(){return o(s,null,o("slot",null))}};export{t as bcgov_footer};
+import { r as registerInstance, h, H as Host } from './core-63451120.js';
+
+const BcgovFooter = class {
+    constructor(hostRef) {
+        registerInstance(this, hostRef);
+    }
+    render() {
+        return (h(Host, null, h("slot", null)));
+    }
+};
+
+export { BcgovFooter as bcgov_footer };

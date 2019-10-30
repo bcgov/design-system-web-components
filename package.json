@@ -21,6 +21,7 @@
     "test": "stencil test --spec",
     "docs": "stencil build --docs-readme",
     "test.e2e": "stencil test --e2e",
+    "test.screen": "stencil test --e2e --screenshot",
     "generate": "stencil generate"
   },
   "browserslist": [

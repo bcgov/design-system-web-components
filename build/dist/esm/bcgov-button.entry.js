@@ -1,4 +1,4 @@
-import { r as registerInstance, h, g as getElement } from './core-06b3e689.js';
+import { r as registerInstance, h, c as getElement } from './core-68c1ebc4.js';
 
 const BcgovButton = class {
     constructor(hostRef) {

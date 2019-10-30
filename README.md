@@ -42,6 +42,11 @@ applyPolyfills().then(() => {
 
 package.json file
 ```json
+  "browserslist": [
+    "> 1.5%",
+    "ie >= 11",
+    "edge >= 17"
+  ],
   "babel": {
     "presets": [
       [

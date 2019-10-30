@@ -1,11 +1,7 @@
 export declare class BcgovHeader {
+    /** link for logo */
     href: string;
-    headline: string;
-    aTags: NodeList;
-    imgTags: NodeList;
-    headlineTags: NodeList;
-    el: HTMLElement;
-    componentWillLoad(): void;
+    el: any;
     componentDidRender(): void;
     render(): any;
 }

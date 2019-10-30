@@ -1,1 +1,19 @@
-import{r as t,h as s,g as a,H as i}from"./p-9ae496aa.js";const e=class{constructor(s){t(this,s),this.content="This Application is currently in Beta Phase",this.label="Beta"}componentWillLoad(){this.content=this.el.textContent||this.content,this.el.innerHTML=this.label}render(){return s(i,{"aria-label":this.content,"aria-role":"alert",tabindex:"0"})}get el(){return a(this)}};export{e as bcgov_beta};
+import { r as registerInstance, h, H as Host, c as getElement } from './core-63451120.js';
+
+const BcgovBeta = class {
+    constructor(hostRef) {
+        registerInstance(this, hostRef);
+        this.content = "This Application is currently in Beta Phase";
+        this.label = "Beta";
+    }
+    componentWillLoad() {
+        this.content = this.el.textContent || this.content;
+        this.el.innerHTML = this.label;
+    }
+    render() {
+        return h(Host, { "aria-label": this.content, "aria-role": "alert", tabindex: "0" });
+    }
+    get el() { return getElement(this); }
+};
+
+export { BcgovBeta as bcgov_beta };

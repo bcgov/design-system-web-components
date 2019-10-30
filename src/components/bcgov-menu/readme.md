@@ -78,16 +78,16 @@ As read using ChromeVox
 
 ## Properties
 
-| Property       | Attribute      | Description | Type       | Default     |
-| -------------- | -------------- | ----------- | ---------- | ----------- |
-| `alignment`    | `alignment`    |             | `string`   | `"left"`    |
-| `allTags`      | --             |             | `NodeList` | `undefined` |
-| `clone`        | --             |             | `Node`     | `undefined` |
-| `href`         | `href`         |             | `string`   | `undefined` |
-| `instructions` | `instructions` |             | `string`   | `undefined` |
-| `isSubmenu`    | `is-submenu`   |             | `boolean`  | `false`     |
-| `menuId`       | `menu-id`      |             | `string`   | `"menu"`    |
-| `name`         | `name`         |             | `string`   | `undefined` |
+| Property       | Attribute      | Description                                                            | Type      | Default                                                                                                                                     |
+| -------------- | -------------- | ---------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `alignment`    | `alignment`    | Alignment of menu                                                      | `string`  | `"left"`                                                                                                                                    |
+| `breakpoint`   | `breakpoint`   | A number that represents mobile menu breakpoint in px;                 | `number`  | `0`                                                                                                                                         |
+| `hamburger`    | `hamburger`    | Automatically adds hamburger.                                          | `boolean` | `true`                                                                                                                                      |
+| `href`         | `href`         | Link for menu                                                          | `string`  | `undefined`                                                                                                                                 |
+| `instructions` | `instructions` | Aria Instructions                                                      | `string`  | ``Use arrow keys to navigate between menuitems,   spacebar to expand submenus, escape key to close submenus, enter to activate menuitems.`` |
+| `menuId`       | `menu-id`      | Menu id used for instructions TODO: this might need more consideration | `string`  | `"menu"`                                                                                                                                    |
+| `name`         | `name`         | Label for submenu                                                      | `string`  | `undefined`                                                                                                                                 |
+| `primary`      | `primary`      |                                                                        | `string`  | `undefined`                                                                                                                                 |
 
 
 ----------------------------------------------

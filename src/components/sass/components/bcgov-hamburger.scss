@@ -1,0 +1,29 @@
+bcgov-hamburger {
+  display: inline;
+  button {
+    padding: $padding-x / 2 $padding-y;
+    background-color: $bcgov-color-submenu;
+    color: $bcgov-white;
+    border-color: $bcgov-white;
+    height: 100%;
+    &:hover {
+      background-color: $bcgov-color-menu;
+      cursor: pointer;
+    }
+    div {
+      margin-bottom: 4px;
+      border-top: 2px solid $bcgov-white;
+      border-bottom: 2px solid $bcgov-white;
+      &:before {
+        content: " ";
+        background-color: $bcgov-white;
+        height: 2px;
+        margin: 6px 0;
+        display: block;
+      }
+    }
+  }
+  &.is-desktop {
+    display: none;
+  }
+}

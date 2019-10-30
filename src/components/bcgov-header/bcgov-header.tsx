@@ -1,43 +1,17 @@
 import { Component, Prop, h, Host, Element } from "@stencil/core";
-import { moveElement } from "../utils/utils";
+import { filterATags } from "../utils/utils";
 
 @Component({
   tag: "bcgov-header"
 })
 export class BcgovHeader {
-  @Prop() href: string;
-  @Prop() headline: string;
-  @Prop() aTags: NodeList;
-  @Prop() imgTags: NodeList;
-  @Prop() headlineTags: NodeList;
-  @Element() el: HTMLElement;
-
-  componentWillLoad() {
-    this.aTags = this.el.querySelectorAll("a[aria]");
-    this.imgTags = this.el.querySelectorAll("img");
-    this.headlineTags = this.el.querySelectorAll("div");
-  }
+  /** link for logo */
+  @Prop() href: string = "https://www2.gov.bc.ca/gov/content/home";
+  @Element() el;
 
   componentDidRender() {
-    const elements: Array<object> = [
-      {
-        current: this.aTags,
-        container: this.el.querySelector(".access")
-      },
-      {
-        current: this.imgTags,
-        container: this.el.querySelector(".branding-logo")
-      },
-      {
-        current: this.headlineTags,
-        container: this.el.querySelector(".hl")
-      }
-    ];
-
-    elements.map(item => {
-      [].forEach.call(item["current"], function(element) {
-        moveElement(element, item["container"]);
-      });
+    [].forEach.call(this.el.querySelectorAll('a[slot="hidden-link"]'), function(element) {
+      filterATags(element);
     });
   }
   render() {
@@ -45,10 +19,17 @@ export class BcgovHeader {
       <Host>
         <header class="bcgov-header">
           <div class="banner">
-            <a class="branding-logo" href="" aria-label="branding logo"></a>
-            <div class="hl"></div>
-            <div class="access"></div>
+            <a class="branding-logo" href={this.href} aria-label="branding logo">
+              <slot name="logo"></slot>
+            </a>
+            <div class="hl">
+              <slot name="headline"></slot>
+            </div>
+            <div class="access">
+              <slot name="hidden-link"></slot>
+            </div>
           </div>
+          <slot></slot>
         </header>
       </Host>
     );

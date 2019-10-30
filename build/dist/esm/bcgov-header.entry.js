@@ -1,38 +1,19 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-06b3e689.js';
-import { m as moveElement } from './utils-41a40086.js';
+import { r as registerInstance, h, H as Host, c as getElement } from './core-68c1ebc4.js';
+import { f as filterATags } from './utils-6e4e801f.js';
 
 const BcgovHeader = class {
     constructor(hostRef) {
         registerInstance(this, hostRef);
-    }
-    componentWillLoad() {
-        this.aTags = this.el.querySelectorAll("a[aria]");
-        this.imgTags = this.el.querySelectorAll("img");
-        this.headlineTags = this.el.querySelectorAll("div");
+        /** link for logo */
+        this.href = "https://www2.gov.bc.ca/gov/content/home";
     }
     componentDidRender() {
-        const elements = [
-            {
-                current: this.aTags,
-                container: this.el.querySelector(".access")
-            },
-            {
-                current: this.imgTags,
-                container: this.el.querySelector(".branding-logo")
-            },
-            {
-                current: this.headlineTags,
-                container: this.el.querySelector(".hl")
-            }
-        ];
-        elements.map(item => {
-            [].forEach.call(item["current"], function (element) {
-                moveElement(element, item["container"]);
-            });
+        [].forEach.call(this.el.querySelectorAll('a[slot="hidden-link"]'), function (element) {
+            filterATags(element);
         });
     }
     render() {
-        return (h(Host, null, h("header", { class: "bcgov-header" }, h("div", { class: "banner" }, h("a", { class: "branding-logo", href: "", "aria-label": "branding logo" }), h("div", { class: "hl" }), h("div", { class: "access" })))));
+        return (h(Host, null, h("header", { class: "bcgov-header" }, h("div", { class: "banner" }, h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, h("slot", { name: "logo" })), h("div", { class: "hl" }, h("slot", { name: "headline" })), h("div", { class: "access" }, h("slot", { name: "hidden-link" }))), h("slot", null))));
     }
     get el() { return getElement(this); }
 };

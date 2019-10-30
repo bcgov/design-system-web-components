@@ -3,13 +3,16 @@ bcgov-header {
   background-color: $bcgov-blue-primary;
 
   border-bottom: 2px solid $bcgov-yellow-primary;
-  padding: 8px $gutter-primary;
+  padding: 0 $gutter-primary;
   color: $bcgov-white;
   min-height: 65px;
   @include flexbox();
 
   header {
     position: relative;
+    @include flexbox();
+    flex-grow: 1;
+    justify-content: space-between;
   }
 
   a {

@@ -37,23 +37,55 @@ export namespace Components {
   }
   interface BcgovCallout {}
   interface BcgovFooter {}
+  interface BcgovForm {}
+  interface BcgovHamburger {
+    /**
+    * Breakpoint
+    */
+    'breakpoint': number;
+    /**
+    * The target
+    */
+    'target': string;
+  }
   interface BcgovHeader {
-    'aTags': NodeList;
-    'headline': string;
-    'headlineTags': NodeList;
+    /**
+    * link for logo
+    */
     'href': string;
-    'imgTags': NodeList;
   }
   interface BcgovMenu {
+    /**
+    * Alignment of menu
+    */
     'alignment': string;
-    'allTags': NodeList;
-    'clone': Node;
+    /**
+    * A number that represents mobile menu breakpoint in px;
+    */
+    'breakpoint': number;
+    /**
+    * Automatically adds hamburger.
+    */
+    'hamburger': boolean;
+    /**
+    * Link for menu
+    */
     'href': string;
+    /**
+    * Aria Instructions
+    */
     'instructions': string;
-    'isSubmenu': boolean;
+    /**
+    * Menu id used for instructions TODO: this might need more consideration
+    */
     'menuId': string;
+    /**
+    * Label for submenu
+    */
     'name': string;
+    'primary': string;
   }
+  interface BcgovSearch {}
   interface BcgovSectionDivider {
     'margins': any;
     'thickness': any;
@@ -87,6 +119,18 @@ declare global {
     new (): HTMLBcgovFooterElement;
   };
 
+  interface HTMLBcgovFormElement extends Components.BcgovForm, HTMLStencilElement {}
+  var HTMLBcgovFormElement: {
+    prototype: HTMLBcgovFormElement;
+    new (): HTMLBcgovFormElement;
+  };
+
+  interface HTMLBcgovHamburgerElement extends Components.BcgovHamburger, HTMLStencilElement {}
+  var HTMLBcgovHamburgerElement: {
+    prototype: HTMLBcgovHamburgerElement;
+    new (): HTMLBcgovHamburgerElement;
+  };
+
   interface HTMLBcgovHeaderElement extends Components.BcgovHeader, HTMLStencilElement {}
   var HTMLBcgovHeaderElement: {
     prototype: HTMLBcgovHeaderElement;
@@ -99,6 +143,12 @@ declare global {
     new (): HTMLBcgovMenuElement;
   };
 
+  interface HTMLBcgovSearchElement extends Components.BcgovSearch, HTMLStencilElement {}
+  var HTMLBcgovSearchElement: {
+    prototype: HTMLBcgovSearchElement;
+    new (): HTMLBcgovSearchElement;
+  };
+
   interface HTMLBcgovSectionDividerElement extends Components.BcgovSectionDivider, HTMLStencilElement {}
   var HTMLBcgovSectionDividerElement: {
     prototype: HTMLBcgovSectionDividerElement;
@@ -109,8 +159,11 @@ declare global {
     'bcgov-button': HTMLBcgovButtonElement;
     'bcgov-callout': HTMLBcgovCalloutElement;
     'bcgov-footer': HTMLBcgovFooterElement;
+    'bcgov-form': HTMLBcgovFormElement;
+    'bcgov-hamburger': HTMLBcgovHamburgerElement;
     'bcgov-header': HTMLBcgovHeaderElement;
     'bcgov-menu': HTMLBcgovMenuElement;
+    'bcgov-search': HTMLBcgovSearchElement;
     'bcgov-section-divider': HTMLBcgovSectionDividerElement;
   }
 }
@@ -144,23 +197,55 @@ declare namespace LocalJSX {
   }
   interface BcgovCallout {}
   interface BcgovFooter {}
+  interface BcgovForm {}
+  interface BcgovHamburger {
+    /**
+    * Breakpoint
+    */
+    'breakpoint'?: number;
+    /**
+    * The target
+    */
+    'target'?: string;
+  }
   interface BcgovHeader {
-    'aTags'?: NodeList;
-    'headline'?: string;
-    'headlineTags'?: NodeList;
+    /**
+    * link for logo
+    */
     'href'?: string;
-    'imgTags'?: NodeList;
   }
   interface BcgovMenu {
+    /**
+    * Alignment of menu
+    */
     'alignment'?: string;
-    'allTags'?: NodeList;
-    'clone'?: Node;
+    /**
+    * A number that represents mobile menu breakpoint in px;
+    */
+    'breakpoint'?: number;
+    /**
+    * Automatically adds hamburger.
+    */
+    'hamburger'?: boolean;
+    /**
+    * Link for menu
+    */
     'href'?: string;
+    /**
+    * Aria Instructions
+    */
     'instructions'?: string;
-    'isSubmenu'?: boolean;
+    /**
+    * Menu id used for instructions TODO: this might need more consideration
+    */
     'menuId'?: string;
+    /**
+    * Label for submenu
+    */
     'name'?: string;
+    'primary'?: string;
   }
+  interface BcgovSearch {}
   interface BcgovSectionDivider {
     'margins'?: any;
     'thickness'?: any;
@@ -171,8 +256,11 @@ declare namespace LocalJSX {
     'bcgov-button': BcgovButton;
     'bcgov-callout': BcgovCallout;
     'bcgov-footer': BcgovFooter;
+    'bcgov-form': BcgovForm;
+    'bcgov-hamburger': BcgovHamburger;
     'bcgov-header': BcgovHeader;
     'bcgov-menu': BcgovMenu;
+    'bcgov-search': BcgovSearch;
     'bcgov-section-divider': BcgovSectionDivider;
   }
 }
@@ -187,8 +275,11 @@ declare module "@stencil/core" {
       'bcgov-button': LocalJSX.BcgovButton & JSXBase.HTMLAttributes<HTMLBcgovButtonElement>;
       'bcgov-callout': LocalJSX.BcgovCallout & JSXBase.HTMLAttributes<HTMLBcgovCalloutElement>;
       'bcgov-footer': LocalJSX.BcgovFooter & JSXBase.HTMLAttributes<HTMLBcgovFooterElement>;
+      'bcgov-form': LocalJSX.BcgovForm & JSXBase.HTMLAttributes<HTMLBcgovFormElement>;
+      'bcgov-hamburger': LocalJSX.BcgovHamburger & JSXBase.HTMLAttributes<HTMLBcgovHamburgerElement>;
       'bcgov-header': LocalJSX.BcgovHeader & JSXBase.HTMLAttributes<HTMLBcgovHeaderElement>;
       'bcgov-menu': LocalJSX.BcgovMenu & JSXBase.HTMLAttributes<HTMLBcgovMenuElement>;
+      'bcgov-search': LocalJSX.BcgovSearch & JSXBase.HTMLAttributes<HTMLBcgovSearchElement>;
       'bcgov-section-divider': LocalJSX.BcgovSectionDivider & JSXBase.HTMLAttributes<HTMLBcgovSectionDividerElement>;
     }
   }

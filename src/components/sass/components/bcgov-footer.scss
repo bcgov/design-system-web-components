@@ -4,7 +4,7 @@ bcgov-footer {
   color: $bcgov-white;
   min-height: 50px;
   padding: 0 15px;
-  @include flexbox();
+  display: block;
 
   a {
     &,

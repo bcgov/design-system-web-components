@@ -1,1 +1,39 @@
-import{r as t,h as s,g as o}from"./p-9ae496aa.js";const r=class{constructor(s){t(this,s),this.link="button",this.eventHandler=this.eventHandlerFunction}eventHandlerFunction(){}buttonStyle(){let t="primary";return void 0!==this.primary?t="primary":void 0!==this.secondary?t="secondary":void 0!==this.dark&&(t="dark"),t+" bcgov-button"}componentDidRender(){this.eventHandler(this.el)}render(){return"button"===this.link?s("button",{class:this.buttonStyle()},s("slot",null)):s("a",{class:this.buttonStyle(),href:this.link,role:"button"},s("slot",null))}get el(){return o(this)}};export{r as bcgov_button};
+import { r as registerInstance, h, c as getElement } from './core-63451120.js';
+
+const BcgovButton = class {
+    constructor(hostRef) {
+        registerInstance(this, hostRef);
+        /** The action of the button. */
+        this.link = "button";
+        /** Add a callback to handle events */
+        this.eventHandler = this.eventHandlerFunction;
+    }
+    eventHandlerFunction() { }
+    buttonStyle() {
+        let buttonStyle = "primary";
+        if (undefined !== this.primary) {
+            buttonStyle = "primary";
+        }
+        else if (undefined !== this.secondary) {
+            buttonStyle = "secondary";
+        }
+        else if (undefined !== this.dark) {
+            buttonStyle = "dark";
+        }
+        return buttonStyle + " bcgov-button";
+    }
+    componentDidRender() {
+        this.eventHandler(this.el);
+    }
+    render() {
+        if ("button" === this.link) {
+            return (h("button", { class: this.buttonStyle() }, h("slot", null)));
+        }
+        else {
+            return (h("a", { class: this.buttonStyle(), href: this.link, role: "button" }, h("slot", null)));
+        }
+    }
+    get el() { return getElement(this); }
+};
+
+export { BcgovButton as bcgov_button };
