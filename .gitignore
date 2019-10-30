@@ -1,8 +1,8 @@
 www/
-build/*
+html/*
 screenshot/
 dist/
-!build/dist
+!html/dist
 
 *~
 *.sw[mnpcod]
