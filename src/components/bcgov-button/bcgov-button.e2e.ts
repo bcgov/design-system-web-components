@@ -13,17 +13,19 @@ describe("bcgov-button", () => {
     <div>
     <h4>Buttons</h4>
     <bcgov-button>Primary</bcgov-button>
-    <bcgov-button secondary>Secondary</bcgov-button>
-    <span style="background-color: #000; padding: 8px; display: inline-block"><bcgov-button dark>Dark</bcgov-button></span>
+    <bcgov-button button-style="secondary">Secondary</bcgov-button>
+    <span style="background-color: #000; padding: 8px; display: inline-block"><bcgov-button button-style="dark">Dark</bcgov-button></span>
+    <bcgov-button button-style="hamburger">Menu</bcgov-button>
+    <bcgov-button button-style="search">Search</bcgov-button>
     </div>
     <div>
     <h4>Links (role="button")</h4>
     <bcgov-button link="https://gov.bc.ca">Primary</bcgov-button>
-    <bcgov-button link="https://gov.bc.ca" secondary>Secondary</bcgov-button>
-    <span style="background-color: #000; padding: 8px; display: inline-block"><bcgov-button link="https://gov.bc.ca" dark>Dark</bcgov-button></span>
+    <bcgov-button link="https://gov.bc.ca" button-style="secondary">Secondary</bcgov-button>
+    <span style="background-color: #000; padding: 8px; display: inline-block"><bcgov-button link="https://gov.bc.ca" button-style="dark">Dark</bcgov-button></span>
     </div>
     `);
-    await page.addStyleTag({ path: "build/dist/bcgov-web-components/bcgov-web-components.css" });
+    await page.addStyleTag({ path: "html/dist/bcgov-web-components/bcgov-web-components.css" });
     await page.compareScreenshot("Buttons", {
       fullPage: false
     });
@@ -34,6 +36,7 @@ describe("bcgov-button", () => {
     await page.setContent(`
     <bcgov-button>Primary</bcgov-button>
     <bcgov-button link="https://gov.bc.ca" >Primary</bcgov-button>
+    <bcgov-button button-style="hamburger" >Menu</bcgov-button>
     `);
     const snapshot = await page.accessibility.snapshot();
     console.log(snapshot);

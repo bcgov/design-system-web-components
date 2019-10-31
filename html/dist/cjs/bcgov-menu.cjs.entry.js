@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const core = require('./core-49a26586.js');
+const core = require('./core-630b4e33.js');
 const utils = require('./utils-7586050f.js');
 
 const BcgovMenu = class {
@@ -102,6 +102,7 @@ const BcgovMenu = class {
         return isdesktop;
     }
     onMouseEnter(ev) {
+        //console.log(this.isDesktop(), ev, this.isSubmenu);
         if (this.isDesktop()) {
             const element = ev.target;
             this.showSubmenu(element, true);
@@ -185,12 +186,11 @@ const BcgovMenu = class {
             return (core.h(core.Host, { role: "menuitem", class: "expandable", "aria-label": this.name }, core.h("a", { href: this.href, tabindex: "-1" }, this.name), core.h("ul", { role: "menu", "aria-hidden": "true" }, core.h("slot", null))));
         }
         else {
+            const props = { role: "menubar", tabindex: "0", class: alignment };
             if (undefined !== this.primary) {
-                return (core.h(core.Host, null, core.h("ul", { role: "menubar", tabindex: "0", class: alignment, "aria-labelledby": instructionID }, core.h("slot", null)), core.h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions)));
+                props["aria-labelledby"] = instructionID;
             }
-            else {
-                return (core.h(core.Host, null, core.h("ul", { role: "menubar", class: alignment }, core.h("slot", null))));
-            }
+            return (core.h(core.Host, null, core.h("ul", Object.assign({}, props), core.h("slot", null)), undefined !== this.primary && (core.h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
         }
     }
     get el() { return core.getElement(this); }

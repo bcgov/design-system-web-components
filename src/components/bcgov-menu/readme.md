@@ -54,9 +54,10 @@ As read using ChromeVox
 ## Example
 
 ```html
-<bcgov-menu id="main-navigation" 
+<bcgov-menu id="main-navigation-sample" 
             primary 
             alignment="left"
+            breakpoint="0"
             instructions="Use arrow keys to navigate between menuitems, spacebar to expand submenus, escape key to closes submenus, enter to activate menuitems."
 >
   <a href="/">Home</a>
@@ -72,6 +73,21 @@ As read using ChromeVox
   <a href="/developer.html">Developer</a>
 </bcgov-menu>
 ```
+
+
+<bcgov-menu style="background-color: #036; padding: 4px 15px;" primary>
+  <a href="/">Home</a>
+  <a href="/sandbox.html">Sandbox</a>
+  <bcgov-menu href="/" name="Components">
+    <a href="/header.html">Header</a>
+    <a href="/menu.html">Menus</a>
+    <a href="/buttons.html">Buttons</a>
+    <a href="/footer.html">Footer</a>
+    <a href="/beta.html">Beta</a>
+    <a href="/callout.html">Callout</a>
+  </bcgov-menu>
+  <a href="/developer.html">Developer</a>
+</bcgov-menu>
 
 <!-- Auto Generated Below -->
 

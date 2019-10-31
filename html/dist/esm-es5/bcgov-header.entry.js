@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-f0efafd8.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './core-1d11420d.js';
 import { f as filterATags } from './utils-db4e3472.js';
 var BcgovHeader = /** @class */ (function () {
     function BcgovHeader(hostRef) {
@@ -12,7 +12,7 @@ var BcgovHeader = /** @class */ (function () {
         });
     };
     BcgovHeader.prototype.render = function () {
-        return (h(Host, null, h("header", { class: "bcgov-header" }, h("div", { class: "banner" }, h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, h("slot", { name: "logo" })), h("div", { class: "hl" }, h("slot", { name: "headline" })), h("div", { class: "access" }, h("slot", { name: "hidden-link" }))), h("slot", null))));
+        return (h(Host, null, h("header", { class: "bcgov-header" }, h("div", { class: "banner" }, h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, h("slot", { name: "logo" })), h("div", { class: "hl" }, h("slot", { name: "headline" })), h("div", { class: "access" }, h("slot", { name: "hidden-link" })))), h("slot", null)));
     };
     Object.defineProperty(BcgovHeader.prototype, "el", {
         get: function () { return getElement(this); },

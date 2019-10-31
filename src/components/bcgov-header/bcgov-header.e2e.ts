@@ -21,7 +21,7 @@ describe("bcgov-header", () => {
       <a aria href="accessibility">Skip to Accessibility Statement</a>
     </bcgov-header>
     `);
-    await page.addStyleTag({ path: "build/dist/bcgov-web-components/bcgov-web-components.css" });
+    await page.addStyleTag({ path: "html/dist/bcgov-web-components/bcgov-web-components.css" });
     await page.compareScreenshot("Header", {
       fullPage: false
     });

@@ -320,7 +320,9 @@ function resolveValues(selectors) {
     return propsValues;
 }
 function getSelectors(root, index) {
-    if (index === void 0) { index = 0; }
+    if (index === void 0) {
+        index = 0;
+    }
     if (!root.rules) {
         return [];
     }
@@ -588,7 +590,7 @@ var CustomStyle = /** @class */ (function () {
         }
         var baseScope = this.registerHostTemplate(cssText, cssScopeId, isScoped);
         var styleEl = this.doc.createElement('style');
-        styleEl.setAttribute('data-styles', '');
+        styleEl.setAttribute('data-no-shim', '');
         if (!baseScope.usesCssVars) {
             // This component does not use (read) css variables
             styleEl.textContent = cssText;

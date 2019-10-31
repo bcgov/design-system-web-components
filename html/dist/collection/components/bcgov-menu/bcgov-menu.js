@@ -96,6 +96,7 @@ export class BcgovMenu {
         return isdesktop;
     }
     onMouseEnter(ev) {
+        //console.log(this.isDesktop(), ev, this.isSubmenu);
         if (this.isDesktop()) {
             const element = ev.target;
             this.showSubmenu(element, true);
@@ -182,17 +183,14 @@ export class BcgovMenu {
                     h("slot", null))));
         }
         else {
+            const props = { role: "menubar", tabindex: "0", class: alignment };
             if (undefined !== this.primary) {
-                return (h(Host, null,
-                    h("ul", { role: "menubar", tabindex: "0", class: alignment, "aria-labelledby": instructionID },
-                        h("slot", null)),
-                    h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions)));
+                props["aria-labelledby"] = instructionID;
             }
-            else {
-                return (h(Host, null,
-                    h("ul", { role: "menubar", class: alignment },
-                        h("slot", null))));
-            }
+            return (h(Host, null,
+                h("ul", Object.assign({}, props),
+                    h("slot", null)),
+                undefined !== this.primary && (h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
         }
     }
     static get is() { return "bcgov-menu"; }

@@ -38,31 +38,34 @@ In addition to [fundamental accessibility]() requirements, this component meets 
 ## Example
 
 ```html
-<bcgov-button primary link="https://gov.bc.ca">Primary Button</bcgov-button>
-<bcgov-button secondary>Secondary Button</bcgov-button>
-<bcgov-button dark>Dark Button</bcgov-button>
+<bcgov-button  link="https://gov.bc.ca">Primary Button</bcgov-button>
+<bcgov-button button-style="secondary">Secondary Button</bcgov-button>
+<bcgov-button button-style="dark">Dark Button</bcgov-button>
+<bcgov-button button-style="hamburger" target="main-navigation">Menu</bcgov-button>
+<bcgov-button button-style="search" target="bcgov-search-id">Search</bcgov-button>
 ```
 
 ## Component
 
-<bcgov-button primary link="https://gov.bc.ca" >Primary Button</bcgov-button>
-<bcgov-button secondary >Secondary Button</bcgov-button>
+<bcgov-button  link="https://gov.bc.ca" >Primary Button</bcgov-button>
+<bcgov-button button-style="secondary" >Secondary Button</bcgov-button>
 <span style="background-color: #036; padding: 2px 10px; display:inline-block">
-<bcgov-button dark >Dark Button</bcgov-button>
+<bcgov-button button-style="dark" >Dark Button</bcgov-button>
 </span>
+<bcgov-button button-style="hamburger" >Menu</bcgov-button>
+<bcgov-button button-style="search" >Search</bcgov-button>
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property       | Attribute   | Description                     | Type       | Default                     |
-| -------------- | ----------- | ------------------------------- | ---------- | --------------------------- |
-| `dark`         | `dark`      | Creates Dark button             | `string`   | `undefined`                 |
-| `eventHandler` | --          | Add a callback to handle events | `Function` | `this.eventHandlerFunction` |
-| `link`         | `link`      | The action of the button.       | `string`   | `"button"`                  |
-| `primary`      | `primary`   | Creates Primary button          | `string`   | `undefined`                 |
-| `secondary`    | `secondary` | Creates Secondary button        | `string`   | `undefined`                 |
+| Property       | Attribute      | Description                               | Type                                                            | Default                     |
+| -------------- | -------------- | ----------------------------------------- | --------------------------------------------------------------- | --------------------------- |
+| `buttonStyle`  | `button-style` | Style of button                           | `"dark" \| "hamburger" \| "primary" \| "search" \| "secondary"` | `"primary"`                 |
+| `eventHandler` | --             | Add a callback to handle events           | `Function`                                                      | `this.eventHandlerFunction` |
+| `link`         | `link`         | The action of the button.                 | `string`                                                        | `"button"`                  |
+| `target`       | `target`       | Target, only used on hamburger and search | `string`                                                        | `null`                      |
 
 
 ----------------------------------------------

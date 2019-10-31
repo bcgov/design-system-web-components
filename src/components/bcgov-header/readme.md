@@ -62,13 +62,6 @@ As read using ChromeVox
 
 > *"Hello British Columbia heading one."*
 
-### Allowed Tags
-
-```html
-<img src="" alt="">
-<div>This is for headline/title</div>
-<a aria ></a> <!-- requires the aria to be hidden -->
-```
 
 ## Example
 
@@ -83,7 +76,6 @@ As read using ChromeVox
   <a slot="hidden-link"  href="#main-navigation">Skip to navigation</a>
   <a slot="hidden-link"  href="#main-content">Skip to Contents</a>
   <a  slot="hidden-link"  href="accessibility">Skip to Accessibility Statement</a>
-  <bcogv-hamburger>Menu</bcgov-hamburger>
 </bcgov-header>
 ```
 

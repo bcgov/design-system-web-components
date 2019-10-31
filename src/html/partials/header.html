@@ -8,17 +8,18 @@
   <a slot="hidden-link" aria href="#main-navigation">Skip to navigation</a>
   <a slot="hidden-link" aria href="#main-content">Skip to Contents</a>
   <a slot="hidden-link" aria href="accessibility">Skip to Accessibility Statement</a>
-  <div>
-    <bcgov-hamburger target="main-navigation">Menu</bcgov-hamburger>
-  </div>
+
+  <bcgov-button button-style="search" target="search-navigation">Search</bcgov-button>
+  <bcgov-button button-style="hamburger" target="main-navigation">Menu</bcgov-button>
 </bcgov-header>
+<bcogv-search id="search-navigation"></bcogv-search>
 
 <bcgov-menu
   id="main-navigation"
   instructions="Use arrow keys to navigate between menuitems, spacebar to expand submenus, escape key to close
   submenus, enter to activate menuitems."
   primary
-  alignment="left"
+  alignment="center"
   breakpoint="1100"
 >
   <a href="index.html">Home</a>

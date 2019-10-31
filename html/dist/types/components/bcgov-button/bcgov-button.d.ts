@@ -3,15 +3,17 @@ export declare class BcgovButton {
     link: string;
     /** Add a callback to handle events */
     eventHandler: Function;
-    /** Creates Primary button  */
-    primary?: string;
-    /** Creates Secondary button  */
-    secondary?: string;
-    /** Creates Dark button  */
-    dark?: string;
+    /** Style of button */
+    buttonStyle: "primary" | "secondary" | "dark" | "hamburger" | "search";
+    /** Target, only used on hamburger and search */
+    target: string;
+    breakpoint: number;
     el: HTMLElement;
     eventHandlerFunction(): void;
-    buttonStyle(): string;
     componentDidRender(): void;
+    componentWillLoad(): void;
+    getParentBreakpoint(): number;
+    isDesktop(): boolean;
+    onClick(): void;
     render(): any;
 }

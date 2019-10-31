@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const core = require('./core-49a26586.js');
+const core = require('./core-630b4e33.js');
 const utils = require('./utils-7586050f.js');
 
 const BcgovHeader = class {
@@ -17,7 +17,7 @@ const BcgovHeader = class {
         });
     }
     render() {
-        return (core.h(core.Host, null, core.h("header", { class: "bcgov-header" }, core.h("div", { class: "banner" }, core.h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, core.h("slot", { name: "logo" })), core.h("div", { class: "hl" }, core.h("slot", { name: "headline" })), core.h("div", { class: "access" }, core.h("slot", { name: "hidden-link" }))), core.h("slot", null))));
+        return (core.h(core.Host, null, core.h("header", { class: "bcgov-header" }, core.h("div", { class: "banner" }, core.h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, core.h("slot", { name: "logo" })), core.h("div", { class: "hl" }, core.h("slot", { name: "headline" })), core.h("div", { class: "access" }, core.h("slot", { name: "hidden-link" })))), core.h("slot", null)));
     }
     get el() { return core.getElement(this); }
 };

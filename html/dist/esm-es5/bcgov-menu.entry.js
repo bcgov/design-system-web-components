@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-f0efafd8.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './core-1d11420d.js';
 import { m as menuElement, a as findAncestor, k as keys } from './utils-db4e3472.js';
 var BcgovMenu = /** @class */ (function () {
     function BcgovMenu(hostRef) {
@@ -97,6 +97,7 @@ var BcgovMenu = /** @class */ (function () {
         return isdesktop;
     };
     BcgovMenu.prototype.onMouseEnter = function (ev) {
+        //console.log(this.isDesktop(), ev, this.isSubmenu);
         if (this.isDesktop()) {
             var element = ev.target;
             this.showSubmenu(element, true);
@@ -181,12 +182,11 @@ var BcgovMenu = /** @class */ (function () {
             return (h(Host, { role: "menuitem", class: "expandable", "aria-label": this.name }, h("a", { href: this.href, tabindex: "-1" }, this.name), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));
         }
         else {
+            var props = { role: "menubar", tabindex: "0", class: alignment };
             if (undefined !== this.primary) {
-                return (h(Host, null, h("ul", { role: "menubar", tabindex: "0", class: alignment, "aria-labelledby": instructionID }, h("slot", null)), h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions)));
+                props["aria-labelledby"] = instructionID;
             }
-            else {
-                return (h(Host, null, h("ul", { role: "menubar", class: alignment }, h("slot", null))));
-            }
+            return (h(Host, null, h("ul", Object.assign({}, props), h("slot", null)), undefined !== this.primary && (h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
         }
     };
     Object.defineProperty(BcgovMenu.prototype, "el", {

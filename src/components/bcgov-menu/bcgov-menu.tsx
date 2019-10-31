@@ -90,6 +90,7 @@ export class BcgovMenu {
 
   @Listen("mouseenter")
   onMouseEnter(ev: Event) {
+    //console.log(this.isDesktop(), ev, this.isSubmenu);
     if (this.isDesktop()) {
       const element = ev.target as HTMLElement;
       this.showSubmenu(element, true);
@@ -219,27 +220,22 @@ export class BcgovMenu {
         </Host>
       );
     } else {
+      const props = { role: "menubar", tabindex: "0", class: alignment };
       if (undefined !== this.primary) {
-        return (
-          <Host>
-            <ul role="menubar" tabindex="0" class={alignment} aria-labelledby={instructionID}>
-              <slot></slot>
-            </ul>
-
+        props["aria-labelledby"] = instructionID;
+      }
+      return (
+        <Host>
+          <ul {...props}>
+            <slot></slot>
+          </ul>
+          {undefined !== this.primary && (
             <div class="sr-only" aria-hidden="true" id={instructionID}>
               {this.instructions}
             </div>
-          </Host>
-        );
-      } else {
-        return (
-          <Host>
-            <ul role="menubar" class={alignment}>
-              <slot></slot>
-            </ul>
-          </Host>
-        );
-      }
+          )}
+        </Host>
+      );
     }
   }
 }

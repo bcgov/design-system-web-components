@@ -1,4 +1,4 @@
-import { r as registerInstance, h } from './core-f0efafd8.js';
+import { r as registerInstance, h } from './core-1d11420d.js';
 
 const BcgovSectionDivider = class {
     constructor(hostRef) {

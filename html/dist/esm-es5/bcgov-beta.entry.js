@@ -1,4 +1,4 @@
-import { r as registerInstance, h, g as getElement, H as Host } from './core-f0efafd8.js';
+import { r as registerInstance, h, g as getElement, H as Host } from './core-1d11420d.js';
 var BcgovBeta = /** @class */ (function () {
     function BcgovBeta(hostRef) {
         registerInstance(this, hostRef);

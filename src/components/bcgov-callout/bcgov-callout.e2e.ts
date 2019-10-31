@@ -10,7 +10,7 @@ describe("bcgov-callout", () => {
   it("render callout", async () => {
     const page: E2EPage = await newE2EPage();
     await page.setContent("<bcgov-callout>I am a BCGov Callout</bcgov-callout>");
-    await page.addStyleTag({ path: "build/dist/bcgov-web-components/bcgov-web-components.css" });
+    await page.addStyleTag({ path: "html/dist/bcgov-web-components/bcgov-web-components.css" });
     await page.compareScreenshot("Callout", {
       fullPage: false
     });

@@ -29,8 +29,8 @@ export class BcgovHeader {
               <slot name="hidden-link"></slot>
             </div>
           </div>
-          <slot></slot>
         </header>
+        <slot></slot>
       </Host>
     );
   }

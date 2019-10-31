@@ -19,8 +19,8 @@ export class BcgovHeader {
                     h("div", { class: "hl" },
                         h("slot", { name: "headline" })),
                     h("div", { class: "access" },
-                        h("slot", { name: "hidden-link" }))),
-                h("slot", null))));
+                        h("slot", { name: "hidden-link" })))),
+            h("slot", null)));
     }
     static get is() { return "bcgov-header"; }
     static get properties() { return {

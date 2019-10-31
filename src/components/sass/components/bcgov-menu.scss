@@ -92,7 +92,7 @@ bcgov-menu {
 
     a {
       border: none;
-      padding: $padding-x/2 $padding-y;
+      padding: $padding-x/2 $padding-y * 1.25;
       &:before {
         content: "";
         position: relative;
@@ -100,6 +100,7 @@ bcgov-menu {
       }
       &:after {
         right: 0;
+        top: 12px;
         transform: rotateZ(45deg) !important;
       }
     }
