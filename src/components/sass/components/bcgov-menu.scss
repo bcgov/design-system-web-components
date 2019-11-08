@@ -87,7 +87,7 @@ bcgov-menu {
     display: block;
     &[primary],
     &.primary {
-      padding: 0 var(bcgov-wc-gutter);
+      padding: 0 var(--bcgov-wc-gutter);
     }
 
     a {
