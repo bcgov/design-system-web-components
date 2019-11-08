@@ -7,3 +7,14 @@
 @import "bcgov-callout";
 @import "bcgov-search";
 @import "bcgov-form";
+
+*:focus {
+  outline: 4px solid var(--bcgov-wc-color-accessibility);
+  outline-offset: 1px;
+}
+.sr-only {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  text-indent: -10000px;
+}

@@ -3,8 +3,8 @@ bcgov-button {
   overflow: hidden;
   a,
   button {
-    background-color: $bcgov-blue-primary;
-    border: 2px solid $bcgov-blue-primary;
+    background-color: var(--bcgov-wc-color-brand-primary);
+    border: 2px solid var(--bcgov-wc-color-brand-primary);
     margin: 4px 4px 4px 0;
     border-radius: 4px;
     padding: 0.75rem 1.5rem;
@@ -19,48 +19,48 @@ bcgov-button {
     &:visited,
     &:active,
     &:focus {
-      color: $bcgov-white;
+      color: var(--bcgov-wc-color-white);
     }
 
     &.primary {
-      color: $bcgov-white !important;
+      color: var(--bcgov-wc-color-white) !important;
     }
 
     &.secondary {
       background: none;
-      color: $bcgov-blue-primary !important;
+      color: var(--bcgov-wc-color-brand-primary) !important;
     }
     &.dark {
       background: none;
-      border: 2px solid $bcgov-white;
+      border: 2px solid var(--bcgov-wc-color-white);
       &:hover {
-        background-color: $bcgov-color-background;
-        color: $bcgov-color;
+        background-color: var(--bcgov-wc-color-background-seconary);
+        color: var(--bcgov-wc-color-text);
       }
     }
     &.hamburger,
     &.search {
       margin: 0;
       padding: $padding-x / 2 $padding-y;
-      border: 1px solid $bcgov-white;
+      border: 1px solid var(--bcgov-wc-color-white);
       border-radius: 0;
       min-height: 60px;
       height: 100%;
     }
     &.hamburger {
       font-size: 0.8rem;
-      background-color: $bcgov-color-submenu;
+      background-color: var(--bcgov-wc-color-submenu);
       &:hover {
-        background-color: $bcgov-color-menu;
+        background-color: var(--bcgov-wc-color-menu);
         cursor: pointer;
       }
       div {
         margin: 0 8px 4px;
-        border-top: 2px solid $bcgov-white;
-        border-bottom: 2px solid $bcgov-white;
+        border-top: 2px solid var(--bcgov-wc-color-white);
+        border-bottom: 2px solid var(--bcgov-wc-color-white);
         &:before {
           content: " ";
-          background-color: $bcgov-white;
+          background-color: var(--bcgov-wc-color-white);
           height: 2px;
           margin: 6px 0;
           display: block;
@@ -69,7 +69,7 @@ bcgov-button {
     }
 
     &.search {
-      background-color: $bcgov-yellow-primary;
+      background-color: var(--bcgov-wc-color-brand-secondary);
       font-size: 2rem;
     }
 

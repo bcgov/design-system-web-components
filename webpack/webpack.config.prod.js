@@ -28,6 +28,11 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: "babel-loader"
+      },
+      {
         test: /\.(s?css|ya?ml)/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"]
       },

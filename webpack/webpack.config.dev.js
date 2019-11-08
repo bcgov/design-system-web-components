@@ -43,6 +43,14 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
+        test: /\.(js)$/,
+        include: Path.resolve(__dirname, "../src/scripts"),
+        loader: "babel-loader",
+        options: {
+          presets: ["@babel/preset-env"]
+        }
+      },
+      {
         test: /\.(s?css|ya?ml)$/i,
         use: ["style-loader", "css-loader?sourceMap=true"]
       },

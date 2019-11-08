@@ -1,7 +1,7 @@
 bcgov-callout {
   display: block;
   padding: 25px;
-  border-left: 10px solid $bcgov-blue-background;
+  border-left: 10px solid var(--bcgov-wc-color-background-primary);
   margin: 16px 0;
-  background-color: $bcgov-color-background;
+  background-color: var(--bcgov-wc-color-background-seconary);
 }

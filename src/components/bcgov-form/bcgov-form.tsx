@@ -7,6 +7,7 @@ export class BcgovForm {
   render() {
     return (
       <Host>
+        <div>This is a form component</div>
         <slot></slot>
       </Host>
     );

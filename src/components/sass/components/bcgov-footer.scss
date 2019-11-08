@@ -1,9 +1,9 @@
 bcgov-footer {
-  background-color: $bcgov-blue-primary;
-  border-top: 2px solid $bcgov-yellow-primary;
-  color: $bcgov-white;
+  background-color: var(--bcgov-wc-color-brand-primary);
+  border-top: 2px solid var(--bcgov-wc-color-brand-secondary);
+  color: var(--bcgov-wc-color-white);
   min-height: 50px;
-  padding: 0 15px;
+  padding: 0 var(--bcgov-wc-gutter);
   @include flexbox();
   @include align-items(center);
 
@@ -12,10 +12,10 @@ bcgov-footer {
     &:visited,
     &:active,
     &:focus {
-      color: $bcgov-white !important;
+      color: var(--bcgov-wc-color-white) !important;
     }
   }
   a {
-    color: $bcgov-white;
+    color: var(--bcgov-wc-color-white);
   }
 }

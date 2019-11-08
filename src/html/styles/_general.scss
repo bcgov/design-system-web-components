@@ -22,16 +22,12 @@ table {
     font-size: 0.9rem;
   }
   margin: 15px 0;
-}
-
-.sr-only {
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  text-indent: -10000px;
+  display: block;
+  overflow: scroll;
 }
 
 .bcgov-main {
+  display: block;
   margin: 0 $gutter-primary;
   padding: 30px;
   min-height: 600px;
@@ -56,15 +52,4 @@ table {
     line-height: 1.6;
     margin-bottom: 30px;
   }
-}
-bcgov-aria-instructions {
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  text-indent: -10000px;
-  display: block;
-}
-*:focus {
-  outline: 4px solid $bcgov-color-accessibility;
-  outline-offset: 1px;
 }

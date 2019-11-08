@@ -1,10 +1,10 @@
 bcgov-header {
   position: relative;
   display: block;
-  background-color: $bcgov-blue-primary;
-  border-bottom: 2px solid $bcgov-yellow-primary;
-  padding: 0 $gutter-primary;
-  color: $bcgov-white;
+  background-color: var(--bcgov-wc-color-brand-primary);
+  border-bottom: 2px solid var(--bcgov-wc-color-brand-secondary);
+  padding: 0 var(--bcgov-wc-gutter);
+  color: var(--bcgov-wc-color-white);
   header {
     position: relative;
     @include flexbox();
@@ -13,7 +13,7 @@ bcgov-header {
   }
 
   a {
-    color: $bcgov-white;
+    color: var(--bcgov-wc-color-white);
   }
 
   a,
@@ -21,7 +21,7 @@ bcgov-header {
   a:visited,
   a:active,
   a:focus {
-    color: $bcgov-white;
+    color: var(--bcgov-wc-color-white);
     padding: 4px;
   }
   .banner {
@@ -35,7 +35,7 @@ bcgov-header {
     font-size: 1.1rem;
   }
   .access a {
-    color: $bcgov-white;
+    color: var(--bcgov-wc-color-white);
   }
   .access {
     display: block;
@@ -46,7 +46,7 @@ bcgov-header {
     font-size: 0.8rem;
 
     a {
-      color: $bcgov-white;
+      color: var(--bcgov-wc-color-white);
       max-width: 150px;
       position: absolute;
       display: block;
