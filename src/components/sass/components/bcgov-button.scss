@@ -47,6 +47,7 @@ bcgov-button {
       min-height: 60px;
       height: 100%;
     }
+
     &.hamburger {
       font-size: 0.8rem;
       background-color: var(--bcgov-wc-color-submenu);
@@ -72,7 +73,12 @@ bcgov-button {
       background-color: var(--bcgov-wc-color-brand-secondary);
       font-size: 2rem;
     }
-
+    &.search-inline {
+      background-color: transparent;
+      color: var(--bcgov-wc-color-text);
+      border: none;
+      padding: 3px 18px;
+    }
     &:hover {
       text-decoration: underline;
     }

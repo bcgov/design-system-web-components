@@ -1,4 +1,12 @@
-import { Component, h, Prop, Element, Host, Listen, State } from "@stencil/core";
+import {
+  Component,
+  h,
+  Prop,
+  Element,
+  Host,
+  Listen,
+  State
+} from "@stencil/core";
 import { library, icon } from "@fortawesome/fontawesome-svg-core";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
@@ -9,11 +17,20 @@ export class BcgovButton {
   /** The action of the button. */
   @Prop() link: string = "button";
 
+  /** default state of button if applicable */
+  @Prop() active: string = "false";
+
   /** Add a callback to handle events */
   @Prop() eventHandler: Function = this.eventHandlerFunction;
 
   /** Style of button */
-  @Prop() buttonStyle: "primary" | "secondary" | "dark" | "hamburger" | "search" = "primary";
+  @Prop() buttonStyle:
+    | "primary"
+    | "secondary"
+    | "dark"
+    | "hamburger"
+    | "search"
+    | "search-inline" = "primary";
 
   /** Target, only used on hamburger and search */
   @Prop() target: string = null;
@@ -26,7 +43,8 @@ export class BcgovButton {
 
   componentDidRender() {
     this.eventHandler(this.el);
-    if ("search" === this.el.getAttribute("button-style")) {
+    const buttonStyle = this.el.getAttribute("button-style");
+    if ("search" === buttonStyle || "search-inline" === buttonStyle) {
       library.add(faSearch);
       const buttonElement = this.el.querySelector("button");
       buttonElement.innerHTML = icon(faSearch).html[0];
@@ -35,6 +53,12 @@ export class BcgovButton {
   componentWillLoad() {
     if (null !== this.target) {
       this.breakpoint = this.getParentBreakpoint();
+      const element = document.getElementById(this.target);
+      if (null !== element) {
+        if ("false" === this.active) {
+          element.classList.add("target-hidden");
+        }
+      }
       this.isDesktop();
       const self = this;
       window.addEventListener("resize", function() {
@@ -70,12 +94,15 @@ export class BcgovButton {
       const button = this.el.querySelector("button");
       if (null !== element) {
         if (undefined !== button && button.hasAttribute("aria-expanded")) {
-          button.setAttribute("aria-expanded", element.classList.contains("in") ? "false" : "true");
+          button.setAttribute(
+            "aria-expanded",
+            element.classList.contains("target-hidden") ? "true" : "false"
+          );
         }
-        if (element.classList.contains("in")) {
-          element.classList.remove("in");
+        if (element.classList.contains("target-hidden")) {
+          element.classList.remove("target-hidden");
         } else {
-          element.classList.add("in");
+          element.classList.add("target-hidden");
         }
       }
     }
@@ -86,7 +113,7 @@ export class BcgovButton {
     if (["hamburger", "search"].includes(this.buttonStyle)) {
       return (
         <Host target={this.target}>
-          <button class={btnStyle} aria-expanded="false">
+          <button class={btnStyle} aria-expanded={this.active}>
             <div></div>
             <slot />
           </button>
@@ -94,8 +121,12 @@ export class BcgovButton {
       );
     } else {
       if ("button" === this.link) {
+        const props = {};
+        if ("search-inline" == this.buttonStyle) {
+          props["type"] = "submit";
+        }
         return (
-          <button class={btnStyle}>
+          <button class={btnStyle} {...props}>
             <slot />
           </button>
         );

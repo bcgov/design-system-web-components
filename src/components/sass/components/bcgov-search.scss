@@ -1,0 +1,41 @@
+bcgov-search {
+  display: block;
+  background-color: var(--bcgov-wc-color-white);
+  border: 1px solid var(--bcgov-wc-color-background-seconary);
+  position: relative;
+  .search-container {
+    height: 40px;
+    -webkit-transition: height 200ms ease-in;
+    -moz-transition: height 200ms ease-in;
+    -ms-transition: height 200ms ease-in;
+    -o-transition: height 200ms ease-in;
+    transition: height 200ms ease-in;
+    form {
+      //align-content: space-around;
+      //@include flexbox();
+      margin: 2px var(--bcgov-wc-gutter);
+      position: relative;
+      bcgov-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 50px;
+      }
+      input {
+        &[type="text"] {
+          font-size: 1.5rem;
+          flex: 1 0 auto;
+          border: none;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &.target-hidden {
+    .search-container {
+      height: 0;
+      visibility: hidden;
+    }
+  }
+}

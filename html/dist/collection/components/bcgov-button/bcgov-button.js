@@ -5,6 +5,8 @@ export class BcgovButton {
     constructor() {
         /** The action of the button. */
         this.link = "button";
+        /** default state of button if applicable */
+        this.active = "false";
         /** Add a callback to handle events */
         this.eventHandler = this.eventHandlerFunction;
         /** Style of button */
@@ -16,7 +18,8 @@ export class BcgovButton {
     eventHandlerFunction() { }
     componentDidRender() {
         this.eventHandler(this.el);
-        if ("search" === this.el.getAttribute("button-style")) {
+        const buttonStyle = this.el.getAttribute("button-style");
+        if ("search" === buttonStyle || "search-inline" === buttonStyle) {
             library.add(faSearch);
             const buttonElement = this.el.querySelector("button");
             buttonElement.innerHTML = icon(faSearch).html[0];
@@ -25,6 +28,12 @@ export class BcgovButton {
     componentWillLoad() {
         if (null !== this.target) {
             this.breakpoint = this.getParentBreakpoint();
+            const element = document.getElementById(this.target);
+            if (null !== element) {
+                if ("false" === this.active) {
+                    element.classList.add("target-hidden");
+                }
+            }
             this.isDesktop();
             const self = this;
             window.addEventListener("resize", function () {
@@ -58,13 +67,13 @@ export class BcgovButton {
             const button = this.el.querySelector("button");
             if (null !== element) {
                 if (undefined !== button && button.hasAttribute("aria-expanded")) {
-                    button.setAttribute("aria-expanded", element.classList.contains("in") ? "false" : "true");
+                    button.setAttribute("aria-expanded", element.classList.contains("target-hidden") ? "true" : "false");
                 }
-                if (element.classList.contains("in")) {
-                    element.classList.remove("in");
+                if (element.classList.contains("target-hidden")) {
+                    element.classList.remove("target-hidden");
                 }
                 else {
-                    element.classList.add("in");
+                    element.classList.add("target-hidden");
                 }
             }
         }
@@ -73,13 +82,17 @@ export class BcgovButton {
         const btnStyle = `${this.buttonStyle} bcgov-button`;
         if (["hamburger", "search"].includes(this.buttonStyle)) {
             return (h(Host, { target: this.target },
-                h("button", { class: btnStyle, "aria-expanded": "false" },
+                h("button", { class: btnStyle, "aria-expanded": this.active },
                     h("div", null),
                     h("slot", null))));
         }
         else {
             if ("button" === this.link) {
-                return (h("button", { class: btnStyle },
+                const props = {};
+                if ("search-inline" == this.buttonStyle) {
+                    props["type"] = "submit";
+                }
+                return (h("button", Object.assign({ class: btnStyle }, props),
                     h("slot", null)));
             }
             else {
@@ -108,6 +121,24 @@ export class BcgovButton {
             "reflect": false,
             "defaultValue": "\"button\""
         },
+        "active": {
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": "default state of button if applicable"
+            },
+            "attribute": "active",
+            "reflect": false,
+            "defaultValue": "\"false\""
+        },
         "eventHandler": {
             "type": "unknown",
             "mutable": false,
@@ -132,8 +163,8 @@ export class BcgovButton {
             "type": "string",
             "mutable": false,
             "complexType": {
-                "original": "\"primary\" | \"secondary\" | \"dark\" | \"hamburger\" | \"search\"",
-                "resolved": "\"dark\" | \"hamburger\" | \"primary\" | \"search\" | \"secondary\"",
+                "original": "| \"primary\"\n    | \"secondary\"\n    | \"dark\"\n    | \"hamburger\"\n    | \"search\"\n    | \"search-inline\"",
+                "resolved": "\"dark\" | \"hamburger\" | \"primary\" | \"search\" | \"search-inline\" | \"secondary\"",
                 "references": {}
             },
             "required": false,

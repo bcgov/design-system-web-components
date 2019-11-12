@@ -7,12 +7,17 @@
   <div class="test" slot="headline">Design System<bcgov-beta></bcgov-beta></div>
   <a slot="hidden-link" aria href="#main-navigation">Skip to navigation</a>
   <a slot="hidden-link" aria href="#main-content">Skip to Contents</a>
-  <a slot="hidden-link" aria href="accessibility">Skip to Accessibility Statement</a>
+  <a slot="hidden-link" aria href="accessibility"
+    >Skip to Accessibility Statement</a
+  >
 
-  <bcgov-button button-style="search" target="search-navigation">Search</bcgov-button>
-  <bcgov-button button-style="hamburger" target="main-navigation">Menu</bcgov-button>
+  <bcgov-button button-style="search" target="search-navigation"
+    >Search</bcgov-button
+  >
+  <bcgov-button button-style="hamburger" target="main-navigation"
+    >Menu</bcgov-button
+  >
 </bcgov-header>
-<bcogv-search id="search-navigation"></bcogv-search>
 
 <bcgov-menu
   id="main-navigation"
@@ -50,3 +55,9 @@
   -->
   <a href="developer.html">Resources</a>
 </bcgov-menu>
+<bcgov-search id="search-navigation">
+  <form slot="form">
+    <input type="text" placeholder="Search" />
+    <bcgov-button button-style="search-inline">Search</bcgov-button>
+  </form>
+</bcgov-search>

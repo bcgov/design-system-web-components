@@ -1,1 +1,1 @@
-import{r,h as s,H as o}from"./core-92f6db49.js";const c=class{constructor(s){r(this,s)}render(){return s(o,null)}};export{c as bcgov_search};
+import{r as s,h as r,H as e,g as t}from"./core-92f6db49.js";import{l as o,f as n,i as a}from"./index.es-c1255c77.js";const c=class{constructor(r){s(this,r)}componentDidRender(){const s=this.el.querySelector('input[type="submit"');o.add(n),s.setAttribute("value",a(n).html[0])}render(){return r(e,null,r("div",{class:"search-container"},r("slot",{name:"form"})))}get el(){return t(this)}};export{c as bcgov_search};

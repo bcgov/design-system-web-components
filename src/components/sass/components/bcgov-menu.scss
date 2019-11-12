@@ -1,11 +1,8 @@
 bcgov-menu {
   padding: 0;
   color: var(--bcgov-wc-color-white);
-  display: none;
   position: relative;
-  &.in {
-    display: block;
-  }
+  display: block;
   &[primary],
   &.primary {
     background-color: var(--bcgov-wc-color-menu);
@@ -82,7 +79,9 @@ bcgov-menu {
       }
     }
   }
-
+  &.target-hidden {
+    display: none;
+  }
   &.is-desktop {
     display: block;
     &[primary],

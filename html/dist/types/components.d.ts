@@ -17,9 +17,18 @@ export namespace Components {
   interface BcgovBreadcrumb {}
   interface BcgovButton {
     /**
+    * default state of button if applicable
+    */
+    'active': string;
+    /**
     * Style of button
     */
-    'buttonStyle': "primary" | "secondary" | "dark" | "hamburger" | "search";
+    'buttonStyle': | "primary"
+    | "secondary"
+    | "dark"
+    | "hamburger"
+    | "search"
+    | "search-inline";
     /**
     * Add a callback to handle events
     */
@@ -164,9 +173,18 @@ declare namespace LocalJSX {
   interface BcgovBreadcrumb {}
   interface BcgovButton {
     /**
+    * default state of button if applicable
+    */
+    'active'?: string;
+    /**
     * Style of button
     */
-    'buttonStyle'?: "primary" | "secondary" | "dark" | "hamburger" | "search";
+    'buttonStyle'?: | "primary"
+    | "secondary"
+    | "dark"
+    | "hamburger"
+    | "search"
+    | "search-inline";
     /**
     * Add a callback to handle events
     */
