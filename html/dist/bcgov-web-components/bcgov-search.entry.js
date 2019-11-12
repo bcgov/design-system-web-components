@@ -1,1 +1,1 @@
-import{r,h as s,H as o}from"./core-f0a08712.js";const t=class{constructor(s){r(this,s)}render(){return s(o,null,s("button",null,s("slot",null)))}};export{t as bcgov_search};
+import{r,h as s,H as o}from"./core-92f6db49.js";const c=class{constructor(s){r(this,s)}render(){return s(o,null)}};export{c as bcgov_search};

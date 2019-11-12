@@ -1,4 +1,6 @@
 bcgov-breadcrumb {
+  padding: 0 var(--bcgov-wc-gutter);
+  display: block;
   ol {
     list-style: none;
     margin: 0;

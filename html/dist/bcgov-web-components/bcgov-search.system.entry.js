@@ -1,1 +1,1 @@
-System.register(["./core-053aa9d4.system.js"],(function(t){"use strict";var n,e,r;return{setters:[function(t){n=t.r;e=t.h;r=t.H}],execute:function(){var u=t("bcgov_search",function(){function t(t){n(this,t)}t.prototype.render=function(){return e(r,null,e("button",null,e("slot",null)))};return t}())}}}));
+System.register(["./core-a729c5d8.system.js"],(function(t){"use strict";var e,r,n;return{setters:[function(t){e=t.r;r=t.h;n=t.H}],execute:function(){var c=t("bcgov_search",function(){function t(t){e(this,t)}t.prototype.render=function(){return r(n,null)};return t}())}}}));

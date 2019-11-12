@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-1d11420d.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './core-413b4b4d.js';
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
