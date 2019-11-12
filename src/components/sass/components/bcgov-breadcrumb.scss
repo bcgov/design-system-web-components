@@ -1,0 +1,23 @@
+bcgov-breadcrumb {
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.95rem;
+
+    li {
+      display: inline;
+      padding: 0;
+      margin: 0;
+      &:after {
+        content: ">";
+        padding: 0 0 0 6px;
+      }
+      &:last-child {
+        &:after {
+          content: "";
+        }
+      }
+    }
+  }
+}

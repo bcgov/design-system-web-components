@@ -9,6 +9,31 @@ var filterATags = function (element) {
         element.removeAttribute("aria");
     }
 };
+var breadCrumbElement = function (element) {
+    var nName = element.nodeName.toLowerCase();
+    if (("a" === nName || "span" === nName) && "li" !== element.parentNode.nodeName.toLowerCase()) {
+        filterATags(element);
+        element.setAttribute("itemprop", "item");
+        if ("a" === nName) {
+            var spanTag = document.createElement("span");
+            spanTag.setAttribute("itemprop", "name");
+            spanTag.textContent = element.textContent;
+            element.innerHTML = "";
+            element.appendChild(spanTag);
+        }
+        else if ("span" === nName) {
+            element.setAttribute("itemprop", "name");
+            element.setAttribute("aria-current", "page");
+        }
+        var liTag = document.createElement("li");
+        liTag.setAttribute("aria-label", element.textContent);
+        liTag.setAttribute("itemscope", "");
+        liTag.setAttribute("itemprop", "itemListElement");
+        liTag.setAttribute("itemtype", "http://schema.org/ListItem");
+        liTag.appendChild(element.cloneNode(true));
+        element.parentNode.replaceChild(liTag, element);
+    }
+};
 var menuElement = function (element) {
     var nName = element.nodeName.toLowerCase();
     if ("a" === nName && "li" !== element.parentNode.nodeName.toLowerCase()) {
@@ -38,4 +63,4 @@ var keys = {
     right: 39,
     down: 40
 };
-export { findAncestor as a, filterATags as f, keys as k, menuElement as m };
+export { findAncestor as a, breadCrumbElement as b, filterATags as f, keys as k, menuElement as m };

@@ -9,6 +9,31 @@ const filterATags = element => {
         element.removeAttribute("aria");
     }
 };
+const breadCrumbElement = element => {
+    const nName = element.nodeName.toLowerCase();
+    if (("a" === nName || "span" === nName) && "li" !== element.parentNode.nodeName.toLowerCase()) {
+        filterATags(element);
+        element.setAttribute("itemprop", "item");
+        if ("a" === nName) {
+            const spanTag = document.createElement("span");
+            spanTag.setAttribute("itemprop", "name");
+            spanTag.textContent = element.textContent;
+            element.innerHTML = "";
+            element.appendChild(spanTag);
+        }
+        else if ("span" === nName) {
+            element.setAttribute("itemprop", "name");
+            element.setAttribute("aria-current", "page");
+        }
+        const liTag = document.createElement("li");
+        liTag.setAttribute("aria-label", element.textContent);
+        liTag.setAttribute("itemscope", "");
+        liTag.setAttribute("itemprop", "itemListElement");
+        liTag.setAttribute("itemtype", "http://schema.org/ListItem");
+        liTag.appendChild(element.cloneNode(true));
+        element.parentNode.replaceChild(liTag, element);
+    }
+};
 const menuElement = element => {
     const nName = element.nodeName.toLowerCase();
     if ("a" === nName && "li" !== element.parentNode.nodeName.toLowerCase()) {
@@ -39,4 +64,4 @@ const keys = {
     down: 40
 };
 
-export { findAncestor as a, filterATags as f, keys as k, menuElement as m };
+export { findAncestor as a, breadCrumbElement as b, filterATags as f, keys as k, menuElement as m };

@@ -1,4 +1,6 @@
-export const filterATags = element => {
+'use strict';
+
+const filterATags = element => {
     let href = element.getAttribute("href");
     if ("accessibility" === element.getAttribute("href")) {
         href = "https://www2.gov.bc.ca/gov/content/home/accessibility";
@@ -9,17 +11,9 @@ export const filterATags = element => {
         element.removeAttribute("aria");
     }
 };
-export const moveElement = (element, parent) => {
+const breadCrumbElement = element => {
     const nName = element.nodeName.toLowerCase();
-    if ("a" === nName) {
-        filterATags(element);
-    }
-    parent.appendChild(element);
-};
-export const breadCrumbElement = element => {
-    const nName = element.nodeName.toLowerCase();
-    if (("a" === nName || "span" === nName) &&
-        "li" !== element.parentNode.nodeName.toLowerCase()) {
+    if (("a" === nName || "span" === nName) && "li" !== element.parentNode.nodeName.toLowerCase()) {
         filterATags(element);
         element.setAttribute("itemprop", "item");
         if ("a" === nName) {
@@ -32,7 +26,6 @@ export const breadCrumbElement = element => {
         else if ("span" === nName) {
             element.setAttribute("itemprop", "name");
             element.setAttribute("aria-current", "page");
-            element.setAttribute("tabindex", 0);
         }
         const liTag = document.createElement("li");
         liTag.setAttribute("aria-label", element.textContent);
@@ -43,7 +36,7 @@ export const breadCrumbElement = element => {
         element.parentNode.replaceChild(liTag, element);
     }
 };
-export const menuElement = element => {
+const menuElement = element => {
     const nName = element.nodeName.toLowerCase();
     if ("a" === nName && "li" !== element.parentNode.nodeName.toLowerCase()) {
         filterATags(element);
@@ -57,13 +50,12 @@ export const menuElement = element => {
         element.parentNode.replaceChild(liTag, element);
     }
 };
-export const findAncestor = (el, sel) => {
-    while ((el = el.parentElement) &&
-        !(el.matches || el.matchesSelector).call(el, sel))
+const findAncestor = (el, sel) => {
+    while ((el = el.parentElement) && !(el.matches || el.matchesSelector).call(el, sel))
         ;
     return el;
 };
-export const keys = {
+const keys = {
     tab: 9,
     enter: 13,
     esc: 27,
@@ -73,3 +65,9 @@ export const keys = {
     right: 39,
     down: 40
 };
+
+exports.breadCrumbElement = breadCrumbElement;
+exports.filterATags = filterATags;
+exports.findAncestor = findAncestor;
+exports.keys = keys;
+exports.menuElement = menuElement;

@@ -1,4 +1,4 @@
-export const filterATags = element => {
+const filterATags = element => {
     let href = element.getAttribute("href");
     if ("accessibility" === element.getAttribute("href")) {
         href = "https://www2.gov.bc.ca/gov/content/home/accessibility";
@@ -9,14 +9,7 @@ export const filterATags = element => {
         element.removeAttribute("aria");
     }
 };
-export const moveElement = (element, parent) => {
-    const nName = element.nodeName.toLowerCase();
-    if ("a" === nName) {
-        filterATags(element);
-    }
-    parent.appendChild(element);
-};
-export const breadCrumbElement = element => {
+const breadCrumbElement = element => {
     const nName = element.nodeName.toLowerCase();
     if (("a" === nName || "span" === nName) &&
         "li" !== element.parentNode.nodeName.toLowerCase()) {
@@ -43,7 +36,7 @@ export const breadCrumbElement = element => {
         element.parentNode.replaceChild(liTag, element);
     }
 };
-export const menuElement = element => {
+const menuElement = element => {
     const nName = element.nodeName.toLowerCase();
     if ("a" === nName && "li" !== element.parentNode.nodeName.toLowerCase()) {
         filterATags(element);
@@ -57,13 +50,13 @@ export const menuElement = element => {
         element.parentNode.replaceChild(liTag, element);
     }
 };
-export const findAncestor = (el, sel) => {
+const findAncestor = (el, sel) => {
     while ((el = el.parentElement) &&
         !(el.matches || el.matchesSelector).call(el, sel))
         ;
     return el;
 };
-export const keys = {
+const keys = {
     tab: 9,
     enter: 13,
     esc: 27,
@@ -73,3 +66,5 @@ export const keys = {
     right: 39,
     down: 40
 };
+
+export { findAncestor as a, breadCrumbElement as b, filterATags as f, keys as k, menuElement as m };

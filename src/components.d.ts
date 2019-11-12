@@ -14,6 +14,7 @@ export namespace Components {
     'content': string;
     'label': string;
   }
+  interface BcgovBreadcrumb {}
   interface BcgovButton {
     /**
     * Style of button
@@ -88,6 +89,12 @@ declare global {
     new (): HTMLBcgovBetaElement;
   };
 
+  interface HTMLBcgovBreadcrumbElement extends Components.BcgovBreadcrumb, HTMLStencilElement {}
+  var HTMLBcgovBreadcrumbElement: {
+    prototype: HTMLBcgovBreadcrumbElement;
+    new (): HTMLBcgovBreadcrumbElement;
+  };
+
   interface HTMLBcgovButtonElement extends Components.BcgovButton, HTMLStencilElement {}
   var HTMLBcgovButtonElement: {
     prototype: HTMLBcgovButtonElement;
@@ -137,6 +144,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'bcgov-beta': HTMLBcgovBetaElement;
+    'bcgov-breadcrumb': HTMLBcgovBreadcrumbElement;
     'bcgov-button': HTMLBcgovButtonElement;
     'bcgov-callout': HTMLBcgovCalloutElement;
     'bcgov-footer': HTMLBcgovFooterElement;
@@ -153,6 +161,7 @@ declare namespace LocalJSX {
     'content'?: string;
     'label'?: string;
   }
+  interface BcgovBreadcrumb {}
   interface BcgovButton {
     /**
     * Style of button
@@ -219,6 +228,7 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'bcgov-beta': BcgovBeta;
+    'bcgov-breadcrumb': BcgovBreadcrumb;
     'bcgov-button': BcgovButton;
     'bcgov-callout': BcgovCallout;
     'bcgov-footer': BcgovFooter;
@@ -237,6 +247,7 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'bcgov-beta': LocalJSX.BcgovBeta & JSXBase.HTMLAttributes<HTMLBcgovBetaElement>;
+      'bcgov-breadcrumb': LocalJSX.BcgovBreadcrumb & JSXBase.HTMLAttributes<HTMLBcgovBreadcrumbElement>;
       'bcgov-button': LocalJSX.BcgovButton & JSXBase.HTMLAttributes<HTMLBcgovButtonElement>;
       'bcgov-callout': LocalJSX.BcgovCallout & JSXBase.HTMLAttributes<HTMLBcgovCalloutElement>;
       'bcgov-footer': LocalJSX.BcgovFooter & JSXBase.HTMLAttributes<HTMLBcgovFooterElement>;

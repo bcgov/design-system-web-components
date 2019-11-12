@@ -1,5 +1,5 @@
 import { r as registerInstance, h, H as Host, g as getElement } from './core-1d11420d.js';
-import { m as menuElement, a as findAncestor, k as keys } from './utils-db4e3472.js';
+import { m as menuElement, a as findAncestor, k as keys } from './utils-923a28b7.js';
 
 const BcgovMenu = class {
     constructor(hostRef) {

@@ -18,6 +18,35 @@ export const moveElement = (element, parent) => {
   parent.appendChild(element);
 };
 
+export const breadCrumbElement = element => {
+  const nName: string = element.nodeName.toLowerCase();
+  if (
+    ("a" === nName || "span" === nName) &&
+    "li" !== element.parentNode.nodeName.toLowerCase()
+  ) {
+    filterATags(element);
+    element.setAttribute("itemprop", "item");
+    if ("a" === nName) {
+      const spanTag: HTMLElement = document.createElement("span");
+      spanTag.setAttribute("itemprop", "name");
+      spanTag.textContent = element.textContent;
+      element.innerHTML = "";
+      element.appendChild(spanTag);
+    } else if ("span" === nName) {
+      element.setAttribute("itemprop", "name");
+      element.setAttribute("aria-current", "page");
+      element.setAttribute("tabindex", 0);
+    }
+    const liTag: HTMLElement = document.createElement("li");
+    liTag.setAttribute("aria-label", element.textContent);
+    liTag.setAttribute("itemscope", "");
+    liTag.setAttribute("itemprop", "itemListElement");
+    liTag.setAttribute("itemtype", "http://schema.org/ListItem");
+    liTag.appendChild(element.cloneNode(true));
+    element.parentNode.replaceChild(liTag, element);
+  }
+};
+
 export const menuElement = element => {
   const nName: string = element.nodeName.toLowerCase();
   if ("a" === nName && "li" !== element.parentNode.nodeName.toLowerCase()) {
@@ -31,12 +60,14 @@ export const menuElement = element => {
     liTag.appendChild(element.cloneNode(true));
 
     element.parentNode.replaceChild(liTag, element);
-  } else {
   }
 };
 
 export const findAncestor = (el: any, sel: string) => {
-  while ((el = el.parentElement) && !(el.matches || el.matchesSelector).call(el, sel));
+  while (
+    (el = el.parentElement) &&
+    !(el.matches || el.matchesSelector).call(el, sel)
+  );
   return el;
 };
 

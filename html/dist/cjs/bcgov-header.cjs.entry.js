@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const core = require('./core-630b4e33.js');
-const utils = require('./utils-7586050f.js');
+const utils = require('./utils-872e15ed.js');
 
 const BcgovHeader = class {
     constructor(hostRef) {
