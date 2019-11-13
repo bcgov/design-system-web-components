@@ -29,23 +29,6 @@ This component has been built according to [WCAG 2.0 AA](https://www.w3.org/TR/W
 ### Screenreaders
 As read using ChromeVox
 
-> "Go to the Government of British Columbia website, link."
-
-> "Hello British Columbia, link."
-
-> "Navigation list with six items."
-
-> "Link 1. Link list item."
-
-> "Link 2. Link list item."
-
-> "Link 3. Link list item."
-
-> "Link 4. Link list item."
-
-> "Link 5. Link list item."
-
-> "Link 6. Link list item."
 
 ### Converying Information
 * Hamburger icon not placed alone without a text label
@@ -54,10 +37,11 @@ As read using ChromeVox
 ## Example
 
 ```html
+<bcgov-button button-style="hamburger" target="main-navigation-sample">Menu</bcgov-button>
 <bcgov-menu id="main-navigation-sample" 
             primary 
             alignment="left"
-            breakpoint="0"
+            breakpoint="1200"
             instructions="Use arrow keys to navigate between menuitems, spacebar to expand submenus, escape key to closes submenus, enter to activate menuitems."
 >
   <a href="/">Home</a>
@@ -74,8 +58,8 @@ As read using ChromeVox
 </bcgov-menu>
 ```
 
-
-<bcgov-menu style="background-color: #036; padding: 4px 15px;" primary>
+<bcgov-button button-style="hamburger" target="main-navigation-sample">Menu</bcgov-button>
+<bcgov-menu id="main-navigation-sample" style="background-color: #036;" primary   alignment="left" breakpoint="1200">
   <a href="/">Home</a>
   <a href="/sandbox.html">Sandbox</a>
   <bcgov-menu href="/" name="Components">

@@ -28,6 +28,7 @@ export class BcgovButton {
     componentWillLoad() {
         if (null !== this.target) {
             this.breakpoint = this.getParentBreakpoint();
+            this.el.setAttribute("data-breakpoint", `${this.breakpoint}`);
             const element = document.getElementById(this.target);
             if (null !== element) {
                 if ("false" === this.active) {

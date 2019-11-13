@@ -1,4 +1,12 @@
-import { Component, Host, h, Prop, Element, Listen, State } from "@stencil/core";
+import {
+  Component,
+  Host,
+  h,
+  Prop,
+  Element,
+  Listen,
+  State
+} from "@stencil/core";
 import { menuElement, keys, findAncestor } from "../utils/utils";
 
 @Component({
@@ -109,7 +117,9 @@ export class BcgovMenu {
   onClick(event: Event) {
     if (!this.isDesktop()) {
       const element = event.target as HTMLElement;
-      const parent = element.parentElement;
+      console.log(element);
+      const parent = findAncestor(element, "bcgov-menu");
+
       this.showSubmenu(parent, !parent.classList.contains("expanded"));
     }
   }
@@ -163,7 +173,8 @@ export class BcgovMenu {
     } else if ("prev" == direction || "up" === direction) {
       element = current.previousElementSibling;
     }
-    const insideSub: boolean = null !== findAncestor(current, 'ul[role="menu"]');
+    const insideSub: boolean =
+      null !== findAncestor(current, 'ul[role="menu"]');
     const checkAllowed =
       (insideSub && ("up" === direction || "down" === direction)) ||
       (!insideSub && ("prev" === direction || "next" === direction));
@@ -171,7 +182,10 @@ export class BcgovMenu {
       return;
     }
 
-    if (null != element && ("LI" === current.nodeName || "BCGOV-MENU" === current.nodeName)) {
+    if (
+      null != element &&
+      ("LI" === current.nodeName || "BCGOV-MENU" === current.nodeName)
+    ) {
       current.setAttribute("tabindex", "-1");
       element.setAttribute("tabindex", "0");
       element.focus();
@@ -195,7 +209,9 @@ export class BcgovMenu {
     if (null !== submenu) {
       submenu.setAttribute("aria-hidden", expanded ? "false" : "true");
       if (expanded) {
-        const firstFocus: HTMLElement = target.querySelector("ul > li:first-child");
+        const firstFocus: HTMLElement = target.querySelector(
+          "ul > li:first-child"
+        );
         firstFocus.setAttribute("tabindex", "0");
         firstFocus.focus();
       } else {
@@ -211,9 +227,11 @@ export class BcgovMenu {
     if (this.isSubmenu) {
       return (
         <Host role="menuitem" class="expandable" aria-label={this.name}>
-          <a href={this.href} tabindex="-1">
-            {this.name}
-          </a>
+          <div class="">
+            <a href={this.href} tabindex="-1">
+              {this.name}
+            </a>
+          </div>
           <ul role="menu" aria-hidden="true">
             <slot></slot>
           </ul>

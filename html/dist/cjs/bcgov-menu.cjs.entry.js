@@ -117,7 +117,8 @@ const BcgovMenu = class {
     onClick(event) {
         if (!this.isDesktop()) {
             const element = event.target;
-            const parent = element.parentElement;
+            console.log(element);
+            const parent = utils.findAncestor(element, "bcgov-menu");
             this.showSubmenu(parent, !parent.classList.contains("expanded"));
         }
     }
@@ -173,7 +174,8 @@ const BcgovMenu = class {
         if (!checkAllowed) {
             return;
         }
-        if (null != element && ("LI" === current.nodeName || "BCGOV-MENU" === current.nodeName)) {
+        if (null != element &&
+            ("LI" === current.nodeName || "BCGOV-MENU" === current.nodeName)) {
             current.setAttribute("tabindex", "-1");
             element.setAttribute("tabindex", "0");
             element.focus();
@@ -183,7 +185,7 @@ const BcgovMenu = class {
         const alignment = "align-" + this.alignment;
         const instructionID = "bcgov-instructions-" + this.menuId;
         if (this.isSubmenu) {
-            return (core.h(core.Host, { role: "menuitem", class: "expandable", "aria-label": this.name }, core.h("a", { href: this.href, tabindex: "-1" }, this.name), core.h("ul", { role: "menu", "aria-hidden": "true" }, core.h("slot", null))));
+            return (core.h(core.Host, { role: "menuitem", class: "expandable", "aria-label": this.name }, core.h("div", { class: "" }, core.h("a", { href: this.href, tabindex: "-1" }, this.name)), core.h("ul", { role: "menu", "aria-hidden": "true" }, core.h("slot", null))));
         }
         else {
             const props = { role: "menubar", tabindex: "0", class: alignment };

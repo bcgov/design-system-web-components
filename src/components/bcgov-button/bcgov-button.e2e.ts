@@ -17,6 +17,7 @@ describe("bcgov-button", () => {
     <span style="background-color: #000; padding: 8px; display: inline-block"><bcgov-button button-style="dark">Dark</bcgov-button></span>
     <bcgov-button button-style="hamburger">Menu</bcgov-button>
     <bcgov-button button-style="search">Search</bcgov-button>
+    <bcgov-button button-style="search-inline">Search</bcgov-button>
     </div>
     <div>
     <h4>Links (role="button")</h4>
@@ -25,7 +26,9 @@ describe("bcgov-button", () => {
     <span style="background-color: #000; padding: 8px; display: inline-block"><bcgov-button link="https://gov.bc.ca" button-style="dark">Dark</bcgov-button></span>
     </div>
     `);
-    await page.addStyleTag({ path: "html/dist/bcgov-web-components/bcgov-web-components.css" });
+    await page.addStyleTag({
+      path: "html/dist/bcgov-web-components/bcgov-web-components.css"
+    });
     await page.compareScreenshot("Buttons", {
       fullPage: false
     });
@@ -39,6 +42,6 @@ describe("bcgov-button", () => {
     <bcgov-button button-style="hamburger" >Menu</bcgov-button>
     `);
     const snapshot = await page.accessibility.snapshot();
-    console.log(snapshot);
+    //console.log(snapshot);
   });
 });

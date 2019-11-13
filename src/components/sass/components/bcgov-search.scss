@@ -2,7 +2,9 @@ bcgov-search {
   display: block;
   background-color: var(--bcgov-wc-color-white);
   border: 1px solid var(--bcgov-wc-color-background-seconary);
-  position: relative;
+  border-bottom-color: var(--bcgov-wc-color-brand-secondary);
+  position: absolute;
+  width: 100%;
   .search-container {
     height: 40px;
     -webkit-transition: height 200ms ease-in;
@@ -22,7 +24,8 @@ bcgov-search {
         height: 50px;
       }
       input {
-        &[type="text"] {
+        &[type="text"],
+        &[type="search"] {
           font-size: 1.5rem;
           flex: 1 0 auto;
           border: none;
@@ -33,6 +36,7 @@ bcgov-search {
   }
 
   &.target-hidden {
+    display: none;
     .search-container {
       height: 0;
       visibility: hidden;
