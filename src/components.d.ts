@@ -43,6 +43,7 @@ export namespace Components {
     'target': string;
   }
   interface BcgovCallout {}
+  interface BcgovCarousel {}
   interface BcgovFooter {}
   interface BcgovForm {}
   interface BcgovHeader {
@@ -116,6 +117,12 @@ declare global {
     new (): HTMLBcgovCalloutElement;
   };
 
+  interface HTMLBcgovCarouselElement extends Components.BcgovCarousel, HTMLStencilElement {}
+  var HTMLBcgovCarouselElement: {
+    prototype: HTMLBcgovCarouselElement;
+    new (): HTMLBcgovCarouselElement;
+  };
+
   interface HTMLBcgovFooterElement extends Components.BcgovFooter, HTMLStencilElement {}
   var HTMLBcgovFooterElement: {
     prototype: HTMLBcgovFooterElement;
@@ -156,6 +163,7 @@ declare global {
     'bcgov-breadcrumb': HTMLBcgovBreadcrumbElement;
     'bcgov-button': HTMLBcgovButtonElement;
     'bcgov-callout': HTMLBcgovCalloutElement;
+    'bcgov-carousel': HTMLBcgovCarouselElement;
     'bcgov-footer': HTMLBcgovFooterElement;
     'bcgov-form': HTMLBcgovFormElement;
     'bcgov-header': HTMLBcgovHeaderElement;
@@ -199,6 +207,7 @@ declare namespace LocalJSX {
     'target'?: string;
   }
   interface BcgovCallout {}
+  interface BcgovCarousel {}
   interface BcgovFooter {}
   interface BcgovForm {}
   interface BcgovHeader {
@@ -249,6 +258,7 @@ declare namespace LocalJSX {
     'bcgov-breadcrumb': BcgovBreadcrumb;
     'bcgov-button': BcgovButton;
     'bcgov-callout': BcgovCallout;
+    'bcgov-carousel': BcgovCarousel;
     'bcgov-footer': BcgovFooter;
     'bcgov-form': BcgovForm;
     'bcgov-header': BcgovHeader;
@@ -268,6 +278,7 @@ declare module "@stencil/core" {
       'bcgov-breadcrumb': LocalJSX.BcgovBreadcrumb & JSXBase.HTMLAttributes<HTMLBcgovBreadcrumbElement>;
       'bcgov-button': LocalJSX.BcgovButton & JSXBase.HTMLAttributes<HTMLBcgovButtonElement>;
       'bcgov-callout': LocalJSX.BcgovCallout & JSXBase.HTMLAttributes<HTMLBcgovCalloutElement>;
+      'bcgov-carousel': LocalJSX.BcgovCarousel & JSXBase.HTMLAttributes<HTMLBcgovCarouselElement>;
       'bcgov-footer': LocalJSX.BcgovFooter & JSXBase.HTMLAttributes<HTMLBcgovFooterElement>;
       'bcgov-form': LocalJSX.BcgovForm & JSXBase.HTMLAttributes<HTMLBcgovFormElement>;
       'bcgov-header': LocalJSX.BcgovHeader & JSXBase.HTMLAttributes<HTMLBcgovHeaderElement>;

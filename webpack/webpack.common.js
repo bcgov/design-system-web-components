@@ -3,18 +3,37 @@ const { readdirSync, readFileSync } = require("fs");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const merge = require("webpack-merge");
+const parseMD = require("parse-md");
+
 const showdown = require("showdown");
 const showdownHighlight = require("showdown-highlight");
-
+let converter = new showdown.Converter({ extensions: [showdownHighlight] });
 const marked = require("marked");
 
+const getHtmlWebpackPlugin = (filename, mdfile) => {
+  const output = readFileSync(mdfile, "utf8");
+  let { metadata, content } = parseMD.default(output);
+  content = converter.makeHtml(marked(String(content)));
+  let options = {
+    filename: filename,
+    bodyHtml: content,
+    template: Path.resolve(__dirname, `../src/html/index.html`)
+  };
+
+  return new HtmlWebpackPlugin(merge(options, metadata));
+};
+
+const parseMarkDown = mdfile => {
+  const output = readFileSync(mdfile, "utf8");
+  let { metadata, content } = parseMD.default(output);
+  content = converter.makeHtml(marked(String(content)));
+  return merge({ bodyHtml: content }, metadata);
+};
+
 const createPages = () => {
-  const pages = Array();
   let htmlplugin = Array();
-  let converter = new showdown.Converter({
-    // That's it
-    extensions: [showdownHighlight]
-  });
+
   /**
    * Finds all the directories in ../src/bcgov in order to make pages,
    *  using the readme.md, and index.html as template.
@@ -24,18 +43,19 @@ const createPages = () => {
   })
     .filter(dirent => dirent.isDirectory())
     .map(dirent => {
-      if (!("sass" === dirent.name || "scripts" === dirent.name || "utils" === dirent.name)) {
+      if (
+        !(
+          "sass" === dirent.name ||
+          "scripts" === dirent.name ||
+          "utils" === dirent.name
+        )
+      ) {
         const page = dirent.name;
         htmlplugin.push(
-          new HtmlWebpackPlugin({
-            filename: `${page.replace("bcgov-", "")}.html`,
-            bodyHtml: converter.makeHtml(
-              marked(
-                String(readFileSync(Path.join(__dirname, `../src/components/${page}/readme.md`)))
-              )
-            ),
-            template: Path.resolve(__dirname, `../src/html/index.html`)
-          })
+          getHtmlWebpackPlugin(
+            `${page.replace("bcgov-", "")}.html`,
+            Path.join(__dirname, `../src/components/${page}/readme.md`)
+          )
         );
       }
     });
@@ -46,21 +66,15 @@ const createPages = () => {
   }).map(dirent => {
     const page = dirent.name;
     htmlplugin.push(
-      new HtmlWebpackPlugin({
-        filename: `${page.replace(".md", ".html")}`,
-        bodyHtml: converter.makeHtml(
-          String(readFileSync(Path.join(__dirname, `../src/html/pages/${page}`)))
-        ),
-        template: Path.resolve(__dirname, `../src/html/index.html`)
-      })
+      getHtmlWebpackPlugin(
+        `${page.replace(".md", ".html")}`,
+        Path.join(__dirname, `../src/html/pages/${page}`)
+      )
     );
   });
+
   htmlplugin.push(
-    new HtmlWebpackPlugin({
-      filename: `readme.html`,
-      bodyHtml: converter.makeHtml(String(readFileSync(Path.join(__dirname, `../README.md`)))),
-      template: Path.resolve(__dirname, `../src/html/index.html`)
-    })
+    getHtmlWebpackPlugin(`readme.html`, Path.join(__dirname, `../README.md`))
   );
   return htmlplugin;
 };

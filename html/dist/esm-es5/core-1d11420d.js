@@ -47,7 +47,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var BUILD = { "allRenderFn": true, "cmpDidLoad": true, "cmpShouldUpdate": false, "cmpDidUnload": false, "cmpDidUpdate": false, "cmpDidRender": true, "cmpWillLoad": true, "cmpWillUpdate": false, "cmpWillRender": false, "connectedCallback": false, "disconnectedCallback": false, "element": false, "event": false, "hasRenderFn": true, "lifecycle": true, "asyncLoading": true, "hostListener": true, "hostListenerTargetWindow": false, "hostListenerTargetDocument": false, "hostListenerTargetBody": false, "hostListenerTargetParent": false, "hostListenerTarget": false, "member": true, "method": false, "mode": false, "noVdomRender": false, "observeAttribute": true, "prop": true, "propBoolean": true, "propNumber": true, "propString": true, "propMutable": false, "reflect": false, "scoped": false, "shadowDom": false, "slot": true, "slotRelocation": true, "state": true, "style": false, "svg": false, "updatable": true, "vdomAttribute": true, "vdomXlink": true, "vdomClass": true, "vdomFunctional": false, "vdomKey": true, "vdomListener": true, "vdomRef": true, "vdomRender": true, "vdomStyle": true, "vdomText": true, "watchCallback": false, "taskQueue": true, "lazyLoad": true, "hydrateServerSide": false, "cssVarShim": true, "initializeNextTick": true, "hydrateClientSide": false, "isDebug": false, "isDev": false, "devTools": false, "lifecycleDOMEvents": false, "profile": false, "hotModuleReplacement": false, "constructableCSS": true, "cssAnnotations": true };
 var NAMESPACE = 'bcgov-web-components';
 var queueCongestion = 0;
 var queuePending = false;
@@ -68,7 +67,7 @@ var plt = {
     ael: function (el, eventName, listener, opts) { return el.addEventListener(eventName, listener, opts); },
     rel: function (el, eventName, listener, opts) { return el.removeEventListener(eventName, listener, opts); },
 };
-var supportsShadowDom = false;
+var supportsShadowDom = /*@__PURE__*/ (function () { return !!doc.documentElement.attachShadow; })();
 var supportsListenerOptions = /*@__PURE__*/ (function () {
     var supportsListenerOptions = false;
     try {
@@ -196,6 +195,7 @@ var writeTask = /*@__PURE__*/ queueTask(queueDomWrites, true);
  * Don't add values to these!!
  */
 var EMPTY_OBJ = {};
+var isDef = function (v) { return v != null; };
 var isComplexType = function (o) {
     // https://jsperf.com/typeof-fn-object/5
     o = typeof o;
@@ -621,6 +621,11 @@ var createElm = function (oldParentVNode, newParentVNode, childIndex, parentElm)
         {
             updateElement(null, newVNode, isSvgMode);
         }
+        if (isDef(scopeId) && elm['s-si'] !== scopeId) {
+            // if there is a scopeId and this is the initial render
+            // then let's add the scopeId as a css class
+            elm.classList.add((elm['s-si'] = scopeId));
+        }
         if (newVNode.$children$) {
             for (i = 0; i < newVNode.$children$.length; ++i) {
                 // create the node
@@ -680,6 +685,9 @@ var putBackInOriginalLocation = function (parentElm, recursive) {
 var addVnodes = function (parentElm, before, parentVNode, vnodes, startIdx, endIdx) {
     var containerElm = ((parentElm['s-cr'] && parentElm['s-cr'].parentNode) || parentElm);
     var childNode;
+    if (containerElm.shadowRoot && containerElm.tagName === hostTagName) {
+        containerElm = containerElm.shadowRoot;
+    }
     for (; startIdx <= endIdx; ++startIdx) {
         if (vnodes[startIdx]) {
             childNode = createElm(null, parentVNode, startIdx, parentElm);
@@ -992,10 +1000,13 @@ var renderVdom = function (hostElm, hostRef, cmpMeta, renderFnResults) {
     rootVnode.$tag$ = null;
     rootVnode.$flags$ |= 4 /* isHost */;
     hostRef.$vnode$ = rootVnode;
-    rootVnode.$elm$ = oldVNode.$elm$ = (hostElm);
+    rootVnode.$elm$ = oldVNode.$elm$ = (hostElm.shadowRoot || hostElm);
+    {
+        scopeId = hostElm['s-sc'];
+    }
     {
         contentRef = hostElm['s-cr'];
-        useNativeShadowDom = supportsShadowDom;
+        useNativeShadowDom = supportsShadowDom && (cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) !== 0;
         // always reset
         checkSlotRelocate = checkSlotFallbackVisibility = false;
     }
@@ -1417,7 +1428,7 @@ var connectedCallback = function (elm, cmpMeta) {
                 // in here to act as original content anchors as we move nodes around
                 // host element has been connected to the DOM
                 if ((cmpMeta.$flags$ & 4 /* hasSlotRelocation */) ||
-                    (BUILD.shadowDom /* needsShadowDomShim */)) {
+                    (cmpMeta.$flags$ & 8 /* needsShadowDomShim */)) {
                     setContentReference(elm);
                 }
             }
@@ -1516,6 +1527,9 @@ var bootstrapLazy = function (lazyBundles, options) {
         {
             cmpMeta.$listeners$ = compactMeta[3];
         }
+        if (!supportsShadowDom && cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) {
+            cmpMeta.$flags$ |= 8 /* needsShadowDomShim */;
+        }
         var tagName = cmpMeta.$tagName$;
         var HostElement = /** @class */ (function (_super) {
             __extends(HostElement, _super);
@@ -1526,6 +1540,17 @@ var bootstrapLazy = function (lazyBundles, options) {
                 _super.call(this, self) || this;
                 self = _this;
                 registerHost(self);
+                if (cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) {
+                    // this component is using shadow dom
+                    // and this browser supports shadow dom
+                    // add the read-only property "shadowRoot" to the host element
+                    if (supportsShadowDom) {
+                        self.attachShadow({ 'mode': 'open' });
+                    }
+                    else if (!('shadowRoot' in self)) {
+                        self.shadowRoot = self;
+                    }
+                }
                 return _this;
             }
             HostElement.prototype.connectedCallback = function () {

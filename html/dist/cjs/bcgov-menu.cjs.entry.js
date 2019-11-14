@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const core = require('./core-6e75ac3d.js');
+const core = require('./core-630b4e33.js');
 const utils = require('./utils-872e15ed.js');
 
 const BcgovMenu = class {

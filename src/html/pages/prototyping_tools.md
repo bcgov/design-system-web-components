@@ -1,4 +1,8 @@
-
+---
+description: How to use the design system prototyping libraries
+title: Prototype with the Design System
+author: orinevares
+---
 # Prototype with the Design System
 
 ## Sketch App (Coming Soon)

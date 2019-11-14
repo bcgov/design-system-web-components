@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<%= require('html-loader!./partials/head.html') %>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta
+      name="description"
+      content="<%= htmlWebpackPlugin.options.description %>"
+    />
+    <meta name="author" content="<%= htmlWebpackPlugin.options.author %>" />
+  </head>
 
-<body is="bcgov-styles">
-  <%= require('html-loader!./partials/header.html') %>
-  <main class="bcgov-main" id="main-content">
-    <%= htmlWebpackPlugin.options.bodyHtml %>
-  </main>
-  <%= require('html-loader!./partials/footer.html') %>
-</body>
-
+  <body is="bcgov-styles">
+    <%= require('html-loader!./partials/header.html') %>
+    <main class="bcgov-main" id="main-content">
+      <%= htmlWebpackPlugin.options.bodyHtml %>
+    </main>
+    <%= require('html-loader!./partials/footer.html') %>
+  </body>
 </html>

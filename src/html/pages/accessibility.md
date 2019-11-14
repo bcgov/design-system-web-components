@@ -1,4 +1,8 @@
-
+---
+description: Accessibility considerations in the design system
+title: Accessibility
+author: orinevares
+---
 # Accessibility
 
 The [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/TR/WCAG20/) are the internationally recognized guidelines for web accessibility. The Province is committed to meeting WCAG 2.0 and 2.1 Level AA. All design system components meet or exceed these standards.

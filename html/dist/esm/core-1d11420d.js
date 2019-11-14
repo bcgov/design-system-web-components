@@ -1,25 +1,3 @@
-'use strict';
-
-function _interopNamespace(e) {
-  if (e && e.__esModule) { return e; } else {
-    var n = {};
-    if (e) {
-      Object.keys(e).forEach(function (k) {
-        var d = Object.getOwnPropertyDescriptor(e, k);
-        Object.defineProperty(n, k, d.get ? d : {
-          enumerable: true,
-          get: function () {
-            return e[k];
-          }
-        });
-      });
-    }
-    n['default'] = e;
-    return n;
-  }
-}
-
-const BUILD = {"allRenderFn":true,"cmpDidLoad":true,"cmpShouldUpdate":false,"cmpDidUnload":false,"cmpDidUpdate":false,"cmpDidRender":true,"cmpWillLoad":true,"cmpWillUpdate":false,"cmpWillRender":false,"connectedCallback":false,"disconnectedCallback":false,"element":false,"event":false,"hasRenderFn":true,"lifecycle":true,"asyncLoading":true,"hostListener":true,"hostListenerTargetWindow":false,"hostListenerTargetDocument":false,"hostListenerTargetBody":false,"hostListenerTargetParent":false,"hostListenerTarget":false,"member":true,"method":false,"mode":false,"noVdomRender":false,"observeAttribute":true,"prop":true,"propBoolean":true,"propNumber":true,"propString":true,"propMutable":false,"reflect":false,"scoped":false,"shadowDom":false,"slot":true,"slotRelocation":true,"state":true,"style":false,"svg":false,"updatable":true,"vdomAttribute":true,"vdomXlink":true,"vdomClass":true,"vdomFunctional":false,"vdomKey":true,"vdomListener":true,"vdomRef":true,"vdomRender":true,"vdomStyle":true,"vdomText":true,"watchCallback":false,"taskQueue":true,"lazyLoad":true,"hydrateServerSide":false,"cssVarShim":true,"initializeNextTick":true,"hydrateClientSide":false,"isDebug":false,"isDev":false,"devTools":false,"lifecycleDOMEvents":false,"profile":false,"hotModuleReplacement":false,"constructableCSS":true,"cssAnnotations":true};
 const NAMESPACE = 'bcgov-web-components';
 
 let queueCongestion = 0;
@@ -41,7 +19,7 @@ const plt = {
     ael: (el, eventName, listener, opts) => el.addEventListener(eventName, listener, opts),
     rel: (el, eventName, listener, opts) => el.removeEventListener(eventName, listener, opts),
 };
-const supportsShadowDom =  false;
+const supportsShadowDom =  /*@__PURE__*/ (() => !!doc.documentElement.attachShadow)() ;
 const supportsListenerOptions = /*@__PURE__*/ (() => {
     let supportsListenerOptions = false;
     try {
@@ -79,11 +57,11 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
     if (module) {
         return module[exportName];
     }
-    return new Promise(function (resolve) { resolve(_interopNamespace(require(
+    return import(
     /* webpackInclude: /\.entry\.js$/ */
     /* webpackExclude: /\.system\.entry\.js$/ */
     /* webpackMode: "lazy" */
-    `./${bundleId}.entry.js${ ''}`))); }).then(importedModule => {
+    `./${bundleId}.entry.js${ ''}`).then(importedModule => {
         {
             moduleCache.set(bundleId, importedModule);
         }
@@ -169,6 +147,7 @@ const writeTask = /*@__PURE__*/ queueTask(queueDomWrites, true);
  * Don't add values to these!!
  */
 const EMPTY_OBJ = {};
+const isDef = (v) => v != null;
 const isComplexType = (o) => {
     // https://jsperf.com/typeof-fn-object/5
     o = typeof o;
@@ -191,7 +170,7 @@ const patchEsm = () => {
     // @ts-ignore
     if ( !(win.CSS && win.CSS.supports && win.CSS.supports('color', 'var(--c)'))) {
         // @ts-ignore
-        return new Promise(function (resolve) { resolve(require('./css-shim-978387b1-52a5db49.js')); }).then(() => {
+        return import('./css-shim-978387b1-1e75855f.js').then(() => {
             plt.$cssShim$ = win.__stencil_cssshim;
             if (plt.$cssShim$) {
                 return plt.$cssShim$.initShim();
@@ -205,7 +184,7 @@ const patchBrowser = async () => {
         plt.$cssShim$ = win.__stencil_cssshim;
     }
     // @ts-ignore
-    const importMeta = (typeof document === 'undefined' ? new (require('u' + 'rl').URL)('file:' + __filename).href : (document.currentScript && document.currentScript.src || new URL('core-6e75ac3d.js', document.baseURI).href));
+    const importMeta = "";
     const regex = new RegExp(`\/${NAMESPACE}(\\.esm)?\\.js($|\\?|#)`);
     const scriptElm = Array.from(doc.querySelectorAll('script')).find(s => (regex.test(s.src) ||
         s.getAttribute('data-stencil-namespace') === NAMESPACE));
@@ -218,7 +197,7 @@ const patchBrowser = async () => {
         patchDynamicImport(resourcesUrl.href);
         if (!window.customElements) {
             // @ts-ignore
-            await new Promise(function (resolve) { resolve(require('./dom-96781eef-e2cadb44.js')); });
+            await import('./dom-96781eef-a2fb04dd.js');
         }
         return Object.assign(Object.assign({}, opts), { resourcesUrl: resourcesUrl.href });
     }
@@ -583,6 +562,11 @@ const createElm = (oldParentVNode, newParentVNode, childIndex, parentElm) => {
         {
             updateElement(null, newVNode, isSvgMode);
         }
+        if ( isDef(scopeId) && elm['s-si'] !== scopeId) {
+            // if there is a scopeId and this is the initial render
+            // then let's add the scopeId as a css class
+            elm.classList.add((elm['s-si'] = scopeId));
+        }
         if (newVNode.$children$) {
             for (i = 0; i < newVNode.$children$.length; ++i) {
                 // create the node
@@ -642,6 +626,9 @@ const putBackInOriginalLocation = (parentElm, recursive) => {
 const addVnodes = (parentElm, before, parentVNode, vnodes, startIdx, endIdx) => {
     let containerElm = (( parentElm['s-cr'] && parentElm['s-cr'].parentNode) || parentElm);
     let childNode;
+    if ( containerElm.shadowRoot && containerElm.tagName === hostTagName) {
+        containerElm = containerElm.shadowRoot;
+    }
     for (; startIdx <= endIdx; ++startIdx) {
         if (vnodes[startIdx]) {
             childNode = createElm(null, parentVNode, startIdx, parentElm);
@@ -954,10 +941,13 @@ const renderVdom = (hostElm, hostRef, cmpMeta, renderFnResults) => {
     rootVnode.$tag$ = null;
     rootVnode.$flags$ |= 4 /* isHost */;
     hostRef.$vnode$ = rootVnode;
-    rootVnode.$elm$ = oldVNode.$elm$ = ( hostElm);
+    rootVnode.$elm$ = oldVNode.$elm$ = ( hostElm.shadowRoot || hostElm );
+    {
+        scopeId = hostElm['s-sc'];
+    }
     {
         contentRef = hostElm['s-cr'];
-        useNativeShadowDom = supportsShadowDom ;
+        useNativeShadowDom = supportsShadowDom && (cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) !== 0;
         // always reset
         checkSlotRelocate = checkSlotFallbackVisibility = false;
     }
@@ -1365,7 +1355,7 @@ const connectedCallback = (elm, cmpMeta) => {
                 // host element has been connected to the DOM
                 if (
                     ( cmpMeta.$flags$ & 4 /* hasSlotRelocation */) ||
-                    (BUILD.shadowDom  /* needsShadowDomShim */)) {
+                    ( cmpMeta.$flags$ & 8 /* needsShadowDomShim */)) {
                     setContentReference(elm);
                 }
             }
@@ -1463,6 +1453,9 @@ const bootstrapLazy = (lazyBundles, options = {}) => {
         {
             cmpMeta.$listeners$ = compactMeta[3];
         }
+        if ( !supportsShadowDom && cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) {
+            cmpMeta.$flags$ |= 8 /* needsShadowDomShim */;
+        }
         const tagName = cmpMeta.$tagName$;
         const HostElement = class extends HTMLElement {
             // StencilLazyHost
@@ -1471,6 +1464,17 @@ const bootstrapLazy = (lazyBundles, options = {}) => {
                 super(self);
                 self = this;
                 registerHost(self);
+                if ( cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) {
+                    // this component is using shadow dom
+                    // and this browser supports shadow dom
+                    // add the read-only property "shadowRoot" to the host element
+                    if (supportsShadowDom) {
+                        self.attachShadow({ 'mode': 'open' });
+                    }
+                    else if ( !('shadowRoot' in self)) {
+                        self.shadowRoot = self;
+                    }
+                }
             }
             connectedCallback() {
                 if (appLoadFallback) {
@@ -1520,10 +1524,4 @@ const bootstrapLazy = (lazyBundles, options = {}) => {
 };
 const getElement = (ref) =>  getHostRef(ref).$hostElement$ ;
 
-exports.Host = Host;
-exports.bootstrapLazy = bootstrapLazy;
-exports.getElement = getElement;
-exports.h = h;
-exports.patchBrowser = patchBrowser;
-exports.patchEsm = patchEsm;
-exports.registerInstance = registerInstance;
+export { Host as H, patchEsm as a, bootstrapLazy as b, getElement as g, h, patchBrowser as p, registerInstance as r };

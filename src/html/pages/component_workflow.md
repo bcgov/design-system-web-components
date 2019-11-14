@@ -1,4 +1,8 @@
-
+---
+description: Components are constantly being added to the design system. The backlog shows what’s on the list, upcoming, and currently in development.
+title: Component Backlog
+status: draft
+---
 # **Component Backlog**
 
 Components are added to the Design System incrementally and are developed in several stages. You can [View our Current Backlog]( https://github.com/bcgov/design-system/projects/1) to see what we’re working on now.

@@ -1,3 +1,8 @@
+---
+description: Anyone can propose a new component for inclusion in the B.C. government Design System. Components are proposed and selected for development based off our evaluation criteria.
+title: Propose a New Component
+status: draft
+---
 
 # **Propose a New Component**
 

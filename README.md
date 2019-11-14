@@ -1,3 +1,9 @@
+---
+description: How to install web components.
+title:  BCGov Web Components.
+author: sturple
+---
+
 # BCGov Design System Web Components
 
 ## Install

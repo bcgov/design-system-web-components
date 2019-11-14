@@ -1,3 +1,8 @@
+---
+description: What the Design System is and how it works.
+title: About
+author: ksingbeil
+---
 # About
 
 The Design System helps developers and designers build better digital products and services.
