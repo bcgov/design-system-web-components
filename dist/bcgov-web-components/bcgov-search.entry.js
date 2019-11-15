@@ -1,0 +1,1 @@
+import{r,h as s,H as t,g as c}from"./core-5419bd1c.js";const e=class{constructor(s){r(this,s)}render(){return s(t,null,s("div",{class:"search-container"},s("slot",null)))}get el(){return c(this)}};export{e as bcgov_search};

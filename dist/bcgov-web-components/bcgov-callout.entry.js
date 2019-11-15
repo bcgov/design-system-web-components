@@ -1,0 +1,1 @@
+import{r,h as o,H as s}from"./core-5419bd1c.js";const t=class{constructor(o){r(this,o)}render(){return o(s,null,o("slot",null))}};export{t as bcgov_callout};
