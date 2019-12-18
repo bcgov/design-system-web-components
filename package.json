@@ -12,7 +12,7 @@
   "unpkg": "html/dist/bcgov-web-components/bcgov-web-components.js",
   "files": [
     "html/dist",
-    "src/components/sass"
+    "src/components"
   ],
   "scripts": {
     "build": "stencil build --prod  --docs-readme && NODE_ENV=production webpack --config webpack/webpack.config.prod.js  --colors ",
@@ -55,7 +55,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.7.4",
     "@babel/plugin-transform-classes": "^7.7.4",
     "@babel/preset-env": "^7.7.6",
-    "@stencil/core": "^1.8.1",
+    "@stencil/core": "^1.8.2",
     "@stencil/sass": "^1.1",
     "@types/jest": "24.0.22",
     "@types/node": "^12.12.21",
