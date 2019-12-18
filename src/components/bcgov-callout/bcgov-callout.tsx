@@ -6,7 +6,7 @@ import { Component, Host, h } from "@stencil/core";
 export class BcgovCallout {
   render() {
     return (
-      <Host>
+      <Host class="bcgov-callout">
         <slot />
       </Host>
     );

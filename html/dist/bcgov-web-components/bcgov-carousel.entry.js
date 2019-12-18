@@ -1,1 +1,1 @@
-import{r,h as s,H as o}from"./core-f0a08712.js";const t=class{constructor(s){r(this,s)}render(){return s(o,null,s("slot",null))}};export{t as bcgov_carousel};
+import{r as s,h as r,H as o}from"./core-5419bd1c.js";const c=class{constructor(r){s(this,r)}render(){return r(o,{class:"bcgov-carousel"},r("slot",null))}};export{c as bcgov_carousel};

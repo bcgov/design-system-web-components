@@ -1,11 +1,11 @@
-import { r as registerInstance, h, H as Host } from './core-1d11420d.js';
+import { r as registerInstance, h, H as Host } from './core-7721131c.js';
 
 const BcgovCarousel = class {
     constructor(hostRef) {
         registerInstance(this, hostRef);
     }
     render() {
-        return (h(Host, null, h("slot", null)));
+        return (h(Host, { class: "bcgov-carousel" }, h("slot", null)));
     }
 };
 

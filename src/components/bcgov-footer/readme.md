@@ -45,30 +45,42 @@ As read using ChromeVox
 ## Example
 
 ```html
-<bcgov-footer >
-  <bcgov-menu alignment="right">
+<bcgov-footer alignment="right">
+  <bcgov-menu >
     <a href="/">Home</a>
     <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
     <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
     <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
   </bcgov-menu>
+  <img
+    src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
+    alt="Branding logo" />
 </bcgov-footer>
 ```
 
 # Component
-<bcgov-footer >
-  <bcgov-menu alignment="right">
+<bcgov-footer alignment="right">
+  <bcgov-menu >
     <a href="/">Home</a>
     <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
     <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
     <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
   </bcgov-menu>
-  
+  <img
+    src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
+    alt="Branding logo" />
 </bcgov-footer>
 
 
 
 <!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property    | Attribute   | Description       | Type                | Default  |
+| ----------- | ----------- | ----------------- | ------------------- | -------- |
+| `alignment` | `alignment` | Alignment of menu | `"left" \| "right"` | `"left"` |
 
 
 ----------------------------------------------

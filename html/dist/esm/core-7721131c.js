@@ -156,16 +156,6 @@ const isComplexType = (o) => {
 const getDynamicImportFunction = (namespace) => {
     return `__sc_import_${namespace.replace(/\s|-/g, '_')}`;
 };
-const createTime = (fnName, tagName = '') => {
-    {
-        return () => { return; };
-    }
-};
-const uniqueTime = (key, measureText) => {
-    {
-        return () => { return; };
-    }
-};
 const patchEsm = () => {
     // @ts-ignore
     if ( !(win.CSS && win.CSS.supports && win.CSS.supports('color', 'var(--c)'))) {
@@ -258,6 +248,16 @@ const parsePropertyValue = (propValue, propType) => {
 };
 const HYDRATED_CLASS = 'hydrated';
 const XLINK_NS = 'http://www.w3.org/1999/xlink';
+const createTime = (fnName, tagName = '') => {
+    {
+        return () => { return; };
+    }
+};
+const uniqueTime = (key, measureText) => {
+    {
+        return () => { return; };
+    }
+};
 /**
  * Production h() function based on Preact by
  * Jason Miller (@developit)
@@ -351,9 +351,7 @@ const newVNode = (tag, text) => {
     return vnode;
 };
 const Host = {};
-const isHost = (node) => {
-    return node && node.$tag$ === Host;
-};
+const isHost = (node) => node && node.$tag$ === Host;
 /**
  * Production setAccessor() function based on Preact by
  * Jason Miller (@developit)
@@ -949,7 +947,7 @@ const renderVdom = (hostElm, hostRef, cmpMeta, renderFnResults) => {
         contentRef = hostElm['s-cr'];
         useNativeShadowDom = supportsShadowDom && (cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) !== 0;
         // always reset
-        checkSlotRelocate = checkSlotFallbackVisibility = false;
+        checkSlotFallbackVisibility = false;
     }
     // synchronous patch
     patch(oldVNode, rootVnode);

@@ -1,7 +1,7 @@
 import { Host, h } from "@stencil/core";
 export class BcgovCarousel {
     render() {
-        return (h(Host, null,
+        return (h(Host, { class: "bcgov-carousel" },
             h("slot", null)));
     }
     static get is() { return "bcgov-carousel"; }

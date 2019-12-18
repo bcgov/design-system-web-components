@@ -9,7 +9,7 @@ export class BcgovBeta {
         this.el.innerHTML = this.label;
     }
     render() {
-        return h(Host, { "aria-label": this.content, "aria-role": "alert", tabindex: "0" });
+        return (h(Host, { class: "bcgov-beta", "aria-label": this.content, "aria-role": "alert", tabindex: "0" }));
     }
     static get is() { return "bcgov-beta"; }
     static get properties() { return {

@@ -7,7 +7,7 @@ export class BcgovBreadcrumb {
         });
     }
     render() {
-        return (h(Host, { "aria-label": "Breadcrumb", role: "nav" },
+        return (h(Host, { "aria-label": "Breadcrumb", role: "nav", class: "bcgov-breadcrumb" },
             h("ol", { itemscope: true, itemtype: "http://schema.org/BreadcrumbList" },
                 h("slot", null))));
     }

@@ -82,7 +82,7 @@ export class BcgovButton {
     render() {
         const btnStyle = `${this.buttonStyle} bcgov-button`;
         if (["hamburger", "search"].includes(this.buttonStyle)) {
-            return (h(Host, { target: this.target },
+            return (h(Host, { target: this.target, class: "bcgov-button" },
                 h("button", { class: btnStyle, "aria-expanded": this.active },
                     h("div", null),
                     h("slot", null))));

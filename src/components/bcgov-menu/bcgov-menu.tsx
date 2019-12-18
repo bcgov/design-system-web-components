@@ -17,6 +17,8 @@ export class BcgovMenu {
   @Prop() alignment: string = "left";
 
   @Prop() primary: string;
+
+  @Prop() sidebar: string;
   /** Menu id used for instructions
    * TODO: this might need more consideration
    */
@@ -241,6 +243,9 @@ export class BcgovMenu {
       const props = { role: "menubar", tabindex: "0", class: alignment };
       if (undefined !== this.primary) {
         props["aria-labelledby"] = instructionID;
+      }
+      if (undefined !== this.sidebar) {
+        props["class"] += " sidebar-menu";
       }
       return (
         <Host>

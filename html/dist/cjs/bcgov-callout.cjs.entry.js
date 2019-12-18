@@ -2,14 +2,14 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const core = require('./core-630b4e33.js');
+const core = require('./core-377f239a.js');
 
 const BcgovCallout = class {
     constructor(hostRef) {
         core.registerInstance(this, hostRef);
     }
     render() {
-        return (core.h(core.Host, null, core.h("slot", null)));
+        return (core.h(core.Host, { class: "bcgov-callout" }, core.h("slot", null)));
     }
 };
 

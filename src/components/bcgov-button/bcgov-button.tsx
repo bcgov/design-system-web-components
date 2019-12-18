@@ -113,7 +113,7 @@ export class BcgovButton {
     const btnStyle = `${this.buttonStyle} bcgov-button`;
     if (["hamburger", "search"].includes(this.buttonStyle)) {
       return (
-        <Host target={this.target}>
+        <Host target={this.target} class="bcgov-button">
           <button class={btnStyle} aria-expanded={this.active}>
             <div></div>
             <slot />

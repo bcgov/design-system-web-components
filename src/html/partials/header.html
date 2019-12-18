@@ -11,9 +11,8 @@
     >Skip to Accessibility Statement</a
   >
 
-  <bcgov-button button-style="search" target="search-navigation"
-    >Search</bcgov-button
-  >
+  <bcgov-button button-style="dark">Download</bcgov-button>
+  <bcgov-button button-style="dark" link="">View on Github</bcgov-button>
   <bcgov-button button-style="hamburger" target="main-navigation"
     >Menu</bcgov-button
   >
@@ -24,9 +23,18 @@
   instructions="Use arrow keys to navigate between menuitems, spacebar to expand submenus, escape key to close
   submenus, enter to activate menuitems."
   primary
-  alignment="center"
-  breakpoint="1100"
+  alignment="left"
+  breakpoint="778"
 >
+  <a href="/index.html">Home</a>
+  <a href="/styles/index.html">Styles</a>
+  <a href="/components/index.html">Components</a>
+  <a href="/documentation/index.html">Documentation</a>
+
+  <!--
+
+
+
   <a href="index.html">Home</a>
   <a href="readme.html">How to Use</a>
   <bcgov-menu href="#" name="Design System">
@@ -47,20 +55,14 @@
     <a href="breadcrumb.html">Breadcrumbs</a>
     <a href="search.html">Search</a>
     <a href="carousel.html">Carousel</a>
+    <a href="form.html">Forms</a>
   </bcgov-menu>
-  <!--
+
   <bcgov-menu href="#" name="Helper Components">
     <a href="tab.html">Tabs</a>
     <a href="collapse.html">Collapse</a>
   </bcgov-menu>
   <a href="developer.html">Developer</a>
-   
+   <a href="developer.html">Resources</a>
   -->
-  <a href="developer.html">Resources</a>
 </bcgov-menu>
-<bcgov-search id="search-navigation">
-  <form>
-    <input type="search" placeholder="Search" />
-    <bcgov-button button-style="search-inline">Search</bcgov-button>
-  </form>
-</bcgov-search>

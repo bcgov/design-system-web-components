@@ -2,6 +2,7 @@ export declare class BcgovMenu {
     /** Alignment of menu */
     alignment: string;
     primary: string;
+    sidebar: string;
     /** Menu id used for instructions
      * TODO: this might need more consideration
      */

@@ -95,6 +95,7 @@ As read using ChromeVox
 | `menuId`       | `menu-id`      | Menu id used for instructions TODO: this might need more consideration | `string`  | `"menu"`                                                                                                                                    |
 | `name`         | `name`         | Label for submenu                                                      | `string`  | `undefined`                                                                                                                                 |
 | `primary`      | `primary`      |                                                                        | `string`  | `undefined`                                                                                                                                 |
+| `sidebar`      | `sidebar`      |                                                                        | `string`  | `undefined`                                                                                                                                 |
 
 
 ----------------------------------------------

@@ -11,10 +11,15 @@
     <meta name="author" content="<%= htmlWebpackPlugin.options.author %>" />
   </head>
 
-  <body is="bcgov-styles">
+  <body is="bcgov-styles" class="<%= htmlWebpackPlugin.options.bodyClass %>">
     <%= require('html-loader!./partials/header.html') %>
     <main class="bcgov-main" id="main-content">
-      <%= htmlWebpackPlugin.options.bodyHtml %>
+      <div class="section-content">
+        <%= htmlWebpackPlugin.options.bodyHtml %>
+      </div>
+      <div class="section-sidebar">
+        <%= htmlWebpackPlugin.options.sidebar %>
+      </div>
     </main>
     <%= require('html-loader!./partials/footer.html') %>
   </body>

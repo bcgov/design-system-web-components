@@ -190,6 +190,9 @@ export class BcgovMenu {
             if (undefined !== this.primary) {
                 props["aria-labelledby"] = instructionID;
             }
+            if (undefined !== this.sidebar) {
+                props["class"] += " sidebar-menu";
+            }
             return (h(Host, null,
                 h("ul", Object.assign({}, props),
                     h("slot", null)),
@@ -231,6 +234,23 @@ export class BcgovMenu {
                 "text": ""
             },
             "attribute": "primary",
+            "reflect": false
+        },
+        "sidebar": {
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "string",
+                "resolved": "string",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "sidebar",
             "reflect": false
         },
         "menuId": {

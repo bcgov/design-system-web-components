@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const core = require('./core-630b4e33.js');
+const core = require('./core-377f239a.js');
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -1098,7 +1098,7 @@ const BcgovButton = class {
     render() {
         const btnStyle = `${this.buttonStyle} bcgov-button`;
         if (["hamburger", "search"].includes(this.buttonStyle)) {
-            return (core.h(core.Host, { target: this.target }, core.h("button", { class: btnStyle, "aria-expanded": this.active }, core.h("div", null), core.h("slot", null))));
+            return (core.h(core.Host, { target: this.target, class: "bcgov-button" }, core.h("button", { class: btnStyle, "aria-expanded": this.active }, core.h("div", null), core.h("slot", null))));
         }
         else {
             if ("button" === this.link) {

@@ -1,4 +1,4 @@
-import { r as registerInstance, h } from './core-1d11420d.js';
+import { r as registerInstance, h } from './core-7721131c.js';
 var BcgovSectionDivider = /** @class */ (function () {
     function BcgovSectionDivider(hostRef) {
         registerInstance(this, hostRef);

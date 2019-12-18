@@ -10,7 +10,9 @@ export class BcgovHeader {
   @Element() el;
 
   componentDidRender() {
-    [].forEach.call(this.el.querySelectorAll('a[slot="hidden-link"]'), function(element) {
+    [].forEach.call(this.el.querySelectorAll('a[slot="hidden-link"]'), function(
+      element
+    ) {
       filterATags(element);
     });
   }
@@ -19,7 +21,11 @@ export class BcgovHeader {
       <Host>
         <header class="bcgov-header">
           <div class="banner">
-            <a class="branding-logo" href={this.href} aria-label="branding logo">
+            <a
+              class="branding-logo"
+              href={this.href}
+              aria-label="branding logo"
+            >
               <slot name="logo"></slot>
             </a>
             <div class="hl">

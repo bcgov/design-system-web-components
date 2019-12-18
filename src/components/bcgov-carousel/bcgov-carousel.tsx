@@ -1,17 +1,15 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, h } from "@stencil/core";
 
 @Component({
-  tag: 'bcgov-carousel',
+  tag: "bcgov-carousel",
   shadow: true
 })
 export class BcgovCarousel {
-
   render() {
     return (
-      <Host>
+      <Host class="bcgov-carousel">
         <slot></slot>
       </Host>
     );
   }
-
 }

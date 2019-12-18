@@ -33,11 +33,17 @@ module.exports = merge(common, {
     useLocalIp: false //set to true to use actual ip address
   },
   plugins: [
+    new Webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1
+    }),
     new Webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("development")
     }),
     //new Webpack.HotModuleReplacementPlugin(),
-    new WebpackShellPlugin({ onBuildStart: ["stencil build --prod --watch"], dev: true }),
+    new WebpackShellPlugin({
+      onBuildStart: ["stencil build --prod --watch"],
+      dev: true
+    }),
     new WatchRunPlugin()
   ],
   module: {

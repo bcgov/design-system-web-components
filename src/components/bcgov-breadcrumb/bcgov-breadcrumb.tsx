@@ -15,7 +15,7 @@ export class BcgovBreadcrumb {
 
   render() {
     return (
-      <Host aria-label="Breadcrumb" role="nav">
+      <Host aria-label="Breadcrumb" role="nav" class="bcgov-breadcrumb">
         <ol itemscope itemtype="http://schema.org/BreadcrumbList">
           <slot></slot>
         </ol>

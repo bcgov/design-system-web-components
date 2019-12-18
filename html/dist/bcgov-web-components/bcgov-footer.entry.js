@@ -1,1 +1,1 @@
-import{r,h as o,H as s}from"./core-f0a08712.js";const t=class{constructor(o){r(this,o)}render(){return o(s,null,o("slot",null))}};export{t as bcgov_footer};
+import{r as o,h as r,H as t}from"./core-5419bd1c.js";const s=class{constructor(r){o(this,r),this.alignment="left"}render(){return r(t,Object.assign({},{role:"footer",class:"bcgov-footer align-"+this.alignment}),r("slot",null))}};export{s as bcgov_footer};

@@ -13,6 +13,13 @@ export class BcgovBeta {
     this.el.innerHTML = this.label;
   }
   render() {
-    return <Host aria-label={this.content} aria-role="alert" tabindex="0"></Host>;
+    return (
+      <Host
+        class="bcgov-beta"
+        aria-label={this.content}
+        aria-role="alert"
+        tabindex="0"
+      ></Host>
+    );
   }
 }

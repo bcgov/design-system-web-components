@@ -11,13 +11,15 @@ const showdownHighlight = require("showdown-highlight");
 let converter = new showdown.Converter({ extensions: [showdownHighlight] });
 const marked = require("marked");
 
-const getHtmlWebpackPlugin = (filename, mdfile) => {
+const getHtmlWebpackPlugin = (filename, mdfile, sidebar = "") => {
   const output = readFileSync(mdfile, "utf8");
   let { metadata, content } = parseMD.default(output);
   content = converter.makeHtml(marked(String(content)));
   let options = {
     filename: filename,
     bodyHtml: content,
+    sidebar: sidebar,
+    bodyClass: sidebar.length > 10 ? "has-sidebar" : "",
     template: Path.resolve(__dirname, `../src/html/index.html`)
   };
 
@@ -38,6 +40,12 @@ const createPages = () => {
    * Finds all the directories in ../src/bcgov in order to make pages,
    *  using the readme.md, and index.html as template.
    */
+  const sidebar_components = parseMarkDown(
+    Path.join(__dirname, `../src/html/sidebar/components.md`)
+  ).bodyHtml;
+  const sidebar_documentation = parseMarkDown(
+    Path.join(__dirname, `../src/html/sidebar/documentation.md`)
+  ).bodyHtml;
   readdirSync(Path.resolve(__dirname, "../src/components"), {
     withFileTypes: true
   })
@@ -53,28 +61,45 @@ const createPages = () => {
         const page = dirent.name;
         htmlplugin.push(
           getHtmlWebpackPlugin(
-            `${page.replace("bcgov-", "")}.html`,
-            Path.join(__dirname, `../src/components/${page}/readme.md`)
+            `components/${page.replace("bcgov-", "")}.html`,
+            Path.join(__dirname, `../src/components/${page}/readme.md`),
+            sidebar_components
           )
         );
       }
     });
 
   /** Creates pages from md files */
-  readdirSync(Path.resolve(__dirname, "../src/html/pages"), {
-    withFileTypes: true
-  }).map(dirent => {
-    const page = dirent.name;
-    htmlplugin.push(
-      getHtmlWebpackPlugin(
-        `${page.replace(".md", ".html")}`,
-        Path.join(__dirname, `../src/html/pages/${page}`)
-      )
-    );
+  ["styles", "documentation", "components"].forEach(function(directory) {
+    const sidebar = parseMarkDown(
+      Path.join(__dirname, `../src/html/sidebar/${directory}.md`)
+    ).bodyHtml;
+    readdirSync(Path.resolve(__dirname, `../src/html/pages/${directory}`), {
+      withFileTypes: true
+    }).map(dirent => {
+      const page = dirent.name;
+      htmlplugin.push(
+        getHtmlWebpackPlugin(
+          `${directory}/${page.replace(".md", ".html")}`,
+          Path.join(__dirname, `../src/html/pages/${directory}/${page}`),
+          sidebar
+        )
+      );
+    });
   });
 
   htmlplugin.push(
-    getHtmlWebpackPlugin(`readme.html`, Path.join(__dirname, `../README.md`))
+    getHtmlWebpackPlugin(
+      `index.html`,
+      Path.join(__dirname, `../src/html/pages/index.md`)
+    )
+  );
+  htmlplugin.push(
+    getHtmlWebpackPlugin(
+      `documentation/readme.html`,
+      Path.join(__dirname, `../README.md`),
+      sidebar_documentation
+    )
   );
   return htmlplugin;
 };

@@ -6,7 +6,7 @@ import { Component, Host, h } from "@stencil/core";
 export class BcgovForm {
   render() {
     return (
-      <Host>
+      <Host class="bcgov-form">
         <div>This is a form component</div>
         <slot></slot>
       </Host>

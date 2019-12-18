@@ -44,7 +44,12 @@ export namespace Components {
   }
   interface BcgovCallout {}
   interface BcgovCarousel {}
-  interface BcgovFooter {}
+  interface BcgovFooter {
+    /**
+    * Alignment of menu
+    */
+    'alignment': "left" | "right";
+  }
   interface BcgovForm {}
   interface BcgovHeader {
     /**
@@ -82,6 +87,7 @@ export namespace Components {
     */
     'name': string;
     'primary': string;
+    'sidebar': string;
   }
   interface BcgovSearch {}
   interface BcgovSectionDivider {
@@ -208,7 +214,12 @@ declare namespace LocalJSX {
   }
   interface BcgovCallout {}
   interface BcgovCarousel {}
-  interface BcgovFooter {}
+  interface BcgovFooter {
+    /**
+    * Alignment of menu
+    */
+    'alignment'?: "left" | "right";
+  }
   interface BcgovForm {}
   interface BcgovHeader {
     /**
@@ -246,6 +257,7 @@ declare namespace LocalJSX {
     */
     'name'?: string;
     'primary'?: string;
+    'sidebar'?: string;
   }
   interface BcgovSearch {}
   interface BcgovSectionDivider {
