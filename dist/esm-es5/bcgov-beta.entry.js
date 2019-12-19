@@ -1,4 +1,4 @@
-import { r as registerInstance, h, g as getElement, H as Host } from './core-7721131c.js';
+import { r as registerInstance, h, g as getElement, H as Host } from './core-10536731.js';
 var BcgovBeta = /** @class */ (function () {
     function BcgovBeta(hostRef) {
         registerInstance(this, hostRef);
@@ -10,7 +10,7 @@ var BcgovBeta = /** @class */ (function () {
         this.el.innerHTML = this.label;
     };
     BcgovBeta.prototype.render = function () {
-        return h(Host, { "aria-label": this.content, "aria-role": "alert", tabindex: "0" });
+        return (h(Host, { class: "bcgov-beta", "aria-label": this.content, "aria-role": "alert", tabindex: "0" }));
     };
     Object.defineProperty(BcgovBeta.prototype, "el", {
         get: function () { return getElement(this); },

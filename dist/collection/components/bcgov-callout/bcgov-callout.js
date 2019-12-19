@@ -1,7 +1,7 @@
 import { Host, h } from "@stencil/core";
 export class BcgovCallout {
     render() {
-        return (h(Host, null,
+        return (h(Host, { class: "bcgov-callout" },
             h("slot", null)));
     }
     static get is() { return "bcgov-callout"; }

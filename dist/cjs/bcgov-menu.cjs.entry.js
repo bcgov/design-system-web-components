@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const core = require('./core-377f239a.js');
+const core = require('./core-85ceac9a.js');
 const utils = require('./utils-872e15ed.js');
 
 const BcgovMenu = class {
@@ -191,6 +191,9 @@ const BcgovMenu = class {
             const props = { role: "menubar", tabindex: "0", class: alignment };
             if (undefined !== this.primary) {
                 props["aria-labelledby"] = instructionID;
+            }
+            if (undefined !== this.sidebar) {
+                props["class"] += " sidebar-menu";
             }
             return (core.h(core.Host, null, core.h("ul", Object.assign({}, props), core.h("slot", null)), undefined !== this.primary && (core.h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
         }

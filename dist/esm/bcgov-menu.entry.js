@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-7721131c.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './core-10536731.js';
 import { m as menuElement, a as findAncestor, k as keys } from './utils-923a28b7.js';
 
 const BcgovMenu = class {
@@ -187,6 +187,9 @@ const BcgovMenu = class {
             const props = { role: "menubar", tabindex: "0", class: alignment };
             if (undefined !== this.primary) {
                 props["aria-labelledby"] = instructionID;
+            }
+            if (undefined !== this.sidebar) {
+                props["class"] += " sidebar-menu";
             }
             return (h(Host, null, h("ul", Object.assign({}, props), h("slot", null)), undefined !== this.primary && (h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
         }

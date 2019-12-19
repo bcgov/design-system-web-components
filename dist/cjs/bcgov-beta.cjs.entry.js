@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const core = require('./core-377f239a.js');
+const core = require('./core-85ceac9a.js');
 
 const BcgovBeta = class {
     constructor(hostRef) {
@@ -15,7 +15,7 @@ const BcgovBeta = class {
         this.el.innerHTML = this.label;
     }
     render() {
-        return core.h(core.Host, { "aria-label": this.content, "aria-role": "alert", tabindex: "0" });
+        return (core.h(core.Host, { class: "bcgov-beta", "aria-label": this.content, "aria-role": "alert", tabindex: "0" }));
     }
     get el() { return core.getElement(this); }
 };

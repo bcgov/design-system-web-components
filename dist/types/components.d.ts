@@ -44,7 +44,12 @@ export namespace Components {
   }
   interface BcgovCallout {}
   interface BcgovCarousel {}
-  interface BcgovFooter {}
+  interface BcgovFooter {
+    /**
+    * Alignment of menu
+    */
+    'alignment': "left" | "right";
+  }
   interface BcgovForm {}
   interface BcgovHeader {
     /**
@@ -82,12 +87,9 @@ export namespace Components {
     */
     'name': string;
     'primary': string;
+    'sidebar': string;
   }
   interface BcgovSearch {}
-  interface BcgovSectionDivider {
-    'margins': any;
-    'thickness': any;
-  }
 }
 
 declare global {
@@ -152,12 +154,6 @@ declare global {
     prototype: HTMLBcgovSearchElement;
     new (): HTMLBcgovSearchElement;
   };
-
-  interface HTMLBcgovSectionDividerElement extends Components.BcgovSectionDivider, HTMLStencilElement {}
-  var HTMLBcgovSectionDividerElement: {
-    prototype: HTMLBcgovSectionDividerElement;
-    new (): HTMLBcgovSectionDividerElement;
-  };
   interface HTMLElementTagNameMap {
     'bcgov-beta': HTMLBcgovBetaElement;
     'bcgov-breadcrumb': HTMLBcgovBreadcrumbElement;
@@ -169,7 +165,6 @@ declare global {
     'bcgov-header': HTMLBcgovHeaderElement;
     'bcgov-menu': HTMLBcgovMenuElement;
     'bcgov-search': HTMLBcgovSearchElement;
-    'bcgov-section-divider': HTMLBcgovSectionDividerElement;
   }
 }
 
@@ -208,7 +203,12 @@ declare namespace LocalJSX {
   }
   interface BcgovCallout {}
   interface BcgovCarousel {}
-  interface BcgovFooter {}
+  interface BcgovFooter {
+    /**
+    * Alignment of menu
+    */
+    'alignment'?: "left" | "right";
+  }
   interface BcgovForm {}
   interface BcgovHeader {
     /**
@@ -246,12 +246,9 @@ declare namespace LocalJSX {
     */
     'name'?: string;
     'primary'?: string;
+    'sidebar'?: string;
   }
   interface BcgovSearch {}
-  interface BcgovSectionDivider {
-    'margins'?: any;
-    'thickness'?: any;
-  }
 
   interface IntrinsicElements {
     'bcgov-beta': BcgovBeta;
@@ -264,7 +261,6 @@ declare namespace LocalJSX {
     'bcgov-header': BcgovHeader;
     'bcgov-menu': BcgovMenu;
     'bcgov-search': BcgovSearch;
-    'bcgov-section-divider': BcgovSectionDivider;
   }
 }
 
@@ -284,7 +280,6 @@ declare module "@stencil/core" {
       'bcgov-header': LocalJSX.BcgovHeader & JSXBase.HTMLAttributes<HTMLBcgovHeaderElement>;
       'bcgov-menu': LocalJSX.BcgovMenu & JSXBase.HTMLAttributes<HTMLBcgovMenuElement>;
       'bcgov-search': LocalJSX.BcgovSearch & JSXBase.HTMLAttributes<HTMLBcgovSearchElement>;
-      'bcgov-section-divider': LocalJSX.BcgovSectionDivider & JSXBase.HTMLAttributes<HTMLBcgovSectionDividerElement>;
     }
   }
 }

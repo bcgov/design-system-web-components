@@ -1,24 +1,3 @@
-'use strict';
-
-function _interopNamespace(e) {
-  if (e && e.__esModule) { return e; } else {
-    var n = {};
-    if (e) {
-      Object.keys(e).forEach(function (k) {
-        var d = Object.getOwnPropertyDescriptor(e, k);
-        Object.defineProperty(n, k, d.get ? d : {
-          enumerable: true,
-          get: function () {
-            return e[k];
-          }
-        });
-      });
-    }
-    n['default'] = e;
-    return n;
-  }
-}
-
 const NAMESPACE = 'bcgov-web-components';
 
 let queueCongestion = 0;
@@ -30,8 +9,8 @@ let useNativeShadowDom = false;
 let checkSlotFallbackVisibility = false;
 let checkSlotRelocate = false;
 let isSvgMode = false;
-const win = window;
-const doc = document;
+const win = typeof window !== 'undefined' ? window : {};
+const doc = win.document || { head: {} };
 const plt = {
     $flags$: 0,
     $resourcesUrl$: '',
@@ -40,7 +19,7 @@ const plt = {
     ael: (el, eventName, listener, opts) => el.addEventListener(eventName, listener, opts),
     rel: (el, eventName, listener, opts) => el.removeEventListener(eventName, listener, opts),
 };
-const supportsShadowDom =  /*@__PURE__*/ (() => !!doc.documentElement.attachShadow)() ;
+const supportsShadowDom =  /*@__PURE__*/ (() => !!doc.head.attachShadow)() ;
 const supportsListenerOptions = /*@__PURE__*/ (() => {
     let supportsListenerOptions = false;
     try {
@@ -78,11 +57,11 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
     if (module) {
         return module[exportName];
     }
-    return new Promise(function (resolve) { resolve(_interopNamespace(require(
+    return import(
     /* webpackInclude: /\.entry\.js$/ */
     /* webpackExclude: /\.system\.entry\.js$/ */
     /* webpackMode: "lazy" */
-    `./${bundleId}.entry.js${ ''}`))); }).then(importedModule => {
+    `./${bundleId}.entry.js${ ''}`).then(importedModule => {
         {
             moduleCache.set(bundleId, importedModule);
         }
@@ -181,7 +160,7 @@ const patchEsm = () => {
     // @ts-ignore
     if ( !(win.CSS && win.CSS.supports && win.CSS.supports('color', 'var(--c)'))) {
         // @ts-ignore
-        return new Promise(function (resolve) { resolve(require('./css-shim-978387b1-52a5db49.js')); }).then(() => {
+        return import('./css-shim-978387b1-1e75855f.js').then(() => {
             plt.$cssShim$ = win.__stencil_cssshim;
             if (plt.$cssShim$) {
                 return plt.$cssShim$.initShim();
@@ -195,7 +174,7 @@ const patchBrowser = async () => {
         plt.$cssShim$ = win.__stencil_cssshim;
     }
     // @ts-ignore
-    const importMeta = (typeof document === 'undefined' ? new (require('u' + 'rl').URL)('file:' + __filename).href : (document.currentScript && document.currentScript.src || new URL('core-377f239a.js', document.baseURI).href));
+    const importMeta = "";
     const regex = new RegExp(`\/${NAMESPACE}(\\.esm)?\\.js($|\\?|#)`);
     const scriptElm = Array.from(doc.querySelectorAll('script')).find(s => (regex.test(s.src) ||
         s.getAttribute('data-stencil-namespace') === NAMESPACE));
@@ -208,7 +187,7 @@ const patchBrowser = async () => {
         patchDynamicImport(resourcesUrl.href);
         if (!window.customElements) {
             // @ts-ignore
-            await new Promise(function (resolve) { resolve(require('./dom-96781eef-e2cadb44.js')); });
+            await import('./dom-76cc7c7d-0a082895.js');
         }
         return Object.assign(Object.assign({}, opts), { resourcesUrl: resourcesUrl.href });
     }
@@ -1074,15 +1053,10 @@ const updateComponent = (elm, hostRef, cmpMeta, instance, isInitialLoad) => {
     const endRender = createTime('render', cmpMeta.$tagName$);
     {
         {
-            try {
-                // looks like we've got child nodes to render into this host element
-                // or we need to update the css class/attrs on the host element
-                // DOM WRITE!
-                renderVdom(elm, hostRef, cmpMeta,  instance.render() );
-            }
-            catch (e) {
-                consoleError(e);
-            }
+            // looks like we've got child nodes to render into this host element
+            // or we need to update the css class/attrs on the host element
+            // DOM WRITE!
+            renderVdom(elm, hostRef, cmpMeta, callRender(instance));
         }
     }
     if ( plt.$cssShim$) {
@@ -1116,6 +1090,15 @@ const updateComponent = (elm, hostRef, cmpMeta, instance, isInitialLoad) => {
         }
     }
 };
+const callRender = (instance, elm) => {
+    try {
+        instance =  instance.render() ;
+    }
+    catch (e) {
+        consoleError(e);
+    }
+    return instance;
+};
 const postUpdateComponent = (elm, hostRef, cmpMeta) => {
     const endPostUpdate = createTime('postUpdate', cmpMeta.$tagName$);
     const instance =  hostRef.$lazyInstance$ ;
@@ -1129,9 +1112,6 @@ const postUpdateComponent = (elm, hostRef, cmpMeta) => {
             // DOM WRITE!
             // add the css class that this element has officially hydrated
             elm.classList.add(HYDRATED_CLASS);
-        }
-        {
-            safeCall(instance, 'componentDidLoad');
         }
         endPostUpdate();
         {
@@ -1163,9 +1143,12 @@ const postUpdateComponent = (elm, hostRef, cmpMeta) => {
 const forceUpdate = (elm, cmpMeta) => {
     {
         const hostRef = getHostRef(elm);
-        if ((hostRef.$flags$ & (2 /* hasRendered */ | 16 /* isQueuedForUpdate */)) === 2 /* hasRendered */) {
+        const isConnected = hostRef.$hostElement$.isConnected;
+        if (isConnected && (hostRef.$flags$ & (2 /* hasRendered */ | 16 /* isQueuedForUpdate */)) === 2 /* hasRendered */) {
             scheduleUpdate(elm, hostRef, cmpMeta, false);
         }
+        // Returns "true" when the forced update was successfully scheduled
+        return isConnected;
     }
 };
 const appDidLoad = (who) => {
@@ -1487,8 +1470,11 @@ const bootstrapLazy = (lazyBundles, options = {}) => {
                     // this component is using shadow dom
                     // and this browser supports shadow dom
                     // add the read-only property "shadowRoot" to the host element
+                    // adding the shadow root build conditionals to minimize runtime
                     if (supportsShadowDom) {
-                        self.attachShadow({ 'mode': 'open' });
+                        {
+                            self.attachShadow({ mode: 'open' });
+                        }
                     }
                     else if ( !('shadowRoot' in self)) {
                         self.shadowRoot = self;
@@ -1510,8 +1496,6 @@ const bootstrapLazy = (lazyBundles, options = {}) => {
             }
             disconnectedCallback() {
                 plt.jmp(() => disconnectedCallback(this));
-            }
-            's-hmr'(hmrVersionId) {
             }
             forceUpdate() {
                 forceUpdate(this, cmpMeta);
@@ -1543,10 +1527,4 @@ const bootstrapLazy = (lazyBundles, options = {}) => {
 };
 const getElement = (ref) =>  getHostRef(ref).$hostElement$ ;
 
-exports.Host = Host;
-exports.bootstrapLazy = bootstrapLazy;
-exports.getElement = getElement;
-exports.h = h;
-exports.patchBrowser = patchBrowser;
-exports.patchEsm = patchEsm;
-exports.registerInstance = registerInstance;
+export { Host as H, patchEsm as a, bootstrapLazy as b, getElement as g, h, patchBrowser as p, registerInstance as r };
