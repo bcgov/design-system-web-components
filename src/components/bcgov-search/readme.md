@@ -1,11 +1,9 @@
 ---
 title: Search
 description: search
-status: Draft
+status: draft
 author: sturple
 ---
-
-![Status](https://img.shields.io/badge/Recommended-Draft-orange.svg)
 
 # Search.
 Search form.

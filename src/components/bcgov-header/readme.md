@@ -1,11 +1,9 @@
 ---
 description: Headers help users understand what the content of the page is about and provides a quick, organized way to reach the main sections of a website.
 title: Header - Basic
-status: Draft
+status: draft
 author: orinevares
 ---
-
-![Status](https://img.shields.io/badge/Recommended-Draft-orange.svg)
 
 # Header
 Creates header.  

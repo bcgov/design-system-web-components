@@ -2,7 +2,7 @@
 title: Breadcrumbs
 description: Breadcrumbs
 author: author
-status: Draft
+status: draft
 ---
 
 # Breadcrumb

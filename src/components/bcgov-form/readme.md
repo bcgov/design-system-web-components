@@ -1,10 +1,10 @@
 ---
 description: Guidance on designing digital forms
 title: Forms
-status: Draft
+status: draft
 author: dlevineBC
 ---
-![Status](https://img.shields.io/badge/Recommended-Draft-orange.svg)
+
 # Form.
 
 

@@ -1,11 +1,10 @@
 ---
 title: Beta Status
 description: Beta status indicator
-status: Draft
+status: draft
 author: dlevine
 ---
 
-![Status](https://img.shields.io/badge/Recommended-Draft-orange.svg)
 # Beta
 The beta status indicator tells users that the product is still being worked on.
 Creates beta.  Defaults with aria-label="This application is currently in Beta Phase"

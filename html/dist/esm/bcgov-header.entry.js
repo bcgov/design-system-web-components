@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-7721131c.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './core-10536731.js';
 import { f as filterATags } from './utils-923a28b7.js';
 
 const BcgovHeader = class {

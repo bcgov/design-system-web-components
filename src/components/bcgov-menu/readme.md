@@ -1,11 +1,10 @@
 ---
 description: Navigation bars provide a list of links to important content on a website or application. Typically they are placed in the header.
 title: Navigation Bar – Basic
-status: Draft
+status: draft
 author: orinevares
 ---
 
-![Status](https://img.shields.io/badge/Recommended-Draft-orange.svg)
 
 # Menu
 Navigation bars provide a list of links to different pages on a website or application.

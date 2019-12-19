@@ -15,10 +15,10 @@
     "src/components"
   ],
   "scripts": {
-    "build": "stencil build --prod  --docs-readme && NODE_ENV=production webpack --config webpack/webpack.config.prod.js  --colors ",
+    "build": "stencil build --prod  --docs-readme && webpack  --progress --config webpack.js  --colors ",
+    "start": "webpack-dev-server --env.development --watch --open --config webpack.js  --colors",
     "deploy": "gh-pages -d html",
     "build.sjs": "stencil build --prod",
-    "start": "webpack-dev-server --watch  --open  --config webpack/webpack.config.dev.js ",
     "start.sjs": "stencil build --dev  --watch --serve ",
     "test": "stencil test --spec",
     "docs": "stencil build --docs-readme",

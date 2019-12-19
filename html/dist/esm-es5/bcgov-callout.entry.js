@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host } from './core-7721131c.js';
+import { r as registerInstance, h, H as Host } from './core-10536731.js';
 var BcgovCallout = /** @class */ (function () {
     function BcgovCallout(hostRef) {
         registerInstance(this, hostRef);

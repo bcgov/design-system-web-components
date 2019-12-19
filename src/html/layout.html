@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta
+      name="description"
+      content="<%= htmlWebpackPlugin.options.description %>"
+    />
+    <meta name="author" content="<%= htmlWebpackPlugin.options.author %>" />
+  </head>
+
+  <body is="bcgov-styles" class="<%= htmlWebpackPlugin.options.bodyClass %>">
+    <%= require('html-loader!./partials/header.html') %>
+
+    <main class="bcgov-main" id="main-content">
+      <div class="section-content">
+        <% if (htmlWebpackPlugin.options.status === 'draft') { %>
+        <img
+          src="https://img.shields.io/badge/Recommended-Draft-orange.svg"
+          alt="Draft Status"
+        />
+        <% } %> <% if (htmlWebpackPlugin.options.status === 'production') { %>
+        <img
+          src="https://img.shields.io/badge/-Production-green.svg"
+          alt="Production Status"
+        />
+        <% } %> <%=htmlWebpackPlugin.options.bodyHtml %>
+      </div>
+    </main>
+    <%= require('html-loader!./partials/footer.html') %>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 ---
 title: Search
 description: search
-status: Draft
+status: draft
 author: sturple
 ---
 

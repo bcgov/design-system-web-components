@@ -1,1 +1,1 @@
-import{r as o,h as s,H as c}from"./core-5419bd1c.js";const r=class{constructor(s){o(this,s)}render(){return s(c,{class:"bcgov-callout"},s("slot",null))}};export{r as bcgov_callout};
+import{r as o,h as s,H as c}from"./core-7e0712cf.js";const r=class{constructor(s){o(this,s)}render(){return s(c,{class:"bcgov-callout"},s("slot",null))}};export{r as bcgov_callout};
