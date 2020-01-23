@@ -46,9 +46,12 @@ export namespace Components {
   interface BcgovCarousel {}
   interface BcgovFooter {
     /**
-    * Alignment of menu
+    * Built in Logos, other wise just add image, before or after menu.
     */
-    'alignment': "left" | "right";
+    'logo': | ""
+    | "gov_bc_logo.svg"
+    | "gov_bc_logo_white.png"
+    | "gov_bc_logo_grey.jpg";
   }
   interface BcgovForm {}
   interface BcgovHeader {
@@ -56,7 +59,10 @@ export namespace Components {
     * link for logo
     */
     'href': string;
-    'logo': string;
+    'logo': | ""
+    | "gov_bc_logo.svg"
+    | "gov_bc_logo_white.png"
+    | "gov_bc_logo_grey.jpg";
   }
   interface BcgovMenu {
     /**
@@ -206,9 +212,12 @@ declare namespace LocalJSX {
   interface BcgovCarousel {}
   interface BcgovFooter {
     /**
-    * Alignment of menu
+    * Built in Logos, other wise just add image, before or after menu.
     */
-    'alignment'?: "left" | "right";
+    'logo'?: | ""
+    | "gov_bc_logo.svg"
+    | "gov_bc_logo_white.png"
+    | "gov_bc_logo_grey.jpg";
   }
   interface BcgovForm {}
   interface BcgovHeader {
@@ -216,7 +225,10 @@ declare namespace LocalJSX {
     * link for logo
     */
     'href'?: string;
-    'logo'?: string;
+    'logo'?: | ""
+    | "gov_bc_logo.svg"
+    | "gov_bc_logo_white.png"
+    | "gov_bc_logo_grey.jpg";
   }
   interface BcgovMenu {
     /**

@@ -42,6 +42,24 @@ As read using ChromeVox
 
 ## Example
 
+<div>
+<bcgov-button button-style="hamburger" target="main-navigation-sample">Menu</bcgov-button>
+<bcgov-menu id="main-navigation-sample" style="background-color: #036;" primary   alignment="left" breakpoint="1200">
+  <a href="/">Home</a>
+  <a href="/sandbox.html">Sandbox</a>
+  <bcgov-menu href="/" name="Components">
+    <a href="/header.html">Header</a>
+    <a href="/menu.html">Menus</a>
+    <a href="/buttons.html">Buttons</a>
+    <a href="/footer.html">Footer</a>
+    <a href="/beta.html">Beta</a>
+    <a href="/callout.html">Callout</a>
+  </bcgov-menu>
+  <a href="/developer.html">Developer</a>
+</bcgov-menu>
+</div>
+
+### Source
 ```html
 <bcgov-button button-style="hamburger" target="main-navigation-sample">Menu</bcgov-button>
 <bcgov-menu id="main-navigation-sample" 
@@ -64,6 +82,9 @@ As read using ChromeVox
 </bcgov-menu>
 ```
 
+### Output
+
+<div class="code">
 <bcgov-button button-style="hamburger" target="main-navigation-sample">Menu</bcgov-button>
 <bcgov-menu id="main-navigation-sample" style="background-color: #036;" primary   alignment="left" breakpoint="1200">
   <a href="/">Home</a>
@@ -78,6 +99,7 @@ As read using ChromeVox
   </bcgov-menu>
   <a href="/developer.html">Developer</a>
 </bcgov-menu>
+</div>
 
 <!-- Auto Generated Below -->
 

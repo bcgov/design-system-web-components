@@ -33,14 +33,16 @@ Learn how to [insert a callout component](https://www2.gov.bc.ca/gov/content/gov
 * The thick left border conveys information using more than just colour
 
 ## Example
+<bcgov-callout>Callout Message</bcgov-callout>
 
+### Source
 ```html
 <bcgov-callout>Callout Message</bcgov-callout>
 ```
 
-## Component
+### Output
 
-<bcgov-callout>Callout Message</bcgov-callout>
+<div class="code"><bcgov-callout>Callout Message</bcgov-callout></div>
 
 <!-- Auto Generated Below -->
 

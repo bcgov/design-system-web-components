@@ -34,13 +34,15 @@ This component has been built according to [WCAG 2.0 AA](https://www.w3.org/TR/W
 * Gold text exceeds a 7:1 [contrast ratio](https://webaim.org/articles/contrast/) on the header blue background
 
 ## Example
+Sample Text <bcgov-beta>This is my beta message</bcgov-beta>
 
+### Source
 ```html
 Sample Text <bcgov-beta>This is my beta message</bcgov-beta>
 ```
-## Component
+### Output
 
-Sample Text <bcgov-beta>This is my beta message</bcgov-beta>
+<div class="code">Sample Text <bcgov-beta>This is my beta message</bcgov-beta></div>
 
 <!-- Auto Generated Below -->
 

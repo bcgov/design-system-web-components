@@ -6,11 +6,30 @@ export class BcgovHeader {
         this.href = "https://www2.gov.bc.ca/gov/content/home";
         this.logo = "gov_bc_logo.svg";
     }
-    componentWillLoad() {
-        this.hasLogoSlot = !!this.el.querySelector('[slot="logo"]');
-    }
+    componentWillLoad() { }
     componentDidRender() {
-        [].forEach.call(this.el.querySelectorAll('a[slot="hidden-link"]'), function (element) {
+        const self = this;
+        [].forEach.call(this.el.querySelectorAll("*[aria]"), function (element) {
+            element.classList.add("access");
+        });
+        [].forEach.call(this.el.querySelectorAll("img"), function (element) {
+            const divTag = document.createElement("div");
+            divTag.classList.add("banner");
+            if (undefined !== self.href && "" !== self.href) {
+                const atag = document.createElement("a");
+                atag.classList.add("branding-logo");
+                atag.setAttribute("aria-label", "branding logo");
+                atag.setAttribute("href", self.href);
+                atag.appendChild(element.cloneNode(true));
+                divTag.appendChild(atag);
+            }
+            else {
+                divTag.appendChild(element.cloneNode(true));
+            }
+            element.replaceWith(divTag);
+        });
+        [].forEach.call(this.el.querySelectorAll("*[aria] a"), function (element) {
+            element.setAttribute("aria", "");
             filterATags(element);
         });
     }
@@ -20,19 +39,18 @@ export class BcgovHeader {
         }
         else {
             let image = getAssetPath(`../../assets/${this.logo}`);
-            return h("img", { src: image, alt: "Logo" });
+            let markup = h("img", { class: "header-logo", src: image, alt: "Logo" });
+            if ("" !== this.href) {
+                markup = (h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, markup));
+            }
+            return h("div", { class: "banner" }, markup);
         }
     }
     render() {
-        return (h(Host, null,
-            h("header", { class: "bcgov-header" },
-                h("div", { class: "banner" },
-                    h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, this.hasLogoSlot ? h("slot", { name: "logo" }) : this.getImage()),
-                    h("div", { class: "hl" },
-                        h("slot", { name: "headline" })),
-                    h("div", { class: "access" },
-                        h("slot", { name: "hidden-link" })))),
-            h("slot", null)));
+        return (h(Host, { class: "bcgov-header" },
+            h("header", null,
+                this.getImage(),
+                h("slot", null))));
     }
     static get is() { return "bcgov-header"; }
     static get assetsDirs() { return ["../../assets"]; }
@@ -59,8 +77,8 @@ export class BcgovHeader {
             "type": "string",
             "mutable": false,
             "complexType": {
-                "original": "string",
-                "resolved": "string",
+                "original": "| \"\"\n    | \"gov_bc_logo.svg\"\n    | \"gov_bc_logo_white.png\"\n    | \"gov_bc_logo_grey.jpg\"",
+                "resolved": "\"\" | \"gov_bc_logo.svg\" | \"gov_bc_logo_grey.jpg\" | \"gov_bc_logo_white.png\"",
                 "references": {}
             },
             "required": false,
@@ -73,9 +91,6 @@ export class BcgovHeader {
             "reflect": false,
             "defaultValue": "\"gov_bc_logo.svg\""
         }
-    }; }
-    static get states() { return {
-        "hasLogoSlot": {}
     }; }
     static get elementRef() { return "el"; }
 }

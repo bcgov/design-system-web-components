@@ -1,12 +1,10 @@
 <bcgov-header>
-  <div class="test" slot="headline">
-    BCGov Web Components<bcgov-beta></bcgov-beta>
+  <div class="headline">BCGov Web Components<bcgov-beta></bcgov-beta></div>
+  <div aria>
+    <a href="#main-navigation">Skip to navigation</a>
+    <a href="#main-content">Skip to Contents</a>
+    <a href="accessibility">Skip to Accessibility Statement</a>
   </div>
-  <a slot="hidden-link" aria href="#main-navigation">Skip to navigation</a>
-  <a slot="hidden-link" aria href="#main-content">Skip to Contents</a>
-  <a slot="hidden-link" aria href="accessibility"
-    >Skip to Accessibility Statement</a
-  >
 
   <bcgov-button button-style="hamburger" target="main-navigation"
     >Menu</bcgov-button
@@ -19,7 +17,7 @@
   submenus, enter to activate menuitems."
   primary
   alignment="left"
-  breakpoint="778"
+  breakpoint="1100"
 >
   <a href="index.html">Home</a>
   <bcgov-menu href="#" name="Standard Components">

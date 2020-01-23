@@ -9,9 +9,19 @@ author: sturple
 Search form.
 
 ## Example
+<div >
+<bcgov-button button-style="search" target="search-navigation-example">Search</bcgov-button>
+<bcgov-search id="search-navigation-example">
+  <form>
+    <input type="search" placeholder="Search" />
+    <bcgov-button button-style="search-inline">Search</bcgov-button>
+  </form>
+</bcgov-search>
+</div>
 
+### Source
 ```html
-<div style="position: relative">
+<div >
 <bcgov-button button-style="search" target="search-navigation-example">Search</bcgov-button>
 <bcgov-search id="search-navigation-example">
   <form>
@@ -22,8 +32,8 @@ Search form.
 </div>
 ```
 
-## Component
-<div style="position: relative">
+### Output
+<div class="code">
 <bcgov-button button-style="search" target="search-navigation-example">Search</bcgov-button>
 <bcgov-search id="search-navigation-example">
   <form>

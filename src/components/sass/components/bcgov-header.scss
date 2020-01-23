@@ -1,4 +1,5 @@
-bcgov-header {
+bcgov-header,
+.bcgov-header {
   position: relative;
   display: block;
   background-color: var(--bcgov-wc-color-brand-primary);
@@ -9,7 +10,23 @@ bcgov-header {
     position: relative;
     @include flexbox();
     flex-grow: 1;
-    justify-content: space-between;
+    align-items: center;
+    .banner {
+      padding: 4px 0;
+      a {
+        padding: 0;
+      }
+      img {
+        height: auto;
+        min-width: 175px;
+        margin-right: 15px;
+      }
+    }
+    .heading,
+    .headline,
+    .hl {
+      font-size: 1.5rem;
+    }
   }
 
   a {
@@ -24,23 +41,7 @@ bcgov-header {
     color: var(--bcgov-wc-color-white);
     padding: 4px;
   }
-  .banner {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 4px 0;
-    a {
-      padding: 0;
-    }
-    img {
-      height: 100%;
-      width: 175px;
-      margin-right: 15px;
-    }
-  }
-  .hl {
-    font-size: 1.5rem;
-  }
+
   .access a {
     color: var(--bcgov-wc-color-white);
   }

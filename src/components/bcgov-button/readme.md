@@ -42,6 +42,17 @@ In addition to [fundamental accessibility]() requirements, this component meets 
 
 
 ## Example
+<div>
+<bcgov-button  link="https://gov.bc.ca" >Primary Button</bcgov-button>
+<bcgov-button button-style="secondary" >Secondary Button</bcgov-button>
+<span style="background-color: #036; padding: 2px 10px; display:inline-block">
+<bcgov-button button-style="dark" >Dark Button</bcgov-button>
+</span>
+<bcgov-button button-style="hamburger" >Menu</bcgov-button>
+<bcgov-button button-style="search" >Search</bcgov-button>
+</div>
+
+### Source
 
 ```html
 <bcgov-button  link="https://gov.bc.ca">Primary Button</bcgov-button>
@@ -51,8 +62,8 @@ In addition to [fundamental accessibility]() requirements, this component meets 
 <bcgov-button button-style="search" target="bcgov-search-id">Search</bcgov-button>
 ```
 
-## Component
-
+### Output
+<div class="code">
 <bcgov-button  link="https://gov.bc.ca" >Primary Button</bcgov-button>
 <bcgov-button button-style="secondary" >Secondary Button</bcgov-button>
 <span style="background-color: #036; padding: 2px 10px; display:inline-block">
@@ -60,7 +71,7 @@ In addition to [fundamental accessibility]() requirements, this component meets 
 </span>
 <bcgov-button button-style="hamburger" >Menu</bcgov-button>
 <bcgov-button button-style="search" >Search</bcgov-button>
-
+</div>
 <!-- Auto Generated Below -->
 
 

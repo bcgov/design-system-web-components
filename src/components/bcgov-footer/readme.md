@@ -40,10 +40,25 @@ As read using ChromeVox
 ### Conveying Information
 * Links underlined on hover to indicate they are clickable
 
-## Example
+## Example with external image
+<div>
+<bcgov-footer  logo>
+  <bcgov-menu >
+    <a href="/">Home</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
+  </bcgov-menu>
+  <img
+    src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
+    alt="Branding logo" />
+</bcgov-footer>
+</div>
+
+### Source
 
 ```html
-<bcgov-footer alignment="right">
+<bcgov-footer  logo>
   <bcgov-menu >
     <a href="/">Home</a>
     <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
@@ -55,9 +70,9 @@ As read using ChromeVox
     alt="Branding logo" />
 </bcgov-footer>
 ```
-
-# Component
-<bcgov-footer alignment="right">
+### Output
+<div class="code">
+<bcgov-footer  logo>
   <bcgov-menu >
     <a href="/">Home</a>
     <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
@@ -68,17 +83,90 @@ As read using ChromeVox
     src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
     alt="Branding logo" />
 </bcgov-footer>
+</div>
 
+## Example with bc logo
+<div>
+<bcgov-footer  logo="gov_bc_logo.svg">
+  <bcgov-menu >
+    <a href="/">Home</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
+  </bcgov-menu>
+</bcgov-footer>
+</div>
 
+### Source
+```html
+<bcgov-footer logo="gov_bc_logo.svg">
+  <bcgov-menu >
+    <a href="/">Home</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
+  </bcgov-menu>
+</bcgov-footer>
+```
 
+### Output
+<div class="code">
+<bcgov-footer  logo="gov_bc_logo.svg">
+  <bcgov-menu >
+    <a href="/">Home</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
+  </bcgov-menu>
+</bcgov-footer>
+</div>
+
+## Example with default
+<div>
+<bcgov-footer >
+<div>
+  <bcgov-menu >
+    <a href="/">Home</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
+  </bcgov-menu>
+  </div>
+</bcgov-footer>
+</div>
+
+### Source
+```html
+<bcgov-footer >
+  <bcgov-menu >
+    <a href="/">Home</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
+  </bcgov-menu>
+</bcgov-footer>
+```
+### Output
+<div class="code">
+<bcgov-footer >
+  <div>
+  <bcgov-menu >
+    <a href="/">Home</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
+    <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
+  </bcgov-menu>
+  </div>
+</bcgov-footer>
+</div>
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property    | Attribute   | Description       | Type                | Default  |
-| ----------- | ----------- | ----------------- | ------------------- | -------- |
-| `alignment` | `alignment` | Alignment of menu | `"left" \| "right"` | `"left"` |
+| Property | Attribute | Description                                                      | Type                                                                           | Default                   |
+| -------- | --------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------- |
+| `logo`   | `logo`    | Built in Logos, other wise just add image, before or after menu. | `"" \| "gov_bc_logo.svg" \| "gov_bc_logo_grey.jpg" \| "gov_bc_logo_white.png"` | `"gov_bc_logo_white.png"` |
 
 
 ----------------------------------------------

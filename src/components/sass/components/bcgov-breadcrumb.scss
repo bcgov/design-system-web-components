@@ -28,6 +28,18 @@ bcgov-breadcrumb,
           content: "";
         }
       }
+      a {
+        &,
+        &:focus,
+        &:active,
+        &:visited {
+          color: var(--bcgov-wc-color-breakcrumb-link);
+        }
+        &:hover {
+          color: var(--bcgov-wc-color-breakcrumb-link-hover);
+          text-decoration: none;
+        }
+      }
     }
   }
 }

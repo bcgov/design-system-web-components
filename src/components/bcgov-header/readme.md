@@ -68,41 +68,103 @@ As read using ChromeVox
 > *"Hello British Columbia heading one."*
 
 
-## Example
+## Example - With Custom Logo
 
-```html
-<bcgov-header >
+
+<div>
+<bcgov-header logo>
   <img
-    slot="logo"
+    src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
+    alt="Branding logo" >
+  <div class="headline" >DevHub<bcgov-beta></bcgov-beta></div>
+  <div aria >
+    <a href="#main-navigation">Skip to navigation</a>
+    <a href="#main-content">Skip to Contents</a>
+    <a href="accessibility">Skip to Accessibility Statement</a>
+  </div>
+</bcgov-header>
+</div>
+
+### Source
+```html
+<bcgov-header logo>
+  <img
     src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
     alt="Branding logo"
   />
-  <div slot="headline" >DevHub<bcgov-beta></bcgov-beta></div>
-  <a slot="hidden-link"  href="#main-navigation">Skip to navigation</a>
-  <a slot="hidden-link"  href="#main-content">Skip to Contents</a>
-  <a  slot="hidden-link"  href="accessibility">Skip to Accessibility Statement</a>
+  <div class="headline" >DevHub<bcgov-beta></bcgov-beta></div>
+  <div aria >
+    <a href="#main-navigation">Skip to navigation</a>
+    <a href="#main-content">Skip to Contents</a>
+    <a href="accessibility">Skip to Accessibility Statement</a>
+  </div>
 </bcgov-header>
 ```
 
-## Component
-
-<bcgov-header id="header-example" >
-  <img  slot="logo" src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF" alt="Branding logo" />
-  <div slot="headline">DevHub<bcgov-beta></bcgov-beta></div>
-  <a slot="hidden-link"   href="#main-navigation">Skip to navigation</a>
-  <a slot="hidden-link"   href="#main-content">Skip to Contents</a>
-  <a slot="hidden-link"   href="accessibility">Skip to Accessibility Statement</a>
+### Output
+<div class="code">
+<bcgov-header logo>
+  <img
+    src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
+    alt="Branding logo" >
+  <div class="headline" >DevHub<bcgov-beta></bcgov-beta></div>
+  <div aria >
+    <a href="#main-navigation">Skip to navigation</a>
+    <a href="#main-content">Skip to Contents</a>
+    <a href="accessibility">Skip to Accessibility Statement</a>
+  </div>
 </bcgov-header>
+</div>
+
+## Example - With Built-in Logo
+
+<div>
+<bcgov-header >
+  <div class="headline" >DevHub Testing</div>
+  <div aria >
+    <a href="#main-navigation">Skip to navigation</a>
+    <a href="#main-content">Skip to Contents</a>
+    <a href="accessibility">Skip to Accessibility Statement</a>
+  </div>
+  <bcgov-button button-style="hamburger" target="main-navigation">Menu</bcgov-button>
+</bcgov-header>
+</div>
+
+### Source
+```html
+<bcgov-header >
+  <div class="headline" >DevHub Testing</div>
+  <div aria >
+    <a href="#main-navigation">Skip to navigation</a>
+    <a href="#main-content">Skip to Contents</a>
+    <a href="accessibility">Skip to Accessibility Statement</a>
+  </div>
+  <bcgov-button button-style="hamburger" target="main-navigation">Menu</bcgov-button>
+</bcgov-header>
+```
+### Output
+
+<div class="code">
+<bcgov-header >
+  <div class="headline" >DevHub Testing</div>
+  <div aria >
+    <a href="#main-navigation">Skip to navigation</a>
+    <a href="#main-content">Skip to Contents</a>
+    <a href="accessibility">Skip to Accessibility Statement</a>
+  </div>
+  <bcgov-button button-style="hamburger" target="main-navigation">Menu</bcgov-button>
+</bcgov-header>
+</div>
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property | Attribute | Description   | Type     | Default                                     |
-| -------- | --------- | ------------- | -------- | ------------------------------------------- |
-| `href`   | `href`    | link for logo | `string` | `"https://www2.gov.bc.ca/gov/content/home"` |
-| `logo`   | `logo`    |               | `string` | `"gov_bc_logo.svg"`                         |
+| Property | Attribute | Description   | Type                                                                           | Default                                     |
+| -------- | --------- | ------------- | ------------------------------------------------------------------------------ | ------------------------------------------- |
+| `href`   | `href`    | link for logo | `string`                                                                       | `"https://www2.gov.bc.ca/gov/content/home"` |
+| `logo`   | `logo`    |               | `"" \| "gov_bc_logo.svg" \| "gov_bc_logo_grey.jpg" \| "gov_bc_logo_white.png"` | `"gov_bc_logo.svg"`                         |
 
 
 ----------------------------------------------

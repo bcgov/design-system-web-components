@@ -1,9 +1,8 @@
 export declare class BcgovHeader {
     /** link for logo */
     href: string;
-    logo: string;
+    logo: "" | "gov_bc_logo.svg" | "gov_bc_logo_white.png" | "gov_bc_logo_grey.jpg";
     el: any;
-    hasLogoSlot: boolean;
     componentWillLoad(): void;
     componentDidRender(): void;
     getImage(): any;
