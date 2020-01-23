@@ -15,6 +15,7 @@ status: draft
     <a href="#Components">Components</a>
     <a href="#DesignSystem">Design System</a>
     <span>Bread Crumbs</span>
+    <bcgov-button button-style="search" slot="breadcrumb-extra">Hello</bcgov-button>
 </bcgov-breadcrumb>
 ```
 
@@ -24,6 +25,7 @@ status: draft
     <a href="#Components">Components</a>
     <a href="#DesignSystem">Design System</a>
     <span>Bread Crumbs</span>
+    <bcgov-button button-style="search" slot="breadcrumb-extra">Hello</bcgov-button>
 </bcgov-breadcrumb>
 
 <!-- Auto Generated Below -->

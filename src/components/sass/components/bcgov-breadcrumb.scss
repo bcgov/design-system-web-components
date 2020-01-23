@@ -1,9 +1,16 @@
 bcgov-breadcrumb,
 .bcgov-breadcrumb {
+  @include flexbox;
+  background-color: var(--bcgov-wc-color-breadcrumb);
   padding: 0 var(--bcgov-wc-gutter);
-  display: block;
+  @include justify-content(space-between);
+  @include align-items(center);
+
   ol {
     list-style: none;
+    @include flexbox();
+    @include align-items(center);
+    min-height: 60px;
     margin: 0;
     padding: 0;
     font-size: 0.95rem;
@@ -14,7 +21,7 @@ bcgov-breadcrumb,
       margin: 0;
       &:after {
         content: ">";
-        padding: 0 0 0 6px;
+        padding: 0 6px;
       }
       &:last-child {
         &:after {

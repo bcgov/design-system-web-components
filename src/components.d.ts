@@ -56,6 +56,7 @@ export namespace Components {
     * link for logo
     */
     'href': string;
+    'logo': string;
   }
   interface BcgovMenu {
     /**
@@ -215,6 +216,7 @@ declare namespace LocalJSX {
     * link for logo
     */
     'href'?: string;
+    'logo'?: string;
   }
   interface BcgovMenu {
     /**

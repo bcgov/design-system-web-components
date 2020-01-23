@@ -68,7 +68,7 @@ bcgov-menu {
           display: block;
           width: 8px;
           height: 8px;
-          top: 14px;
+          top: 11px;
           right: $padding-x * 1.25;
           border-bottom: 2px solid var(--bcgov-wc-color-white);
           border-right: 2px solid var(--bcgov-wc-color-white);
@@ -95,7 +95,7 @@ bcgov-menu {
         ul {
           display: block;
           li:hover {
-            background-color: var(--bcgov-wc-color-links);
+            background-color: var(--bcgov-wc-color-menu);
           }
         }
       }

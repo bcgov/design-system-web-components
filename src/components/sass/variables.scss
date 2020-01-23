@@ -12,13 +12,14 @@ $padding-x: 15px;
 $padding-y: 15px;
 
 /** Colours **/
-$bcgov-color: #494949;
-$bcgov-color-background: #f2f2f2;
+$bcgov-color: #313132;
+$bcgov-color-background: #f1f1f1;
 $bcgov-color-components: #606060;
 $bcgov-color-accessibility: #3b99fc;
-$bcgov-color-menu: #2b4777;
-$bcgov-color-submenu: #38598a;
+$bcgov-color-menu: #38598a;
+$bcgov-color-submenu: #2b4777;
 $bcgov-color-menu-border: #5f79a2;
+$bcgov-color-breadcrumb: transparent;
 $bcgov-white: #fff;
 $bcgov-blue-primary: #036;
 $bcgov-blue-background: #38598a;
@@ -27,11 +28,12 @@ $bcgov-blue-links: #1a5a96;
 $bcgov-yellow-primary: #fcba19;
 $bcgov-red-primary: #d8292f;
 $bcgov-green-primary: #2e8540;
-$bcgov-font-family: "BCSans", Verdana, Arial, sans-serif;
+$bcgov-font-family: "BC Sans", Calibri, Arial, "sans serif";
 
 :root {
   --bcgov-wc-color-brand-primary: #{$bcgov-blue-primary};
   --bcgov-wc-color-brand-secondary: #{$bcgov-yellow-primary};
+  --bcgov-wc-color-border: #{$bcgov-yellow-primary};
   --bcgov-wc-color-text: #{$bcgov-color};
   --bcgov-wc-color-links: #{$bcgov-blue-links};
   --bcgov-wc-color-background-primary: #{$bcgov-blue-background};
@@ -40,6 +42,7 @@ $bcgov-font-family: "BCSans", Verdana, Arial, sans-serif;
   --bcgov-wc-color-accessibility: #{$bcgov-color-accessibility};
   --bcgov-wc-color-menu: #{$bcgov-color-menu};
   --bcgov-wc-color-submenu: #{$bcgov-color-submenu};
+  --bcgov-wc-color-breadcrumb: #{$bcgov-color-breadcrumb};
   --bcgov-wc-color-menu-border: #{$bcgov-color-menu-border};
   --bcgov-wc-color-white: #{$bcgov-white};
   --bcgov-wc-color-error: #{$bcgov-red-primary};

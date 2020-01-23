@@ -19,6 +19,7 @@ export class BcgovBreadcrumb {
         <ol itemscope itemtype="http://schema.org/BreadcrumbList">
           <slot></slot>
         </ol>
+        <slot name="breadcrumb-extra"></slot>
       </Host>
     );
   }

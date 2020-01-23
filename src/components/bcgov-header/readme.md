@@ -102,6 +102,7 @@ As read using ChromeVox
 | Property | Attribute | Description   | Type     | Default                                     |
 | -------- | --------- | ------------- | -------- | ------------------------------------------- |
 | `href`   | `href`    | link for logo | `string` | `"https://www2.gov.bc.ca/gov/content/home"` |
+| `logo`   | `logo`    |               | `string` | `"gov_bc_logo.svg"`                         |
 
 
 ----------------------------------------------
