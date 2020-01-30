@@ -49,6 +49,7 @@ export class BcgovMenu {
   componentWillLoad() {
     this.isSubmenu = "UL" === this.el.parentElement.nodeName;
     [].forEach.call(this.el.querySelectorAll("a"), function(element) {
+      console.log(element);
       menuElement(element);
     });
     const self = this;
@@ -229,10 +230,11 @@ export class BcgovMenu {
     if (this.isSubmenu) {
       return (
         <Host role="menuitem" class="expandable" aria-label={this.name}>
-          <div class="">
+          <div>
             <a href={this.href} tabindex="-1">
-              {this.name}
+              {this.name}test
             </a>
+            <slot name="submenu-link"></slot>
           </div>
           <ul role="menu" aria-hidden="true">
             <slot></slot>

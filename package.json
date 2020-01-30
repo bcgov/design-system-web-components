@@ -12,7 +12,8 @@
   "unpkg": "html/dist/bcgov-web-components/bcgov-web-components.js",
   "files": [
     "html/dist",
-    "src/components"
+    "src/components",
+    "src/styles"
   ],
   "scripts": {
     "build": "stencil build --prod  --docs-readme && webpack  --progress --config webpack.js  --colors ",

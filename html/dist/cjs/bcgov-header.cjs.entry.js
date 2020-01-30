@@ -44,7 +44,7 @@ const BcgovHeader = class {
             return "";
         }
         else {
-            let image = core.getAssetPath(`../../assets/${this.logo}`);
+            let image = core.getAssetPath(`./dist/vendor/${this.logo}`);
             let markup = core.h("img", { class: "header-logo", src: image, alt: "Logo" });
             if ("" !== this.href) {
                 markup = (core.h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, markup));

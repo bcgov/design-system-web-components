@@ -73,6 +73,7 @@ bcgov-menu {
           border-bottom: 2px solid var(--bcgov-wc-color-white);
           border-right: 2px solid var(--bcgov-wc-color-white);
           transform: rotateZ(45deg);
+          box-sizing: unset;
         }
       }
       &.expandable {

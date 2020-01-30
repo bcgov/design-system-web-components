@@ -40,7 +40,7 @@ const BcgovHeader = class {
             return "";
         }
         else {
-            let image = getAssetPath(`../../assets/${this.logo}`);
+            let image = getAssetPath(`./dist/vendor/${this.logo}`);
             let markup = h("img", { class: "header-logo", src: image, alt: "Logo" });
             if ("" !== this.href) {
                 markup = (h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, markup));

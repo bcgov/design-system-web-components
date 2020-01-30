@@ -52,6 +52,7 @@ const BcgovMenu = class {
     componentWillLoad() {
         this.isSubmenu = "UL" === this.el.parentElement.nodeName;
         [].forEach.call(this.el.querySelectorAll("a"), function (element) {
+            console.log(element);
             utils.menuElement(element);
         });
         const self = this;
@@ -185,7 +186,7 @@ const BcgovMenu = class {
         const alignment = "align-" + this.alignment;
         const instructionID = "bcgov-instructions-" + this.menuId;
         if (this.isSubmenu) {
-            return (core.h(core.Host, { role: "menuitem", class: "expandable", "aria-label": this.name }, core.h("div", { class: "" }, core.h("a", { href: this.href, tabindex: "-1" }, this.name)), core.h("ul", { role: "menu", "aria-hidden": "true" }, core.h("slot", null))));
+            return (core.h(core.Host, { role: "menuitem", class: "expandable", "aria-label": this.name }, core.h("div", null, core.h("a", { href: this.href, tabindex: "-1" }, this.name, "test"), core.h("slot", { name: "submenu-link" })), core.h("ul", { role: "menu", "aria-hidden": "true" }, core.h("slot", null))));
         }
         else {
             const props = { role: "menubar", tabindex: "0", class: alignment };

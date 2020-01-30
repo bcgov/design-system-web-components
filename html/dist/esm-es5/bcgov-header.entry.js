@@ -39,7 +39,7 @@ var BcgovHeader = /** @class */ (function () {
             return "";
         }
         else {
-            var image = getAssetPath("../../assets/" + this.logo);
+            var image = getAssetPath("./dist/vendor/" + this.logo);
             var markup = h("img", { class: "header-logo", src: image, alt: "Logo" });
             if ("" !== this.href) {
                 markup = (h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, markup));

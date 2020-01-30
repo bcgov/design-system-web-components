@@ -47,6 +47,7 @@ var BcgovMenu = /** @class */ (function () {
     BcgovMenu.prototype.componentWillLoad = function () {
         this.isSubmenu = "UL" === this.el.parentElement.nodeName;
         [].forEach.call(this.el.querySelectorAll("a"), function (element) {
+            console.log(element);
             menuElement(element);
         });
         var self = this;
@@ -181,7 +182,7 @@ var BcgovMenu = /** @class */ (function () {
         var alignment = "align-" + this.alignment;
         var instructionID = "bcgov-instructions-" + this.menuId;
         if (this.isSubmenu) {
-            return (h(Host, { role: "menuitem", class: "expandable", "aria-label": this.name }, h("div", { class: "" }, h("a", { href: this.href, tabindex: "-1" }, this.name)), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));
+            return (h(Host, { role: "menuitem", class: "expandable", "aria-label": this.name }, h("div", null, h("a", { href: this.href, tabindex: "-1" }, this.name, "test"), h("slot", { name: "submenu-link" })), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));
         }
         else {
             var props = { role: "menubar", tabindex: "0", class: alignment };

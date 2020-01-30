@@ -48,6 +48,7 @@ const BcgovMenu = class {
     componentWillLoad() {
         this.isSubmenu = "UL" === this.el.parentElement.nodeName;
         [].forEach.call(this.el.querySelectorAll("a"), function (element) {
+            console.log(element);
             menuElement(element);
         });
         const self = this;
@@ -181,7 +182,7 @@ const BcgovMenu = class {
         const alignment = "align-" + this.alignment;
         const instructionID = "bcgov-instructions-" + this.menuId;
         if (this.isSubmenu) {
-            return (h(Host, { role: "menuitem", class: "expandable", "aria-label": this.name }, h("div", { class: "" }, h("a", { href: this.href, tabindex: "-1" }, this.name)), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));
+            return (h(Host, { role: "menuitem", class: "expandable", "aria-label": this.name }, h("div", null, h("a", { href: this.href, tabindex: "-1" }, this.name, "test"), h("slot", { name: "submenu-link" })), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));
         }
         else {
             const props = { role: "menubar", tabindex: "0", class: alignment };

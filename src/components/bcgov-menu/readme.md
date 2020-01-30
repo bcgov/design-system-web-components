@@ -70,7 +70,8 @@ As read using ChromeVox
 >
   <a href="/">Home</a>
   <a href="/sandbox.html">Sandbox</a>
-  <bcgov-menu href="/" name="Components">
+  <a href="/components">Components
+    <bcgov-menu>
     <a href="/header.html">Header</a>
     <a href="/menu.html">Menus</a>
     <a href="/buttons.html">Buttons</a>
@@ -78,6 +79,8 @@ As read using ChromeVox
     <a href="/beta.html">Beta</a>
     <a href="/callout.html">Callout</a>
   </bcgov-menu>
+  </a>
+
   <a href="/developer.html">Developer</a>
 </bcgov-menu>
 ```

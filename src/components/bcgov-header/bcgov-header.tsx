@@ -48,7 +48,7 @@ export class BcgovHeader {
     if ("" === this.logo) {
       return "";
     } else {
-      let image = getAssetPath(`../../assets/${this.logo}`);
+      let image = getAssetPath(`./dist/vendor/${this.logo}`);
       let markup = <img class="header-logo" src={image} alt="Logo" />;
       if ("" !== this.href) {
         markup = (
