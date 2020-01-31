@@ -11,7 +11,7 @@ describe("bcgov-callout", () => {
       html: `<bcgov-callout>I am a BCGov Callout</bcgov-callout>`
     });
     expect(page.root).toEqualHtml(`
-    <bcgov-callout>I am a BCGov Callout</bcgov-callout>
+    <bcgov-callout class="bcgov-callout">I am a BCGov Callout</bcgov-callout>
     `);
   });
 });

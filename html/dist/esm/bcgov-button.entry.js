@@ -1092,7 +1092,7 @@ const BcgovButton = class {
         }
     }
     render() {
-        const btnStyle = `${this.buttonStyle} bcgov-button`;
+        const btnStyle = `${this.buttonStyle}`;
         if (["hamburger", "search"].includes(this.buttonStyle)) {
             return (h(Host, { target: this.target, class: "bcgov-button" }, h("button", { class: btnStyle, "aria-expanded": this.active }, h("div", null), h("slot", null))));
         }
@@ -1102,10 +1102,10 @@ const BcgovButton = class {
                 if ("search-inline" == this.buttonStyle) {
                     props["type"] = "submit";
                 }
-                return (h("button", Object.assign({ class: btnStyle }, props), h("slot", null)));
+                return (h(Host, { class: "bcgov-button" }, h("button", Object.assign({ class: btnStyle }, props), h("slot", null))));
             }
             else {
-                return (h("a", { class: btnStyle, href: this.link, role: "button" }, h("slot", null)));
+                return (h(Host, { class: "bcgov-button" }, h("a", { class: btnStyle, href: this.link, role: "button" }, h("slot", null))));
             }
         }
     }

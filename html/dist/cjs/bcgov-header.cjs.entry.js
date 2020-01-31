@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 const core = require('./core-eae88e05.js');
-const utils = require('./utils-872e15ed.js');
+const utils = require('./utils-34b36ad2.js');
 
 const BcgovHeader = class {
     constructor(hostRef) {
@@ -44,7 +44,7 @@ const BcgovHeader = class {
             return "";
         }
         else {
-            let image = core.getAssetPath(`./dist/vendor/${this.logo}`);
+            let image = core.getAssetPath(`./assets/${this.logo}`);
             let markup = core.h("img", { class: "header-logo", src: image, alt: "Logo" });
             if ("" !== this.href) {
                 markup = (core.h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, markup));

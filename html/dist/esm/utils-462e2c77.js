@@ -43,6 +43,9 @@ const menuElement = element => {
         element.setAttribute("tabindex", "-1");
         element.setAttribute("aria-hidden", "true");
         const liTag = document.createElement("li");
+        if (element.hasAttribute("active")) {
+            liTag.classList.add("active");
+        }
         liTag.setAttribute("role", "menuitem");
         liTag.setAttribute("tabindex", "-1");
         liTag.setAttribute("aria-label", element.textContent);

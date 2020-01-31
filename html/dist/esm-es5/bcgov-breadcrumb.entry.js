@@ -1,5 +1,5 @@
 import { r as registerInstance, h, H as Host, g as getElement } from './core-d4bdadec.js';
-import { b as breadCrumbElement } from './utils-923a28b7.js';
+import { b as breadCrumbElement } from './utils-462e2c77.js';
 var BcgovBreadcrumb = /** @class */ (function () {
     function BcgovBreadcrumb(hostRef) {
         registerInstance(this, hostRef);

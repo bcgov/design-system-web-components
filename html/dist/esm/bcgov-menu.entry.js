@@ -1,5 +1,5 @@
 import { r as registerInstance, h, H as Host, g as getElement } from './core-d4bdadec.js';
-import { m as menuElement, a as findAncestor, k as keys } from './utils-923a28b7.js';
+import { m as menuElement, a as findAncestor, k as keys } from './utils-462e2c77.js';
 
 const BcgovMenu = class {
     constructor(hostRef) {
@@ -48,7 +48,6 @@ const BcgovMenu = class {
     componentWillLoad() {
         this.isSubmenu = "UL" === this.el.parentElement.nodeName;
         [].forEach.call(this.el.querySelectorAll("a"), function (element) {
-            console.log(element);
             menuElement(element);
         });
         const self = this;
@@ -114,7 +113,6 @@ const BcgovMenu = class {
     onClick(event) {
         if (!this.isDesktop()) {
             const element = event.target;
-            console.log(element);
             const parent = findAncestor(element, "bcgov-menu");
             this.showSubmenu(parent, !parent.classList.contains("expanded"));
         }
@@ -182,7 +180,7 @@ const BcgovMenu = class {
         const alignment = "align-" + this.alignment;
         const instructionID = "bcgov-instructions-" + this.menuId;
         if (this.isSubmenu) {
-            return (h(Host, { role: "menuitem", class: "expandable", "aria-label": this.name }, h("div", null, h("a", { href: this.href, tabindex: "-1" }, this.name, "test"), h("slot", { name: "submenu-link" })), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));
+            return (h(Host, { role: "menuitem", class: "expandable", "aria-label": this.name }, h("div", null, h("a", { href: this.href, tabindex: "-1" }, this.name), h("slot", { name: "submenu-link" })), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));
         }
         else {
             const props = { role: "menubar", tabindex: "0", class: alignment };

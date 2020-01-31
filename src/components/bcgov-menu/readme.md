@@ -46,7 +46,7 @@ As read using ChromeVox
 <bcgov-button button-style="hamburger" target="main-navigation-sample">Menu</bcgov-button>
 <bcgov-menu id="main-navigation-sample" style="background-color: #036;" primary   alignment="left" breakpoint="1200">
   <a href="/">Home</a>
-  <a href="/sandbox.html">Sandbox</a>
+  <a active href="/sandbox.html">Sandbox</a>
   <bcgov-menu href="/" name="Components">
     <a href="/header.html">Header</a>
     <a href="/menu.html">Menus</a>
@@ -69,7 +69,7 @@ As read using ChromeVox
             instructions="Use arrow keys to navigate between menuitems, spacebar to expand submenus, escape key to closes submenus, enter to activate menuitems."
 >
   <a href="/">Home</a>
-  <a href="/sandbox.html">Sandbox</a>
+  <a active href="/sandbox.html">Sandbox</a>
   <a href="/components">Components
     <bcgov-menu>
     <a href="/header.html">Header</a>

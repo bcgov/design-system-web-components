@@ -49,7 +49,6 @@ export class BcgovMenu {
   componentWillLoad() {
     this.isSubmenu = "UL" === this.el.parentElement.nodeName;
     [].forEach.call(this.el.querySelectorAll("a"), function(element) {
-      console.log(element);
       menuElement(element);
     });
     const self = this;
@@ -120,7 +119,6 @@ export class BcgovMenu {
   onClick(event: Event) {
     if (!this.isDesktop()) {
       const element = event.target as HTMLElement;
-      console.log(element);
       const parent = findAncestor(element, "bcgov-menu");
 
       this.showSubmenu(parent, !parent.classList.contains("expanded"));
@@ -232,7 +230,7 @@ export class BcgovMenu {
         <Host role="menuitem" class="expandable" aria-label={this.name}>
           <div>
             <a href={this.href} tabindex="-1">
-              {this.name}test
+              {this.name}
             </a>
             <slot name="submenu-link"></slot>
           </div>

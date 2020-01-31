@@ -7,45 +7,37 @@ describe("bcgov-callout", () => {
   it("builds", () => {
     expect(new BcgovHeader()).toBeTruthy();
   });
-  it("should render my component", async () => {
+  it("Render header with default logo", async () => {
     const page = await newSpecPage({
       components: [BcgovHeader, BcgovBeta],
       html: `
-      <bcgov-header>
+      <bcgov-header logo>
       <img
-        slot="logo"
-        src="https://example.com/image.jpg"
+        src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
         alt="Branding logo"
       />
-      <div slot="headline">Design System<bcgov-beta></bcgov-beta></div>
-      <a aria slot="hidden-link" href="#main-content">Skip to Contents</a>
-      <a aria slot="hidden-link" href="accessibility">Skip to Accessibility Statement</a>
+      <div class="headline" >DevHub<bcgov-beta></bcgov-beta></div>
+      <div aria >
+        <a href="#main-navigation">Skip to navigation</a>
+        <a href="#main-content">Skip to Contents</a>
+        <a href="accessibility">Skip to Accessibility Statement</a>
+      </div>
     </bcgov-header>
       `
     });
     expect(page.root).toEqualHtml(`
-    <bcgov-header>
-      <header class="bcgov-header">
+    <bcgov-header logo="" class="bcgov-header">
+      <header>
         <div class="banner">
-          <a aria-label="branding logo" class="branding-logo" href="https://www2.gov.bc.ca/gov/content/home">
-            <img alt="Branding logo" slot="logo" src="https://example.com/image.jpg">
+          <a class="branding-logo" aria-label="branding logo" href="https://www2.gov.bc.ca/gov/content/home">
+            <img src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF" alt="Branding logo">
           </a>
-          <div class="hl">
-            <div slot="headline">
-              Design System
-              <bcgov-beta aria-label="This Application is currently in Beta Phase" aria-role="alert" tabindex="0">
-                Beta
-              </bcgov-beta>
-            </div>
-          </div>
-          <div class="access">
-            <a aria-label="Skip to Contents" href="#main-content" slot="hidden-link">
-              Skip to Contents
-            </a>
-            <a aria-label="Skip to Accessibility Statement" href="https://www2.gov.bc.ca/gov/content/home/accessibility" slot="hidden-link">
-              Skip to Accessibility Statement
-            </a>
-          </div>
+        </div>
+        <div class="headline">DevHub<bcgov-beta class="bcgov-beta " aria-label="This Application is currently in Beta Phase" aria-role="alert" tabindex="0">Beta</bcgov-beta></div>
+        <div aria="" class="access">
+          <a href="#main-navigation" aria-label="Skip to navigation">Skip to navigation</a>
+          <a href="#main-content" aria-label="Skip to Contents">Skip to Contents</a>
+          <a href="https://www2.gov.bc.ca/gov/content/home/accessibility" aria-label="Skip to Accessibility Statement">Skip to Accessibility Statement</a>
         </div>
       </header>
     </bcgov-header>

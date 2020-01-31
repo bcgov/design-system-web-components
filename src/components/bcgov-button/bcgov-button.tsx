@@ -110,7 +110,7 @@ export class BcgovButton {
   }
 
   render() {
-    const btnStyle = `${this.buttonStyle} bcgov-button`;
+    const btnStyle = `${this.buttonStyle}`;
     if (["hamburger", "search"].includes(this.buttonStyle)) {
       return (
         <Host target={this.target} class="bcgov-button">
@@ -127,15 +127,19 @@ export class BcgovButton {
           props["type"] = "submit";
         }
         return (
-          <button class={btnStyle} {...props}>
-            <slot />
-          </button>
+          <Host class="bcgov-button">
+            <button class={btnStyle} {...props}>
+              <slot />
+            </button>
+          </Host>
         );
       } else {
         return (
-          <a class={btnStyle} href={this.link} role="button">
-            <slot />
-          </a>
+          <Host class="bcgov-button">
+            <a class={btnStyle} href={this.link} role="button">
+              <slot />
+            </a>
+          </Host>
         );
       }
     }

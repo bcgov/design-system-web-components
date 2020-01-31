@@ -1,5 +1,5 @@
 import { r as registerInstance, c as getAssetPath, h, H as Host, g as getElement } from './core-d4bdadec.js';
-import { f as filterATags } from './utils-923a28b7.js';
+import { f as filterATags } from './utils-462e2c77.js';
 
 const BcgovHeader = class {
     constructor(hostRef) {
@@ -40,7 +40,7 @@ const BcgovHeader = class {
             return "";
         }
         else {
-            let image = getAssetPath(`./dist/vendor/${this.logo}`);
+            let image = getAssetPath(`./assets/${this.logo}`);
             let markup = h("img", { class: "header-logo", src: image, alt: "Logo" });
             if ("" !== this.href) {
                 markup = (h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, markup));
