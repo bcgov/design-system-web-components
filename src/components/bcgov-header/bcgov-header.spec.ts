@@ -1,9 +1,8 @@
 import { BcgovHeader } from "./bcgov-header";
 import { BcgovBeta } from "../bcgov-beta/bcgov-beta";
-
 import { newSpecPage } from "@stencil/core/testing";
 
-describe("bcgov-callout", () => {
+describe("bcgov-header", () => {
   it("builds", () => {
     expect(new BcgovHeader()).toBeTruthy();
   });
