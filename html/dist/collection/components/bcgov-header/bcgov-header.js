@@ -4,6 +4,7 @@ export class BcgovHeader {
     constructor() {
         /** link for logo */
         this.href = "https://www2.gov.bc.ca/gov/content/home";
+        /** Logo options -- might not work... */
         this.logo = "gov_bc_logo.svg";
     }
     componentWillLoad() { }
@@ -26,7 +27,8 @@ export class BcgovHeader {
             else {
                 divTag.appendChild(element.cloneNode(true));
             }
-            element.replaceWith(divTag);
+            //element.replaceWith(divTag);
+            element.parentNode.replaceChild(divTag, element);
         });
         [].forEach.call(this.el.querySelectorAll("*[aria] a"), function (element) {
             element.setAttribute("aria", "");
@@ -85,7 +87,7 @@ export class BcgovHeader {
             "optional": false,
             "docs": {
                 "tags": [],
-                "text": ""
+                "text": "Logo options -- might not work..."
             },
             "attribute": "logo",
             "reflect": false,

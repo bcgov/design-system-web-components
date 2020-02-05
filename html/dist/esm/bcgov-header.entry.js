@@ -6,6 +6,7 @@ const BcgovHeader = class {
         registerInstance(this, hostRef);
         /** link for logo */
         this.href = "https://www2.gov.bc.ca/gov/content/home";
+        /** Logo options -- might not work... */
         this.logo = "gov_bc_logo.svg";
     }
     componentWillLoad() { }
@@ -28,7 +29,8 @@ const BcgovHeader = class {
             else {
                 divTag.appendChild(element.cloneNode(true));
             }
-            element.replaceWith(divTag);
+            //element.replaceWith(divTag);
+            element.parentNode.replaceChild(divTag, element);
         });
         [].forEach.call(this.el.querySelectorAll("*[aria] a"), function (element) {
             element.setAttribute("aria", "");

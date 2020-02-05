@@ -58,6 +58,9 @@ export namespace Components {
     * link for logo
     */
     'href': string;
+    /**
+    * Logo options -- might not work...
+    */
     'logo': | ""
     | "gov_bc_logo.svg"
     | "gov_bc_logo_white.png"
@@ -224,6 +227,9 @@ declare namespace LocalJSX {
     * link for logo
     */
     'href'?: string;
+    /**
+    * Logo options -- might not work...
+    */
     'logo'?: | ""
     | "gov_bc_logo.svg"
     | "gov_bc_logo_white.png"

@@ -161,10 +161,10 @@ As read using ChromeVox
 
 ## Properties
 
-| Property | Attribute | Description   | Type                                                                           | Default                                     |
-| -------- | --------- | ------------- | ------------------------------------------------------------------------------ | ------------------------------------------- |
-| `href`   | `href`    | link for logo | `string`                                                                       | `"https://www2.gov.bc.ca/gov/content/home"` |
-| `logo`   | `logo`    |               | `"" \| "gov_bc_logo.svg" \| "gov_bc_logo_grey.jpg" \| "gov_bc_logo_white.png"` | `"gov_bc_logo.svg"`                         |
+| Property | Attribute | Description                       | Type                                                                           | Default                                     |
+| -------- | --------- | --------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------- |
+| `href`   | `href`    | link for logo                     | `string`                                                                       | `"https://www2.gov.bc.ca/gov/content/home"` |
+| `logo`   | `logo`    | Logo options -- might not work... | `"" \| "gov_bc_logo.svg" \| "gov_bc_logo_grey.jpg" \| "gov_bc_logo_white.png"` | `"gov_bc_logo.svg"`                         |
 
 
 ----------------------------------------------

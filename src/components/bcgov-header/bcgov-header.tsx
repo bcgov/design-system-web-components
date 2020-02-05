@@ -8,6 +8,7 @@ import { filterATags } from "../utils/utils";
 export class BcgovHeader {
   /** link for logo */
   @Prop() href: string = "https://www2.gov.bc.ca/gov/content/home";
+  /** Logo options -- might not work... */
   @Prop() logo:
     | ""
     | "gov_bc_logo.svg"
@@ -36,7 +37,8 @@ export class BcgovHeader {
       } else {
         divTag.appendChild(element.cloneNode(true));
       }
-      element.replaceWith(divTag);
+      //element.replaceWith(divTag);
+      element.parentNode.replaceChild(divTag, element);
     });
     [].forEach.call(this.el.querySelectorAll("*[aria] a"), function(element) {
       element.setAttribute("aria", "");
