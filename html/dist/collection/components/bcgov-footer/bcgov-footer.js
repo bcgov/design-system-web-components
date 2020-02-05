@@ -36,7 +36,7 @@ export class BcgovFooter {
             "optional": false,
             "docs": {
                 "tags": [],
-                "text": "Built in Logos, other wise just add image, before or after menu."
+                "text": "Alignment of menu\nBuilt in Logos, other wise just add image, before or after menu."
             },
             "attribute": "logo",
             "reflect": false,

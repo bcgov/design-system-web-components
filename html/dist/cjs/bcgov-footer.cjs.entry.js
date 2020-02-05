@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const core = require('./core-eae88e05.js');
+const core = require('./core-5a7012d7.js');
 
 const BcgovFooter = class {
     constructor(hostRef) {

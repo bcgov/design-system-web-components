@@ -1,1 +1,1 @@
-import{r as o,h as r,H as s}from"./core-d2dd311f.js";const c=class{constructor(r){o(this,r)}render(){return r(s,{class:"bcgov-form"},r("div",null,"This is a form component"),r("slot",null))}};export{c as bcgov_form};
+import{r as o,h as s,H as r}from"./p-100c0da1.js";const c=class{constructor(s){o(this,s)}render(){return s(r,{class:"bcgov-form"},s("div",null,"This is a form component"),s("slot",null))}};export{c as bcgov_form};

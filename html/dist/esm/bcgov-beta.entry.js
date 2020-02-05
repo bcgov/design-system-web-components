@@ -1,4 +1,4 @@
-import { r as registerInstance, h, g as getElement, H as Host } from './core-d4bdadec.js';
+import { r as registerInstance, h, g as getElement, H as Host } from './core-07a37eb8.js';
 
 const BcgovBeta = class {
     constructor(hostRef) {

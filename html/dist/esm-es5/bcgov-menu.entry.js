@@ -1,7 +1,7 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-d4bdadec.js';
-import { m as menuElement, a as findAncestor, k as keys } from './utils-462e2c77.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './core-07a37eb8.js';
+import { m as menuElement, a as findAncestor, k as keys } from './utils-6bcf279c.js';
 var BcgovMenu = /** @class */ (function () {
-    function BcgovMenu(hostRef) {
+    function class_1(hostRef) {
         var _this = this;
         registerInstance(this, hostRef);
         /** Alignment of menu */
@@ -44,7 +44,7 @@ var BcgovMenu = /** @class */ (function () {
             }
         };
     }
-    BcgovMenu.prototype.componentWillLoad = function () {
+    class_1.prototype.componentWillLoad = function () {
         this.isSubmenu = "UL" === this.el.parentElement.nodeName;
         [].forEach.call(this.el.querySelectorAll("a"), function (element) {
             menuElement(element);
@@ -60,7 +60,7 @@ var BcgovMenu = /** @class */ (function () {
     /**
      * This sets up inital attributes for sub menus
      */
-    BcgovMenu.prototype.componentDidRender = function () {
+    class_1.prototype.componentDidRender = function () {
         if (this.isSubmenu) {
             this.el.setAttribute("aria-haspopup", true);
             this.el.setAttribute("aria-expanded", false);
@@ -74,7 +74,7 @@ var BcgovMenu = /** @class */ (function () {
             }
         }
     };
-    BcgovMenu.prototype.isDesktop = function () {
+    class_1.prototype.isDesktop = function () {
         var isdesktop = false;
         if (!this.isSubmenu) {
             if (window.innerWidth >= this.breakpoint) {
@@ -96,27 +96,27 @@ var BcgovMenu = /** @class */ (function () {
         }
         return isdesktop;
     };
-    BcgovMenu.prototype.onMouseEnter = function (ev) {
+    class_1.prototype.onMouseEnter = function (ev) {
         //console.log(this.isDesktop(), ev, this.isSubmenu);
         if (this.isDesktop()) {
             var element = ev.target;
             this.showSubmenu(element, true);
         }
     };
-    BcgovMenu.prototype.onMouseLeave = function (event) {
+    class_1.prototype.onMouseLeave = function (event) {
         if (this.isDesktop()) {
             var element = event.target;
             this.showSubmenu(element, false);
         }
     };
-    BcgovMenu.prototype.onClick = function (event) {
+    class_1.prototype.onClick = function (event) {
         if (!this.isDesktop()) {
             var element = event.target;
             var parent = findAncestor(element, "bcgov-menu");
             this.showSubmenu(parent, !parent.classList.contains("expanded"));
         }
     };
-    BcgovMenu.prototype.onKeyDown = function (event) {
+    class_1.prototype.onKeyDown = function (event) {
         var current = event.srcElement;
         if (!this.isSubmenu || true) {
             switch (event.keyCode) {
@@ -151,7 +151,7 @@ var BcgovMenu = /** @class */ (function () {
             }
         }
     };
-    BcgovMenu.prototype.focusChange = function (current, direction) {
+    class_1.prototype.focusChange = function (current, direction) {
         if (direction === void 0) { direction = "next"; }
         if (this.isSubmenu) {
             return;
@@ -176,7 +176,7 @@ var BcgovMenu = /** @class */ (function () {
             element.focus();
         }
     };
-    BcgovMenu.prototype.render = function () {
+    class_1.prototype.render = function () {
         var alignment = "align-" + this.alignment;
         var instructionID = "bcgov-instructions-" + this.menuId;
         if (this.isSubmenu) {
@@ -193,11 +193,11 @@ var BcgovMenu = /** @class */ (function () {
             return (h(Host, null, h("ul", Object.assign({}, props), h("slot", null)), undefined !== this.primary && (h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
         }
     };
-    Object.defineProperty(BcgovMenu.prototype, "el", {
+    Object.defineProperty(class_1.prototype, "el", {
         get: function () { return getElement(this); },
         enumerable: true,
         configurable: true
     });
-    return BcgovMenu;
+    return class_1;
 }());
 export { BcgovMenu as bcgov_menu };

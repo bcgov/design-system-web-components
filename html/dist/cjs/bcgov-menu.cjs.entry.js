@@ -2,8 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const core = require('./core-eae88e05.js');
-const utils = require('./utils-34b36ad2.js');
+const core = require('./core-5a7012d7.js');
+const utils = require('./utils-28b049f7.js');
 
 const BcgovMenu = class {
     constructor(hostRef) {

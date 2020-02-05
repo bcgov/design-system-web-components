@@ -164,9 +164,9 @@ As read using ChromeVox
 
 ## Properties
 
-| Property | Attribute | Description                                                      | Type                                                                           | Default                   |
-| -------- | --------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------- |
-| `logo`   | `logo`    | Built in Logos, other wise just add image, before or after menu. | `"" \| "gov_bc_logo.svg" \| "gov_bc_logo_grey.jpg" \| "gov_bc_logo_white.png"` | `"gov_bc_logo_white.png"` |
+| Property | Attribute | Description                                                                        | Type                                                                           | Default                   |
+| -------- | --------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------- |
+| `logo`   | `logo`    | Alignment of menu Built in Logos, other wise just add image, before or after menu. | `"" \| "gov_bc_logo.svg" \| "gov_bc_logo_grey.jpg" \| "gov_bc_logo_white.png"` | `"gov_bc_logo_white.png"` |
 
 
 ----------------------------------------------

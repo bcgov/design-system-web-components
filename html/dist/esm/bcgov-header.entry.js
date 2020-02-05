@@ -1,5 +1,5 @@
-import { r as registerInstance, c as getAssetPath, h, H as Host, g as getElement } from './core-d4bdadec.js';
-import { f as filterATags } from './utils-462e2c77.js';
+import { r as registerInstance, c as getAssetPath, h, H as Host, g as getElement } from './core-07a37eb8.js';
+import { f as filterATags } from './utils-6bcf279c.js';
 
 const BcgovHeader = class {
     constructor(hostRef) {

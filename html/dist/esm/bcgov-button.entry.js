@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-d4bdadec.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './core-07a37eb8.js';
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {

@@ -1,4 +1,4 @@
-import { r as registerInstance, c as getAssetPath, h, H as Host } from './core-d4bdadec.js';
+import { r as registerInstance, c as getAssetPath, h, H as Host } from './core-07a37eb8.js';
 
 const BcgovFooter = class {
     constructor(hostRef) {

@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-d4bdadec.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './core-07a37eb8.js';
 function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
         throw new TypeError("Cannot call a class as a function");
@@ -860,7 +860,7 @@ var faSearch = {
     icon: [512, 512, [], "f002", "M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"]
 };
 var BcgovButton = /** @class */ (function () {
-    function BcgovButton(hostRef) {
+    function class_1(hostRef) {
         registerInstance(this, hostRef);
         /** The action of the button. */
         this.link = "button";
@@ -874,8 +874,8 @@ var BcgovButton = /** @class */ (function () {
         this.target = null;
         this.breakpoint = 700;
     }
-    BcgovButton.prototype.eventHandlerFunction = function () { };
-    BcgovButton.prototype.componentDidRender = function () {
+    class_1.prototype.eventHandlerFunction = function () { };
+    class_1.prototype.componentDidRender = function () {
         this.eventHandler(this.el);
         var buttonStyle = this.el.getAttribute("button-style");
         if ("search" === buttonStyle || "search-inline" === buttonStyle) {
@@ -884,7 +884,7 @@ var BcgovButton = /** @class */ (function () {
             buttonElement.innerHTML = icon(faSearch).html[0];
         }
     };
-    BcgovButton.prototype.componentWillLoad = function () {
+    class_1.prototype.componentWillLoad = function () {
         if (null !== this.target) {
             this.breakpoint = this.getParentBreakpoint();
             this.el.setAttribute("data-breakpoint", "" + this.breakpoint);
@@ -901,7 +901,7 @@ var BcgovButton = /** @class */ (function () {
             });
         }
     };
-    BcgovButton.prototype.getParentBreakpoint = function () {
+    class_1.prototype.getParentBreakpoint = function () {
         var value = "0";
         if (null !== this.target) {
             var element = document.getElementById(this.target);
@@ -911,7 +911,7 @@ var BcgovButton = /** @class */ (function () {
         }
         return parseInt(value);
     };
-    BcgovButton.prototype.isDesktop = function () {
+    class_1.prototype.isDesktop = function () {
         var isdesktop = false;
         if (window.innerWidth >= this.breakpoint) {
             this.el.classList.add("is-desktop");
@@ -921,7 +921,7 @@ var BcgovButton = /** @class */ (function () {
         }
         return isdesktop;
     };
-    BcgovButton.prototype.onClick = function () {
+    class_1.prototype.onClick = function () {
         if (null !== this.target) {
             var element = document.getElementById(this.target);
             var button = this.el.querySelector("button");
@@ -938,7 +938,7 @@ var BcgovButton = /** @class */ (function () {
             }
         }
     };
-    BcgovButton.prototype.render = function () {
+    class_1.prototype.render = function () {
         var btnStyle = "" + this.buttonStyle;
         if (["hamburger", "search"].includes(this.buttonStyle)) {
             return (h(Host, { target: this.target, class: "bcgov-button" }, h("button", { class: btnStyle, "aria-expanded": this.active }, h("div", null), h("slot", null))));
@@ -956,11 +956,11 @@ var BcgovButton = /** @class */ (function () {
             }
         }
     };
-    Object.defineProperty(BcgovButton.prototype, "el", {
+    Object.defineProperty(class_1.prototype, "el", {
         get: function () { return getElement(this); },
         enumerable: true,
         configurable: true
     });
-    return BcgovButton;
+    return class_1;
 }());
 export { BcgovButton as bcgov_button };
