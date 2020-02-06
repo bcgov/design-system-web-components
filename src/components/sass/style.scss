@@ -1,2 +1,27 @@
 @import "variables.scss";
+
+:root {
+  --bcgov-wc-color-brand-primary: #{$bcgov-blue-primary};
+  --bcgov-wc-color-brand-secondary: #{$bcgov-yellow-primary};
+  --bcgov-wc-color-border: #{$bcgov-yellow-primary};
+  --bcgov-wc-color-text: #{$bcgov-color};
+  --bcgov-wc-color-links: #{$bcgov-blue-links};
+  --bcgov-wc-color-links-hover: #{$bcgov-blue-links-hover};
+  --bcgov-wc-color-background-primary: #{$bcgov-blue-background};
+  --bcgov-wc-color-background-seconary: #{$bcgov-color-background};
+  --bcgov-wc-color-components: #{$bcgov-color-components};
+  --bcgov-wc-color-accessibility: #{$bcgov-color-accessibility};
+  --bcgov-wc-color-menu: #{$bcgov-color-menu};
+  --bcgov-wc-color-submenu: #{$bcgov-color-submenu};
+  --bcgov-wc-color-breadcrumb: #{$bcgov-color-breadcrumb};
+  --bcgov-wc-color-breakcrumb-link: #{$bcgov-blue-links};
+  --bcgov-wc-color-breakcrumb-link-hover: #{$bcgov-blue-links-hover};
+  --bcgov-wc-color-menu-border: #{$bcgov-color-menu-border};
+  --bcgov-wc-color-white: #{$bcgov-white};
+  --bcgov-wc-color-error: #{$bcgov-red-primary};
+  --bcgov-wc-color-success: #{$bcgov-green-primary};
+  --bcgov-wc-font-family: #{$bcgov-font-family};
+  --bcgov-wc-gutter: #{$gutter-primary};
+}
+
 @import "components/components.scss";

@@ -7,72 +7,71 @@ html {
 
 body {
   color: $bcgov-color;
-  background-color: $bcgov-color-background;
+  background-color: var(--bcgov-wc-color-background-seconary);
   margin: 0;
-  font-family: $bcgov-font-family;
-}
+  font-family: var(--bcgov-wc-font-family);
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    margin: 2rem 0 0.5rem;
+    font-weight: bold;
+  }
 
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-  margin: 2rem 0 0.5rem;
-  font-weight: bold;
-}
+  h1,
+  .h1 {
+    margin-top: 0;
+    font-size: $h1-font-size;
+  }
+  h2,
+  .h2 {
+    font-size: $h2-font-size;
+  }
 
-h1,
-.h1 {
-  margin-top: 0;
-  font-size: $h1-font-size;
-}
-h2,
-.h2 {
-  font-size: $h2-font-size;
-}
+  h3,
+  .h3 {
+    font-size: $h3-font-size;
+  }
 
-h3,
-.h3 {
-  font-size: $h3-font-size;
-}
+  h4,
+  .h4 {
+    font-size: $h4-font-size;
+  }
 
-h4,
-.h4 {
-  font-size: $h4-font-size;
-}
+  p {
+    margin: 0 0 2rem;
+  }
 
-p {
-  margin: 0 0 2rem;
-}
+  .bcgov-main {
+    margin: 0 var(--bcgov-wc-gutter);
+    padding: 30px;
+    min-height: 600px;
+    background: $bcgov-white;
+    display: block;
 
-.bcgov-main {
-  margin: 0 $gutter-primary;
-  padding: 30px;
-  min-height: 600px;
-  background: $bcgov-white;
-  display: block;
-
-  a {
-    &.active,
-    &:active,
-    &:visited,
-    &:focus {
-      color: $bcgov-blue-links;
-      text-decoration: underline;
-    }
-    &:hover {
-      color: $bcgov-blue-links;
-      text-decoration: none;
-    }
-    i {
-      color: $bcgov-blue-links;
+    a {
+      &.active,
+      &:active,
+      &:visited,
+      &:focus {
+        color: var(--bcgov-wc-color-links);
+        text-decoration: underline;
+      }
+      &:hover {
+        color: var(--bcgov-wc-color-links-hover);
+        text-decoration: none;
+      }
+      i {
+        color: var(--bcgov-wc-color-links);
+      }
     }
   }
 }
