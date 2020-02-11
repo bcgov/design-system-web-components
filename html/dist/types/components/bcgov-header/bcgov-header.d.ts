@@ -6,6 +6,6 @@ export declare class BcgovHeader {
     el: any;
     componentWillLoad(): void;
     componentDidRender(): void;
-    getImage(): any;
+    getImage(): string;
     render(): any;
 }

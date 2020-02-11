@@ -9,8 +9,9 @@
 @import "bcgov-form";
 @import "bcgov-breadcrumb";
 *:focus {
-  outline: 4px solid var(--bcgov-wc-color-accessibility);
+  outline: 3px solid var(--bcgov-wc-color-accessibility);
   outline-offset: 1px;
+  z-index: 9999;
 }
 .sr-only {
   width: 1px;

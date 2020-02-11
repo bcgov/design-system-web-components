@@ -16,7 +16,7 @@ const BcgovHeader = class {
     componentWillLoad() { }
     componentDidRender() {
         const self = this;
-        [].forEach.call(this.el.querySelectorAll("*[aria]"), function (element) {
+        [].forEach.call(this.el.querySelectorAll("div[aria]"), function (element) {
             element.classList.add("access");
         });
         [].forEach.call(this.el.querySelectorAll("img"), function (element) {
@@ -36,9 +36,11 @@ const BcgovHeader = class {
             //element.replaceWith(divTag);
             element.parentNode.replaceChild(divTag, element);
         });
-        [].forEach.call(this.el.querySelectorAll("*[aria] a"), function (element) {
-            element.setAttribute("aria", "");
-            utils.filterATags(element);
+        [].forEach.call(this.el.querySelectorAll("div[aria]"), function (element) {
+            [].forEach.call(element.querySelectorAll("a"), function (element) {
+                element.setAttribute("aria", "");
+                utils.filterATags(element);
+            });
         });
     }
     getImage() {
@@ -51,7 +53,8 @@ const BcgovHeader = class {
             if ("" !== this.href) {
                 markup = (core.h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, markup));
             }
-            return core.h("div", { class: "banner" }, markup);
+            return "";
+            //return <div class="banner">{markup}</div>;
         }
     }
     render() {

@@ -5,18 +5,23 @@ bcgov-footer,
   color: var(--bcgov-wc-color-white);
   min-height: 50px;
   padding: 0.25rem var(--bcgov-wc-gutter);
+
+  //@include justify-content(space-between);
+  //@include align-items(center);
   @include flexbox();
+  @include flex-wrap(wrap);
   @include justify-content(space-between);
+  @include flex-grow(1);
   @include align-items(center);
-  flex-direction: column-reverse;
+
+  //flex-direction: column-reverse;
 
   .footer-logo {
     max-width: 175px;
     width: 100%;
     padding: 8px 0;
   }
-  > *:not(bcgov-menu) {
-  }
+
   &.align-left {
     bcgov-menu {
       &.is-desktop {
@@ -37,8 +42,6 @@ bcgov-footer,
           justify-content: flex-end !important;
         }
       }
-    }
-    > *:not(bcgov-menu) {
     }
   }
 

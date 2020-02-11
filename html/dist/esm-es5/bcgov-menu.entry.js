@@ -16,6 +16,7 @@ var BcgovMenu = /** @class */ (function () {
         this.breakpoint = 0;
         /**  Automatically adds hamburger. */
         this.hamburger = true;
+        this.active = false;
         this.isSubmenu = false;
         this.showSubmenu = function (target, expanded) {
             if (!_this.isSubmenu) {
@@ -35,7 +36,7 @@ var BcgovMenu = /** @class */ (function () {
                 submenu.setAttribute("aria-hidden", expanded ? "false" : "true");
                 if (expanded) {
                     var firstFocus = target.querySelector("ul > li:first-child");
-                    firstFocus.setAttribute("tabindex", "0");
+                    firstFocus.setAttribute("tabindex", "-1");
                     firstFocus.focus();
                 }
                 else {
@@ -65,7 +66,7 @@ var BcgovMenu = /** @class */ (function () {
             this.el.setAttribute("aria-haspopup", true);
             this.el.setAttribute("aria-expanded", false);
             this.el.setAttribute("aria-selected", false);
-            this.el.setAttribute("tabindex", 0);
+            this.el.setAttribute("tabindex", -1);
         }
         else {
             var firstChild = this.el.querySelector("ul > *:first-child");
@@ -179,8 +180,12 @@ var BcgovMenu = /** @class */ (function () {
     class_1.prototype.render = function () {
         var alignment = "align-" + this.alignment;
         var instructionID = "bcgov-instructions-" + this.menuId;
+        var hostClass = "expandabler";
         if (this.isSubmenu) {
-            return (h(Host, { role: "menuitem", class: "expandable", "aria-label": this.name }, h("div", null, h("a", { href: this.href, tabindex: "-1" }, this.name), h("slot", { name: "submenu-link" })), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));
+            if (undefined !== this.active) {
+                hostClass += " active";
+            }
+            return (h(Host, { role: "menuitem", class: hostClass, "aria-label": this.name }, h("div", null, h("a", { href: this.href, tabindex: "-1" }, this.name), h("slot", { name: "submenu-link" })), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));
         }
         else {
             var props = { role: "menubar", tabindex: "0", class: alignment };

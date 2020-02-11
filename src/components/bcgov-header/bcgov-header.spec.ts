@@ -1,5 +1,6 @@
 import { BcgovHeader } from "./bcgov-header";
 import { BcgovBeta } from "../bcgov-beta/bcgov-beta";
+import { BcgovButton } from "../bcgov-button/bcgov-button";
 import { newSpecPage } from "@stencil/core/testing";
 
 describe("bcgov-header", () => {
@@ -8,19 +9,21 @@ describe("bcgov-header", () => {
   });
   it("Render header with default logo", async () => {
     const page = await newSpecPage({
-      components: [BcgovHeader, BcgovBeta],
-      html: `
-      <bcgov-header logo>
+      components: [BcgovHeader, BcgovBeta, BcgovButton],
+      html: `<bcgov-header logo >
       <img
         src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
         alt="Branding logo"
       />
       <div class="headline" >DevHub<bcgov-beta></bcgov-beta></div>
-      <div aria >
+      <div aria>
         <a href="#main-navigation">Skip to navigation</a>
         <a href="#main-content">Skip to Contents</a>
         <a href="accessibility">Skip to Accessibility Statement</a>
       </div>
+      <bcgov-button button-style="hamburger" target="main-navigation"
+      >Menu</bcgov-button
+    >
     </bcgov-header>
       `
     });
@@ -38,6 +41,12 @@ describe("bcgov-header", () => {
           <a href="#main-content" aria-label="Skip to Contents">Skip to Contents</a>
           <a href="https://www2.gov.bc.ca/gov/content/home/accessibility" aria-label="Skip to Accessibility Statement">Skip to Accessibility Statement</a>
         </div>
+        <bcgov-button button-style="hamburger" class="bcgov-button is-desktop" data-breakpoint="0" target="main-navigation">
+          <button aria-expanded="false" class="hamburger">
+            <div></div>
+            Menu
+          </button>
+        </bcgov-button>
       </header>
     </bcgov-header>
     `);

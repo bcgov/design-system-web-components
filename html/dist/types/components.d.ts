@@ -67,6 +67,7 @@ export namespace Components {
     | "gov_bc_logo_grey.jpg";
   }
   interface BcgovMenu {
+    'active': boolean;
     /**
     * Alignment of menu
     */
@@ -236,6 +237,7 @@ declare namespace LocalJSX {
     | "gov_bc_logo_grey.jpg";
   }
   interface BcgovMenu extends JSXBase.HTMLAttributes<HTMLBcgovMenuElement> {
+    'active'?: boolean;
     /**
     * Alignment of menu
     */

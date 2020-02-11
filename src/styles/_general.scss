@@ -63,6 +63,17 @@ table {
     display: block;
   }
 }
+
+bcgov-header,
+.bcgov-header {
+  header {
+    .banner {
+      img {
+        max-width: 225px;
+      }
+    }
+  }
+}
 /*
 @media only screen and (min-width: 978px) {
   bcgov-footer,

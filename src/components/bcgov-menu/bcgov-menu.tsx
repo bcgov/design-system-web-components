@@ -40,6 +40,8 @@ export class BcgovMenu {
   /**  Automatically adds hamburger. */
   @Prop() hamburger: boolean = true;
 
+  @Prop() active: boolean = false;
+
   @State() isSubmenu: boolean = false;
   @State() clone: Node;
   @State() allTags: NodeList;
@@ -68,7 +70,7 @@ export class BcgovMenu {
       this.el.setAttribute("aria-haspopup", true);
       this.el.setAttribute("aria-expanded", false);
       this.el.setAttribute("aria-selected", false);
-      this.el.setAttribute("tabindex", 0);
+      this.el.setAttribute("tabindex", -1);
     } else {
       const firstChild = this.el.querySelector("ul > *:first-child");
       if (null !== firstChild) {
@@ -213,7 +215,7 @@ export class BcgovMenu {
         const firstFocus: HTMLElement = target.querySelector(
           "ul > li:first-child"
         );
-        firstFocus.setAttribute("tabindex", "0");
+        firstFocus.setAttribute("tabindex", "-1");
         firstFocus.focus();
       } else {
         this.el.focus();
@@ -224,10 +226,14 @@ export class BcgovMenu {
   render() {
     const alignment: string = "align-" + this.alignment;
     const instructionID: string = "bcgov-instructions-" + this.menuId;
+    let hostClass: string = "expandabler";
 
     if (this.isSubmenu) {
+      if (undefined !== this.active) {
+        hostClass += " active";
+      }
       return (
-        <Host role="menuitem" class="expandable" aria-label={this.name}>
+        <Host role="menuitem" class={hostClass} aria-label={this.name}>
           <div>
             <a href={this.href} tabindex="-1">
               {this.name}

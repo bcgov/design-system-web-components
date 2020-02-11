@@ -20,13 +20,12 @@ export class BcgovHeader {
 
   componentDidRender() {
     const self = this;
-    [].forEach.call(this.el.querySelectorAll("*[aria]"), function(element) {
+    [].forEach.call(this.el.querySelectorAll("div[aria]"), function(element) {
       element.classList.add("access");
     });
     [].forEach.call(this.el.querySelectorAll("img"), function(element) {
       const divTag: HTMLElement = document.createElement("div");
       divTag.classList.add("banner");
-
       if (undefined !== self.href && "" !== self.href) {
         const atag: HTMLElement = document.createElement("a");
         atag.classList.add("branding-logo");
@@ -40,9 +39,12 @@ export class BcgovHeader {
       //element.replaceWith(divTag);
       element.parentNode.replaceChild(divTag, element);
     });
-    [].forEach.call(this.el.querySelectorAll("*[aria] a"), function(element) {
-      element.setAttribute("aria", "");
-      filterATags(element);
+
+    [].forEach.call(this.el.querySelectorAll("div[aria]"), function(element) {
+      [].forEach.call(element.querySelectorAll("a"), function(element) {
+        element.setAttribute("aria", "");
+        filterATags(element);
+      });
     });
   }
 
@@ -59,8 +61,8 @@ export class BcgovHeader {
           </a>
         );
       }
-
-      return <div class="banner">{markup}</div>;
+      return "";
+      //return <div class="banner">{markup}</div>;
     }
   }
 

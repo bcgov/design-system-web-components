@@ -15,6 +15,7 @@ export class BcgovMenu {
         this.breakpoint = 0;
         /**  Automatically adds hamburger. */
         this.hamburger = true;
+        this.active = false;
         this.isSubmenu = false;
         this.showSubmenu = (target, expanded) => {
             if (!this.isSubmenu) {
@@ -34,7 +35,7 @@ export class BcgovMenu {
                 submenu.setAttribute("aria-hidden", expanded ? "false" : "true");
                 if (expanded) {
                     const firstFocus = target.querySelector("ul > li:first-child");
-                    firstFocus.setAttribute("tabindex", "0");
+                    firstFocus.setAttribute("tabindex", "-1");
                     firstFocus.focus();
                 }
                 else {
@@ -64,7 +65,7 @@ export class BcgovMenu {
             this.el.setAttribute("aria-haspopup", true);
             this.el.setAttribute("aria-expanded", false);
             this.el.setAttribute("aria-selected", false);
-            this.el.setAttribute("tabindex", 0);
+            this.el.setAttribute("tabindex", -1);
         }
         else {
             const firstChild = this.el.querySelector("ul > *:first-child");
@@ -177,8 +178,12 @@ export class BcgovMenu {
     render() {
         const alignment = "align-" + this.alignment;
         const instructionID = "bcgov-instructions-" + this.menuId;
+        let hostClass = "expandabler";
         if (this.isSubmenu) {
-            return (h(Host, { role: "menuitem", class: "expandable", "aria-label": this.name },
+            if (undefined !== this.active) {
+                hostClass += " active";
+            }
+            return (h(Host, { role: "menuitem", class: hostClass, "aria-label": this.name },
                 h("div", null,
                     h("a", { href: this.href, tabindex: "-1" }, this.name),
                     h("slot", { name: "submenu-link" })),
@@ -358,6 +363,24 @@ export class BcgovMenu {
             "attribute": "hamburger",
             "reflect": false,
             "defaultValue": "true"
+        },
+        "active": {
+            "type": "boolean",
+            "mutable": false,
+            "complexType": {
+                "original": "boolean",
+                "resolved": "boolean",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": ""
+            },
+            "attribute": "active",
+            "reflect": false,
+            "defaultValue": "false"
         }
     }; }
     static get states() { return {

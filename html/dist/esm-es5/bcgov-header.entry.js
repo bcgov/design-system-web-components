@@ -11,7 +11,7 @@ var BcgovHeader = /** @class */ (function () {
     class_1.prototype.componentWillLoad = function () { };
     class_1.prototype.componentDidRender = function () {
         var self = this;
-        [].forEach.call(this.el.querySelectorAll("*[aria]"), function (element) {
+        [].forEach.call(this.el.querySelectorAll("div[aria]"), function (element) {
             element.classList.add("access");
         });
         [].forEach.call(this.el.querySelectorAll("img"), function (element) {
@@ -31,9 +31,11 @@ var BcgovHeader = /** @class */ (function () {
             //element.replaceWith(divTag);
             element.parentNode.replaceChild(divTag, element);
         });
-        [].forEach.call(this.el.querySelectorAll("*[aria] a"), function (element) {
-            element.setAttribute("aria", "");
-            filterATags(element);
+        [].forEach.call(this.el.querySelectorAll("div[aria]"), function (element) {
+            [].forEach.call(element.querySelectorAll("a"), function (element) {
+                element.setAttribute("aria", "");
+                filterATags(element);
+            });
         });
     };
     class_1.prototype.getImage = function () {
@@ -46,7 +48,8 @@ var BcgovHeader = /** @class */ (function () {
             if ("" !== this.href) {
                 markup = (h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, markup));
             }
-            return h("div", { class: "banner" }, markup);
+            return "";
+            //return <div class="banner">{markup}</div>;
         }
     };
     class_1.prototype.render = function () {

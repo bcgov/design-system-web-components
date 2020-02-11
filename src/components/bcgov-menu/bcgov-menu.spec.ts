@@ -30,7 +30,7 @@ describe("bcgov-menu", () => {
             <span>Adding span</span>
           </a>
         </li>
-        <bcgov-menu aria-expanded="false" aria-haspopup="true" aria-label="Components" aria-selected="false" class="expandable" link="https://gov.bc.ca" name="Components" role="menuitem" tabindex="0">
+        <bcgov-menu aria-expanded="false" aria-haspopup="true" aria-label="Components" aria-selected="false" class="expandable" link="https://gov.bc.ca" name="Components" role="menuitem" tabindex="-1">
           <div><a tabindex="-1">Components</a></div>
           <ul aria-hidden="true" role="menu">
             <li aria-label="Test3" role="menuitem" tabindex="-1">

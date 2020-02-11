@@ -17,6 +17,7 @@ export declare class BcgovMenu {
     breakpoint: number;
     /**  Automatically adds hamburger. */
     hamburger: boolean;
+    active: boolean;
     isSubmenu: boolean;
     clone: Node;
     allTags: NodeList;

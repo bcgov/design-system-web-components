@@ -43,7 +43,7 @@ h4,
 }
 
 p {
-  margin: 0 0 2rem;
+  margin: 0 0 1.5rem;
 }
 
 *,
@@ -99,8 +99,8 @@ body {
   font-family: var(--bcgov-wc-font-family);
   .bcgov-main {
     margin: 0 var(--bcgov-wc-gutter);
-    padding: 30px;
-    min-height: 600px;
+    padding: 2rem 2rem 4rem;
+    min-height: 500px;
     background: $bcgov-white;
     display: block;
 
