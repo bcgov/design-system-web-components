@@ -180,9 +180,9 @@ var BcgovMenu = /** @class */ (function () {
     class_1.prototype.render = function () {
         var alignment = "align-" + this.alignment;
         var instructionID = "bcgov-instructions-" + this.menuId;
-        var hostClass = "expandabler";
+        var hostClass = "expandable";
         if (this.isSubmenu) {
-            if (undefined !== this.active) {
+            if (undefined !== this.active && this.active) {
                 hostClass += " active";
             }
             return (h(Host, { role: "menuitem", class: hostClass, "aria-label": this.name }, h("div", null, h("a", { href: this.href, tabindex: "-1" }, this.name), h("slot", { name: "submenu-link" })), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));

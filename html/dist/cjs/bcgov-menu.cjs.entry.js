@@ -184,9 +184,9 @@ const BcgovMenu = class {
     render() {
         const alignment = "align-" + this.alignment;
         const instructionID = "bcgov-instructions-" + this.menuId;
-        let hostClass = "expandabler";
+        let hostClass = "expandable";
         if (this.isSubmenu) {
-            if (undefined !== this.active) {
+            if (undefined !== this.active && this.active) {
                 hostClass += " active";
             }
             return (core.h(core.Host, { role: "menuitem", class: hostClass, "aria-label": this.name }, core.h("div", null, core.h("a", { href: this.href, tabindex: "-1" }, this.name), core.h("slot", { name: "submenu-link" })), core.h("ul", { role: "menu", "aria-hidden": "true" }, core.h("slot", null))));

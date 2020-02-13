@@ -226,10 +226,10 @@ export class BcgovMenu {
   render() {
     const alignment: string = "align-" + this.alignment;
     const instructionID: string = "bcgov-instructions-" + this.menuId;
-    let hostClass: string = "expandabler";
+    let hostClass: string = "expandable";
 
     if (this.isSubmenu) {
-      if (undefined !== this.active) {
+      if (undefined !== this.active && this.active) {
         hostClass += " active";
       }
       return (

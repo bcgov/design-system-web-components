@@ -178,9 +178,9 @@ export class BcgovMenu {
     render() {
         const alignment = "align-" + this.alignment;
         const instructionID = "bcgov-instructions-" + this.menuId;
-        let hostClass = "expandabler";
+        let hostClass = "expandable";
         if (this.isSubmenu) {
-            if (undefined !== this.active) {
+            if (undefined !== this.active && this.active) {
                 hostClass += " active";
             }
             return (h(Host, { role: "menuitem", class: hostClass, "aria-label": this.name },

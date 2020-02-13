@@ -180,9 +180,9 @@ const BcgovMenu = class {
     render() {
         const alignment = "align-" + this.alignment;
         const instructionID = "bcgov-instructions-" + this.menuId;
-        let hostClass = "expandabler";
+        let hostClass = "expandable";
         if (this.isSubmenu) {
-            if (undefined !== this.active) {
+            if (undefined !== this.active && this.active) {
                 hostClass += " active";
             }
             return (h(Host, { role: "menuitem", class: hostClass, "aria-label": this.name }, h("div", null, h("a", { href: this.href, tabindex: "-1" }, this.name), h("slot", { name: "submenu-link" })), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));

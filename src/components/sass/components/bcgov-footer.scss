@@ -22,6 +22,14 @@ bcgov-footer,
     padding: 8px 0;
   }
 
+  img {
+    height: auto;
+    min-width: 175px;
+    max-width: 300px;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
   &.align-left {
     bcgov-menu {
       &.is-desktop {

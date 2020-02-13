@@ -29,7 +29,7 @@ bcgov-menu {
     }
     &:hover {
       text-decoration: underline;
-      background-color: var(--bcgov-wc-color-menu-border);
+      background-color: var(--bcgov-wc-color-menu-active);
     }
   }
   &:not([sidebar]) {
@@ -141,7 +141,7 @@ bcgov-menu {
       &.active {
         > div {
           a {
-            background-color: var(--bcgov-wc-color-menu-border);
+            background-color: var(--bcgov-wc-color-menu-active);
           }
         }
       }
@@ -155,7 +155,7 @@ bcgov-menu {
       li {
         &.active {
           a {
-            background-color: var(--bcgov-wc-color-menu-border);
+            background-color: var(--bcgov-wc-color-menu-active);
           }
         }
       }
