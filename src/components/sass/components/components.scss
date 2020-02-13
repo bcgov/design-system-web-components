@@ -8,8 +8,9 @@
 @import "bcgov-search";
 @import "bcgov-form";
 @import "bcgov-breadcrumb";
+
 *:focus {
-  outline: 3px solid var(--bcgov-wc-color-accessibility);
+  outline: 2px solid var(--bcgov-wc-color-accessibility);
   outline-offset: 1px;
   z-index: 9999;
 }
