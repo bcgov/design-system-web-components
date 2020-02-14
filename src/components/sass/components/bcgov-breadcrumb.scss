@@ -2,7 +2,7 @@ bcgov-breadcrumb,
 .bcgov-breadcrumb {
   @include flexbox;
   background-color: var(--bcgov-wc-color-breadcrumb);
-  padding: 0 var(--bcgov-wc-gutter);
+  padding: 1rem var(--bcgov-wc-gutter);
   @include justify-content(space-between);
   @include align-items(center);
 
@@ -10,7 +10,6 @@ bcgov-breadcrumb,
     list-style: none;
     @include flexbox();
     @include align-items(center);
-    min-height: 60px;
     margin: 0;
     padding: 0;
     font-size: 0.95rem;

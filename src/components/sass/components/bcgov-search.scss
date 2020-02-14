@@ -5,7 +5,7 @@ bcgov-search,
   border: 1px solid var(--bcgov-wc-color-background-seconary);
   border-bottom-color: var(--bcgov-wc-color-brand-secondary);
   position: absolute;
-
+  z-index: 1000;
   .search-container {
     -webkit-transition: height 200ms ease-in;
     -moz-transition: height 200ms ease-in;
