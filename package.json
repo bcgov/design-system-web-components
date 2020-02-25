@@ -1,6 +1,6 @@
 {
   "name": "@bcgov/web-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "BCGov Web Components using Stencil JS",
   "repository": {
     "type": "git",

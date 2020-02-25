@@ -1,5 +1,3 @@
-'use strict';
-
 const filterATags = element => {
     let href = element.getAttribute("href");
     if ("accessibility" === element.getAttribute("href")) {
@@ -10,6 +8,7 @@ const filterATags = element => {
         element.setAttribute("aria-label", element.textContent);
         element.removeAttribute("aria");
     }
+    return element;
 };
 const breadCrumbElement = element => {
     const nName = element.nodeName.toLowerCase();
@@ -72,8 +71,4 @@ const keys = {
     down: 40
 };
 
-exports.breadCrumbElement = breadCrumbElement;
-exports.filterATags = filterATags;
-exports.findAncestor = findAncestor;
-exports.keys = keys;
-exports.menuElement = menuElement;
+export { findAncestor as a, breadCrumbElement as b, filterATags as f, keys as k, menuElement as m };

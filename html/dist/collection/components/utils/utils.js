@@ -8,6 +8,7 @@ export const filterATags = element => {
         element.setAttribute("aria-label", element.textContent);
         element.removeAttribute("aria");
     }
+    return element;
 };
 export const moveElement = (element, parent) => {
     const nName = element.nodeName.toLowerCase();

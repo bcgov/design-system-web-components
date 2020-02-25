@@ -8,6 +8,7 @@ var filterATags = function (element) {
         element.setAttribute("aria-label", element.textContent);
         element.removeAttribute("aria");
     }
+    return element;
 };
 var breadCrumbElement = function (element) {
     var nName = element.nodeName.toLowerCase();

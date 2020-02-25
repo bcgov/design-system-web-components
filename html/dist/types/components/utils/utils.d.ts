@@ -1,4 +1,4 @@
-export declare const filterATags: (element: any) => void;
+export declare const filterATags: (element: any) => any;
 export declare const moveElement: (element: any, parent: any) => void;
 export declare const breadCrumbElement: (element: any) => void;
 export declare const menuElement: (element: any) => void;
