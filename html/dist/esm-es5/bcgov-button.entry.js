@@ -870,8 +870,10 @@ var BcgovButton = /** @class */ (function () {
         this.eventHandler = this.eventHandlerFunction;
         /** Style of button */
         this.buttonStyle = "primary";
-        /** Target, only used on hamburger and search */
+        /** A tag target */
         this.target = null;
+        /** Target, only used on hamburger and search */
+        this.dataTarget = null;
         this.breakpoint = 700;
     }
     class_1.prototype.eventHandlerFunction = function () { };
@@ -885,10 +887,10 @@ var BcgovButton = /** @class */ (function () {
         }
     };
     class_1.prototype.componentWillLoad = function () {
-        if (null !== this.target) {
+        if (null !== this.dataTarget) {
             this.breakpoint = this.getParentBreakpoint();
             this.el.setAttribute("data-breakpoint", "" + this.breakpoint);
-            var element = document.getElementById(this.target);
+            var element = document.getElementById(this.dataTarget);
             if (null !== element) {
                 if ("false" === this.active) {
                     element.classList.add("target-hidden");
@@ -903,8 +905,8 @@ var BcgovButton = /** @class */ (function () {
     };
     class_1.prototype.getParentBreakpoint = function () {
         var value = "0";
-        if (null !== this.target) {
-            var element = document.getElementById(this.target);
+        if (null !== this.dataTarget) {
+            var element = document.getElementById(this.dataTarget);
             if (null !== element && element.hasAttribute("breakpoint")) {
                 value = element.getAttribute("breakpoint");
             }
@@ -922,8 +924,8 @@ var BcgovButton = /** @class */ (function () {
         return isdesktop;
     };
     class_1.prototype.onClick = function () {
-        if (null !== this.target) {
-            var element = document.getElementById(this.target);
+        if (null !== this.dataTarget) {
+            var element = document.getElementById(this.dataTarget);
             var button = this.el.querySelector("button");
             if (null !== element) {
                 if (undefined !== button && button.hasAttribute("aria-expanded")) {
@@ -940,19 +942,25 @@ var BcgovButton = /** @class */ (function () {
     };
     class_1.prototype.render = function () {
         var btnStyle = "" + this.buttonStyle;
+        var props = {
+            class: btnStyle
+        };
         if (["hamburger", "search"].includes(this.buttonStyle)) {
-            return (h(Host, { target: this.target, class: "bcgov-button" }, h("button", { class: btnStyle, "aria-expanded": this.active }, h("div", null), h("slot", null))));
+            props["aria-expanded"] = this.active;
+            return (h(Host, { "data-target": this.dataTarget, class: "bcgov-button" }, h("button", Object.assign({}, props), h("div", null), h("slot", null))));
         }
         else {
             if ("button" === this.link) {
-                var props = {};
                 if ("search-inline" == this.buttonStyle) {
                     props["type"] = "submit";
                 }
-                return (h(Host, { class: "bcgov-button" }, h("button", Object.assign({ class: btnStyle }, props), h("slot", null))));
+                return (h(Host, { class: "bcgov-button" }, h("button", Object.assign({}, props), h("slot", null))));
             }
             else {
-                return (h(Host, { class: "bcgov-button" }, h("a", { class: btnStyle, href: this.link, role: "button" }, h("slot", null))));
+                props["href"] = this.link;
+                props["target"] = this.target;
+                props["role"] = "button";
+                return (h(Host, { class: "bcgov-button" }, h("a", Object.assign({}, props), h("slot", null))));
             }
         }
     };

@@ -81,9 +81,10 @@ In addition to [fundamental accessibility]() requirements, this component meets 
 | -------------- | -------------- | ----------------------------------------- | ---------------------------------------------------------------------------------- | --------------------------- |
 | `active`       | `active`       | default state of button if applicable     | `string`                                                                           | `"false"`                   |
 | `buttonStyle`  | `button-style` | Style of button                           | `"dark" \| "hamburger" \| "primary" \| "search" \| "search-inline" \| "secondary"` | `"primary"`                 |
+| `dataTarget`   | `data-target`  | Target, only used on hamburger and search | `string`                                                                           | `null`                      |
 | `eventHandler` | --             | Add a callback to handle events           | `Function`                                                                         | `this.eventHandlerFunction` |
 | `link`         | `link`         | The action of the button.                 | `string`                                                                           | `"button"`                  |
-| `target`       | `target`       | Target, only used on hamburger and search | `string`                                                                           | `null`                      |
+| `target`       | `target`       | A tag target                              | `"_blank" \| "_parent" \| "_self" \| "_top"`                                       | `null`                      |
 
 
 ----------------------------------------------

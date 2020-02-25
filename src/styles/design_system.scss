@@ -105,6 +105,7 @@ body {
     display: block;
 
     a {
+      &,
       &.active,
       &:active,
       &:visited,

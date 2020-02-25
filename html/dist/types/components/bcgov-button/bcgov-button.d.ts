@@ -7,8 +7,10 @@ export declare class BcgovButton {
     eventHandler: Function;
     /** Style of button */
     buttonStyle: "primary" | "secondary" | "dark" | "hamburger" | "search" | "search-inline";
+    /** A tag target */
+    target: "_self" | "_blank" | "_parent" | "_top" | null;
     /** Target, only used on hamburger and search */
-    target: string;
+    dataTarget: string;
     breakpoint: number;
     el: HTMLElement;
     eventHandlerFunction(): void;

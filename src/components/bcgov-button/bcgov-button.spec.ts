@@ -80,4 +80,13 @@ describe("bcgov-button", () => {
     <bcgov-button class="bcgov-button" link="https://gov.bc.ca" ><a href="https://gov.bc.ca" class="primary" role="button" >Link Button</a></bcgov-button>
     `);
   });
+  it("Render Link Button With Target", async () => {
+    const page = await newSpecPage({
+      components: [BcgovButton],
+      html: `<bcgov-button target="_blank" link="https://gov.bc.ca" >Link Button</bcgov-button>`
+    });
+    expect(page.root).toEqualHtml(`
+    <bcgov-button class="bcgov-button" link="https://gov.bc.ca" target="_blank" ><a href="https://gov.bc.ca" class="primary" target="_blank" role="button" >Link Button</a></bcgov-button>
+    `);
+  });
 });

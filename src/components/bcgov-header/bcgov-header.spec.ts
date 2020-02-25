@@ -21,7 +21,7 @@ describe("bcgov-header", () => {
         <a href="#main-content">Skip to Contents</a>
         <a href="accessibility">Skip to Accessibility Statement</a>
       </div>
-      <bcgov-button button-style="hamburger" target="main-navigation"
+      <bcgov-button button-style="hamburger" data-target="main-navigation"
       >Menu</bcgov-button
     >
     </bcgov-header>
@@ -41,7 +41,7 @@ describe("bcgov-header", () => {
           <a href="#main-content" aria-label="Skip to Contents">Skip to Contents</a>
           <a href="https://www2.gov.bc.ca/gov/content/home/accessibility" aria-label="Skip to Accessibility Statement">Skip to Accessibility Statement</a>
         </div>
-        <bcgov-button button-style="hamburger" class="bcgov-button is-desktop" data-breakpoint="0" target="main-navigation">
+        <bcgov-button button-style="hamburger" class="bcgov-button is-desktop" data-breakpoint="0" data-target="main-navigation">
           <button aria-expanded="false" class="hamburger">
             <div></div>
             Menu

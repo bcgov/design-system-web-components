@@ -29,6 +29,10 @@ export namespace Components {
     | "search"
     | "search-inline";
     /**
+    * Target, only used on hamburger and search
+    */
+    'dataTarget': string;
+    /**
     * Add a callback to handle events
     */
     'eventHandler': Function;
@@ -37,9 +41,9 @@ export namespace Components {
     */
     'link': string;
     /**
-    * Target, only used on hamburger and search
+    * A tag target
     */
-    'target': string;
+    'target': "_self" | "_blank" | "_parent" | "_top" | null;
   }
   interface BcgovCallout {}
   interface BcgovCarousel {}
@@ -199,6 +203,10 @@ declare namespace LocalJSX {
     | "search"
     | "search-inline";
     /**
+    * Target, only used on hamburger and search
+    */
+    'dataTarget'?: string;
+    /**
     * Add a callback to handle events
     */
     'eventHandler'?: Function;
@@ -207,9 +215,9 @@ declare namespace LocalJSX {
     */
     'link'?: string;
     /**
-    * Target, only used on hamburger and search
+    * A tag target
     */
-    'target'?: string;
+    'target'?: "_self" | "_blank" | "_parent" | "_top" | null;
   }
   interface BcgovCallout extends JSXBase.HTMLAttributes<HTMLBcgovCalloutElement> {}
   interface BcgovCarousel extends JSXBase.HTMLAttributes<HTMLBcgovCarouselElement> {}

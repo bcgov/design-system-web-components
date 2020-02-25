@@ -1027,8 +1027,10 @@ const BcgovButton = class {
         this.eventHandler = this.eventHandlerFunction;
         /** Style of button */
         this.buttonStyle = "primary";
-        /** Target, only used on hamburger and search */
+        /** A tag target */
         this.target = null;
+        /** Target, only used on hamburger and search */
+        this.dataTarget = null;
         this.breakpoint = 700;
     }
     eventHandlerFunction() { }
@@ -1042,10 +1044,10 @@ const BcgovButton = class {
         }
     }
     componentWillLoad() {
-        if (null !== this.target) {
+        if (null !== this.dataTarget) {
             this.breakpoint = this.getParentBreakpoint();
             this.el.setAttribute("data-breakpoint", `${this.breakpoint}`);
-            const element = document.getElementById(this.target);
+            const element = document.getElementById(this.dataTarget);
             if (null !== element) {
                 if ("false" === this.active) {
                     element.classList.add("target-hidden");
@@ -1060,8 +1062,8 @@ const BcgovButton = class {
     }
     getParentBreakpoint() {
         let value = "0";
-        if (null !== this.target) {
-            const element = document.getElementById(this.target);
+        if (null !== this.dataTarget) {
+            const element = document.getElementById(this.dataTarget);
             if (null !== element && element.hasAttribute("breakpoint")) {
                 value = element.getAttribute("breakpoint");
             }
@@ -1079,8 +1081,8 @@ const BcgovButton = class {
         return isdesktop;
     }
     onClick() {
-        if (null !== this.target) {
-            const element = document.getElementById(this.target);
+        if (null !== this.dataTarget) {
+            const element = document.getElementById(this.dataTarget);
             const button = this.el.querySelector("button");
             if (null !== element) {
                 if (undefined !== button && button.hasAttribute("aria-expanded")) {
@@ -1097,19 +1099,25 @@ const BcgovButton = class {
     }
     render() {
         const btnStyle = `${this.buttonStyle}`;
+        let props = {
+            class: btnStyle
+        };
         if (["hamburger", "search"].includes(this.buttonStyle)) {
-            return (core.h(core.Host, { target: this.target, class: "bcgov-button" }, core.h("button", { class: btnStyle, "aria-expanded": this.active }, core.h("div", null), core.h("slot", null))));
+            props["aria-expanded"] = this.active;
+            return (core.h(core.Host, { "data-target": this.dataTarget, class: "bcgov-button" }, core.h("button", Object.assign({}, props), core.h("div", null), core.h("slot", null))));
         }
         else {
             if ("button" === this.link) {
-                const props = {};
                 if ("search-inline" == this.buttonStyle) {
                     props["type"] = "submit";
                 }
-                return (core.h(core.Host, { class: "bcgov-button" }, core.h("button", Object.assign({ class: btnStyle }, props), core.h("slot", null))));
+                return (core.h(core.Host, { class: "bcgov-button" }, core.h("button", Object.assign({}, props), core.h("slot", null))));
             }
             else {
-                return (core.h(core.Host, { class: "bcgov-button" }, core.h("a", { class: btnStyle, href: this.link, role: "button" }, core.h("slot", null))));
+                props["href"] = this.link;
+                props["target"] = this.target;
+                props["role"] = "button";
+                return (core.h(core.Host, { class: "bcgov-button" }, core.h("a", Object.assign({}, props), core.h("slot", null))));
             }
         }
     }

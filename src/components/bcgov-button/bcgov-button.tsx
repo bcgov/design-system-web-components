@@ -32,8 +32,11 @@ export class BcgovButton {
     | "search"
     | "search-inline" = "primary";
 
+  /** A tag target */
+  @Prop() target: "_self" | "_blank" | "_parent" | "_top" | null = null;
+
   /** Target, only used on hamburger and search */
-  @Prop() target: string = null;
+  @Prop() dataTarget: string = null;
 
   @State() breakpoint: number = 700;
 
@@ -51,10 +54,10 @@ export class BcgovButton {
     }
   }
   componentWillLoad() {
-    if (null !== this.target) {
+    if (null !== this.dataTarget) {
       this.breakpoint = this.getParentBreakpoint();
       this.el.setAttribute("data-breakpoint", `${this.breakpoint}`);
-      const element = document.getElementById(this.target);
+      const element = document.getElementById(this.dataTarget);
       if (null !== element) {
         if ("false" === this.active) {
           element.classList.add("target-hidden");
@@ -70,8 +73,8 @@ export class BcgovButton {
 
   getParentBreakpoint() {
     let value: string = "0";
-    if (null !== this.target) {
-      const element = document.getElementById(this.target);
+    if (null !== this.dataTarget) {
+      const element = document.getElementById(this.dataTarget);
       if (null !== element && element.hasAttribute("breakpoint")) {
         value = element.getAttribute("breakpoint");
       }
@@ -90,8 +93,8 @@ export class BcgovButton {
   }
   @Listen("click")
   onClick() {
-    if (null !== this.target) {
-      const element = document.getElementById(this.target);
+    if (null !== this.dataTarget) {
+      const element = document.getElementById(this.dataTarget);
       const button = this.el.querySelector("button");
       if (null !== element) {
         if (undefined !== button && button.hasAttribute("aria-expanded")) {
@@ -111,10 +114,14 @@ export class BcgovButton {
 
   render() {
     const btnStyle = `${this.buttonStyle}`;
+    let props = {
+      class: btnStyle
+    };
     if (["hamburger", "search"].includes(this.buttonStyle)) {
+      props["aria-expanded"] = this.active;
       return (
-        <Host target={this.target} class="bcgov-button">
-          <button class={btnStyle} aria-expanded={this.active}>
+        <Host data-target={this.dataTarget} class="bcgov-button">
+          <button {...props}>
             <div></div>
             <slot />
           </button>
@@ -122,21 +129,23 @@ export class BcgovButton {
       );
     } else {
       if ("button" === this.link) {
-        const props = {};
         if ("search-inline" == this.buttonStyle) {
           props["type"] = "submit";
         }
         return (
           <Host class="bcgov-button">
-            <button class={btnStyle} {...props}>
+            <button {...props}>
               <slot />
             </button>
           </Host>
         );
       } else {
+        props["href"] = this.link;
+        props["target"] = this.target;
+        props["role"] = "button";
         return (
           <Host class="bcgov-button">
-            <a class={btnStyle} href={this.link} role="button">
+            <a {...props}>
               <slot />
             </a>
           </Host>
