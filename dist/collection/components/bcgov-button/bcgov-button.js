@@ -11,8 +11,10 @@ export class BcgovButton {
         this.eventHandler = this.eventHandlerFunction;
         /** Style of button */
         this.buttonStyle = "primary";
-        /** Target, only used on hamburger and search */
+        /** A tag target */
         this.target = null;
+        /** Target, only used on hamburger and search */
+        this.dataTarget = null;
         this.breakpoint = 700;
     }
     eventHandlerFunction() { }
@@ -26,10 +28,10 @@ export class BcgovButton {
         }
     }
     componentWillLoad() {
-        if (null !== this.target) {
+        if (null !== this.dataTarget) {
             this.breakpoint = this.getParentBreakpoint();
             this.el.setAttribute("data-breakpoint", `${this.breakpoint}`);
-            const element = document.getElementById(this.target);
+            const element = document.getElementById(this.dataTarget);
             if (null !== element) {
                 if ("false" === this.active) {
                     element.classList.add("target-hidden");
@@ -44,8 +46,8 @@ export class BcgovButton {
     }
     getParentBreakpoint() {
         let value = "0";
-        if (null !== this.target) {
-            const element = document.getElementById(this.target);
+        if (null !== this.dataTarget) {
+            const element = document.getElementById(this.dataTarget);
             if (null !== element && element.hasAttribute("breakpoint")) {
                 value = element.getAttribute("breakpoint");
             }
@@ -63,8 +65,8 @@ export class BcgovButton {
         return isdesktop;
     }
     onClick() {
-        if (null !== this.target) {
-            const element = document.getElementById(this.target);
+        if (null !== this.dataTarget) {
+            const element = document.getElementById(this.dataTarget);
             const button = this.el.querySelector("button");
             if (null !== element) {
                 if (undefined !== button && button.hasAttribute("aria-expanded")) {
@@ -80,25 +82,33 @@ export class BcgovButton {
         }
     }
     render() {
-        const btnStyle = `${this.buttonStyle} bcgov-button`;
+        const btnStyle = `${this.buttonStyle}`;
+        let props = {
+            class: btnStyle
+        };
         if (["hamburger", "search"].includes(this.buttonStyle)) {
-            return (h(Host, { target: this.target, class: "bcgov-button" },
-                h("button", { class: btnStyle, "aria-expanded": this.active },
+            props["aria-expanded"] = this.active;
+            return (h(Host, { "data-target": this.dataTarget, class: "bcgov-button" },
+                h("button", Object.assign({}, props),
                     h("div", null),
                     h("slot", null))));
         }
         else {
             if ("button" === this.link) {
-                const props = {};
                 if ("search-inline" == this.buttonStyle) {
                     props["type"] = "submit";
                 }
-                return (h("button", Object.assign({ class: btnStyle }, props),
-                    h("slot", null)));
+                return (h(Host, { class: "bcgov-button" },
+                    h("button", Object.assign({}, props),
+                        h("slot", null))));
             }
             else {
-                return (h("a", { class: btnStyle, href: this.link, role: "button" },
-                    h("slot", null)));
+                props["href"] = this.link;
+                props["target"] = this.target;
+                props["role"] = "button";
+                return (h(Host, { class: "bcgov-button" },
+                    h("a", Object.assign({}, props),
+                        h("slot", null))));
             }
         }
     }
@@ -182,6 +192,24 @@ export class BcgovButton {
             "type": "string",
             "mutable": false,
             "complexType": {
+                "original": "\"_self\" | \"_blank\" | \"_parent\" | \"_top\" | null",
+                "resolved": "\"_blank\" | \"_parent\" | \"_self\" | \"_top\"",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": "A tag target"
+            },
+            "attribute": "target",
+            "reflect": false,
+            "defaultValue": "null"
+        },
+        "dataTarget": {
+            "type": "string",
+            "mutable": false,
+            "complexType": {
                 "original": "string",
                 "resolved": "string",
                 "references": {}
@@ -192,7 +220,7 @@ export class BcgovButton {
                 "tags": [],
                 "text": "Target, only used on hamburger and search"
             },
-            "attribute": "target",
+            "attribute": "data-target",
             "reflect": false,
             "defaultValue": "null"
         }

@@ -1,5 +1,5 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-10536731.js';
-import { m as menuElement, a as findAncestor, k as keys } from './utils-923a28b7.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './core-07a37eb8.js';
+import { m as menuElement, a as findAncestor, k as keys } from './utils-129bfbdc.js';
 
 const BcgovMenu = class {
     constructor(hostRef) {
@@ -17,6 +17,7 @@ const BcgovMenu = class {
         this.breakpoint = 0;
         /**  Automatically adds hamburger. */
         this.hamburger = true;
+        this.active = false;
         this.isSubmenu = false;
         this.showSubmenu = (target, expanded) => {
             if (!this.isSubmenu) {
@@ -36,7 +37,7 @@ const BcgovMenu = class {
                 submenu.setAttribute("aria-hidden", expanded ? "false" : "true");
                 if (expanded) {
                     const firstFocus = target.querySelector("ul > li:first-child");
-                    firstFocus.setAttribute("tabindex", "0");
+                    firstFocus.setAttribute("tabindex", "-1");
                     firstFocus.focus();
                 }
                 else {
@@ -66,7 +67,7 @@ const BcgovMenu = class {
             this.el.setAttribute("aria-haspopup", true);
             this.el.setAttribute("aria-expanded", false);
             this.el.setAttribute("aria-selected", false);
-            this.el.setAttribute("tabindex", 0);
+            this.el.setAttribute("tabindex", -1);
         }
         else {
             const firstChild = this.el.querySelector("ul > *:first-child");
@@ -113,7 +114,6 @@ const BcgovMenu = class {
     onClick(event) {
         if (!this.isDesktop()) {
             const element = event.target;
-            console.log(element);
             const parent = findAncestor(element, "bcgov-menu");
             this.showSubmenu(parent, !parent.classList.contains("expanded"));
         }
@@ -180,8 +180,12 @@ const BcgovMenu = class {
     render() {
         const alignment = "align-" + this.alignment;
         const instructionID = "bcgov-instructions-" + this.menuId;
+        let hostClass = "expandable";
         if (this.isSubmenu) {
-            return (h(Host, { role: "menuitem", class: "expandable", "aria-label": this.name }, h("div", { class: "" }, h("a", { href: this.href, tabindex: "-1" }, this.name)), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));
+            if (undefined !== this.active && this.active) {
+                hostClass += " active";
+            }
+            return (h(Host, { role: "menuitem", class: hostClass, "aria-label": this.name }, h("div", null, h("a", { href: this.href, tabindex: "-1" }, this.name), h("slot", { name: "submenu-link" })), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));
         }
         else {
             const props = { role: "menubar", tabindex: "0", class: alignment };

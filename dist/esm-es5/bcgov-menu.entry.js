@@ -1,7 +1,7 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-10536731.js';
-import { m as menuElement, a as findAncestor, k as keys } from './utils-923a28b7.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './core-07a37eb8.js';
+import { m as menuElement, a as findAncestor, k as keys } from './utils-129bfbdc.js';
 var BcgovMenu = /** @class */ (function () {
-    function BcgovMenu(hostRef) {
+    function class_1(hostRef) {
         var _this = this;
         registerInstance(this, hostRef);
         /** Alignment of menu */
@@ -16,6 +16,7 @@ var BcgovMenu = /** @class */ (function () {
         this.breakpoint = 0;
         /**  Automatically adds hamburger. */
         this.hamburger = true;
+        this.active = false;
         this.isSubmenu = false;
         this.showSubmenu = function (target, expanded) {
             if (!_this.isSubmenu) {
@@ -35,7 +36,7 @@ var BcgovMenu = /** @class */ (function () {
                 submenu.setAttribute("aria-hidden", expanded ? "false" : "true");
                 if (expanded) {
                     var firstFocus = target.querySelector("ul > li:first-child");
-                    firstFocus.setAttribute("tabindex", "0");
+                    firstFocus.setAttribute("tabindex", "-1");
                     firstFocus.focus();
                 }
                 else {
@@ -44,7 +45,7 @@ var BcgovMenu = /** @class */ (function () {
             }
         };
     }
-    BcgovMenu.prototype.componentWillLoad = function () {
+    class_1.prototype.componentWillLoad = function () {
         this.isSubmenu = "UL" === this.el.parentElement.nodeName;
         [].forEach.call(this.el.querySelectorAll("a"), function (element) {
             menuElement(element);
@@ -60,12 +61,12 @@ var BcgovMenu = /** @class */ (function () {
     /**
      * This sets up inital attributes for sub menus
      */
-    BcgovMenu.prototype.componentDidRender = function () {
+    class_1.prototype.componentDidRender = function () {
         if (this.isSubmenu) {
             this.el.setAttribute("aria-haspopup", true);
             this.el.setAttribute("aria-expanded", false);
             this.el.setAttribute("aria-selected", false);
-            this.el.setAttribute("tabindex", 0);
+            this.el.setAttribute("tabindex", -1);
         }
         else {
             var firstChild = this.el.querySelector("ul > *:first-child");
@@ -74,7 +75,7 @@ var BcgovMenu = /** @class */ (function () {
             }
         }
     };
-    BcgovMenu.prototype.isDesktop = function () {
+    class_1.prototype.isDesktop = function () {
         var isdesktop = false;
         if (!this.isSubmenu) {
             if (window.innerWidth >= this.breakpoint) {
@@ -96,28 +97,27 @@ var BcgovMenu = /** @class */ (function () {
         }
         return isdesktop;
     };
-    BcgovMenu.prototype.onMouseEnter = function (ev) {
+    class_1.prototype.onMouseEnter = function (ev) {
         //console.log(this.isDesktop(), ev, this.isSubmenu);
         if (this.isDesktop()) {
             var element = ev.target;
             this.showSubmenu(element, true);
         }
     };
-    BcgovMenu.prototype.onMouseLeave = function (event) {
+    class_1.prototype.onMouseLeave = function (event) {
         if (this.isDesktop()) {
             var element = event.target;
             this.showSubmenu(element, false);
         }
     };
-    BcgovMenu.prototype.onClick = function (event) {
+    class_1.prototype.onClick = function (event) {
         if (!this.isDesktop()) {
             var element = event.target;
-            console.log(element);
             var parent = findAncestor(element, "bcgov-menu");
             this.showSubmenu(parent, !parent.classList.contains("expanded"));
         }
     };
-    BcgovMenu.prototype.onKeyDown = function (event) {
+    class_1.prototype.onKeyDown = function (event) {
         var current = event.srcElement;
         if (!this.isSubmenu || true) {
             switch (event.keyCode) {
@@ -152,7 +152,7 @@ var BcgovMenu = /** @class */ (function () {
             }
         }
     };
-    BcgovMenu.prototype.focusChange = function (current, direction) {
+    class_1.prototype.focusChange = function (current, direction) {
         if (direction === void 0) { direction = "next"; }
         if (this.isSubmenu) {
             return;
@@ -177,11 +177,15 @@ var BcgovMenu = /** @class */ (function () {
             element.focus();
         }
     };
-    BcgovMenu.prototype.render = function () {
+    class_1.prototype.render = function () {
         var alignment = "align-" + this.alignment;
         var instructionID = "bcgov-instructions-" + this.menuId;
+        var hostClass = "expandable";
         if (this.isSubmenu) {
-            return (h(Host, { role: "menuitem", class: "expandable", "aria-label": this.name }, h("div", { class: "" }, h("a", { href: this.href, tabindex: "-1" }, this.name)), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));
+            if (undefined !== this.active && this.active) {
+                hostClass += " active";
+            }
+            return (h(Host, { role: "menuitem", class: hostClass, "aria-label": this.name }, h("div", null, h("a", { href: this.href, tabindex: "-1" }, this.name), h("slot", { name: "submenu-link" })), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));
         }
         else {
             var props = { role: "menubar", tabindex: "0", class: alignment };
@@ -194,11 +198,11 @@ var BcgovMenu = /** @class */ (function () {
             return (h(Host, null, h("ul", Object.assign({}, props), h("slot", null)), undefined !== this.primary && (h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
         }
     };
-    Object.defineProperty(BcgovMenu.prototype, "el", {
+    Object.defineProperty(class_1.prototype, "el", {
         get: function () { return getElement(this); },
         enumerable: true,
         configurable: true
     });
-    return BcgovMenu;
+    return class_1;
 }());
 export { BcgovMenu as bcgov_menu };

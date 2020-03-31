@@ -1,28 +1,64 @@
-import { h, Host } from "@stencil/core";
+import { h, Host, getAssetPath } from "@stencil/core";
 import { filterATags } from "../utils/utils";
 export class BcgovHeader {
     constructor() {
         /** link for logo */
         this.href = "https://www2.gov.bc.ca/gov/content/home";
+        /** Logo options -- might not work... */
+        this.logo = "gov_bc_logo.svg";
     }
+    componentWillLoad() { }
     componentDidRender() {
-        [].forEach.call(this.el.querySelectorAll('a[slot="hidden-link"]'), function (element) {
-            filterATags(element);
+        const self = this;
+        [].forEach.call(this.el.querySelectorAll("div[aria]"), function (element) {
+            element.classList.add("access");
+        });
+        [].forEach.call(this.el.querySelectorAll("img"), function (element) {
+            const divTag = document.createElement("div");
+            divTag.classList.add("banner");
+            if (undefined !== self.href && "" !== self.href) {
+                const atag = document.createElement("a");
+                atag.classList.add("branding-logo");
+                atag.setAttribute("aria-label", "branding logo");
+                atag.setAttribute("href", self.href);
+                atag.appendChild(element.cloneNode(true));
+                divTag.appendChild(atag);
+            }
+            else {
+                divTag.appendChild(element.cloneNode(true));
+            }
+            //element.replaceWith(divTag);
+            element.parentNode.replaceChild(divTag, element);
+        });
+        [].forEach.call(this.el.querySelectorAll("div[aria]"), function (element) {
+            [].forEach.call(element.querySelectorAll("a"), function (element) {
+                element.setAttribute("aria", "");
+                filterATags(element);
+            });
         });
     }
+    getImage() {
+        if ("" === this.logo) {
+            return "";
+        }
+        else {
+            let image = getAssetPath(`./assets/${this.logo}`);
+            let markup = h("img", { class: "header-logo", src: image, alt: "Logo" });
+            if ("" !== this.href) {
+                markup = (h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, markup));
+            }
+            return "";
+            //return <div class="banner">{markup}</div>;
+        }
+    }
     render() {
-        return (h(Host, null,
-            h("header", { class: "bcgov-header" },
-                h("div", { class: "banner" },
-                    h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" },
-                        h("slot", { name: "logo" })),
-                    h("div", { class: "hl" },
-                        h("slot", { name: "headline" })),
-                    h("div", { class: "access" },
-                        h("slot", { name: "hidden-link" })))),
-            h("slot", null)));
+        return (h(Host, { class: "bcgov-header" },
+            h("header", null,
+                this.getImage(),
+                h("slot", null))));
     }
     static get is() { return "bcgov-header"; }
+    static get assetsDirs() { return ["../../assets"]; }
     static get properties() { return {
         "href": {
             "type": "string",
@@ -41,6 +77,24 @@ export class BcgovHeader {
             "attribute": "href",
             "reflect": false,
             "defaultValue": "\"https://www2.gov.bc.ca/gov/content/home\""
+        },
+        "logo": {
+            "type": "string",
+            "mutable": false,
+            "complexType": {
+                "original": "| \"\"\n    | \"gov_bc_logo.svg\"\n    | \"gov_bc_logo_white.png\"\n    | \"gov_bc_logo_grey.jpg\"",
+                "resolved": "\"\" | \"gov_bc_logo.svg\" | \"gov_bc_logo_grey.jpg\" | \"gov_bc_logo_white.png\"",
+                "references": {}
+            },
+            "required": false,
+            "optional": false,
+            "docs": {
+                "tags": [],
+                "text": "Logo options -- might not work..."
+            },
+            "attribute": "logo",
+            "reflect": false,
+            "defaultValue": "\"gov_bc_logo.svg\""
         }
     }; }
     static get elementRef() { return "el"; }

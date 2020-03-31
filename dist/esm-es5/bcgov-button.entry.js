@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-10536731.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './core-07a37eb8.js';
 function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
         throw new TypeError("Cannot call a class as a function");
@@ -285,7 +285,7 @@ function deGroup(abstract) {
     }
 }
 function makeIconMasking(_ref) {
-    var children = _ref.children, attributes = _ref.attributes, main = _ref.main, mask = _ref.mask, transform = _ref.transform;
+    var children = _ref.children, attributes = _ref.attributes, main = _ref.main, mask = _ref.mask, explicitMaskId = _ref.maskId, transform = _ref.transform;
     var mainWidth = main.width, mainPath = main.icon;
     var maskWidth = mask.width, maskPath = mask.icon;
     var trans = transformForSvg({
@@ -315,8 +315,8 @@ function makeIconMasking(_ref) {
         attributes: _objectSpread({}, trans.outer),
         children: [maskInnerGroup]
     };
-    var maskId = "mask-".concat(nextUniqueId());
-    var clipId = "clip-".concat(nextUniqueId());
+    var maskId = "mask-".concat(explicitMaskId || nextUniqueId());
+    var clipId = "clip-".concat(explicitMaskId || nextUniqueId());
     var maskTag = {
         tag: 'mask',
         attributes: _objectSpread({}, ALL_SPACE, {
@@ -419,7 +419,7 @@ function asSymbol(_ref) {
         }];
 }
 function makeInlineSvgAbstract(params) {
-    var _params$icons = params.icons, main = _params$icons.main, mask = _params$icons.mask, prefix = params.prefix, iconName = params.iconName, transform = params.transform, symbol = params.symbol, title = params.title, extra = params.extra, _params$watchable = params.watchable, watchable = _params$watchable === void 0 ? false : _params$watchable;
+    var _params$icons = params.icons, main = _params$icons.main, mask = _params$icons.mask, prefix = params.prefix, iconName = params.iconName, transform = params.transform, symbol = params.symbol, title = params.title, maskId = params.maskId, titleId = params.titleId, extra = params.extra, _params$watchable = params.watchable, watchable = _params$watchable === void 0 ? false : _params$watchable;
     var _ref = mask.found ? mask : main, width = _ref.width, height = _ref.height;
     var widthClass = "fa-w-".concat(Math.ceil(width / height * 16));
     var attrClass = [config.replacementClass, iconName ? "".concat(config.familyPrefix, "-").concat(iconName) : '', widthClass].filter(function (c) {
@@ -443,7 +443,7 @@ function makeInlineSvgAbstract(params) {
         content.children.push({
             tag: 'title',
             attributes: {
-                id: content.attributes['aria-labelledby'] || "title-".concat(nextUniqueId())
+                id: content.attributes['aria-labelledby'] || "title-".concat(titleId || nextUniqueId())
             },
             children: [title]
         });
@@ -452,6 +452,7 @@ function makeInlineSvgAbstract(params) {
         iconName: iconName,
         main: main,
         mask: mask,
+        maskId: maskId,
         transform: transform,
         symbol: symbol,
         styles: extra.styles
@@ -814,7 +815,7 @@ var library = new Library();
 var _cssInserted = false;
 var icon = resolveIcons(function (iconDefinition) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var _params$transform = params.transform, transform = _params$transform === void 0 ? meaninglessTransform : _params$transform, _params$symbol = params.symbol, symbol = _params$symbol === void 0 ? false : _params$symbol, _params$mask = params.mask, mask = _params$mask === void 0 ? null : _params$mask, _params$title = params.title, title = _params$title === void 0 ? null : _params$title, _params$classes = params.classes, classes = _params$classes === void 0 ? [] : _params$classes, _params$attributes = params.attributes, attributes = _params$attributes === void 0 ? {} : _params$attributes, _params$styles = params.styles, styles = _params$styles === void 0 ? {} : _params$styles;
+    var _params$transform = params.transform, transform = _params$transform === void 0 ? meaninglessTransform : _params$transform, _params$symbol = params.symbol, symbol = _params$symbol === void 0 ? false : _params$symbol, _params$mask = params.mask, mask = _params$mask === void 0 ? null : _params$mask, _params$maskId = params.maskId, maskId = _params$maskId === void 0 ? null : _params$maskId, _params$title = params.title, title = _params$title === void 0 ? null : _params$title, _params$titleId = params.titleId, titleId = _params$titleId === void 0 ? null : _params$titleId, _params$classes = params.classes, classes = _params$classes === void 0 ? [] : _params$classes, _params$attributes = params.attributes, attributes = _params$attributes === void 0 ? {} : _params$attributes, _params$styles = params.styles, styles = _params$styles === void 0 ? {} : _params$styles;
     if (!iconDefinition)
         return;
     var prefix = iconDefinition.prefix, iconName = iconDefinition.iconName, icon = iconDefinition.icon;
@@ -824,7 +825,7 @@ var icon = resolveIcons(function (iconDefinition) {
         ensureCss();
         if (config.autoA11y) {
             if (title) {
-                attributes['aria-labelledby'] = "".concat(config.replacementClass, "-title-").concat(nextUniqueId());
+                attributes['aria-labelledby'] = "".concat(config.replacementClass, "-title-").concat(titleId || nextUniqueId());
             }
             else {
                 attributes['aria-hidden'] = 'true';
@@ -846,6 +847,8 @@ var icon = resolveIcons(function (iconDefinition) {
             transform: _objectSpread({}, meaninglessTransform, transform),
             symbol: symbol,
             title: title,
+            maskId: maskId,
+            titleId: titleId,
             extra: {
                 attributes: attributes,
                 styles: styles,
@@ -860,7 +863,7 @@ var faSearch = {
     icon: [512, 512, [], "f002", "M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"]
 };
 var BcgovButton = /** @class */ (function () {
-    function BcgovButton(hostRef) {
+    function class_1(hostRef) {
         registerInstance(this, hostRef);
         /** The action of the button. */
         this.link = "button";
@@ -870,12 +873,14 @@ var BcgovButton = /** @class */ (function () {
         this.eventHandler = this.eventHandlerFunction;
         /** Style of button */
         this.buttonStyle = "primary";
-        /** Target, only used on hamburger and search */
+        /** A tag target */
         this.target = null;
+        /** Target, only used on hamburger and search */
+        this.dataTarget = null;
         this.breakpoint = 700;
     }
-    BcgovButton.prototype.eventHandlerFunction = function () { };
-    BcgovButton.prototype.componentDidRender = function () {
+    class_1.prototype.eventHandlerFunction = function () { };
+    class_1.prototype.componentDidRender = function () {
         this.eventHandler(this.el);
         var buttonStyle = this.el.getAttribute("button-style");
         if ("search" === buttonStyle || "search-inline" === buttonStyle) {
@@ -884,11 +889,11 @@ var BcgovButton = /** @class */ (function () {
             buttonElement.innerHTML = icon(faSearch).html[0];
         }
     };
-    BcgovButton.prototype.componentWillLoad = function () {
-        if (null !== this.target) {
+    class_1.prototype.componentWillLoad = function () {
+        if (null !== this.dataTarget) {
             this.breakpoint = this.getParentBreakpoint();
             this.el.setAttribute("data-breakpoint", "" + this.breakpoint);
-            var element = document.getElementById(this.target);
+            var element = document.getElementById(this.dataTarget);
             if (null !== element) {
                 if ("false" === this.active) {
                     element.classList.add("target-hidden");
@@ -901,17 +906,17 @@ var BcgovButton = /** @class */ (function () {
             });
         }
     };
-    BcgovButton.prototype.getParentBreakpoint = function () {
+    class_1.prototype.getParentBreakpoint = function () {
         var value = "0";
-        if (null !== this.target) {
-            var element = document.getElementById(this.target);
+        if (null !== this.dataTarget) {
+            var element = document.getElementById(this.dataTarget);
             if (null !== element && element.hasAttribute("breakpoint")) {
                 value = element.getAttribute("breakpoint");
             }
         }
         return parseInt(value);
     };
-    BcgovButton.prototype.isDesktop = function () {
+    class_1.prototype.isDesktop = function () {
         var isdesktop = false;
         if (window.innerWidth >= this.breakpoint) {
             this.el.classList.add("is-desktop");
@@ -921,9 +926,9 @@ var BcgovButton = /** @class */ (function () {
         }
         return isdesktop;
     };
-    BcgovButton.prototype.onClick = function () {
-        if (null !== this.target) {
-            var element = document.getElementById(this.target);
+    class_1.prototype.onClick = function () {
+        if (null !== this.dataTarget) {
+            var element = document.getElementById(this.dataTarget);
             var button = this.el.querySelector("button");
             if (null !== element) {
                 if (undefined !== button && button.hasAttribute("aria-expanded")) {
@@ -938,29 +943,35 @@ var BcgovButton = /** @class */ (function () {
             }
         }
     };
-    BcgovButton.prototype.render = function () {
-        var btnStyle = this.buttonStyle + " bcgov-button";
+    class_1.prototype.render = function () {
+        var btnStyle = "" + this.buttonStyle;
+        var props = {
+            class: btnStyle
+        };
         if (["hamburger", "search"].includes(this.buttonStyle)) {
-            return (h(Host, { target: this.target, class: "bcgov-button" }, h("button", { class: btnStyle, "aria-expanded": this.active }, h("div", null), h("slot", null))));
+            props["aria-expanded"] = this.active;
+            return (h(Host, { "data-target": this.dataTarget, class: "bcgov-button" }, h("button", Object.assign({}, props), h("div", null), h("slot", null))));
         }
         else {
             if ("button" === this.link) {
-                var props = {};
                 if ("search-inline" == this.buttonStyle) {
                     props["type"] = "submit";
                 }
-                return (h("button", Object.assign({ class: btnStyle }, props), h("slot", null)));
+                return (h(Host, { class: "bcgov-button" }, h("button", Object.assign({}, props), h("slot", null))));
             }
             else {
-                return (h("a", { class: btnStyle, href: this.link, role: "button" }, h("slot", null)));
+                props["href"] = this.link;
+                props["target"] = this.target;
+                props["role"] = "button";
+                return (h(Host, { class: "bcgov-button" }, h("a", Object.assign({}, props), h("slot", null))));
             }
         }
     };
-    Object.defineProperty(BcgovButton.prototype, "el", {
+    Object.defineProperty(class_1.prototype, "el", {
         get: function () { return getElement(this); },
         enumerable: true,
         configurable: true
     });
-    return BcgovButton;
+    return class_1;
 }());
 export { BcgovButton as bcgov_button };

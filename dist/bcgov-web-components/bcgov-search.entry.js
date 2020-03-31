@@ -1,1 +1,1 @@
-import{r,h as s,H as e,g as t}from"./core-7e0712cf.js";const c=class{constructor(s){r(this,s)}render(){return s(e,null,s("div",{class:"search-container"},s("slot",null)))}get el(){return t(this)}};export{c as bcgov_search};
+import{r as s,h as r,H as t,g as a}from"./p-100c0da1.js";const c=class{constructor(r){s(this,r)}render(){return r(t,null,r("div",{class:"search-container"},r("slot",null)))}get el(){return a(this)}};export{c as bcgov_search};

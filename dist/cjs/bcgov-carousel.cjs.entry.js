@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const core = require('./core-85ceac9a.js');
+const core = require('./core-5a7012d7.js');
 
 const BcgovCarousel = class {
     constructor(hostRef) {

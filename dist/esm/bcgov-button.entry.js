@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-10536731.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './core-07a37eb8.js';
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -320,6 +320,7 @@ function makeIconMasking (_ref) {
       attributes = _ref.attributes,
       main = _ref.main,
       mask = _ref.mask,
+      explicitMaskId = _ref.maskId,
       transform = _ref.transform;
   var mainWidth = main.width,
       mainPath = main.icon;
@@ -352,8 +353,8 @@ function makeIconMasking (_ref) {
     attributes: _objectSpread({}, trans.outer),
     children: [maskInnerGroup]
   };
-  var maskId = "mask-".concat(nextUniqueId());
-  var clipId = "clip-".concat(nextUniqueId());
+  var maskId = "mask-".concat(explicitMaskId || nextUniqueId());
+  var clipId = "clip-".concat(explicitMaskId || nextUniqueId());
   var maskTag = {
     tag: 'mask',
     attributes: _objectSpread({}, ALL_SPACE, {
@@ -486,6 +487,8 @@ function makeInlineSvgAbstract(params) {
       transform = params.transform,
       symbol = params.symbol,
       title = params.title,
+      maskId = params.maskId,
+      titleId = params.titleId,
       extra = params.extra,
       _params$watchable = params.watchable,
       watchable = _params$watchable === void 0 ? false : _params$watchable;
@@ -517,7 +520,7 @@ function makeInlineSvgAbstract(params) {
   if (title) content.children.push({
     tag: 'title',
     attributes: {
-      id: content.attributes['aria-labelledby'] || "title-".concat(nextUniqueId())
+      id: content.attributes['aria-labelledby'] || "title-".concat(titleId || nextUniqueId())
     },
     children: [title]
   });
@@ -527,6 +530,7 @@ function makeInlineSvgAbstract(params) {
     iconName: iconName,
     main: main,
     mask: mask,
+    maskId: maskId,
     transform: transform,
     symbol: symbol,
     styles: extra.styles
@@ -956,8 +960,12 @@ var icon = resolveIcons(function (iconDefinition) {
       symbol = _params$symbol === void 0 ? false : _params$symbol,
       _params$mask = params.mask,
       mask = _params$mask === void 0 ? null : _params$mask,
+      _params$maskId = params.maskId,
+      maskId = _params$maskId === void 0 ? null : _params$maskId,
       _params$title = params.title,
       title = _params$title === void 0 ? null : _params$title,
+      _params$titleId = params.titleId,
+      titleId = _params$titleId === void 0 ? null : _params$titleId,
       _params$classes = params.classes,
       classes = _params$classes === void 0 ? [] : _params$classes,
       _params$attributes = params.attributes,
@@ -975,7 +983,7 @@ var icon = resolveIcons(function (iconDefinition) {
 
     if (config.autoA11y) {
       if (title) {
-        attributes['aria-labelledby'] = "".concat(config.replacementClass, "-title-").concat(nextUniqueId());
+        attributes['aria-labelledby'] = "".concat(config.replacementClass, "-title-").concat(titleId || nextUniqueId());
       } else {
         attributes['aria-hidden'] = 'true';
         attributes['focusable'] = 'false';
@@ -997,6 +1005,8 @@ var icon = resolveIcons(function (iconDefinition) {
       transform: _objectSpread({}, meaninglessTransform, transform),
       symbol: symbol,
       title: title,
+      maskId: maskId,
+      titleId: titleId,
       extra: {
         attributes: attributes,
         styles: styles,
@@ -1023,8 +1033,10 @@ const BcgovButton = class {
         this.eventHandler = this.eventHandlerFunction;
         /** Style of button */
         this.buttonStyle = "primary";
-        /** Target, only used on hamburger and search */
+        /** A tag target */
         this.target = null;
+        /** Target, only used on hamburger and search */
+        this.dataTarget = null;
         this.breakpoint = 700;
     }
     eventHandlerFunction() { }
@@ -1038,10 +1050,10 @@ const BcgovButton = class {
         }
     }
     componentWillLoad() {
-        if (null !== this.target) {
+        if (null !== this.dataTarget) {
             this.breakpoint = this.getParentBreakpoint();
             this.el.setAttribute("data-breakpoint", `${this.breakpoint}`);
-            const element = document.getElementById(this.target);
+            const element = document.getElementById(this.dataTarget);
             if (null !== element) {
                 if ("false" === this.active) {
                     element.classList.add("target-hidden");
@@ -1056,8 +1068,8 @@ const BcgovButton = class {
     }
     getParentBreakpoint() {
         let value = "0";
-        if (null !== this.target) {
-            const element = document.getElementById(this.target);
+        if (null !== this.dataTarget) {
+            const element = document.getElementById(this.dataTarget);
             if (null !== element && element.hasAttribute("breakpoint")) {
                 value = element.getAttribute("breakpoint");
             }
@@ -1075,8 +1087,8 @@ const BcgovButton = class {
         return isdesktop;
     }
     onClick() {
-        if (null !== this.target) {
-            const element = document.getElementById(this.target);
+        if (null !== this.dataTarget) {
+            const element = document.getElementById(this.dataTarget);
             const button = this.el.querySelector("button");
             if (null !== element) {
                 if (undefined !== button && button.hasAttribute("aria-expanded")) {
@@ -1092,20 +1104,26 @@ const BcgovButton = class {
         }
     }
     render() {
-        const btnStyle = `${this.buttonStyle} bcgov-button`;
+        const btnStyle = `${this.buttonStyle}`;
+        let props = {
+            class: btnStyle
+        };
         if (["hamburger", "search"].includes(this.buttonStyle)) {
-            return (h(Host, { target: this.target, class: "bcgov-button" }, h("button", { class: btnStyle, "aria-expanded": this.active }, h("div", null), h("slot", null))));
+            props["aria-expanded"] = this.active;
+            return (h(Host, { "data-target": this.dataTarget, class: "bcgov-button" }, h("button", Object.assign({}, props), h("div", null), h("slot", null))));
         }
         else {
             if ("button" === this.link) {
-                const props = {};
                 if ("search-inline" == this.buttonStyle) {
                     props["type"] = "submit";
                 }
-                return (h("button", Object.assign({ class: btnStyle }, props), h("slot", null)));
+                return (h(Host, { class: "bcgov-button" }, h("button", Object.assign({}, props), h("slot", null))));
             }
             else {
-                return (h("a", { class: btnStyle, href: this.link, role: "button" }, h("slot", null)));
+                props["href"] = this.link;
+                props["target"] = this.target;
+                props["role"] = "button";
+                return (h(Host, { class: "bcgov-button" }, h("a", Object.assign({}, props), h("slot", null))));
             }
         }
     }

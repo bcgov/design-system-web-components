@@ -2,8 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const core = require('./core-85ceac9a.js');
-const utils = require('./utils-872e15ed.js');
+const core = require('./core-5a7012d7.js');
+const utils = require('./utils-2cab225a.js');
 
 const BcgovBreadcrumb = class {
     constructor(hostRef) {
@@ -15,7 +15,7 @@ const BcgovBreadcrumb = class {
         });
     }
     render() {
-        return (core.h(core.Host, { "aria-label": "Breadcrumb", role: "nav", class: "bcgov-breadcrumb" }, core.h("ol", { itemscope: true, itemtype: "http://schema.org/BreadcrumbList" }, core.h("slot", null))));
+        return (core.h(core.Host, { "aria-label": "Breadcrumb", role: "nav", class: "bcgov-breadcrumb" }, core.h("ol", { itemscope: true, itemtype: "http://schema.org/BreadcrumbList" }, core.h("slot", null)), core.h("slot", { name: "breadcrumb-extra" })));
     }
     get el() { return core.getElement(this); }
 };

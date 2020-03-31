@@ -2,18 +2,29 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const core = require('./core-85ceac9a.js');
+const core = require('./core-5a7012d7.js');
 
 const BcgovFooter = class {
     constructor(hostRef) {
         core.registerInstance(this, hostRef);
         /** Alignment of menu */
-        this.alignment = "left";
+        /*@Prop() alignment: "left" | "right" = "left";*/
+        /** Built in Logos, other wise just add image, before or after menu. */
+        this.logo = "gov_bc_logo_white.png";
+    }
+    getImage() {
+        if ("" === this.logo) {
+            return "";
+        }
+        else {
+            let image = core.getAssetPath(`../../assets/${this.logo}`);
+            return core.h("img", { class: "footer-logo", src: image, alt: "Logo" });
+        }
     }
     render() {
-        const classes = "bcgov-footer" + " align-" + this.alignment;
+        const classes = "bcgov-footer" /*+ " align-" + this.alignment*/;
         const props = { role: "footer", class: classes };
-        return (core.h(core.Host, Object.assign({}, props), core.h("slot", null)));
+        return (core.h(core.Host, Object.assign({}, props), core.h("slot", null), this.getImage()));
     }
 };
 

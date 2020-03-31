@@ -1,5 +1,5 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-10536731.js';
-import { b as breadCrumbElement } from './utils-923a28b7.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './core-07a37eb8.js';
+import { b as breadCrumbElement } from './utils-129bfbdc.js';
 
 const BcgovBreadcrumb = class {
     constructor(hostRef) {
@@ -11,7 +11,7 @@ const BcgovBreadcrumb = class {
         });
     }
     render() {
-        return (h(Host, { "aria-label": "Breadcrumb", role: "nav", class: "bcgov-breadcrumb" }, h("ol", { itemscope: true, itemtype: "http://schema.org/BreadcrumbList" }, h("slot", null))));
+        return (h(Host, { "aria-label": "Breadcrumb", role: "nav", class: "bcgov-breadcrumb" }, h("ol", { itemscope: true, itemtype: "http://schema.org/BreadcrumbList" }, h("slot", null)), h("slot", { name: "breadcrumb-extra" })));
     }
     get el() { return getElement(this); }
 };

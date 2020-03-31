@@ -460,7 +460,6 @@ export namespace JSXBase {
     marginWidth?: number;
     marginwidth?: string | number;
     name?: string;
-    referrerPolicy?: ReferrerPolicy;
     sandbox?: string;
     scrolling?: string;
     seamless?: boolean;
@@ -1311,14 +1310,14 @@ export interface FunctionalComponent<T = {}> {
 }
 
 export interface VNode {
-  $flags$: number;
-  $tag$: string | number | Function;
-  $elm$: any;
-  $text$: string;
-  $children$: VNode[];
+  $tag$?: string | number | Function;
+  $key$?: string | number;
+  $text$?: string;
+  $children$?: VNode[];
   $attrs$?: any;
   $name$?: string;
-  $key$?: string | number;
+  $flags$: number;
+  $elm$?: any;
 }
 
 export interface ChildNode {

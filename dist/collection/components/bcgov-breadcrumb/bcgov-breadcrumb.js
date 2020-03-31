@@ -9,7 +9,8 @@ export class BcgovBreadcrumb {
     render() {
         return (h(Host, { "aria-label": "Breadcrumb", role: "nav", class: "bcgov-breadcrumb" },
             h("ol", { itemscope: true, itemtype: "http://schema.org/BreadcrumbList" },
-                h("slot", null))));
+                h("slot", null)),
+            h("slot", { name: "breadcrumb-extra" })));
     }
     static get is() { return "bcgov-breadcrumb"; }
     static get elementRef() { return "el"; }
