@@ -285,7 +285,7 @@ function deGroup(abstract) {
     }
 }
 function makeIconMasking(_ref) {
-    var children = _ref.children, attributes = _ref.attributes, main = _ref.main, mask = _ref.mask, transform = _ref.transform;
+    var children = _ref.children, attributes = _ref.attributes, main = _ref.main, mask = _ref.mask, explicitMaskId = _ref.maskId, transform = _ref.transform;
     var mainWidth = main.width, mainPath = main.icon;
     var maskWidth = mask.width, maskPath = mask.icon;
     var trans = transformForSvg({
@@ -315,8 +315,8 @@ function makeIconMasking(_ref) {
         attributes: _objectSpread({}, trans.outer),
         children: [maskInnerGroup]
     };
-    var maskId = "mask-".concat(nextUniqueId());
-    var clipId = "clip-".concat(nextUniqueId());
+    var maskId = "mask-".concat(explicitMaskId || nextUniqueId());
+    var clipId = "clip-".concat(explicitMaskId || nextUniqueId());
     var maskTag = {
         tag: 'mask',
         attributes: _objectSpread({}, ALL_SPACE, {
@@ -419,7 +419,7 @@ function asSymbol(_ref) {
         }];
 }
 function makeInlineSvgAbstract(params) {
-    var _params$icons = params.icons, main = _params$icons.main, mask = _params$icons.mask, prefix = params.prefix, iconName = params.iconName, transform = params.transform, symbol = params.symbol, title = params.title, extra = params.extra, _params$watchable = params.watchable, watchable = _params$watchable === void 0 ? false : _params$watchable;
+    var _params$icons = params.icons, main = _params$icons.main, mask = _params$icons.mask, prefix = params.prefix, iconName = params.iconName, transform = params.transform, symbol = params.symbol, title = params.title, maskId = params.maskId, titleId = params.titleId, extra = params.extra, _params$watchable = params.watchable, watchable = _params$watchable === void 0 ? false : _params$watchable;
     var _ref = mask.found ? mask : main, width = _ref.width, height = _ref.height;
     var widthClass = "fa-w-".concat(Math.ceil(width / height * 16));
     var attrClass = [config.replacementClass, iconName ? "".concat(config.familyPrefix, "-").concat(iconName) : '', widthClass].filter(function (c) {
@@ -443,7 +443,7 @@ function makeInlineSvgAbstract(params) {
         content.children.push({
             tag: 'title',
             attributes: {
-                id: content.attributes['aria-labelledby'] || "title-".concat(nextUniqueId())
+                id: content.attributes['aria-labelledby'] || "title-".concat(titleId || nextUniqueId())
             },
             children: [title]
         });
@@ -452,6 +452,7 @@ function makeInlineSvgAbstract(params) {
         iconName: iconName,
         main: main,
         mask: mask,
+        maskId: maskId,
         transform: transform,
         symbol: symbol,
         styles: extra.styles
@@ -814,7 +815,7 @@ var library = new Library();
 var _cssInserted = false;
 var icon = resolveIcons(function (iconDefinition) {
     var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-    var _params$transform = params.transform, transform = _params$transform === void 0 ? meaninglessTransform : _params$transform, _params$symbol = params.symbol, symbol = _params$symbol === void 0 ? false : _params$symbol, _params$mask = params.mask, mask = _params$mask === void 0 ? null : _params$mask, _params$title = params.title, title = _params$title === void 0 ? null : _params$title, _params$classes = params.classes, classes = _params$classes === void 0 ? [] : _params$classes, _params$attributes = params.attributes, attributes = _params$attributes === void 0 ? {} : _params$attributes, _params$styles = params.styles, styles = _params$styles === void 0 ? {} : _params$styles;
+    var _params$transform = params.transform, transform = _params$transform === void 0 ? meaninglessTransform : _params$transform, _params$symbol = params.symbol, symbol = _params$symbol === void 0 ? false : _params$symbol, _params$mask = params.mask, mask = _params$mask === void 0 ? null : _params$mask, _params$maskId = params.maskId, maskId = _params$maskId === void 0 ? null : _params$maskId, _params$title = params.title, title = _params$title === void 0 ? null : _params$title, _params$titleId = params.titleId, titleId = _params$titleId === void 0 ? null : _params$titleId, _params$classes = params.classes, classes = _params$classes === void 0 ? [] : _params$classes, _params$attributes = params.attributes, attributes = _params$attributes === void 0 ? {} : _params$attributes, _params$styles = params.styles, styles = _params$styles === void 0 ? {} : _params$styles;
     if (!iconDefinition)
         return;
     var prefix = iconDefinition.prefix, iconName = iconDefinition.iconName, icon = iconDefinition.icon;
@@ -824,7 +825,7 @@ var icon = resolveIcons(function (iconDefinition) {
         ensureCss();
         if (config.autoA11y) {
             if (title) {
-                attributes['aria-labelledby'] = "".concat(config.replacementClass, "-title-").concat(nextUniqueId());
+                attributes['aria-labelledby'] = "".concat(config.replacementClass, "-title-").concat(titleId || nextUniqueId());
             }
             else {
                 attributes['aria-hidden'] = 'true';
@@ -846,6 +847,8 @@ var icon = resolveIcons(function (iconDefinition) {
             transform: _objectSpread({}, meaninglessTransform, transform),
             symbol: symbol,
             title: title,
+            maskId: maskId,
+            titleId: titleId,
             extra: {
                 attributes: attributes,
                 styles: styles,
