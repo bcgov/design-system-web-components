@@ -103,7 +103,12 @@ export namespace Components {
     'primary': string;
     'sidebar': string;
   }
-  interface BcgovSearch {}
+  interface BcgovSearch {
+    /**
+    * A number that represents mobile search breakpoint in px;
+    */
+    'breakpoint': number;
+  }
 }
 
 declare global {
@@ -277,7 +282,12 @@ declare namespace LocalJSX {
     'primary'?: string;
     'sidebar'?: string;
   }
-  interface BcgovSearch extends JSXBase.HTMLAttributes<HTMLBcgovSearchElement> {}
+  interface BcgovSearch extends JSXBase.HTMLAttributes<HTMLBcgovSearchElement> {
+    /**
+    * A number that represents mobile search breakpoint in px;
+    */
+    'breakpoint'?: number;
+  }
 
   interface IntrinsicElements {
     'bcgov-beta': BcgovBeta;

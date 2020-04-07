@@ -1,0 +1,18 @@
+@mixin user-select($user) {
+  -webkit-user-select: $user;
+  -moz-user-select: $user;
+  -ms-user-select: $user;
+  user-select: $user;
+}
+
+@mixin appearance($type) {
+  -webkit-appearance: $type;
+  -moz-appearance: $type;
+  appearance: $type;
+}
+
+@mixin background-clip($clip) {
+  background-clip: $clip;
+  -moz-background-clip: $clip;
+  -webkit-background-clip: $clip;
+}

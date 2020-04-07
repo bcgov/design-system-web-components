@@ -886,7 +886,8 @@ var BcgovButton = /** @class */ (function () {
         if ("search" === buttonStyle || "search-inline" === buttonStyle) {
             library.add(faSearch);
             var buttonElement = this.el.querySelector("button");
-            buttonElement.innerHTML = icon(faSearch).html[0];
+            var faIcon = icon(faSearch).html[0];
+            buttonElement.innerHTML = "<span class=\"bcgov-svg-icon\">" + faIcon + "</span><span class=\"bcgov-button-text\">" + buttonElement.innerHTML + "</span>";
         }
     };
     class_1.prototype.componentWillLoad = function () {
@@ -946,7 +947,7 @@ var BcgovButton = /** @class */ (function () {
     class_1.prototype.render = function () {
         var btnStyle = "" + this.buttonStyle;
         var props = {
-            class: btnStyle
+            class: btnStyle,
         };
         if (["hamburger", "search"].includes(this.buttonStyle)) {
             props["aria-expanded"] = this.active;

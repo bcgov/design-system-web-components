@@ -5,7 +5,8 @@ bcgov-search,
   border: 1px solid var(--bcgov-wc-color-background-seconary);
   border-bottom-color: var(--bcgov-wc-color-brand-secondary);
   position: absolute;
-  z-index: 1000;
+  width: 100%;
+  z-index: 999;
   .search-container {
     -webkit-transition: height 200ms ease-in;
     -moz-transition: height 200ms ease-in;
@@ -13,11 +14,9 @@ bcgov-search,
     -o-transition: height 200ms ease-in;
     transition: height 200ms ease-in;
     form {
-      @include flexbox();
       @include justify-content(center);
       @include align-content(center);
-      margin: 0.5rem;
-      position: relative;
+      @include flex-direction(column);
       bcgov-button {
         top: 0;
         right: 0;
@@ -26,17 +25,48 @@ bcgov-search,
           margin: 0;
         }
       }
+      > * {
+        flex: 1 1;
+        margin: 0 0.1rem 0.5rem;
+      }
+      select {
+        font-size: 1.2rem;
+        width: 100%;
+      }
       input {
         &[type="text"],
         &[type="search"] {
           font-size: 1.5rem;
           border: none;
-          width: 100%;
+        }
+        &[type="search"] {
+          flex: 2 1;
         }
       }
     }
   }
 
+  &.is-search-desktop {
+    bcgov-button,
+    .bcgov-button {
+      flex: 0.2;
+      &[button-style="search-inline"] {
+        text-align: right;
+        .bcgov-button-text {
+          display: none;
+        }
+      }
+    }
+
+    .search-container {
+      form {
+        @include flex-direction(row);
+        > * {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
   &.target-hidden {
     display: none;
     .search-container {

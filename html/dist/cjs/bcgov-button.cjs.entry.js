@@ -1050,7 +1050,8 @@ const BcgovButton = class {
         if ("search" === buttonStyle || "search-inline" === buttonStyle) {
             library.add(faSearch);
             const buttonElement = this.el.querySelector("button");
-            buttonElement.innerHTML = icon(faSearch).html[0];
+            const faIcon = icon(faSearch).html[0];
+            buttonElement.innerHTML = `<span class="bcgov-svg-icon">${faIcon}</span><span class="bcgov-button-text">${buttonElement.innerHTML}</span>`;
         }
     }
     componentWillLoad() {
@@ -1110,7 +1111,7 @@ const BcgovButton = class {
     render() {
         const btnStyle = `${this.buttonStyle}`;
         let props = {
-            class: btnStyle
+            class: btnStyle,
         };
         if (["hamburger", "search"].includes(this.buttonStyle)) {
             props["aria-expanded"] = this.active;

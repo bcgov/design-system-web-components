@@ -2,6 +2,7 @@ bcgov-button,
 .bcgov-button {
   display: inline-block;
   overflow: hidden;
+
   a,
   button {
     background-color: var(--bcgov-wc-color-brand-primary);
@@ -77,8 +78,11 @@ bcgov-button,
     &.search-inline {
       background-color: transparent;
       color: var(--bcgov-wc-color-text);
-      border: none;
+      border-width: 1px;
       padding: 3px 18px;
+      .bcgov-button-text {
+        margin-left: 0.5rem;
+      }
     }
     &:hover {
       text-decoration: underline;

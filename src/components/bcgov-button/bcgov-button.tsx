@@ -5,13 +5,13 @@ import {
   Element,
   Host,
   Listen,
-  State
+  State,
 } from "@stencil/core";
 import { library, icon } from "@fortawesome/fontawesome-svg-core";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
-  tag: "bcgov-button"
+  tag: "bcgov-button",
 })
 export class BcgovButton {
   /** The action of the button. */
@@ -50,7 +50,8 @@ export class BcgovButton {
     if ("search" === buttonStyle || "search-inline" === buttonStyle) {
       library.add(faSearch);
       const buttonElement = this.el.querySelector("button");
-      buttonElement.innerHTML = icon(faSearch).html[0];
+      const faIcon: string = icon(faSearch).html[0];
+      buttonElement.innerHTML = `<span class="bcgov-svg-icon">${faIcon}</span><span class="bcgov-button-text">${buttonElement.innerHTML}</span>`;
     }
   }
   componentWillLoad() {
@@ -65,7 +66,7 @@ export class BcgovButton {
       }
       this.isDesktop();
       const self = this;
-      window.addEventListener("resize", function() {
+      window.addEventListener("resize", function () {
         self.isDesktop();
       });
     }
@@ -91,6 +92,7 @@ export class BcgovButton {
     }
     return isdesktop;
   }
+
   @Listen("click")
   onClick() {
     if (null !== this.dataTarget) {
@@ -115,7 +117,7 @@ export class BcgovButton {
   render() {
     const btnStyle = `${this.buttonStyle}`;
     let props = {
-      class: btnStyle
+      class: btnStyle,
     };
     if (["hamburger", "search"].includes(this.buttonStyle)) {
       props["aria-expanded"] = this.active;
