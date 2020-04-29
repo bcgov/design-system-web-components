@@ -6,102 +6,102 @@ bcgov-button,
     opacity: 1;
     visibility: visible;
     @include transition(all, 0.2s, ease-in-out);
-  }
-  display: inline-block;
-  overflow: hidden;
-
-  a,
-  button {
-    background-color: var(--bcgov-wc-color-brand-primary);
-    border: 2px solid var(--bcgov-wc-color-brand-primary);
-    margin: 4px 4px 4px 0;
-    border-radius: 4px;
-    padding: 0.75rem 1.5rem !important;
-    font-size: 1.1rem;
-    text-align: center;
-    text-decoration: none;
-    line-height: 1.2;
-    cursor: pointer;
     display: inline-block;
+    overflow: hidden;
 
-    &,
-    &:visited,
-    &:active,
-    &:focus {
-      color: var(--bcgov-wc-color-white);
-    }
+    a,
+    button {
+      background-color: var(--bcgov-wc-color-brand-primary);
+      border: 2px solid var(--bcgov-wc-color-brand-primary);
+      margin: 4px 4px 4px 0;
+      border-radius: 4px;
+      padding: 0.75rem 1.5rem !important;
+      font-size: 1.1rem;
+      text-align: center;
+      text-decoration: none;
+      line-height: 1.2;
+      cursor: pointer;
+      display: inline-block;
 
-    &.primary {
-      color: var(--bcgov-wc-color-white) !important;
-    }
-
-    &.secondary {
-      background: none;
-      color: var(--bcgov-wc-color-brand-primary) !important;
-    }
-    &.dark {
-      background: none;
-      border: 2px solid var(--bcgov-wc-color-white);
-      &:hover {
-        background-color: var(--bcgov-wc-color-background-seconary);
-        color: var(--bcgov-wc-color-text);
+      &,
+      &:visited,
+      &:active,
+      &:focus {
+        color: var(--bcgov-wc-color-white);
       }
-    }
-    &.hamburger,
-    &.search {
-      margin: 0;
-      padding: $padding-x / 2 $padding-y;
-      border: 1px solid var(--bcgov-wc-color-white);
-      border-radius: 0;
-      max-height: 60px;
-      height: 100%;
-    }
 
-    &.hamburger {
-      font-size: 0.8rem;
-      background-color: var(--bcgov-wc-color-submenu);
-      &:hover {
-        background-color: var(--bcgov-wc-color-menu);
-        cursor: pointer;
+      &.primary {
+        color: var(--bcgov-wc-color-white) !important;
       }
-      div {
-        margin: 0 8px 4px;
-        border-top: 2px solid var(--bcgov-wc-color-white);
-        border-bottom: 2px solid var(--bcgov-wc-color-white);
-        &:before {
-          content: " ";
-          background-color: var(--bcgov-wc-color-white);
-          height: 2px;
-          margin: 6px 0;
-          display: block;
+
+      &.secondary {
+        background: none;
+        color: var(--bcgov-wc-color-brand-primary) !important;
+      }
+      &.dark {
+        background: none;
+        border: 2px solid var(--bcgov-wc-color-white);
+        &:hover {
+          background-color: var(--bcgov-wc-color-background-seconary);
+          color: var(--bcgov-wc-color-text);
         }
       }
-    }
+      &.hamburger,
+      &.search {
+        margin: 0;
+        padding: $padding-x / 2 $padding-y;
+        border: 1px solid var(--bcgov-wc-color-white);
+        border-radius: 0;
+        max-height: 60px;
+        height: 100%;
+      }
 
-    &.search {
-      background-color: var(--bcgov-wc-color-brand-secondary);
-      font-size: 2rem;
-    }
-    &.search-inline {
-      background-color: transparent;
-      color: var(--bcgov-wc-color-text);
-      border-width: 1px;
-      padding: 3px 18px;
-      .bcgov-button-text {
-        margin-left: 0.5rem;
+      &.hamburger {
+        font-size: 0.8rem;
+        background-color: var(--bcgov-wc-color-submenu);
+        &:hover {
+          background-color: var(--bcgov-wc-color-menu);
+          cursor: pointer;
+        }
+        div {
+          margin: 0 8px 4px;
+          border-top: 2px solid var(--bcgov-wc-color-white);
+          border-bottom: 2px solid var(--bcgov-wc-color-white);
+          &:before {
+            content: " ";
+            background-color: var(--bcgov-wc-color-white);
+            height: 2px;
+            margin: 6px 0;
+            display: block;
+          }
+        }
+      }
+
+      &.search {
+        background-color: var(--bcgov-wc-color-brand-secondary);
+        font-size: 2rem;
+      }
+      &.search-inline {
+        background-color: transparent;
+        color: var(--bcgov-wc-color-text);
+        border-width: 1px;
+        padding: 3px 18px;
+        .bcgov-button-text {
+          margin-left: 0.5rem;
+        }
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+      &:disabled {
+        cursor: not-allowed;
       }
     }
-    &:hover {
-      text-decoration: underline;
-    }
-    &:disabled {
-      cursor: not-allowed;
-    }
-  }
-  &.is-desktop {
-    button {
-      &.hamburger {
-        display: none;
+    &.is-desktop {
+      button {
+        &.hamburger {
+          display: none;
+        }
       }
     }
   }

@@ -1,8 +1,15 @@
 bcgov-callout,
 .bcgov-callout {
-  display: block;
-  padding: 25px;
-  border-left: 10px solid var(--bcgov-wc-color-background-primary);
-  margin: 16px 0;
-  background-color: var(--bcgov-wc-color-background-seconary);
+  opacity: 0;
+  visibility: hidden;
+  &.hydrated {
+    opacity: 1;
+    visibility: visible;
+    @include transition(all, 0.2s, ease-in-out);
+    display: block;
+    padding: 25px;
+    border-left: 10px solid var(--bcgov-wc-color-background-primary);
+    margin: 16px 0;
+    background-color: var(--bcgov-wc-color-background-seconary);
+  }
 }

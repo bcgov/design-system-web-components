@@ -6,80 +6,80 @@ bcgov-header,
     opacity: 1;
     visibility: visible;
     @include transition(all, 0.2s, ease-in-out);
-  }
-  position: relative;
-  display: block;
-  background-color: var(--bcgov-wc-color-brand-primary);
-  border-bottom: 2px solid var(--bcgov-wc-color-border);
-  padding: 0 var(--bcgov-wc-gutter);
-  color: var(--bcgov-wc-color-white);
-  header {
-    @include flexbox();
-    @include flex-wrap(wrap);
-    @include justify-content(normal);
-    @include flex-grow(1);
-    @include align-items(center);
-
-    .banner {
-      padding: 4px 0;
-      margin-left: -1rem;
-      a {
-        padding: 0;
-      }
-      img {
-        height: auto;
-        min-width: 175px;
-        max-width: 300px;
-        width: 100%;
-        padding: 0 1rem;
-      }
-    }
-    .heading,
-    .headline,
-    .hl {
-      padding: 0 1rem;
-      font-size: 1.5rem;
-    }
-  }
-
-  a {
-    color: var(--bcgov-wc-color-white);
-  }
-
-  a,
-  a:hover,
-  a:visited,
-  a:active,
-  a:focus {
-    color: var(--bcgov-wc-color-white);
-    padding: 4px;
-  }
-
-  .access a {
-    color: var(--bcgov-wc-color-white);
-  }
-  .access {
+    position: relative;
     display: block;
-    position: absolute;
-    height: 40px;
-    width: 150px;
-    left: 5px;
-    top: 5px;
-    font-size: 0.8rem;
+    background-color: var(--bcgov-wc-color-brand-primary);
+    border-bottom: 2px solid var(--bcgov-wc-color-border);
+    padding: 0 var(--bcgov-wc-gutter);
+    color: var(--bcgov-wc-color-white);
+    header {
+      @include flexbox();
+      @include flex-wrap(wrap);
+      @include justify-content(normal);
+      @include flex-grow(1);
+      @include align-items(center);
+
+      .banner {
+        padding: 4px 0;
+        margin-left: -1rem;
+        a {
+          padding: 0;
+        }
+        img {
+          height: auto;
+          min-width: 175px;
+          max-width: 300px;
+          width: 100%;
+          padding: 0 1rem;
+        }
+      }
+      .heading,
+      .headline,
+      .hl {
+        padding: 0 1rem;
+        font-size: 1.5rem;
+      }
+    }
 
     a {
       color: var(--bcgov-wc-color-white);
-      max-width: 150px;
-      position: absolute;
-      display: block;
-      padding: 5px;
-      opacity: 0;
     }
+
+    a,
+    a:hover,
+    a:visited,
+    a:active,
     a:focus {
-      opacity: 1;
+      color: var(--bcgov-wc-color-white);
+      padding: 4px;
     }
-  }
-  @media screen and (min-width: 762px) {
-    @include flexbox();
+
+    .access a {
+      color: var(--bcgov-wc-color-white);
+    }
+    .access {
+      display: block;
+      position: absolute;
+      height: 40px;
+      width: 150px;
+      left: 5px;
+      top: 5px;
+      font-size: 0.8rem;
+
+      a {
+        color: var(--bcgov-wc-color-white);
+        max-width: 150px;
+        position: absolute;
+        display: block;
+        padding: 5px;
+        opacity: 0;
+      }
+      a:focus {
+        opacity: 1;
+      }
+    }
+    @media screen and (min-width: 762px) {
+      @include flexbox();
+    }
   }
 }

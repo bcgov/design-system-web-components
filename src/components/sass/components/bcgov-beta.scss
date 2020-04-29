@@ -1,10 +1,17 @@
 bcgov-beta,
 .bcgov-beta {
-  color: var(--bcgov-wc-color-brand-secondary);
-  position: relative;
-  top: -5px;
-  text-transform: uppercase;
-  font-weight: 200;
-  margin-left: 8px;
-  font-size: 0.95rem;
+  opacity: 0;
+  visibility: hidden;
+  &.hydrated {
+    opacity: 1;
+    visibility: visible;
+    @include transition(all, 0.2s, ease-in-out);
+    color: var(--bcgov-wc-color-brand-secondary);
+    position: relative;
+    top: -5px;
+    text-transform: uppercase;
+    font-weight: 200;
+    margin-left: 8px;
+    font-size: 0.95rem;
+  }
 }

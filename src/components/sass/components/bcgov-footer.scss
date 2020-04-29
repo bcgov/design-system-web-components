@@ -6,69 +6,69 @@ bcgov-footer,
     opacity: 1;
     visibility: visible;
     @include transition(all, 0.2s, ease-in-out);
-  }
-  background-color: var(--bcgov-wc-color-brand-primary);
-  border-top: 2px solid var(--bcgov-wc-color-brand-secondary);
-  color: var(--bcgov-wc-color-white);
-  min-height: 50px;
-  padding: 0.25rem var(--bcgov-wc-gutter);
-
-  //@include justify-content(space-between);
-  //@include align-items(center);
-  @include flexbox();
-  @include flex-wrap(wrap);
-  @include justify-content(space-between);
-  @include flex-grow(1);
-  @include align-items(center);
-
-  //flex-direction: column-reverse;
-
-  .footer-logo {
-    max-width: 175px;
-    width: 100%;
-    padding: 8px 0;
-  }
-
-  img {
-    height: auto;
-    min-width: 175px;
-    max-width: 300px;
-    width: 100%;
-    padding: 0 1rem;
-  }
-
-  &.align-left {
-    bcgov-menu {
-      &.is-desktop {
-        ul {
-          justify-content: flex-start !important;
-        }
-      }
-    }
-    > *:not(bcgov-menu) {
-      justify-self: end;
-    }
-  }
-
-  &.align-right {
-    bcgov-menu {
-      &.is-desktop {
-        ul {
-          justify-content: flex-end !important;
-        }
-      }
-    }
-  }
-
-  a {
-    &,
-    &:visited,
-    &:active,
-    &:focus {
-      color: var(--bcgov-wc-color-white) !important;
-    }
-  }
-  a {
+    background-color: var(--bcgov-wc-color-brand-primary);
+    border-top: 2px solid var(--bcgov-wc-color-brand-secondary);
     color: var(--bcgov-wc-color-white);
+    min-height: 50px;
+    padding: 0.25rem var(--bcgov-wc-gutter);
+
+    //@include justify-content(space-between);
+    //@include align-items(center);
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include justify-content(space-between);
+    @include flex-grow(1);
+    @include align-items(center);
+
+    //flex-direction: column-reverse;
+
+    .footer-logo {
+      max-width: 175px;
+      width: 100%;
+      padding: 8px 0;
+    }
+
+    img {
+      height: auto;
+      min-width: 175px;
+      max-width: 300px;
+      width: 100%;
+      padding: 0 1rem;
+    }
+
+    &.align-left {
+      bcgov-menu {
+        &.is-desktop {
+          ul {
+            justify-content: flex-start !important;
+          }
+        }
+      }
+      > *:not(bcgov-menu) {
+        justify-self: end;
+      }
+    }
+
+    &.align-right {
+      bcgov-menu {
+        &.is-desktop {
+          ul {
+            justify-content: flex-end !important;
+          }
+        }
+      }
+    }
+
+    a {
+      &,
+      &:visited,
+      &:active,
+      &:focus {
+        color: var(--bcgov-wc-color-white) !important;
+      }
+    }
+    a {
+      color: var(--bcgov-wc-color-white);
+    }
   }
 }

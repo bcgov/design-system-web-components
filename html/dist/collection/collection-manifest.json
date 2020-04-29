@@ -1,8 +1,8 @@
 {
   "entries": [
-    "components/bcgov-button/bcgov-button.js",
     "components/bcgov-breadcrumb/bcgov-breadcrumb.js",
     "components/bcgov-beta/bcgov-beta.js",
+    "components/bcgov-button/bcgov-button.js",
     "components/bcgov-callout/bcgov-callout.js",
     "components/bcgov-carousel/bcgov-carousel.js",
     "components/bcgov-form/bcgov-form.js",
