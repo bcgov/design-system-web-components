@@ -1,5 +1,9 @@
 bcgov-button,
 .bcgov-button {
+  opacity: 0;
+  &.hydrated {
+    opacity: 1;
+  }
   display: inline-block;
   overflow: hidden;
 

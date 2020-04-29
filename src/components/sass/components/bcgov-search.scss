@@ -1,5 +1,9 @@
 bcgov-search,
 .bcgov-search {
+  opacity: 0;
+  &.hydrated {
+    opacity: 1;
+  }
   display: block;
   background-color: var(--bcgov-wc-color-white);
   border: 1px solid var(--bcgov-wc-color-background-seconary);

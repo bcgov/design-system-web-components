@@ -1,5 +1,9 @@
 bcgov-footer,
 .bcgov-footer {
+  opacity: 0;
+  &.hydrated {
+    opacity: 1;
+  }
   background-color: var(--bcgov-wc-color-brand-primary);
   border-top: 2px solid var(--bcgov-wc-color-brand-secondary);
   color: var(--bcgov-wc-color-white);

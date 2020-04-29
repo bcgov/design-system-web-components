@@ -1,5 +1,9 @@
 bcgov-breadcrumb,
 .bcgov-breadcrumb {
+  opacity: 0;
+  &.hydrated {
+    opacity: 1;
+  }
   @include flexbox;
   background-color: var(--bcgov-wc-color-breadcrumb);
   padding: 1rem var(--bcgov-wc-gutter);

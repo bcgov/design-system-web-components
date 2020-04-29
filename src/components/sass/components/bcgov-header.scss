@@ -1,5 +1,9 @@
 bcgov-header,
 .bcgov-header {
+  opacity: 0;
+  &.hydrated {
+    opacity: 1;
+  }
   position: relative;
   display: block;
   background-color: var(--bcgov-wc-color-brand-primary);
