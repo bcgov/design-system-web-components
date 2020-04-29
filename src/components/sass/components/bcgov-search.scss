@@ -1,8 +1,11 @@
 bcgov-search,
 .bcgov-search {
   opacity: 0;
+  visibility: hidden;
   &.hydrated {
     opacity: 1;
+    visibility: visible;
+    @include transition(all, 0.2s, ease-in-out);
   }
   display: block;
   background-color: var(--bcgov-wc-color-white);
