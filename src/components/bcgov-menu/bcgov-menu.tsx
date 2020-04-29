@@ -5,12 +5,12 @@ import {
   Prop,
   Element,
   Listen,
-  State
+  State,
 } from "@stencil/core";
 import { menuElement, keys, findAncestor } from "../utils/utils";
 
 @Component({
-  tag: "bcgov-menu"
+  tag: "bcgov-menu",
 })
 export class BcgovMenu {
   /** Alignment of menu */
@@ -50,13 +50,13 @@ export class BcgovMenu {
 
   componentWillLoad() {
     this.isSubmenu = "UL" === this.el.parentElement.nodeName;
-    [].forEach.call(this.el.querySelectorAll("a"), function(element) {
+    [].forEach.call(this.el.querySelectorAll("a"), function (element) {
       menuElement(element);
     });
     const self = this;
     if (!this.isSubmenu) {
       this.isDesktop();
-      window.addEventListener("resize", function() {
+      window.addEventListener("resize", function () {
         self.isDesktop();
       });
     }

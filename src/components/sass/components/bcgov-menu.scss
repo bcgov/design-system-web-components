@@ -1,4 +1,8 @@
 bcgov-menu {
+  opacity: 0;
+  &.hydrated {
+    opacity: 1;
+  }
   padding: 0;
   color: var(--bcgov-wc-color-white);
   position: relative;

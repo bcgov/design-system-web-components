@@ -1,12 +1,12 @@
 {
   "entries": [
+    "components/bcgov-button/bcgov-button.js",
     "components/bcgov-breadcrumb/bcgov-breadcrumb.js",
     "components/bcgov-beta/bcgov-beta.js",
     "components/bcgov-callout/bcgov-callout.js",
     "components/bcgov-carousel/bcgov-carousel.js",
-    "components/bcgov-button/bcgov-button.js",
-    "components/bcgov-form/bcgov-form.js",
     "components/bcgov-footer/bcgov-footer.js",
+    "components/bcgov-form/bcgov-form.js",
     "components/bcgov-header/bcgov-header.js",
     "components/bcgov-menu/bcgov-menu.js",
     "components/bcgov-search/bcgov-search.js"
