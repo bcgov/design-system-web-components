@@ -5,7 +5,11 @@ bcgov-footer,
   &.hydrated {
     opacity: 1;
     visibility: visible;
-    @include transition(all, 0.2s, ease-in-out);
+    @include transition(
+      $hydrate_transition_property,
+      $hydrate_transition_speed,
+      $hydrate_transition_timing
+    );
     background-color: var(--bcgov-wc-color-brand-primary);
     border-top: 2px solid var(--bcgov-wc-color-brand-secondary);
     color: var(--bcgov-wc-color-white);

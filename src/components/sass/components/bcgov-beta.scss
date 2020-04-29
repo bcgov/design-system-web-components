@@ -5,7 +5,11 @@ bcgov-beta,
   &.hydrated {
     opacity: 1;
     visibility: visible;
-    @include transition(all, 0.2s, ease-in-out);
+    @include transition(
+      $hydrate_transition_property,
+      $hydrate_transition_speed,
+      $hydrate_transition_timing
+    );
     color: var(--bcgov-wc-color-brand-secondary);
     position: relative;
     top: -5px;

@@ -1,3 +1,6 @@
+$hydrate_transition_speed: 0.01s;
+$hydrate_transition_property: opacity;
+$hydrate_transition_timing: ease-in;
 /** padding */
 $gutter-primary: 10%;
 $grid-breakpoints: (
@@ -5,7 +8,7 @@ $grid-breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1200px
+  xl: 1200px,
 ) !default;
 
 $padding-x: 15px;

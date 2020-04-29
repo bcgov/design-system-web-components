@@ -5,8 +5,8 @@
     "components/bcgov-button/bcgov-button.js",
     "components/bcgov-callout/bcgov-callout.js",
     "components/bcgov-carousel/bcgov-carousel.js",
-    "components/bcgov-form/bcgov-form.js",
     "components/bcgov-footer/bcgov-footer.js",
+    "components/bcgov-form/bcgov-form.js",
     "components/bcgov-header/bcgov-header.js",
     "components/bcgov-search/bcgov-search.js",
     "components/bcgov-menu/bcgov-menu.js"

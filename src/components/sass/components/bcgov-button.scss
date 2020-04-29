@@ -5,7 +5,11 @@ bcgov-button,
   &.hydrated {
     opacity: 1;
     visibility: visible;
-    @include transition(all, 0.2s, ease-in-out);
+    @include transition(
+      $hydrate_transition_property,
+      $hydrate_transition_speed,
+      $hydrate_transition_timing
+    );
     display: inline-block;
     overflow: hidden;
 
