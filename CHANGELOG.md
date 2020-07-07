@@ -1,5 +1,7 @@
-### 1.0.2 July 7, 2020
+### 1.0.3 July 7, 2020
 * removed forms css from production
+
+### 1.0.2 May 2020
 
 ### 1.0.1  February 25, 2020
 * Fixed bcgov-button target to data-target (now allows link buttons to have target="_blank").
