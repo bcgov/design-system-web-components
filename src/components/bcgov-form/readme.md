@@ -12,17 +12,17 @@ author: dlevineBC
 
 ```html
 <bcgov-form >
-    <label><input type="radio" name="radio_input" />First Choice</label>
-    <label><input type="radio" name="radio_input" />Second Choice</label>
-    <label><input type="radio" name="radio_input" />Third Choice</label>
+    <input type="radio" name="radio_input" /><label>First Choice</label>
+    <input type="radio" name="radio_input" /><label>Second Choice</label>
+    <input type="radio" name="radio_input" /><label>Third Choice</label>
 </bcgov-form>
 ```
 
 # Component
 <bcgov-form >
-    <label><input type="radio" name="radio_input" />First Choice</label>
-    <label><input type="radio" name="radio_input" />Second Choice</label>
-    <label><input type="radio" name="radio_input" />Third Choice</label>
+    <input type="radio" name="radio_input" /><label>First Choice</label>
+    <input type="radio" name="radio_input" /><label>Second Choice</label>
+    <input type="radio" name="radio_input" /><label>Third Choice</label>
 </bcgov-form>
 
 
