@@ -49,18 +49,6 @@ bcgov-header,
       color: var(--bcgov-wc-color-white);
     }
 
-    a,
-    a:hover,
-    a:visited,
-    a:active,
-    a:focus {
-      color: var(--bcgov-wc-color-white);
-      padding: 4px;
-    }
-
-    .access a {
-      color: var(--bcgov-wc-color-white);
-    }
     .access {
       display: block;
       position: absolute;
@@ -77,9 +65,9 @@ bcgov-header,
         display: block;
         padding: 5px;
         opacity: 0;
-      }
-      a:focus {
-        opacity: 1;
+        &:focus {
+          opacity: 1;
+        }
       }
     }
     @media screen and (min-width: 762px) {
