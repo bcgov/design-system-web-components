@@ -23,7 +23,7 @@ var BcgovSearch = /** @class */ (function () {
         }
     };
     class_1.prototype.render = function () {
-        return (h(Host, { class: "bcgov-search" }, h("div", { class: "search-container" }, h("slot", null))));
+        return (h(Host, { class: "bcgov-search" }, h("div", { class: "search-container bcgov-form" }, h("slot", null))));
     };
     Object.defineProperty(class_1.prototype, "el", {
         get: function () { return getElement(this); },

@@ -30,7 +30,7 @@ export class BcgovSearch {
   render() {
     return (
       <Host class="bcgov-search">
-        <div class="search-container">
+        <div class="search-container bcgov-form">
           <slot></slot>
         </div>
       </Host>

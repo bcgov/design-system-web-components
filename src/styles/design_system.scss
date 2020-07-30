@@ -110,15 +110,15 @@ body {
       &:active,
       &:visited,
       &:focus {
-        color: var(--bcgov-wc-color-links);
+        color: var(--bcgov-wc-color-link);
         text-decoration: underline;
       }
       &:hover {
-        color: var(--bcgov-wc-color-links-hover);
+        color: var(--bcgov-wc-color-link-hover);
         text-decoration: none;
       }
       i {
-        color: var(--bcgov-wc-color-links);
+        color: var(--bcgov-wc-color-link);
       }
     }
   }
