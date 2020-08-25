@@ -75,7 +75,12 @@ As read using ChromeVox
 <bcgov-header logo>
   <img
     src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
-    alt="Branding logo" >
+    alt="Branding logo" 
+    class="img-desktop" >
+      <img
+    src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
+    alt="Branding logo 2"
+    class="img-mobile" >
   <div class="headline" >DevHub<bcgov-beta></bcgov-beta></div>
   <div aria >
     <a href="#main-navigation">Skip to navigation</a>
@@ -90,8 +95,12 @@ As read using ChromeVox
 <bcgov-header logo>
   <img
     src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
-    alt="Branding logo"
-  />
+    alt="Branding logo" 
+    class="img-desktop" >
+      <img
+    src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
+    alt="Branding logo 2"
+    class="img-mobile" >
   <div class="headline" >DevHub<bcgov-beta></bcgov-beta></div>
   <div aria >
     <a href="#main-navigation">Skip to navigation</a>
@@ -106,7 +115,12 @@ As read using ChromeVox
 <bcgov-header logo>
   <img
     src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
-    alt="Branding logo" >
+    alt="Branding logo" 
+    class="img-desktop" >
+      <img
+    src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
+    alt="Branding logo 2"
+    class="img-mobile" >
   <div class="headline" >DevHub<bcgov-beta></bcgov-beta></div>
   <div aria >
     <a href="#main-navigation">Skip to navigation</a>

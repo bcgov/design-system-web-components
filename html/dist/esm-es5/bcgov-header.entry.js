@@ -14,16 +14,21 @@ var BcgovHeader = /** @class */ (function () {
         [].forEach.call(this.el.querySelectorAll("div[aria]"), function (element) {
             element.classList.add("access");
         });
-        [].forEach.call(this.el.querySelectorAll("img"), function (element) {
-            var divTag = document.createElement("div");
-            divTag.classList.add("banner");
+        var $img = this.el.querySelectorAll("img");
+        var divTag = document.createElement("div");
+        var atag;
+        divTag.classList.add("banner");
+        [].forEach.call($img, function (element) {
             if (undefined !== self.href && "" !== self.href) {
-                var atag = document.createElement("a");
-                atag.classList.add("branding-logo");
-                atag.setAttribute("aria-label", "branding logo");
-                atag.setAttribute("href", self.href);
+                console.log(element);
+                if (undefined === atag) {
+                    atag = document.createElement("a");
+                    atag.classList.add("branding-logo");
+                    atag.setAttribute("aria-label", "branding logo");
+                    atag.setAttribute("href", self.href);
+                    divTag.appendChild(atag);
+                }
                 atag.appendChild(element.cloneNode(true));
-                divTag.appendChild(atag);
             }
             else {
                 divTag.appendChild(element.cloneNode(true));

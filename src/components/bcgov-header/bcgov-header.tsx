@@ -3,7 +3,7 @@ import { filterATags } from "../utils/utils";
 
 @Component({
   tag: "bcgov-header",
-  assetsDirs: ["../../assets"]
+  assetsDirs: ["../../assets"],
 })
 export class BcgovHeader {
   /** link for logo */
@@ -20,19 +20,23 @@ export class BcgovHeader {
 
   componentDidRender() {
     const self = this;
-    [].forEach.call(this.el.querySelectorAll("div[aria]"), function(element) {
+    [].forEach.call(this.el.querySelectorAll("div[aria]"), function (element) {
       element.classList.add("access");
     });
-    [].forEach.call(this.el.querySelectorAll("img"), function(element) {
-      const divTag: HTMLElement = document.createElement("div");
-      divTag.classList.add("banner");
+    let $img = this.el.querySelectorAll("img");
+    let divTag: HTMLElement = document.createElement("div");
+    let atag: HTMLElement;
+    divTag.classList.add("banner");
+    [].forEach.call($img, function (element) {
       if (undefined !== self.href && "" !== self.href) {
-        const atag: HTMLElement = document.createElement("a");
-        atag.classList.add("branding-logo");
-        atag.setAttribute("aria-label", "branding logo");
-        atag.setAttribute("href", self.href);
+        if (undefined === atag) {
+          atag = document.createElement("a");
+          atag.classList.add("branding-logo");
+          atag.setAttribute("aria-label", "branding logo");
+          atag.setAttribute("href", self.href);
+          divTag.appendChild(atag);
+        }
         atag.appendChild(element.cloneNode(true));
-        divTag.appendChild(atag);
       } else {
         divTag.appendChild(element.cloneNode(true));
       }
@@ -40,8 +44,8 @@ export class BcgovHeader {
       element.parentNode.replaceChild(divTag, element);
     });
 
-    [].forEach.call(this.el.querySelectorAll("div[aria]"), function(element) {
-      [].forEach.call(element.querySelectorAll("a"), function(element) {
+    [].forEach.call(this.el.querySelectorAll("div[aria]"), function (element) {
+      [].forEach.call(element.querySelectorAll("a"), function (element) {
         element.setAttribute("aria", "");
         filterATags(element);
       });
