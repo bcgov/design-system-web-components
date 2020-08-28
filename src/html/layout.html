@@ -11,7 +11,10 @@
     <meta name="author" content="<%= htmlWebpackPlugin.options.author %>" />
   </head>
 
-  <body is="bcgov-styles" class="<%= htmlWebpackPlugin.options.bodyClass %>">
+  <body
+    is="bcgov-styles"
+    class="<%= htmlWebpackPlugin.options.bodyClass %> is-floating"
+  >
     <%= require('html-loader!./partials/header.html') %>
     <bcgov-menu
       id="main-navigation"
@@ -20,11 +23,12 @@
       primary
       alignment="left"
       breakpoint="1100"
+      class=""
     >
-      <a href="index.html">Home</a>
+      <a href="index.html" active>Home</a>
       <bcgov-menu href="header.html" name="Standard Components">
         <a href="header.html">Header</a>
-        <a href="menu.html">Menus</a>
+        <a href="menu.html" active>Menus</a>
         <a href="button.html">Buttons</a>
         <a href="footer.html">Footer</a>
         <a href="beta.html">Beta</a>

@@ -19,7 +19,6 @@ export class BcgovHeader {
         divTag.classList.add("banner");
         [].forEach.call($img, function (element) {
             if (undefined !== self.href && "" !== self.href) {
-                console.log(element);
                 if (undefined === atag) {
                     atag = document.createElement("a");
                     atag.classList.add("branding-logo");
