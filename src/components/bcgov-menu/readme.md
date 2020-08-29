@@ -41,15 +41,26 @@ As read using ChromeVox
 * Navbar links underline on hover to indicate they are clickable
 
 ## Example
-
 <div>
+<style>
+  bcgov-menu.css-example {
+  /** Desktop menu **/
+  --background: #ff3333;
+  --bacground-active: #a8aaad;
+  --border-color: #f8bf28;
+  /** Desktop submenu */
+  --submenu-background: #1e73be;
+  --submenu-background-active: #77bbcf;
+
+  }
+  </style>
 <bcgov-button button-style="hamburger" target="main-navigation-sample">Menu</bcgov-button>
-<bcgov-menu id="main-navigation-sample" style="background-color: #036;" primary   alignment="left" breakpoint="1200">
+<bcgov-menu id="main-navigation-sample"  primary class="css-example"  alignment="left" breakpoint="1200">
   <a href="/">Home</a>
   <a active href="/sandbox.html">Sandbox</a>
   <bcgov-menu href="/" name="Components">
     <a href="/header.html">Header</a>
-    <a href="/menu.html">Menus</a>
+    <a href="/menu.html" active>Menus</a>
     <a href="/buttons.html">Buttons</a>
     <a href="/footer.html">Footer</a>
     <a href="/beta.html">Beta</a>
@@ -61,26 +72,34 @@ As read using ChromeVox
 
 ### Source
 ```html
+<style>
+  bcgov-menu.css-example {
+  /** Desktop menu **/
+  --background: #ff3333;
+  --bacground-active: #a8aaad;
+  --border-color: #f8bf28;
+  /** Desktop submenu */
+  --submenu-background: #1e73be;
+  --submenu-background-active: #77bbcf;
+
+  }
+  </style>
 <bcgov-button button-style="hamburger" target="main-navigation-sample">Menu</bcgov-button>
-<bcgov-menu id="main-navigation-sample" 
+<bcgov-menu id="main-navigation-sample"  
             primary 
-            alignment="left"
-            breakpoint="1200"
-            instructions="Use arrow keys to navigate between menuitems, spacebar to expand submenus, escape key to closes submenus, enter to activate menuitems."
->
+            class="css-example"  
+            alignment="left" 
+            breakpoint="1200">
   <a href="/">Home</a>
   <a active href="/sandbox.html">Sandbox</a>
-  <a href="/components">Components
-    <bcgov-menu>
+  <bcgov-menu href="/" name="Components">
     <a href="/header.html">Header</a>
-    <a href="/menu.html">Menus</a>
+    <a href="/menu.html" active>Menus</a>
     <a href="/buttons.html">Buttons</a>
     <a href="/footer.html">Footer</a>
     <a href="/beta.html">Beta</a>
     <a href="/callout.html">Callout</a>
   </bcgov-menu>
-  </a>
-
   <a href="/developer.html">Developer</a>
 </bcgov-menu>
 ```
@@ -104,6 +123,44 @@ As read using ChromeVox
 </bcgov-menu>
 </div>
 
+
+## CSS Variables
+```css
+bcgov-menu {
+  /** Desktop menu **/
+  --background: #{$bcgov-color-menu};
+  --bacground-active: #{$bcgov-color-menu-active};
+  --color: #{$bcgov-white};
+  --color-hover: #{$bcgov-white};
+  --color-active: #{$bcgov-white};
+  --border-color: #{$bcgov-color-menu-border};
+
+  /** Desktop submenu */
+  --submenu-background: #{$bcgov-color-submenu};
+  --submenu-background-active: #{$bcgov-color-menu-active};
+  --submenu-color: #{$bcgov-white};
+  --submenu-color-hover: #{$bcgov-white};
+  --submenu-color-active: #{$bcgov-white};
+
+  /** Mobile  Menu**/
+  --mobile-border-color: #{$bcgov-color-menu-border};
+  --mobile-background: #{$bcgov-color-menu};
+  --mobile-background-active: #{$bcgov-color-menu-active};
+  --mobile-color: #{$bcgov-white};
+  --mobile-color-hover: #{$bcgov-white};
+  --mobile-color-active: #{$bcgov-white};
+
+  /** Mobile submenu */
+  --mobile-submenu-background: #{$bcgov-color-submenu};
+  --mobile-submenu-background-active: #{$bcgov-color-menu-active};
+  --mobile-submenu-color: #{$bcgov-white};
+  --mobile-submenu-color-hover: #{$bcgov-white};
+  --mobile-submenu-color-active: #{$bcgov-white};
+}
+.some-class bcgov-menu {
+  --mobile-background: blue;
+}
+```
 <!-- Auto Generated Below -->
 
 
