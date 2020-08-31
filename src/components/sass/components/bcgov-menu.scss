@@ -218,6 +218,7 @@ bcgov-menu {
         &:hover {
           color: var(--color-hover);
           background-color: var(--background-active);
+          border-color: var(--border-color);
         }
       }
 
@@ -290,7 +291,7 @@ bcgov-menu {
           > a {
             background-color: var(--background-active);
             color: var(--color-active);
-            border: 1px solid var(--border-color);
+            border-color: var(--border-color);
           }
         }
         bcgov-menu ul > li.active {
