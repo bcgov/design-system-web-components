@@ -1,7 +1,7 @@
 bcgov-menu {
   /** Desktop menu **/
   --background: #{$bcgov-color-menu};
-  --bacground-active: #{$bcgov-color-menu-active};
+  --background-active: #{$bcgov-color-menu-active};
   --color: #{$bcgov-white};
   --color-hover: #{$bcgov-white};
   --color-active: #{$bcgov-white};
@@ -290,6 +290,7 @@ bcgov-menu {
           > a {
             background-color: var(--background-active);
             color: var(--color-active);
+            border: 1px solid var(--border-color);
           }
         }
         bcgov-menu ul > li.active {

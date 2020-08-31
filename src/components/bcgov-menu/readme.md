@@ -111,7 +111,7 @@ As read using ChromeVox
 <bcgov-menu id="main-navigation-sample" style="background-color: #036;" primary   alignment="left" breakpoint="1200">
   <a href="/">Home</a>
   <a href="/sandbox.html">Sandbox</a>
-  <bcgov-menu href="/" name="Components">
+  <bcgov-menu active href="/" name="Components">
     <a href="/header.html">Header</a>
     <a href="/menu.html">Menus</a>
     <a href="/buttons.html">Buttons</a>
@@ -129,7 +129,7 @@ As read using ChromeVox
 bcgov-menu {
   /** Desktop menu **/
   --background: #{$bcgov-color-menu};
-  --bacground-active: #{$bcgov-color-menu-active};
+  --background-active: #{$bcgov-color-menu-active};
   --color: #{$bcgov-white};
   --color-hover: #{$bcgov-white};
   --color-active: #{$bcgov-white};

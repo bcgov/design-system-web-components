@@ -1,3 +1,7 @@
+### 1.1.0 August 31, 2020
+* Changed css for menu
+* Added additional css variables, to make overrides easier.
+
 ### 1.0.3 July 7, 2020
 * removed forms css from production
 
