@@ -213,7 +213,6 @@ bcgov-menu {
         &:focus,
         &:visited {
           color: var(--color);
-          border-bottom: none;
         }
         &:hover {
           color: var(--color-hover);
@@ -291,7 +290,7 @@ bcgov-menu {
           > a {
             background-color: var(--background-active);
             color: var(--color-active);
-            border-color: var(--border-color);
+            border-color: (--border-color);
           }
         }
         bcgov-menu ul > li.active {
