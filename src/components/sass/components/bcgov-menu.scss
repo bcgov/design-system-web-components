@@ -290,7 +290,7 @@ bcgov-menu {
           > a {
             background-color: var(--background-active);
             color: var(--color-active);
-            border-color: (--border-color);
+            border: 1px solid (--border-color);
           }
         }
         bcgov-menu ul > li.active {
