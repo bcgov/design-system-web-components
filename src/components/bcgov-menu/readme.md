@@ -45,13 +45,12 @@ As read using ChromeVox
 <style>
   bcgov-menu.css-example {
   /** Desktop menu **/
-  --background: #ff3333;
-  --bacground-active: #a8aaad;
-  --border-color: #f8bf28;
+  --menu-background: #ff3333;
+  --menu-bacground-active: #a8aaad;
+  --menu-border-color: #f8bf28;
   /** Desktop submenu */
-  --submenu-background: #1e73be;
-  --submenu-background-active: #77bbcf;
-
+  --menu-submenu-background: #1e73be;
+  --menu-submenu-background-active: #77bbcf;
   }
   </style>
 <bcgov-button button-style="hamburger" target="main-navigation-sample">Menu</bcgov-button>
@@ -73,15 +72,14 @@ As read using ChromeVox
 ### Source
 ```html
 <style>
-  bcgov-menu.css-example {
+   bcgov-menu.css-example {
   /** Desktop menu **/
-  --background: #ff3333;
-  --bacground-active: #a8aaad;
-  --border-color: #f8bf28;
+  --menu-background: #ff3333;
+  --menu-bacground-active: #a8aaad;
+  --menu-border-color: #f8bf28;
   /** Desktop submenu */
-  --submenu-background: #1e73be;
-  --submenu-background-active: #77bbcf;
-
+  --menu-submenu-background: #1e73be;
+  --menu-submenu-background-active: #77bbcf;
   }
   </style>
 <bcgov-button button-style="hamburger" target="main-navigation-sample">Menu</bcgov-button>
@@ -126,36 +124,37 @@ As read using ChromeVox
 
 ## CSS Variables
 ```css
-bcgov-menu {
+:root {
   /** Desktop menu **/
-  --background: #{$bcgov-color-menu};
-  --background-active: #{$bcgov-color-menu-active};
-  --color: #{$bcgov-white};
-  --color-hover: #{$bcgov-white};
-  --color-active: #{$bcgov-white};
-  --border-color: #{$bcgov-color-menu-border};
+  --menu-background: #{$bcgov-color-menu};
+  --menu-background-active: #{$bcgov-color-menu-active};
+  --menu-color: #{$bcgov-white};
+  --menu-color-hover: #{$bcgov-white};
+  --menu-color-active: #{$bcgov-white};
+  --menu-border-color: #{$bcgov-color-menu-border};
 
   /** Desktop submenu */
-  --submenu-background: #{$bcgov-color-submenu};
-  --submenu-background-active: #{$bcgov-color-menu-active};
-  --submenu-color: #{$bcgov-white};
-  --submenu-color-hover: #{$bcgov-white};
-  --submenu-color-active: #{$bcgov-white};
+  --menu-submenu-background: #{$bcgov-color-submenu};
+  --menu-submenu-background-active: #{$bcgov-color-menu-active};
+  --menu-submenu-color: #{$bcgov-white};
+  --menu-submenu-color-hover: #{$bcgov-white};
+  --menu-submenu-color-active: #{$bcgov-white};
 
   /** Mobile  Menu**/
-  --mobile-border-color: #{$bcgov-color-menu-border};
-  --mobile-background: #{$bcgov-color-menu};
-  --mobile-background-active: #{$bcgov-color-menu-active};
-  --mobile-color: #{$bcgov-white};
-  --mobile-color-hover: #{$bcgov-white};
-  --mobile-color-active: #{$bcgov-white};
+  --menu-mobile-border-color: #{$bcgov-color-menu-border};
+
+  --menu-mobile-background: #{$bcgov-color-menu};
+  --menu-mobile-background-active: #{$bcgov-color-menu-active};
+  --menu-mobile-color: #{$bcgov-white};
+  --menu-mobile-color-hover: #{$bcgov-white};
+  --menu-mobile-color-active: #{$bcgov-white};
 
   /** Mobile submenu */
-  --mobile-submenu-background: #{$bcgov-color-submenu};
-  --mobile-submenu-background-active: #{$bcgov-color-menu-active};
-  --mobile-submenu-color: #{$bcgov-white};
-  --mobile-submenu-color-hover: #{$bcgov-white};
-  --mobile-submenu-color-active: #{$bcgov-white};
+  --menu-mobile-submenu-background: #{$bcgov-color-submenu};
+  --menu-mobile-submenu-background-active: #{$bcgov-color-menu-active};
+  --menu-mobile-submenu-color: #{$bcgov-white};
+  --menu-mobile-submenu-color-hover: #{$bcgov-white};
+  --menu-mobile-submenu-color-active: #{$bcgov-white};
 }
 .some-class bcgov-menu {
   --mobile-background: blue;

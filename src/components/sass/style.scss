@@ -21,6 +21,40 @@
   --bcgov-wc-color-success: #{$bcgov-green-primary};
   --bcgov-wc-font-family: #{$bcgov-font-family};
   --bcgov-wc-gutter: #{$gutter-primary};
+
+  --button-hamburger-background: #{bcgov-blue-primary};
+  --button-hamburger-background-hover: #{bcgov-blue-primary};
+
+  /** Desktop menu **/
+  --menu-background: #{$bcgov-color-menu};
+  --menu-background-active: #{$bcgov-color-menu-active};
+  --menu-color: #{$bcgov-white};
+  --menu-color-hover: #{$bcgov-white};
+  --menu-color-active: #{$bcgov-white};
+  --menu-border-color: #{$bcgov-color-menu-border};
+
+  /** Desktop submenu */
+  --menu-submenu-background: #{$bcgov-color-submenu};
+  --menu-submenu-background-active: #{$bcgov-color-menu-active};
+  --menu-submenu-color: #{$bcgov-white};
+  --menu-submenu-color-hover: #{$bcgov-white};
+  --menu-submenu-color-active: #{$bcgov-white};
+
+  /** Mobile  Menu**/
+  --menu-mobile-border-color: #{$bcgov-color-menu-border};
+
+  --menu-mobile-background: #{$bcgov-color-menu};
+  --menu-mobile-background-active: #{$bcgov-color-menu-active};
+  --menu-mobile-color: #{$bcgov-white};
+  --menu-mobile-color-hover: #{$bcgov-white};
+  --menu-mobile-color-active: #{$bcgov-white};
+
+  /** Mobile submenu */
+  --menu-mobile-submenu-background: #{$bcgov-color-submenu};
+  --menu-mobile-submenu-background-active: #{$bcgov-color-menu-active};
+  --menu-mobile-submenu-color: #{$bcgov-white};
+  --menu-mobile-submenu-color-hover: #{$bcgov-white};
+  --menu-mobile-submenu-color-active: #{$bcgov-white};
 }
 
 @import "components/components.scss";

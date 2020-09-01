@@ -63,9 +63,9 @@ bcgov-button,
 
     &.hamburger {
       font-size: 0.8rem;
-      background-color: var(--mobile-submenu-background);
+      background-color: var(--button-hamburger-background);
       &:hover {
-        background-color: var(--mobile-submenu-background);
+        background-color: var(--button-hamburger-background-hover);
         cursor: pointer;
       }
       div {

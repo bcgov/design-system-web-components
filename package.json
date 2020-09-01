@@ -105,6 +105,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
     "core-js": "^3.6.5",
+    "css-vars-ponyfill": "^2.3.2",
     "gh-pages": "^2.2.0"
   }
 }

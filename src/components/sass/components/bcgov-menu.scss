@@ -1,35 +1,4 @@
 bcgov-menu {
-  /** Desktop menu **/
-  --background: #{$bcgov-color-menu};
-  --background-active: #{$bcgov-color-menu-active};
-  --color: #{$bcgov-white};
-  --color-hover: #{$bcgov-white};
-  --color-active: #{$bcgov-white};
-  --border-color: #{$bcgov-color-menu-border};
-
-  /** Desktop submenu */
-  --submenu-background: #{$bcgov-color-submenu};
-  --submenu-background-active: #{$bcgov-color-menu-active};
-  --submenu-color: #{$bcgov-white};
-  --submenu-color-hover: #{$bcgov-white};
-  --submenu-color-active: #{$bcgov-white};
-
-  /** Mobile  Menu**/
-  --mobile-border-color: #{$bcgov-color-menu-border};
-
-  --mobile-background: #{$bcgov-color-menu};
-  --mobile-background-active: #{$bcgov-color-menu-active};
-  --mobile-color: #{$bcgov-white};
-  --mobile-color-hover: #{$bcgov-white};
-  --mobile-color-active: #{$bcgov-white};
-
-  /** Mobile submenu */
-  --mobile-submenu-background: #{$bcgov-color-submenu};
-  --mobile-submenu-background-active: #{$bcgov-color-menu-active};
-  --mobile-submenu-color: #{$bcgov-white};
-  --mobile-submenu-color-hover: #{$bcgov-white};
-  --mobile-submenu-color-active: #{$bcgov-white};
-
   opacity: 0;
   visibility: hidden;
   &.hydrated {
@@ -61,15 +30,15 @@ bcgov-menu {
       content: " ";
       position: absolute;
       height: 100%;
-      border-left: 1px solid var(--mobile-border-color);
+      border-left: 1px solid var(--menu-mobile-border-color);
       right: $padding-x * 3;
       top: 0;
     }
   }
   &[primary],
   &.primary {
-    background-color: var(--mobile-background);
-    color: var(--mobile-color);
+    background-color: var(--menu-mobile-background);
+    color: var(--menu-mobile-color);
 
     /** Setup the defaults for all menu / submenu **/
 
@@ -79,13 +48,13 @@ bcgov-menu {
       &:visited,
       &:active,
       &:focus {
-        color: var(--mobile-color);
-        border-bottom: 1px solid var(--mobile-border-color);
+        color: var(--menu-mobile-color);
+        border-bottom: 1px solid var(--menu-mobile-border-color);
       }
       &:hover {
         text-decoration: underline;
-        color: var(--mobile-color-hover);
-        background-color: var(--mobile-background-active);
+        color: var(--menu-mobile-color-hover);
+        background-color: var(--menu-mobile-background-active);
       }
     }
 
@@ -93,7 +62,7 @@ bcgov-menu {
       bcgov-menu {
         z-index: 1000;
         ul {
-          background-color: var(--mobile-submenu-background);
+          background-color: var(--menu-mobile-submenu-background);
         }
         > div {
           &:after {
@@ -105,8 +74,8 @@ bcgov-menu {
             height: 8px;
             top: 12px;
             right: $padding-x * 1.25;
-            border-bottom: 2px solid var(--mobile-color);
-            border-right: 2px solid var(--mobile-color);
+            border-bottom: 2px solid var(--menu-mobile-color);
+            border-right: 2px solid var(--menu-mobile-color);
             transform: rotateZ(45deg);
             box-sizing: unset;
           }
@@ -115,7 +84,7 @@ bcgov-menu {
         li {
           ul {
             display: none;
-            background-color: var(--mobile-submenu-background);
+            background-color: var(--menu-mobile-submenu-background);
           }
           a {
             &,
@@ -123,11 +92,11 @@ bcgov-menu {
             &:visited,
             &:focus,
             &:active {
-              color: var(--mobile-submenu-color);
+              color: var(--menu-mobile-submenu-color);
             }
             &:hover {
-              color: var(--mobile-submenu-color-hover);
-              background-color: var(--mobile-submenu-background-active);
+              color: var(--menu-mobile-submenu-color-hover);
+              background-color: var(--menu-mobile-submenu-background-active);
             }
           }
         }
@@ -137,7 +106,7 @@ bcgov-menu {
             ul {
               display: block;
               li:hover {
-                background-color: var(--mobile-background-active);
+                background-color: var(--menu-mobile-background-active);
               }
             }
             > div {
@@ -152,14 +121,14 @@ bcgov-menu {
       > li.active,
       bcgov-menu.active div {
         > a {
-          background-color: var(--mobile-background-active);
-          color: var(--mobile-color-active);
+          background-color: var(--menu-mobile-background-active);
+          color: var(--menu-mobile-color-active);
         }
       }
       bcgov-menu ul > li.active {
         > a {
-          background-color: var(--mobile-submenu-background-active);
-          color: var(--mobile-submenu-color-active);
+          background-color: var(--menu-mobile-submenu-background-active);
+          color: var(--menu-mobile-submenu-color-active);
         }
       }
     }
@@ -204,7 +173,7 @@ bcgov-menu {
     &[primary],
     &.primary {
       padding: 0 var(--bcgov-wc-gutter);
-      background-color: var(--background);
+      background-color: var(--menu-background);
 
       a {
         &,
@@ -212,12 +181,12 @@ bcgov-menu {
         &:active,
         &:focus,
         &:visited {
-          color: var(--color);
+          color: var(--menu-color);
         }
         &:hover {
-          color: var(--color-hover);
-          background-color: var(--background-active);
-          border-color: var(--border-color);
+          color: var(--menu-color-hover);
+          background-color: var(--menu-background-active);
+          border-color: var(--menu-border-color);
         }
       }
 
@@ -225,8 +194,8 @@ bcgov-menu {
         bcgov-menu {
           > div {
             &:after {
-              border-bottom: 2px solid var(--color);
-              border-right: 2px solid var(--color);
+              border-bottom: 2px solid var(--menu-color);
+              border-right: 2px solid var(--menu-color);
             }
             a {
               padding-right: $padding-y * 2.5;
@@ -244,11 +213,11 @@ bcgov-menu {
               &:active,
               &:focus,
               &:visited {
-                color: var(--submenu-color);
+                color: var(--menu-submenu-color);
               }
               &:hover {
-                color: var(--submenu-color-hover);
-                background-color: var(--submenu-background-active);
+                color: var(--menu-submenu-color-hover);
+                background-color: var(--menu-submenu-background-active);
               }
             }
           }
@@ -259,13 +228,13 @@ bcgov-menu {
             position: absolute;
             width: 230px;
             height: auto;
-            background-color: var(--submenu-background);
+            background-color: var(--menu-submenu-background);
             li {
-              border-top: 1px solid var(--border-color);
-              border-left: 1px solid var(--border-color);
-              border-right: 1px solid var(--border-color);
+              border-top: 1px solid var(--menu-border-color);
+              border-left: 1px solid var(--menu-border-color);
+              border-right: 1px solid var(--menu-border-color);
               &:last-child {
-                border-bottom: 1px solid var(--border-color);
+                border-bottom: 1px solid var(--menu-border-color);
               }
             }
           }
@@ -273,7 +242,7 @@ bcgov-menu {
             &.expanded {
               ul {
                 li:hover {
-                  background-color: var(--background-active);
+                  background-color: var(--menu-background-active);
                 }
               }
               > div {
@@ -288,15 +257,15 @@ bcgov-menu {
         > li.active,
         bcgov-menu.active div {
           > a {
-            background-color: var(--background-active);
-            color: var(--color-active);
-            border: 1px solid var(--border-color);
+            background-color: var(--menu-background-active);
+            color: var(--menu-color-active);
+            border: 1px solid var(--menu-border-color);
           }
         }
         bcgov-menu ul > li.active {
           > a {
-            background-color: var(--submenu-background-active);
-            color: var(--submenu-color-active);
+            background-color: var(--menu-submenu-background-active);
+            color: var(--menu-submenu-color-active);
           }
         }
       }
