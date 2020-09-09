@@ -45,6 +45,7 @@ export class BcgovMenu {
   @State() isSubmenu: boolean = false;
   @State() clone: Node;
   @State() allTags: NodeList;
+  @State() bodyTag: Element;
 
   @Element() el;
 
@@ -54,11 +55,25 @@ export class BcgovMenu {
       menuElement(element);
     });
     const self = this;
+
+    this.bodyTag = document.getElementsByTagName("BODY")[0];
     if (!this.isSubmenu) {
       this.isDesktop();
       window.addEventListener("resize", function () {
         self.isDesktop();
       });
+      if (undefined !== this.primary) {
+        window.addEventListener("click", function (event) {
+          const clickElement: any = event.srcElement;
+
+          if (
+            null === clickElement.closest("bcgov-menu") &&
+            !self.isDesktop()
+          ) {
+            console.log("close menu");
+          }
+        });
+      }
     }
   }
 
@@ -86,9 +101,20 @@ export class BcgovMenu {
         if (!this.el.classList.contains("is-desktop")) {
           this.el.classList.add("is-desktop");
         }
+        if (undefined !== this.primary) {
+          if (
+            !this.bodyTag.classList.contains("bcgov-menu-primary-is-desktop")
+          ) {
+            this.bodyTag.classList.add("bcgov-menu-primary-is-desktop");
+          }
+        }
+
         isdesktop = true;
       } else {
         this.el.classList.remove("is-desktop");
+        if (undefined !== this.primary) {
+          this.bodyTag.classList.remove("bcgov-menu-primary-is-desktop");
+        }
       }
     } else {
       let parent: HTMLElement = findAncestor(this.el, "bcgov-menu");
@@ -105,6 +131,7 @@ export class BcgovMenu {
     //console.log(this.isDesktop(), ev, this.isSubmenu);
     if (this.isDesktop()) {
       const element = ev.target as HTMLElement;
+      element.focus();
       this.showSubmenu(element, true);
     }
   }
@@ -113,16 +140,23 @@ export class BcgovMenu {
   onMouseLeave(event: Event) {
     if (this.isDesktop()) {
       const element = event.target as HTMLElement;
+
       this.showSubmenu(element, false);
+      if (!this.isSubmenu) {
+        [].forEach.call(this.el.querySelectorAll("ul > *"), function (element) {
+          element.setAttribute("tabindex", -1);
+          element.blur();
+        });
+      }
     }
   }
 
   @Listen("click")
   onClick(event: Event) {
+    console.log("click event");
     if (!this.isDesktop()) {
       const element = event.target as HTMLElement;
       const parent = findAncestor(element, "bcgov-menu");
-
       this.showSubmenu(parent, !parent.classList.contains("expanded"));
     }
   }
@@ -167,17 +201,25 @@ export class BcgovMenu {
 
   focusChange(current: HTMLElement, direction: string = "next") {
     if (this.isSubmenu) {
-      return;
+      //return;
     }
     let element: any;
 
-    if ("next" === direction || "down" === direction) {
-      element = current.nextElementSibling;
-    } else if ("prev" == direction || "up" === direction) {
-      element = current.previousElementSibling;
+    if (current === this.el.querySelector("ul")) {
+      element = current.querySelector("li:first-child");
+      element = this.isDesktop() ? element.nextElementSibling : element;
+      current = element;
+    } else {
+      if ("next" === direction || "down" === direction) {
+        element = current.nextElementSibling;
+      } else if ("prev" == direction || "up" === direction) {
+        element = current.previousElementSibling;
+      }
     }
+
     const insideSub: boolean =
       null !== findAncestor(current, 'ul[role="menu"]');
+
     const checkAllowed =
       (insideSub && ("up" === direction || "down" === direction)) ||
       (!insideSub && ("prev" === direction || "next" === direction));
@@ -238,6 +280,7 @@ export class BcgovMenu {
             <a href={this.href} tabindex="-1">
               {this.name}
             </a>
+            <span></span>
             <slot name="submenu-link"></slot>
           </div>
           <ul role="menu" aria-hidden="true">
@@ -256,6 +299,23 @@ export class BcgovMenu {
       return (
         <Host>
           <ul {...props}>
+            {undefined !== this.primary && (
+              <li
+                role="menuitem"
+                class="bcgov-primary-menu-close2"
+                tabindex="-1"
+                aria-hidden="true"
+                aria-labelId="close-menu-mobile"
+              >
+                <a
+                  href="#"
+                  aria-label="Close Mobile Menu"
+                  id="close-menu-mobile"
+                >
+                  x
+                </a>
+              </li>
+            )}
             <slot></slot>
           </ul>
           {undefined !== this.primary && (

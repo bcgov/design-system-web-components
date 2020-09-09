@@ -56,11 +56,21 @@ const BcgovMenu = class {
             utils.menuElement(element);
         });
         const self = this;
+        this.bodyTag = document.getElementsByTagName("BODY")[0];
         if (!this.isSubmenu) {
             this.isDesktop();
             window.addEventListener("resize", function () {
                 self.isDesktop();
             });
+            if (undefined !== this.primary) {
+                window.addEventListener("click", function (event) {
+                    const clickElement = event.srcElement;
+                    if (null === clickElement.closest("bcgov-menu") &&
+                        !self.isDesktop()) {
+                        console.log("close menu");
+                    }
+                });
+            }
         }
     }
     /**
@@ -87,10 +97,18 @@ const BcgovMenu = class {
                 if (!this.el.classList.contains("is-desktop")) {
                     this.el.classList.add("is-desktop");
                 }
+                if (undefined !== this.primary) {
+                    if (!this.bodyTag.classList.contains("bcgov-menu-primary-is-desktop")) {
+                        this.bodyTag.classList.add("bcgov-menu-primary-is-desktop");
+                    }
+                }
                 isdesktop = true;
             }
             else {
                 this.el.classList.remove("is-desktop");
+                if (undefined !== this.primary) {
+                    this.bodyTag.classList.remove("bcgov-menu-primary-is-desktop");
+                }
             }
         }
         else {
@@ -106,6 +124,7 @@ const BcgovMenu = class {
         //console.log(this.isDesktop(), ev, this.isSubmenu);
         if (this.isDesktop()) {
             const element = ev.target;
+            element.focus();
             this.showSubmenu(element, true);
         }
     }
@@ -113,9 +132,16 @@ const BcgovMenu = class {
         if (this.isDesktop()) {
             const element = event.target;
             this.showSubmenu(element, false);
+            if (!this.isSubmenu) {
+                [].forEach.call(this.el.querySelectorAll("ul > *"), function (element) {
+                    element.setAttribute("tabindex", -1);
+                    element.blur();
+                });
+            }
         }
     }
     onClick(event) {
+        console.log("click event");
         if (!this.isDesktop()) {
             const element = event.target;
             const parent = utils.findAncestor(element, "bcgov-menu");
@@ -158,15 +184,19 @@ const BcgovMenu = class {
         }
     }
     focusChange(current, direction = "next") {
-        if (this.isSubmenu) {
-            return;
-        }
         let element;
-        if ("next" === direction || "down" === direction) {
-            element = current.nextElementSibling;
+        if (current === this.el.querySelector("ul")) {
+            element = current.querySelector("li:first-child");
+            element = this.isDesktop() ? element.nextElementSibling : element;
+            current = element;
         }
-        else if ("prev" == direction || "up" === direction) {
-            element = current.previousElementSibling;
+        else {
+            if ("next" === direction || "down" === direction) {
+                element = current.nextElementSibling;
+            }
+            else if ("prev" == direction || "up" === direction) {
+                element = current.previousElementSibling;
+            }
         }
         const insideSub = null !== utils.findAncestor(current, 'ul[role="menu"]');
         const checkAllowed = (insideSub && ("up" === direction || "down" === direction)) ||
@@ -189,7 +219,7 @@ const BcgovMenu = class {
             if (undefined !== this.active && this.active) {
                 hostClass += " active";
             }
-            return (core.h(core.Host, { role: "menuitem", class: hostClass, "aria-label": this.name }, core.h("div", null, core.h("a", { href: this.href, tabindex: "-1" }, this.name), core.h("slot", { name: "submenu-link" })), core.h("ul", { role: "menu", "aria-hidden": "true" }, core.h("slot", null))));
+            return (core.h(core.Host, { role: "menuitem", class: hostClass, "aria-label": this.name }, core.h("div", null, core.h("a", { href: this.href, tabindex: "-1" }, this.name), core.h("span", null), core.h("slot", { name: "submenu-link" })), core.h("ul", { role: "menu", "aria-hidden": "true" }, core.h("slot", null))));
         }
         else {
             const props = { role: "menubar", tabindex: "0", class: alignment };
@@ -199,7 +229,7 @@ const BcgovMenu = class {
             if (undefined !== this.sidebar) {
                 props["class"] += " sidebar-menu";
             }
-            return (core.h(core.Host, null, core.h("ul", Object.assign({}, props), core.h("slot", null)), undefined !== this.primary && (core.h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
+            return (core.h(core.Host, null, core.h("ul", Object.assign({}, props), undefined !== this.primary && (core.h("li", { role: "menuitem", class: "bcgov-primary-menu-close2", tabindex: "-1", "aria-hidden": "true", "aria-labelId": "close-menu-mobile" }, core.h("a", { href: "#", "aria-label": "Close Mobile Menu", id: "close-menu-mobile" }, "x"))), core.h("slot", null)), undefined !== this.primary && (core.h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
         }
     }
     get el() { return core.getElement(this); }

@@ -50,11 +50,21 @@ export class BcgovMenu {
             menuElement(element);
         });
         const self = this;
+        this.bodyTag = document.getElementsByTagName("BODY")[0];
         if (!this.isSubmenu) {
             this.isDesktop();
             window.addEventListener("resize", function () {
                 self.isDesktop();
             });
+            if (undefined !== this.primary) {
+                window.addEventListener("click", function (event) {
+                    const clickElement = event.srcElement;
+                    if (null === clickElement.closest("bcgov-menu") &&
+                        !self.isDesktop()) {
+                        console.log("close menu");
+                    }
+                });
+            }
         }
     }
     /**
@@ -81,10 +91,18 @@ export class BcgovMenu {
                 if (!this.el.classList.contains("is-desktop")) {
                     this.el.classList.add("is-desktop");
                 }
+                if (undefined !== this.primary) {
+                    if (!this.bodyTag.classList.contains("bcgov-menu-primary-is-desktop")) {
+                        this.bodyTag.classList.add("bcgov-menu-primary-is-desktop");
+                    }
+                }
                 isdesktop = true;
             }
             else {
                 this.el.classList.remove("is-desktop");
+                if (undefined !== this.primary) {
+                    this.bodyTag.classList.remove("bcgov-menu-primary-is-desktop");
+                }
             }
         }
         else {
@@ -100,6 +118,7 @@ export class BcgovMenu {
         //console.log(this.isDesktop(), ev, this.isSubmenu);
         if (this.isDesktop()) {
             const element = ev.target;
+            element.focus();
             this.showSubmenu(element, true);
         }
     }
@@ -107,9 +126,16 @@ export class BcgovMenu {
         if (this.isDesktop()) {
             const element = event.target;
             this.showSubmenu(element, false);
+            if (!this.isSubmenu) {
+                [].forEach.call(this.el.querySelectorAll("ul > *"), function (element) {
+                    element.setAttribute("tabindex", -1);
+                    element.blur();
+                });
+            }
         }
     }
     onClick(event) {
+        console.log("click event");
         if (!this.isDesktop()) {
             const element = event.target;
             const parent = findAncestor(element, "bcgov-menu");
@@ -153,14 +179,21 @@ export class BcgovMenu {
     }
     focusChange(current, direction = "next") {
         if (this.isSubmenu) {
-            return;
+            //return;
         }
         let element;
-        if ("next" === direction || "down" === direction) {
-            element = current.nextElementSibling;
+        if (current === this.el.querySelector("ul")) {
+            element = current.querySelector("li:first-child");
+            element = this.isDesktop() ? element.nextElementSibling : element;
+            current = element;
         }
-        else if ("prev" == direction || "up" === direction) {
-            element = current.previousElementSibling;
+        else {
+            if ("next" === direction || "down" === direction) {
+                element = current.nextElementSibling;
+            }
+            else if ("prev" == direction || "up" === direction) {
+                element = current.previousElementSibling;
+            }
         }
         const insideSub = null !== findAncestor(current, 'ul[role="menu"]');
         const checkAllowed = (insideSub && ("up" === direction || "down" === direction)) ||
@@ -186,6 +219,7 @@ export class BcgovMenu {
             return (h(Host, { role: "menuitem", class: hostClass, "aria-label": this.name },
                 h("div", null,
                     h("a", { href: this.href, tabindex: "-1" }, this.name),
+                    h("span", null),
                     h("slot", { name: "submenu-link" })),
                 h("ul", { role: "menu", "aria-hidden": "true" },
                     h("slot", null))));
@@ -200,6 +234,8 @@ export class BcgovMenu {
             }
             return (h(Host, null,
                 h("ul", Object.assign({}, props),
+                    undefined !== this.primary && (h("li", { role: "menuitem", class: "bcgov-primary-menu-close2", tabindex: "-1", "aria-hidden": "true", "aria-labelId": "close-menu-mobile" },
+                        h("a", { href: "#", "aria-label": "Close Mobile Menu", id: "close-menu-mobile" }, "x"))),
                     h("slot", null)),
                 undefined !== this.primary && (h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
         }
@@ -386,7 +422,8 @@ export class BcgovMenu {
     static get states() { return {
         "isSubmenu": {},
         "clone": {},
-        "allTags": {}
+        "allTags": {},
+        "bodyTag": {}
     }; }
     static get elementRef() { return "el"; }
     static get listeners() { return [{

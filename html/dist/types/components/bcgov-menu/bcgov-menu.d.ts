@@ -21,6 +21,7 @@ export declare class BcgovMenu {
     isSubmenu: boolean;
     clone: Node;
     allTags: NodeList;
+    bodyTag: Element;
     el: any;
     componentWillLoad(): void;
     /**

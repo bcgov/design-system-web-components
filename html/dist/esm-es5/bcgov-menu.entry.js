@@ -51,11 +51,21 @@ var BcgovMenu = /** @class */ (function () {
             menuElement(element);
         });
         var self = this;
+        this.bodyTag = document.getElementsByTagName("BODY")[0];
         if (!this.isSubmenu) {
             this.isDesktop();
             window.addEventListener("resize", function () {
                 self.isDesktop();
             });
+            if (undefined !== this.primary) {
+                window.addEventListener("click", function (event) {
+                    var clickElement = event.srcElement;
+                    if (null === clickElement.closest("bcgov-menu") &&
+                        !self.isDesktop()) {
+                        console.log("close menu");
+                    }
+                });
+            }
         }
     };
     /**
@@ -82,10 +92,18 @@ var BcgovMenu = /** @class */ (function () {
                 if (!this.el.classList.contains("is-desktop")) {
                     this.el.classList.add("is-desktop");
                 }
+                if (undefined !== this.primary) {
+                    if (!this.bodyTag.classList.contains("bcgov-menu-primary-is-desktop")) {
+                        this.bodyTag.classList.add("bcgov-menu-primary-is-desktop");
+                    }
+                }
                 isdesktop = true;
             }
             else {
                 this.el.classList.remove("is-desktop");
+                if (undefined !== this.primary) {
+                    this.bodyTag.classList.remove("bcgov-menu-primary-is-desktop");
+                }
             }
         }
         else {
@@ -101,6 +119,7 @@ var BcgovMenu = /** @class */ (function () {
         //console.log(this.isDesktop(), ev, this.isSubmenu);
         if (this.isDesktop()) {
             var element = ev.target;
+            element.focus();
             this.showSubmenu(element, true);
         }
     };
@@ -108,9 +127,16 @@ var BcgovMenu = /** @class */ (function () {
         if (this.isDesktop()) {
             var element = event.target;
             this.showSubmenu(element, false);
+            if (!this.isSubmenu) {
+                [].forEach.call(this.el.querySelectorAll("ul > *"), function (element) {
+                    element.setAttribute("tabindex", -1);
+                    element.blur();
+                });
+            }
         }
     };
     class_1.prototype.onClick = function (event) {
+        console.log("click event");
         if (!this.isDesktop()) {
             var element = event.target;
             var parent = findAncestor(element, "bcgov-menu");
@@ -154,15 +180,19 @@ var BcgovMenu = /** @class */ (function () {
     };
     class_1.prototype.focusChange = function (current, direction) {
         if (direction === void 0) { direction = "next"; }
-        if (this.isSubmenu) {
-            return;
-        }
         var element;
-        if ("next" === direction || "down" === direction) {
-            element = current.nextElementSibling;
+        if (current === this.el.querySelector("ul")) {
+            element = current.querySelector("li:first-child");
+            element = this.isDesktop() ? element.nextElementSibling : element;
+            current = element;
         }
-        else if ("prev" == direction || "up" === direction) {
-            element = current.previousElementSibling;
+        else {
+            if ("next" === direction || "down" === direction) {
+                element = current.nextElementSibling;
+            }
+            else if ("prev" == direction || "up" === direction) {
+                element = current.previousElementSibling;
+            }
         }
         var insideSub = null !== findAncestor(current, 'ul[role="menu"]');
         var checkAllowed = (insideSub && ("up" === direction || "down" === direction)) ||
@@ -185,7 +215,7 @@ var BcgovMenu = /** @class */ (function () {
             if (undefined !== this.active && this.active) {
                 hostClass += " active";
             }
-            return (h(Host, { role: "menuitem", class: hostClass, "aria-label": this.name }, h("div", null, h("a", { href: this.href, tabindex: "-1" }, this.name), h("slot", { name: "submenu-link" })), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));
+            return (h(Host, { role: "menuitem", class: hostClass, "aria-label": this.name }, h("div", null, h("a", { href: this.href, tabindex: "-1" }, this.name), h("span", null), h("slot", { name: "submenu-link" })), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));
         }
         else {
             var props = { role: "menubar", tabindex: "0", class: alignment };
@@ -195,7 +225,7 @@ var BcgovMenu = /** @class */ (function () {
             if (undefined !== this.sidebar) {
                 props["class"] += " sidebar-menu";
             }
-            return (h(Host, null, h("ul", Object.assign({}, props), h("slot", null)), undefined !== this.primary && (h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
+            return (h(Host, null, h("ul", Object.assign({}, props), undefined !== this.primary && (h("li", { role: "menuitem", class: "bcgov-primary-menu-close2", tabindex: "-1", "aria-hidden": "true", "aria-labelId": "close-menu-mobile" }, h("a", { href: "#", "aria-label": "Close Mobile Menu", id: "close-menu-mobile" }, "x"))), h("slot", null)), undefined !== this.primary && (h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
         }
     };
     Object.defineProperty(class_1.prototype, "el", {
