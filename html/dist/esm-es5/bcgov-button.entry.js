@@ -905,9 +905,8 @@ var BcgovButton = /** @class */ (function () {
                     var button = self_1.el.querySelector("button");
                     if (null === clickElement.closest("bcgov-menu")) {
                         if (clickElement.parentElement !== self_1.el) {
-                            if ("true" === button.getAttribute("aria-expanded", true)) {
-                                self_1.onClick();
-                            }
+                            if ("true" === button.getAttribute("aria-expanded", true))
+                                ;
                         }
                     }
                 });

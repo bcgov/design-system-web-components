@@ -70,7 +70,7 @@ export class BcgovButton {
           if (null === clickElement.closest("bcgov-menu")) {
             if (clickElement.parentElement !== self.el) {
               if ("true" === button.getAttribute("aria-expanded", true)) {
-                self.onClick();
+                //self.onClick();
               }
             }
           }

@@ -1065,9 +1065,7 @@ const BcgovButton = class {
                     const button = self.el.querySelector("button");
                     if (null === clickElement.closest("bcgov-menu")) {
                         if (clickElement.parentElement !== self.el) {
-                            if ("true" === button.getAttribute("aria-expanded", true)) {
-                                self.onClick();
-                            }
+                            if ("true" === button.getAttribute("aria-expanded", true)) ;
                         }
                     }
                 });
