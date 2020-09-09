@@ -1056,6 +1056,7 @@ const BcgovButton = class {
     }
     componentWillLoad() {
         if (null !== this.dataTarget) {
+            const self = this;
             this.breakpoint = this.getParentBreakpoint();
             this.el.setAttribute("data-breakpoint", `${this.breakpoint}`);
             const element = document.getElementById(this.dataTarget);
@@ -1063,9 +1064,19 @@ const BcgovButton = class {
                 if ("false" === this.active) {
                     element.classList.add("target-hidden");
                 }
+                window.addEventListener("click", function (event) {
+                    const clickElement = event.srcElement;
+                    const button = self.el.querySelector("button");
+                    if (null === clickElement.closest("bcgov-menu")) {
+                        if (clickElement.parentElement !== self.el) {
+                            if ("true" === button.getAttribute("aria-expanded", true)) {
+                                self.onClick();
+                            }
+                        }
+                    }
+                });
             }
             this.isDesktop();
-            const self = this;
             window.addEventListener("resize", function () {
                 self.isDesktop();
             });

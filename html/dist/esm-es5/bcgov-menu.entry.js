@@ -57,15 +57,6 @@ var BcgovMenu = /** @class */ (function () {
             window.addEventListener("resize", function () {
                 self.isDesktop();
             });
-            if (undefined !== this.primary) {
-                window.addEventListener("click", function (event) {
-                    var clickElement = event.srcElement;
-                    if (null === clickElement.closest("bcgov-menu") &&
-                        !self.isDesktop()) {
-                        console.log("close menu");
-                    }
-                });
-            }
         }
     };
     /**
@@ -116,7 +107,6 @@ var BcgovMenu = /** @class */ (function () {
         return isdesktop;
     };
     class_1.prototype.onMouseEnter = function (ev) {
-        //console.log(this.isDesktop(), ev, this.isSubmenu);
         if (this.isDesktop()) {
             var element = ev.target;
             element.focus();
@@ -136,11 +126,16 @@ var BcgovMenu = /** @class */ (function () {
         }
     };
     class_1.prototype.onClick = function (event) {
-        console.log("click event");
         if (!this.isDesktop()) {
             var element = event.target;
             var parent = findAncestor(element, "bcgov-menu");
-            this.showSubmenu(parent, !parent.classList.contains("expanded"));
+            if (null === element.closest(".bcgov-primary-menu-close")) {
+                this.showSubmenu(parent, !parent.classList.contains("expanded"));
+            }
+            else {
+                parent.classList.add("target-hidden");
+                console.log("close menu");
+            }
         }
     };
     class_1.prototype.onKeyDown = function (event) {
@@ -225,7 +220,7 @@ var BcgovMenu = /** @class */ (function () {
             if (undefined !== this.sidebar) {
                 props["class"] += " sidebar-menu";
             }
-            return (h(Host, null, h("ul", Object.assign({}, props), undefined !== this.primary && (h("li", { role: "menuitem", class: "bcgov-primary-menu-close2", tabindex: "-1", "aria-hidden": "true", "aria-labelId": "close-menu-mobile" }, h("a", { href: "#", "aria-label": "Close Mobile Menu", id: "close-menu-mobile" }, "x"))), h("slot", null)), undefined !== this.primary && (h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
+            return (h(Host, null, h("ul", Object.assign({}, props), undefined !== this.primary && (h("li", { role: "menuitem", class: "bcgov-primary-menu-close", tabindex: "-1", "aria-hidden": "true", "aria-labelId": "close-menu-mobile" }, h("a", { href: "#", "aria-label": "Close Mobile Menu", id: "close-menu-mobile" }, h("span", null, "x")))), h("slot", null)), undefined !== this.primary && (h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
         }
     };
     Object.defineProperty(class_1.prototype, "el", {

@@ -892,6 +892,7 @@ var BcgovButton = /** @class */ (function () {
     };
     class_1.prototype.componentWillLoad = function () {
         if (null !== this.dataTarget) {
+            var self_1 = this;
             this.breakpoint = this.getParentBreakpoint();
             this.el.setAttribute("data-breakpoint", "" + this.breakpoint);
             var element = document.getElementById(this.dataTarget);
@@ -899,9 +900,19 @@ var BcgovButton = /** @class */ (function () {
                 if ("false" === this.active) {
                     element.classList.add("target-hidden");
                 }
+                window.addEventListener("click", function (event) {
+                    var clickElement = event.srcElement;
+                    var button = self_1.el.querySelector("button");
+                    if (null === clickElement.closest("bcgov-menu")) {
+                        if (clickElement.parentElement !== self_1.el) {
+                            if ("true" === button.getAttribute("aria-expanded", true)) {
+                                self_1.onClick();
+                            }
+                        }
+                    }
+                });
             }
             this.isDesktop();
-            var self_1 = this;
             window.addEventListener("resize", function () {
                 self_1.isDesktop();
             });

@@ -37,11 +37,13 @@ bcgov-menu {
   }
   &[primary],
   &.primary {
+    /** Setup the defaults for all menu / submenu **/
     background-color: var(--menu-mobile-background);
     color: var(--menu-mobile-color);
-
-    /** Setup the defaults for all menu / submenu **/
-
+    max-width: 500px;
+    width: 100%;
+    right: 0;
+    position: absolute;
     a {
       &,
       &:hover,
@@ -62,8 +64,13 @@ bcgov-menu {
       li {
         &.bcgov-primary-menu-close {
           a {
-            font-size: 1.4rem;
             opacity: 0.6;
+            span {
+              border: 1px solid var(--menu-mobile-color);
+              border-radius: 16px;
+              padding: 0.1rem 0.5rem 0.3rem;
+              line-height: 1;
+            }
             &:before {
               content: "";
               position: relative;
@@ -169,19 +176,20 @@ bcgov-menu {
   /** Desktop mode **/
   &.is-desktop {
     display: block;
-
+    position: relative;
+    max-width: 100%;
     ul {
       @include flexbox();
       @include flex-wrap(wrap);
       @include align-items(center);
       position: relative;
       &.align-right {
-        right: -$padding-x;
+        margin-right: -$padding-x;
         @include justify-content(flex-end);
       }
       &.align-left {
         @include justify-content(flex-start);
-        left: -$padding-x;
+        margin-left: -$padding-x;
       }
       &.align-center {
         @include justify-content(center);
@@ -201,7 +209,6 @@ bcgov-menu {
     &.primary {
       padding: 0 var(--bcgov-wc-gutter);
       background-color: var(--menu-background);
-
       a {
         &,
         &:hover,

@@ -62,18 +62,6 @@ export class BcgovMenu {
       window.addEventListener("resize", function () {
         self.isDesktop();
       });
-      if (undefined !== this.primary) {
-        window.addEventListener("click", function (event) {
-          const clickElement: any = event.srcElement;
-
-          if (
-            null === clickElement.closest("bcgov-menu") &&
-            !self.isDesktop()
-          ) {
-            console.log("close menu");
-          }
-        });
-      }
     }
   }
 
@@ -128,7 +116,6 @@ export class BcgovMenu {
 
   @Listen("mouseenter")
   onMouseEnter(ev: Event) {
-    //console.log(this.isDesktop(), ev, this.isSubmenu);
     if (this.isDesktop()) {
       const element = ev.target as HTMLElement;
       element.focus();
@@ -153,11 +140,15 @@ export class BcgovMenu {
 
   @Listen("click")
   onClick(event: Event) {
-    console.log("click event");
     if (!this.isDesktop()) {
       const element = event.target as HTMLElement;
       const parent = findAncestor(element, "bcgov-menu");
-      this.showSubmenu(parent, !parent.classList.contains("expanded"));
+      if (null === element.closest(".bcgov-primary-menu-close")) {
+        this.showSubmenu(parent, !parent.classList.contains("expanded"));
+      } else {
+        parent.classList.add("target-hidden");
+        console.log("close menu");
+      }
     }
   }
 
@@ -302,7 +293,7 @@ export class BcgovMenu {
             {undefined !== this.primary && (
               <li
                 role="menuitem"
-                class="bcgov-primary-menu-close2"
+                class="bcgov-primary-menu-close"
                 tabindex="-1"
                 aria-hidden="true"
                 aria-labelId="close-menu-mobile"
@@ -312,7 +303,7 @@ export class BcgovMenu {
                   aria-label="Close Mobile Menu"
                   id="close-menu-mobile"
                 >
-                  x
+                  <span>x</span>
                 </a>
               </li>
             )}
