@@ -145,10 +145,8 @@ export class BcgovMenu {
       const parent = findAncestor(element, "bcgov-menu");
       if (null === element.closest(".bcgov-primary-menu-close")) {
         this.showSubmenu(parent, !parent.classList.contains("expanded"));
-      } else {
-        parent.classList.add("target-hidden");
-        console.log("close menu");
       }
+      parent.classList.add("target-hidden");
     }
   }
 

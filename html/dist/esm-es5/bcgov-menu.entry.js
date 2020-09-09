@@ -132,10 +132,7 @@ var BcgovMenu = /** @class */ (function () {
             if (null === element.closest(".bcgov-primary-menu-close")) {
                 this.showSubmenu(parent, !parent.classList.contains("expanded"));
             }
-            else {
-                parent.classList.add("target-hidden");
-                console.log("close menu");
-            }
+            parent.classList.add("target-hidden");
         }
     };
     class_1.prototype.onKeyDown = function (event) {
