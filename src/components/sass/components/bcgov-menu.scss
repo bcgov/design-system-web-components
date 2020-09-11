@@ -66,9 +66,9 @@ bcgov-menu {
           a {
             opacity: 0.6;
             span {
-              border: 1px solid var(--menu-mobile-color);
+              border: 2px solid var(--menu-mobile-color);
               border-radius: 16px;
-              padding: 0.1rem 0.5rem 0.3rem;
+              padding: 0.3px 9px 1px;
               line-height: 1;
             }
             &:before {

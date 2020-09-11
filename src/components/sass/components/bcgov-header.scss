@@ -16,7 +16,6 @@ bcgov-header,
   background-color: var(--bcgov-wc-color-brand-primary);
   border-bottom: 2px solid var(--bcgov-wc-color-border);
   padding: 0 var(--bcgov-wc-gutter);
-  color: var(--bcgov-wc-color-white);
   header {
     @include flexbox();
     @include flex-wrap(wrap);

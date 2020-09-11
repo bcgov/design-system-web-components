@@ -1,6 +1,5 @@
-### 1.1.1 September 8, 2020
+### 1.1.1 September 11, 2020
 * Added body class bcgov-menu-primary-is-desktop to notify other components not with in menu.
-* Add menu close if clicked outside of menu (mobile)
 * Add close on mobile menu
 * fix menu arrows.
 
