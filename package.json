@@ -38,22 +38,7 @@
     "ie >= 11",
     "edge >= 17"
   ],
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "useBuiltIns": "entry",
-          "debug": false,
-          "corejs": "3.0.0",
-          "targets": {
-            "esmodules": true,
-            "ie": "11"
-          }
-        }
-      ]
-    ]
-  },
+
   "devDependencies": {
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",

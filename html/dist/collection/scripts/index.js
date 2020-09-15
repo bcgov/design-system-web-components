@@ -1,12 +1,14 @@
-import "core-js";
+import "core-js/stable";
 import "highlight.js/scss/default.scss";
+import cssVars from "css-vars-ponyfill";
 import "../styles/index.scss";
 
+cssVars({});
 function replaceTag(tag) {
   const tagsToReplace = {
     "&": "&amp;",
     "<": "&lt;",
-    ">": "&gt;"
+    ">": "&gt;",
   };
   return tagsToReplace[tag] || tag;
 }
@@ -17,7 +19,7 @@ function safe_tags_replace(str) {
 
 document.addEventListener(
   "DOMContentLoaded",
-  function() {
+  function () {
     let body = document.getElementsByTagName("BODY")[0];
     let code_elements = body.querySelectorAll(".code");
     /*  const loadTag = document.createElement("div");
@@ -27,8 +29,8 @@ document.addEventListener(
       element.appendChild(loadTag);
     });
     */
-    setTimeout(function() {
-      [].forEach.call(code_elements, function(element) {
+    setTimeout(function () {
+      [].forEach.call(code_elements, function (element) {
         const pre = document.createElement("pre");
         const code = document.createElement("code");
         code.classList.add("language-html");

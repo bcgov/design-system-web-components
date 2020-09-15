@@ -16,4 +16,9 @@ bcgov-callout,
   border-left: 10px solid var(--bcgov-wc-color-background-primary);
   margin: 16px 0;
   background-color: var(--bcgov-wc-color-background-seconary);
+
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    opacity: 1;
+    visibility: visible;
+  }
 }

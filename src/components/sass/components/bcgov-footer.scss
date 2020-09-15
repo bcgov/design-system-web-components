@@ -71,4 +71,8 @@ bcgov-footer,
   a {
     color: var(--bcgov-wc-color-white);
   }
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    opacity: 1;
+    visibility: visible;
+  }
 }

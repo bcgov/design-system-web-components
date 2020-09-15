@@ -18,4 +18,8 @@ bcgov-beta,
   font-weight: 200;
   margin-left: 8px;
   font-size: 0.95rem;
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    opacity: 1;
+    visibility: visible;
+  }
 }

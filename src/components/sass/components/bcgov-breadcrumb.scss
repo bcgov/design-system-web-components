@@ -53,4 +53,8 @@ bcgov-breadcrumb,
       }
     }
   }
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    opacity: 1;
+    visibility: visible;
+  }
 }

@@ -16,6 +16,7 @@ bcgov-header,
   background-color: var(--bcgov-wc-color-brand-primary);
   border-bottom: 2px solid var(--bcgov-wc-color-border);
   padding: 0 var(--bcgov-wc-gutter);
+  z-index: 99999;
   header {
     @include flexbox();
     @include flex-wrap(wrap);
@@ -71,5 +72,9 @@ bcgov-header,
   }
   @media screen and (min-width: 762px) {
     @include flexbox();
+  }
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    opacity: 1;
+    visibility: visible;
   }
 }

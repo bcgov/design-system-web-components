@@ -84,7 +84,7 @@ bcgov-menu {
         }
       }
       bcgov-menu {
-        z-index: 1000;
+        z-index: 999999;
         ul {
           background-color: var(--menu-mobile-submenu-background);
         }
@@ -324,6 +324,10 @@ bcgov-menu {
         }
       }
     }
+  }
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    opacity: 1;
+    visibility: visible;
   }
 }
 html[data-useragent*="MSIE 10.0"] {
