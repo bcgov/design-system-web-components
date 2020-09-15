@@ -11,7 +11,6 @@ bcgov-menu {
     );
   }
   padding: 0;
-
   position: relative;
   display: block;
   ul {
@@ -38,6 +37,7 @@ bcgov-menu {
   &[primary],
   &.primary {
     /** Setup the defaults for all menu / submenu **/
+    z-index: 99999;
     background-color: var(--menu-mobile-background);
     color: var(--menu-mobile-color);
     max-width: 500px;
@@ -84,8 +84,8 @@ bcgov-menu {
         }
       }
       bcgov-menu {
-        z-index: 999999;
         ul {
+          z-index: 999999;
           background-color: var(--menu-mobile-submenu-background);
         }
         > div {
@@ -272,11 +272,11 @@ bcgov-menu {
             height: auto;
             background-color: var(--menu-submenu-background);
             li {
-              border-top: 1px solid var(--menu-border-color);
-              border-left: 1px solid var(--menu-border-color);
-              border-right: 1px solid var(--menu-border-color);
+              border-top: 1px solid var(--menu-submenu-border-color);
+              border-left: 1px solid var(--menu-submenu-border-color);
+              border-right: 1px solid var(--menu-submenu-border-color);
               &:last-child {
-                border-bottom: 1px solid var(--menu-border-color);
+                border-bottom: 1px solid var(--menu-submenu-border-color);
               }
             }
           }
