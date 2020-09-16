@@ -1,3 +1,7 @@
+### 1.1.2 September 16, 2020
+* css updates for ie fixes
+* css updates for menu.
+
 ### 1.1.1 September 11, 2020
 * Added body class bcgov-menu-primary-is-desktop to notify other components not with in menu.
 * Add close on mobile menu
