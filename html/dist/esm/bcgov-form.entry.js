@@ -5,7 +5,7 @@ const BcgovForm = class {
         registerInstance(this, hostRef);
     }
     render() {
-        return (h(Host, { class: "bcgov-form" }, h("div", null, "This is a form component"), h("slot", null)));
+        return (h(Host, null, h("slot", null)));
     }
 };
 

@@ -22,8 +22,8 @@
   --bcgov-wc-font-family: #{$bcgov-font-family};
   --bcgov-wc-gutter: #{$gutter-primary};
 
-  --button-hamburger-background: #{bcgov-blue-primary};
-  --button-hamburger-background-hover: #{bcgov-blue-primary};
+  --button-hamburger-background: #{$bcgov-blue-primary};
+  --button-hamburger-background-hover: #{$bcgov-blue-primary};
 
   /** Desktop menu **/
   --menu-background: #{$bcgov-color-menu};

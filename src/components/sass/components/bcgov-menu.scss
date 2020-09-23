@@ -24,7 +24,7 @@ bcgov-menu {
     position: relative;
     padding: $padding-x/2 $padding-y $padding-x/2 $padding-y;
     display: block;
-    text-decoration: none;
+
     &:before {
       content: " ";
       position: absolute;
@@ -52,6 +52,7 @@ bcgov-menu {
       &:focus {
         color: var(--menu-mobile-color);
         border-bottom: 1px solid var(--menu-mobile-border-color);
+        text-decoration: none;
       }
       &:hover {
         text-decoration: underline;
@@ -290,8 +291,8 @@ bcgov-menu {
               > div {
                 span {
                   &:after {
-                    top: 12px;
-                    transform: rotateZ(45deg);
+                    top: 18px;
+                    transform: rotateZ(225deg);
                   }
                 }
               }

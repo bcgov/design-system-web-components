@@ -18,7 +18,7 @@ export class BcgovButton {
   @Prop() link: string = "button";
 
   /** default state of button if applicable */
-  @Prop() active: string = "false";
+  @Prop() targetHidden: string = "false";
 
   /** Add a callback to handle events */
   @Prop() eventHandler: Function = this.eventHandlerFunction;
@@ -61,9 +61,10 @@ export class BcgovButton {
       this.el.setAttribute("data-breakpoint", `${this.breakpoint}`);
       const element = document.getElementById(this.dataTarget);
       if (null !== element) {
-        if ("false" === this.active) {
+        if ("false" === this.targetHidden) {
           element.classList.add("target-hidden");
         }
+
         window.addEventListener("click", function (event) {
           const clickElement: any = event.srcElement;
           const button = self.el.querySelector("button");
@@ -127,12 +128,19 @@ export class BcgovButton {
   }
 
   render() {
-    const btnStyle = `${this.buttonStyle}`;
+    let btnStyle = `${this.buttonStyle}`;
+    if (this.el.hasAttribute("active")) {
+      btnStyle = `${btnStyle} active`;
+    }
+    if (this.el.hasAttribute("disable") || this.el.hasAttribute("disabled")) {
+      btnStyle = `${btnStyle} disabled`;
+    }
     let props = {
       class: btnStyle,
     };
+
     if (["hamburger", "search"].includes(this.buttonStyle)) {
-      props["aria-expanded"] = this.active;
+      props["aria-expanded"] = this.targetHidden;
       return (
         <Host data-target={this.dataTarget} class="bcgov-button">
           <button {...props}>

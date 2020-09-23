@@ -16,8 +16,6 @@ bcgov-button,
 
   a,
   button {
-    background-color: var(--bcgov-wc-color-brand-primary);
-    border: 2px solid var(--bcgov-wc-color-brand-primary);
     margin: 4px 4px 4px 0;
     border-radius: 4px;
     padding: 0.75rem 1.5rem !important;
@@ -28,53 +26,31 @@ bcgov-button,
     cursor: pointer;
     display: inline-block;
 
-    &,
-    &:visited,
-    &:active,
-    &:focus {
-      color: var(--bcgov-wc-color-white);
-    }
-
-    &.primary {
-      color: var(--bcgov-wc-color-white) !important;
-    }
-
-    &.secondary {
-      background: none;
-      color: var(--bcgov-wc-color-brand-primary) !important;
-    }
-    &.dark {
-      background: none;
-      border: 2px solid var(--bcgov-wc-color-white);
-      &:hover {
-        background-color: var(--bcgov-wc-color-background-seconary);
-        color: var(--bcgov-wc-color-text);
-      }
-    }
     &.hamburger,
     &.search {
       margin: 0;
       padding: $padding-x / 2 $padding-y;
-      border: 1px solid var(--bcgov-wc-color-white);
+      border-width: 1px;
+      border-style: solid;
       border-radius: 0;
       max-height: 60px;
       height: 100%;
     }
 
     &.hamburger {
-      font-size: 0.8rem;
-      background-color: var(--button-hamburger-background);
       &:hover {
-        background-color: var(--button-hamburger-background-hover);
         cursor: pointer;
       }
       div {
         margin: 0 8px 4px;
-        border-top: 2px solid var(--bcgov-wc-color-white);
-        border-bottom: 2px solid var(--bcgov-wc-color-white);
+        border-top-style: solid;
+        border-top-width: 2px;
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
         &:before {
           content: " ";
-          background-color: var(--bcgov-wc-color-white);
+          border-top-style: solid;
+          border-top-width: 2px;
           height: 2px;
           margin: 6px 0;
           display: block;
@@ -83,7 +59,6 @@ bcgov-button,
     }
 
     &.search {
-      background-color: var(--bcgov-wc-color-brand-secondary);
       font-size: 2rem;
     }
     &.search-inline {

@@ -1032,7 +1032,7 @@ const BcgovButton = class {
         /** The action of the button. */
         this.link = "button";
         /** default state of button if applicable */
-        this.active = "false";
+        this.targetHidden = "false";
         /** Add a callback to handle events */
         this.eventHandler = this.eventHandlerFunction;
         /** Style of button */
@@ -1061,7 +1061,7 @@ const BcgovButton = class {
             this.el.setAttribute("data-breakpoint", `${this.breakpoint}`);
             const element = document.getElementById(this.dataTarget);
             if (null !== element) {
-                if ("false" === this.active) {
+                if ("false" === this.targetHidden) {
                     element.classList.add("target-hidden");
                 }
                 window.addEventListener("click", function (event) {
@@ -1118,12 +1118,18 @@ const BcgovButton = class {
         }
     }
     render() {
-        const btnStyle = `${this.buttonStyle}`;
+        let btnStyle = `${this.buttonStyle}`;
+        if (this.el.hasAttribute("active")) {
+            btnStyle = `${btnStyle} active`;
+        }
+        if (this.el.hasAttribute("disable") || this.el.hasAttribute("disabled")) {
+            btnStyle = `${btnStyle} disabled`;
+        }
         let props = {
             class: btnStyle,
         };
         if (["hamburger", "search"].includes(this.buttonStyle)) {
-            props["aria-expanded"] = this.active;
+            props["aria-expanded"] = this.targetHidden;
             return (core.h(core.Host, { "data-target": this.dataTarget, class: "bcgov-button" }, core.h("button", Object.assign({}, props), core.h("div", null), core.h("slot", null))));
         }
         else {

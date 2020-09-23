@@ -23,7 +23,7 @@ export class BcgovSearch {
     }
     render() {
         return (h(Host, { class: "bcgov-search" },
-            h("div", { class: "search-container bcgov-form" },
+            h("div", { class: "search-container" },
                 h("slot", null))));
     }
     static get is() { return "bcgov-search"; }

@@ -41,50 +41,123 @@ In addition to [fundamental accessibility]() requirements, this component meets 
 
 
 
-## Example
+## Example Primary Button
 <div>
-<bcgov-button  link="https://gov.bc.ca" >Primary Button</bcgov-button>
-<bcgov-button button-style="secondary" >Secondary Button</bcgov-button>
-<span style="background-color: #036; padding: 2px 10px; display:inline-block">
-<bcgov-button button-style="dark" >Dark Button</bcgov-button>
-</span>
-<bcgov-button button-style="hamburger" >Menu</bcgov-button>
-<bcgov-button button-style="search" >Search</bcgov-button>
+    <bcgov-button  >Primary Button </bcgov-button>
+    <bcgov-button  link="https://gov.bc.ca" >Primary Button Link</bcgov-button>
+    <bcgov-button  active link="https://gov.bc.ca" >Primary Button Active</bcgov-button>
+    <bcgov-button  disabled link="https://gov.bc.ca" >Primary Button Disabled</bcgov-button>
 </div>
 
 ### Source
 
 ```html
-<bcgov-button  link="https://gov.bc.ca">Primary Button</bcgov-button>
-<bcgov-button button-style="secondary">Secondary Button</bcgov-button>
-<bcgov-button button-style="dark">Dark Button</bcgov-button>
-<bcgov-button button-style="hamburger" target="main-navigation">Menu</bcgov-button>
-<bcgov-button button-style="search" target="bcgov-search-id">Search</bcgov-button>
+<div>
+    <bcgov-button  >Primary Button </bcgov-button>
+    <bcgov-button  link="https://gov.bc.ca" >Primary Button Link</bcgov-button>
+    <bcgov-button  active link="https://gov.bc.ca" >Primary Button Active</bcgov-button>
+    <bcgov-button  disabled link="https://gov.bc.ca" >Primary Button Disabled</bcgov-button>
+</div>
 ```
 
 ### Output
 <div class="code">
-<bcgov-button  link="https://gov.bc.ca" >Primary Button</bcgov-button>
-<bcgov-button button-style="secondary" >Secondary Button</bcgov-button>
-<span style="background-color: #036; padding: 2px 10px; display:inline-block">
-<bcgov-button button-style="dark" >Dark Button</bcgov-button>
-</span>
-<bcgov-button button-style="hamburger" >Menu</bcgov-button>
-<bcgov-button button-style="search" >Search</bcgov-button>
+    <bcgov-button  >Primary Button </bcgov-button>
+    <bcgov-button  link="https://gov.bc.ca" >Primary Button Link</bcgov-button>
+    <bcgov-button  active link="https://gov.bc.ca" >Primary Button Active</bcgov-button>
+    <bcgov-button  disabled link="https://gov.bc.ca" >Primary Button Disabled</bcgov-button>
 </div>
+
+## Example Secondary Button
+<div>
+    <bcgov-button button-style="secondary" >Secondary Button</bcgov-button> 
+    <bcgov-button link="https://gov.bc.ca" button-style="secondary" >Secondary Button Link</bcgov-button>
+    <bcgov-button active button-style="secondary" >Secondary Button Active</bcgov-button>
+    <bcgov-button disabled button-style="secondary" >Secondary Button Disabled</bcgov-button>
+</div>
+
+### Source
+
+```html
+<div>
+    <bcgov-button button-style="secondary" >Secondary Button</bcgov-button>
+    <bcgov-button link="https://gov.bc.ca" button-style="secondary" >Secondary Button Link</bcgov-button>
+    <bcgov-button active button-style="secondary" >Secondary Button Active</bcgov-button>
+    <bcgov-button disabled button-style="secondary" >Secondary Button Disabled</bcgov-button>
+</div>
+```
+
+### Output
+<div class="code">
+    <bcgov-button button-style="secondary" >Secondary Button</bcgov-button>
+    <bcgov-button link="https://gov.bc.ca" button-style="secondary" >Secondary Button Link</bcgov-button>
+    <bcgov-button active button-style="secondary" >Secondary Button Active</bcgov-button>
+    <bcgov-button disabled button-style="secondary" >Secondary Button Disabled</bcgov-button>
+</div>
+
+
+## Example Dark Button
+<div>
+    <span style="background-color: #036; padding: 2px 10px; display:inline-block">
+        <bcgov-button button-style="dark" >Dark Button</bcgov-button>
+        <bcgov-button link="https://gov.bc.ca"  button-style="dark" >Dark Button Link</bcgov-button>
+        <bcgov-button active button-style="dark" >Dark Button Active</bcgov-button>
+        <bcgov-button disabled button-style="dark" >Dark Button Disabled</bcgov-button>
+    </span>
+</div>
+
+### Source
+
+```html
+    <span style="background-color: #036; padding: 2px 10px; display:inline-block">
+        <bcgov-button button-style="dark" >Dark Button</bcgov-button>
+        <bcgov-button link="https://gov.bc.ca"  button-style="dark" >Dark Button Link</bcgov-button>
+        <bcgov-button active button-style="dark" >Dark Button Active</bcgov-button>
+        <bcgov-button disabled button-style="dark" >Dark Button Disabled</bcgov-button>
+    </span>
+```
+
+### Output
+<div class="code">
+    <span style="background-color: #036; padding: 2px 10px; display:inline-block">
+        <bcgov-button button-style="dark" >Dark Button</bcgov-button>
+        <bcgov-button link="https://gov.bc.ca"  button-style="dark" >Dark Button Link</bcgov-button>
+        <bcgov-button active button-style="dark" >Dark Button Active</bcgov-button>
+        <bcgov-button disabled button-style="dark" >Dark Button Disabled</bcgov-button>
+    </span>
+</div>
+
+## Example Hamburger Button
+<div >
+    <span style="background-color: #036;"><bcgov-button button-style="hamburger" >Menu</bcgov-button></style>
+</div>
+
+### Source
+
+```html
+<div>
+    <bcgov-button button-style="hamburger" >Menu</bcgov-button>
+</div>
+```
+
+### Output
+<div class="code">
+    <bcgov-button button-style="hamburger" >Menu</bcgov-button>
+</div>
+
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property       | Attribute      | Description                               | Type                                                                               | Default                     |
-| -------------- | -------------- | ----------------------------------------- | ---------------------------------------------------------------------------------- | --------------------------- |
-| `active`       | `active`       | default state of button if applicable     | `string`                                                                           | `"false"`                   |
-| `buttonStyle`  | `button-style` | Style of button                           | `"dark" \| "hamburger" \| "primary" \| "search" \| "search-inline" \| "secondary"` | `"primary"`                 |
-| `dataTarget`   | `data-target`  | Target, only used on hamburger and search | `string`                                                                           | `null`                      |
-| `eventHandler` | --             | Add a callback to handle events           | `Function`                                                                         | `this.eventHandlerFunction` |
-| `link`         | `link`         | The action of the button.                 | `string`                                                                           | `"button"`                  |
-| `target`       | `target`       | A tag target                              | `"_blank" \| "_parent" \| "_self" \| "_top"`                                       | `null`                      |
+| Property       | Attribute       | Description                               | Type                                                                               | Default                     |
+| -------------- | --------------- | ----------------------------------------- | ---------------------------------------------------------------------------------- | --------------------------- |
+| `buttonStyle`  | `button-style`  | Style of button                           | `"dark" \| "hamburger" \| "primary" \| "search" \| "search-inline" \| "secondary"` | `"primary"`                 |
+| `dataTarget`   | `data-target`   | Target, only used on hamburger and search | `string`                                                                           | `null`                      |
+| `eventHandler` | --              | Add a callback to handle events           | `Function`                                                                         | `this.eventHandlerFunction` |
+| `link`         | `link`          | The action of the button.                 | `string`                                                                           | `"button"`                  |
+| `target`       | `target`        | A tag target                              | `"_blank" \| "_parent" \| "_self" \| "_top"`                                       | `null`                      |
+| `targetHidden` | `target-hidden` | default state of button if applicable     | `string`                                                                           | `"false"`                   |
 
 
 ----------------------------------------------

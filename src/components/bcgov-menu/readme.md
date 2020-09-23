@@ -54,7 +54,7 @@ As read using ChromeVox
   }
   </style>
 <bcgov-button button-style="hamburger" target="main-navigation-sample">Menu</bcgov-button>
-<bcgov-menu id="main-navigation-sample"  primary class="css-example"  alignment="left" breakpoint="1200">
+<bcgov-menu id="main-navigation-sample"  primary allow-hover class="css-example"  alignment="left" breakpoint="1200">
   <a href="/">Home</a>
   <a active href="/sandbox.html">Sandbox</a>
   <bcgov-menu href="/" name="Components">
@@ -165,18 +165,20 @@ As read using ChromeVox
 
 ## Properties
 
-| Property       | Attribute      | Description                                                            | Type      | Default                                                                                                                                     |
-| -------------- | -------------- | ---------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `active`       | `active`       |                                                                        | `boolean` | `false`                                                                                                                                     |
-| `alignment`    | `alignment`    | Alignment of menu                                                      | `string`  | `"left"`                                                                                                                                    |
-| `breakpoint`   | `breakpoint`   | A number that represents mobile menu breakpoint in px;                 | `number`  | `0`                                                                                                                                         |
-| `hamburger`    | `hamburger`    | Automatically adds hamburger.                                          | `boolean` | `true`                                                                                                                                      |
-| `href`         | `href`         | Link for menu                                                          | `string`  | `undefined`                                                                                                                                 |
-| `instructions` | `instructions` | Aria Instructions                                                      | `string`  | ``Use arrow keys to navigate between menuitems,   spacebar to expand submenus, escape key to close submenus, enter to activate menuitems.`` |
-| `menuId`       | `menu-id`      | Menu id used for instructions TODO: this might need more consideration | `string`  | `"menu"`                                                                                                                                    |
-| `name`         | `name`         | Label for submenu                                                      | `string`  | `undefined`                                                                                                                                 |
-| `primary`      | `primary`      |                                                                        | `string`  | `undefined`                                                                                                                                 |
-| `sidebar`      | `sidebar`      |                                                                        | `string`  | `undefined`                                                                                                                                 |
+| Property       | Attribute       | Description                                                            | Type      | Default                                                                                                                                     |
+| -------------- | --------------- | ---------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `active`       | `active`        |                                                                        | `boolean` | `false`                                                                                                                                     |
+| `alignment`    | `alignment`     | Alignment of menu                                                      | `string`  | `"left"`                                                                                                                                    |
+| `allowHover`   | `allow-hover`   | Adds hover to submenues                                                | `boolean` | `false`                                                                                                                                     |
+| `breakpoint`   | `breakpoint`    | A number that represents mobile menu breakpoint in px;                 | `number`  | `0`                                                                                                                                         |
+| `hamburger`    | `hamburger`     | Automatically adds hamburger.                                          | `boolean` | `true`                                                                                                                                      |
+| `href`         | `href`          | Link for menu                                                          | `string`  | `undefined`                                                                                                                                 |
+| `instructions` | `instructions`  | Aria Instructions                                                      | `string`  | ``Use arrow keys to navigate between menuitems,   spacebar to expand submenus, escape key to close submenus, enter to activate menuitems.`` |
+| `menuId`       | `menu-id`       | Menu id used for instructions TODO: this might need more consideration | `string`  | `"menu"`                                                                                                                                    |
+| `menuTimeOut`  | `menu-time-out` | Changes timeout for submenu                                            | `number`  | `500`                                                                                                                                       |
+| `name`         | `name`          | Label for submenu                                                      | `string`  | `undefined`                                                                                                                                 |
+| `primary`      | `primary`       |                                                                        | `string`  | `undefined`                                                                                                                                 |
+| `sidebar`      | `sidebar`       |                                                                        | `string`  | `undefined`                                                                                                                                 |
 
 
 ----------------------------------------------

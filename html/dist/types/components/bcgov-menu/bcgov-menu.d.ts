@@ -15,13 +15,18 @@ export declare class BcgovMenu {
     name: string;
     /** A number that represents mobile menu breakpoint in px; */
     breakpoint: number;
-    /**  Automatically adds hamburger. */
+    /** Automatically adds hamburger. */
     hamburger: boolean;
     active: boolean;
+    /** Adds hover to submenues */
+    allowHover: boolean;
+    /** Changes timeout for submenu */
+    menuTimeOut: number;
     isSubmenu: boolean;
     clone: Node;
     allTags: NodeList;
     bodyTag: Element;
+    menuTimeOutState: any;
     el: any;
     componentWillLoad(): void;
     /**

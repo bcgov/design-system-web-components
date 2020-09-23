@@ -12,70 +12,59 @@ bcgov-search,
     );
   }
   display: block;
-  background-color: var(--bcgov-wc-color-white);
-  border: 1px solid var(--bcgov-wc-color-background-seconary);
-  border-bottom-color: var(--bcgov-wc-color-brand-secondary);
+  border-width: 1px;
+  border-style: solid;
   position: absolute;
   width: 100%;
-  z-index: 999;
+  z-index: 9999;
   .search-container {
     -webkit-transition: height 200ms ease-in;
     -moz-transition: height 200ms ease-in;
     -ms-transition: height 200ms ease-in;
     -o-transition: height 200ms ease-in;
     transition: height 200ms ease-in;
+    background-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    padding: 2px;
     form {
-      @include justify-content(center);
-      @include align-content(center);
+      @include flexbox();
       @include flex-direction(column);
+      @include align-content(center);
+      @include justify-content(flex-end);
+      @include flex-wrap(wrap);
+      margin: 0 !important;
       bcgov-button {
-        top: 0;
-        right: 0;
         button {
           padding: 0.5rem !important;
           margin: 0;
         }
       }
-      /*
-      > * {
-        flex: 1 1;
-        margin: 0 0.1rem 0.5rem;
-      }
-      select {
-        font-size: 1.2rem;
-        width: 100%;
-      }
-      input {
-        &[type="text"],
-        &[type="search"] {
-          font-size: 1.5rem;
-          border: none;
-        }
-        &[type="search"] {
-          flex: 2 1;
-        }
-      }
-      */
     }
   }
 
   &.is-search-desktop {
-    bcgov-button,
-    .bcgov-button {
-      flex: 0.2;
-      &[button-style="search-inline"] {
-        text-align: right;
-        .bcgov-button-text {
-          display: none;
-        }
-      }
-    }
-
     .search-container {
       form {
         @include flex-direction(row);
-        > * {
-          margin-bottom: 0;
+        > input,
+        select,
+        input:not([type="submit"]) {
+          @include flex(2 1);
+          width: 100%;
+          &[type="search"] {
+            border: none !important;
+          }
+        }
+        bcgov-button,
+        .bcgov-button {
+          display: block;
+
+          &[button-style="search-inline"] {
+            .bcgov-button-text {
+              display: none;
+            }
+          }
         }
       }
     }
@@ -86,6 +75,8 @@ bcgov-search,
       height: 0;
       visibility: hidden;
     }
+  }
+  @media (min-width: 986px) {
   }
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     opacity: 1;

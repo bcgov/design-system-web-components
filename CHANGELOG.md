@@ -1,3 +1,14 @@
+### 1.1.3 September 23, 2020
+* Menu updates
+    * Adding option for hoverover or click menu
+    * Adding option for hover delay time to remove.
+* Style updates, removing bcgov design system colours from components.
+    * add seperate css sheet for bcgov design system colors
+    * removing colours from header, footer, buttons.
+* Adding form styles
+* Updating search styles.
+
+
 ### 1.1.2 September 16, 2020
 * css updates for ie fixes
 * css updates for menu.

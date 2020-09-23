@@ -1,0 +1,180 @@
+@import "../components/sass/variables";
+body {
+  color: $bcgov-color;
+  background-color: $bcgov-color-background;
+  .bcgov-main {
+    padding: 2rem 2rem 4rem;
+    min-height: 500px;
+    background: $bcgov-white;
+  }
+}
+
+a {
+  &,
+  &.active,
+  &:active,
+  &:visited,
+  &:focus {
+    color: $bcgov-blue-links;
+    text-decoration: underline;
+  }
+  &:hover {
+    color: $bcgov-blue-links-hover;
+    text-decoration: none;
+  }
+  i {
+    color: $bcgov-blue-links;
+  }
+}
+
+bcgov-header,
+.bcgov-header {
+  background-color: $bcgov-blue-primary;
+  border-bottom: 2px solid $bcgov-yellow-primary;
+  a {
+    color: $bcgov-white;
+  }
+}
+
+form {
+  input,
+  input:not([type="submit"]),
+  textarea,
+  select {
+    border-color: $bcgov-color-components;
+  }
+  input {
+    &[type="submit"] {
+      color: $bcgov-white;
+      background-color: $bcgov-blue-primary;
+      border-color: $bcgov-blue-primary;
+    }
+    &[type="radio"] {
+      border-color: $bcgov-color-components;
+      &:checked {
+        background-color: $bcgov-color-components;
+      }
+    }
+    &[type="checkbox"] {
+      border-color: $bcgov-color-components;
+      &:checked {
+        background-color: $bcgov-color-components;
+      }
+    }
+  }
+}
+bcgov-search,
+.bcgov-search {
+  border-color: $bcgov-color-background;
+  form {
+    input,
+    input:not([type="search"]),
+    select {
+      border-color: $bcgov-color-background;
+    }
+  }
+}
+
+bcgov-button,
+.bcgov-button {
+  a,
+  button {
+    &.primary {
+      background-color: $bcgov-blue-primary;
+      color: $bcgov-white;
+
+      &:hover {
+        background-color: $bcgov-blue-primary-hover;
+      }
+      &:active,
+      &.active {
+        background-color: $bcgov-blue-primary-active;
+      }
+      &:disabled,
+      &.disabled {
+        background-color: $bcgov-blue-primary-disabled;
+      }
+    }
+
+    &.secondary {
+      background: none;
+      border: 2px solid $bcgov-blue-primary;
+      color: $bcgov-blue-primary;
+
+      &:active,
+      &.active {
+        color: $bcgov-white;
+        background-color: $bcgov-blue-primary-active;
+        border-color: $bcgov-blue-primary-active;
+      }
+      &:hover {
+        color: $bcgov-white;
+        background-color: $bcgov-blue-primary-hover;
+        border-color: $bcgov-blue-primary-hover;
+      }
+      &:disabled,
+      &.disabled {
+        color: $bcgov-blue-primary-disabled !important;
+        border-color: $bcgov-blue-primary-disabled !important;
+        background-color: transparent;
+      }
+    }
+    &.dark {
+      background: none;
+      color: $bcgov-white;
+      border: 2px solid $bcgov-white;
+      &:active,
+      &.active {
+        color: $bcgov-white;
+        background-color: $bcgov-button-dark-active;
+        border-color: $bcgov-button-dark-active;
+      }
+      &:hover {
+        background-color: $bcgov-color-background;
+        color: $bcgov-color;
+      }
+      &:disabled,
+      &.disabled {
+        color: $bcgov-button-dark-disabled !important;
+        border-color: $bcgov-button-dark-disabled !important;
+        background-color: transparent;
+      }
+    }
+
+    &.hamburger {
+      font-size: 0.8rem;
+      border: 1px solid $bcgov-white;
+      background-color: $bcgov-blue-primary;
+      color: $bcgov-white;
+      div {
+        border-color: $bcgov-white;
+        &:before {
+          border-color: $bcgov-white;
+        }
+      }
+      &:hover {
+        background-color: $bcgov-blue-primary-hover;
+      }
+    }
+    &.search {
+      border: 1px solid $bcgov-white;
+      color: $bcgov-white;
+      background-color: $bcgov-yellow-primary;
+    }
+  }
+}
+
+bcgov-footer,
+.bcgov-footer {
+  background-color: $bcgov-blue-primary;
+  border-top: 2px solid $bcgov-yellow-primary;
+  color: $bcgov-white;
+  a {
+    &,
+    &:visited,
+    &:active,
+    &:focus {
+      color: $bcgov-white;
+    }
+  }
+}

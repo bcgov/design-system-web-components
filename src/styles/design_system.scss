@@ -85,41 +85,14 @@ dt {
 
 dd {
   margin-bottom: 0.5rem;
-  margin-left: 0; // Undo browser default
+  margin-left: 0;
 }
 
 blockquote {
   margin: 0 0 1rem;
 }
 body {
-  color: $bcgov-color;
-  background-color: var(--bcgov-wc-color-background-seconary);
   margin: 0;
   text-align: left;
   font-family: var(--bcgov-wc-font-family);
-  .bcgov-main {
-    margin: 0 var(--bcgov-wc-gutter);
-    padding: 2rem 2rem 4rem;
-    min-height: 500px;
-    background: $bcgov-white;
-    display: block;
-
-    a {
-      &,
-      &.active,
-      &:active,
-      &:visited,
-      &:focus {
-        color: var(--bcgov-wc-color-link);
-        text-decoration: underline;
-      }
-      &:hover {
-        color: var(--bcgov-wc-color-link-hover);
-        text-decoration: none;
-      }
-      i {
-        color: var(--bcgov-wc-color-link);
-      }
-    }
-  }
 }

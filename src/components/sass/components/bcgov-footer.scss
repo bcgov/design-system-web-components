@@ -11,18 +11,14 @@ bcgov-footer,
       $hydrate_transition_timing
     );
   }
-  background-color: var(--bcgov-wc-color-brand-primary);
-  border-top: 2px solid var(--bcgov-wc-color-brand-secondary);
-  color: var(--bcgov-wc-color-white);
-  min-height: 50px;
-  padding: 0.25rem var(--bcgov-wc-gutter);
 
   @include flexbox();
   @include flex-wrap(wrap);
   @include justify-content(space-between);
   @include flex-grow(1);
   @include align-items(center);
-
+  min-height: 50px;
+  padding: 0.25rem var(--bcgov-wc-gutter);
   .footer-logo {
     max-width: 175px;
     width: 100%;
@@ -60,17 +56,6 @@ bcgov-footer,
     }
   }
 
-  a {
-    &,
-    &:visited,
-    &:active,
-    &:focus {
-      color: var(--bcgov-wc-color-white) !important;
-    }
-  }
-  a {
-    color: var(--bcgov-wc-color-white);
-  }
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     opacity: 1;
     visibility: visible;

@@ -28,7 +28,7 @@ const BcgovSearch = class {
         }
     }
     render() {
-        return (core.h(core.Host, { class: "bcgov-search" }, core.h("div", { class: "search-container bcgov-form" }, core.h("slot", null))));
+        return (core.h(core.Host, { class: "bcgov-search" }, core.h("div", { class: "search-container" }, core.h("slot", null))));
     }
     get el() { return core.getElement(this); }
 };

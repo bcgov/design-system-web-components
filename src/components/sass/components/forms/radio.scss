@@ -1,0 +1,18 @@
+input[type="radio"] {
+  position: relative;
+  @include appearance(none);
+  top: 4px;
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+  border-style: solid;
+  padding: 2px;
+  border-radius: 50%;
+  background-clip: content-box;
+  margin-right: 8px;
+  z-index: 1;
+
+  &:checked {
+    background-color: #444;
+  }
+}

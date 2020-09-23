@@ -4,7 +4,7 @@ var BcgovForm = /** @class */ (function () {
         registerInstance(this, hostRef);
     }
     class_1.prototype.render = function () {
-        return (h(Host, { class: "bcgov-form" }, h("div", null, "This is a form component"), h("slot", null)));
+        return (h(Host, null, h("slot", null)));
     };
     return class_1;
 }());

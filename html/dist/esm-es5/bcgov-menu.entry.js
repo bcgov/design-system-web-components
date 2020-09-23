@@ -14,9 +14,13 @@ var BcgovMenu = /** @class */ (function () {
         this.instructions = "Use arrow keys to navigate between menuitems,\n  spacebar to expand submenus, escape key to close submenus, enter to activate menuitems.";
         /** A number that represents mobile menu breakpoint in px; */
         this.breakpoint = 0;
-        /**  Automatically adds hamburger. */
+        /** Automatically adds hamburger. */
         this.hamburger = true;
         this.active = false;
+        /** Adds hover to submenues */
+        this.allowHover = false;
+        /** Changes timeout for submenu */
+        this.menuTimeOut = 500;
         this.isSubmenu = false;
         this.showSubmenu = function (target, expanded) {
             if (!_this.isSubmenu) {
@@ -68,6 +72,9 @@ var BcgovMenu = /** @class */ (function () {
             this.el.setAttribute("aria-expanded", false);
             this.el.setAttribute("aria-selected", false);
             this.el.setAttribute("tabindex", -1);
+            this.allowHover =
+                this.allowHover ||
+                    this.el.closest("bcgov-menu[primary]").hasAttribute("allow-hover");
         }
         else {
             var firstChild = this.el.querySelector("ul > *:first-child");
@@ -107,16 +114,20 @@ var BcgovMenu = /** @class */ (function () {
         return isdesktop;
     };
     class_1.prototype.onMouseEnter = function (ev) {
-        if (this.isDesktop()) {
+        if (this.isDesktop() && this.allowHover) {
             var element = ev.target;
             element.focus();
             this.showSubmenu(element, true);
         }
     };
     class_1.prototype.onMouseLeave = function (event) {
-        if (this.isDesktop()) {
-            var element = event.target;
-            this.showSubmenu(element, false);
+        if (this.isDesktop() && this.allowHover) {
+            var element_1 = event.target;
+            var self_1 = this;
+            clearTimeout(this.menuTimeOutState);
+            this.menuTimeOutState = setTimeout(function () {
+                self_1.showSubmenu(element_1, false);
+            }, self_1.menuTimeOut);
             if (!this.isSubmenu) {
                 [].forEach.call(this.el.querySelectorAll("ul > *"), function (element) {
                     element.setAttribute("tabindex", -1);
@@ -126,14 +137,12 @@ var BcgovMenu = /** @class */ (function () {
         }
     };
     class_1.prototype.onClick = function (event) {
-        if (!this.isDesktop()) {
-            var element = event.target;
-            var parent = findAncestor(element, "bcgov-menu");
-            if (null === element.closest(".bcgov-primary-menu-close")) {
-                this.showSubmenu(parent, !parent.classList.contains("expanded"));
-            }
-            parent.classList.add("target-hidden");
+        var element = event.target;
+        var parent = findAncestor(element, "bcgov-menu");
+        if (null === element.closest(".bcgov-primary-menu-close")) {
+            this.showSubmenu(parent, !parent.classList.contains("expanded"));
         }
+        parent.classList.add("target-hidden");
     };
     class_1.prototype.onKeyDown = function (event) {
         var current = event.srcElement;

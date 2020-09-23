@@ -2,7 +2,7 @@ export declare class BcgovButton {
     /** The action of the button. */
     link: string;
     /** default state of button if applicable */
-    active: string;
+    targetHidden: string;
     /** Add a callback to handle events */
     eventHandler: Function;
     /** Style of button */

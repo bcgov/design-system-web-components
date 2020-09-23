@@ -16,10 +16,6 @@ export namespace Components {
   interface BcgovBreadcrumb {}
   interface BcgovButton {
     /**
-    * default state of button if applicable
-    */
-    'active': string;
-    /**
     * Style of button
     */
     'buttonStyle': | "primary"
@@ -44,6 +40,10 @@ export namespace Components {
     * A tag target
     */
     'target': "_self" | "_blank" | "_parent" | "_top" | null;
+    /**
+    * default state of button if applicable
+    */
+    'targetHidden': string;
   }
   interface BcgovCallout {}
   interface BcgovCarousel {}
@@ -77,6 +77,10 @@ export namespace Components {
     */
     'alignment': string;
     /**
+    * Adds hover to submenues
+    */
+    'allowHover': boolean;
+    /**
     * A number that represents mobile menu breakpoint in px;
     */
     'breakpoint': number;
@@ -96,6 +100,10 @@ export namespace Components {
     * Menu id used for instructions TODO: this might need more consideration
     */
     'menuId': string;
+    /**
+    * Changes timeout for submenu
+    */
+    'menuTimeOut': number;
     /**
     * Label for submenu
     */
@@ -195,10 +203,6 @@ declare namespace LocalJSX {
   interface BcgovBreadcrumb extends JSXBase.HTMLAttributes<HTMLBcgovBreadcrumbElement> {}
   interface BcgovButton extends JSXBase.HTMLAttributes<HTMLBcgovButtonElement> {
     /**
-    * default state of button if applicable
-    */
-    'active'?: string;
-    /**
     * Style of button
     */
     'buttonStyle'?: | "primary"
@@ -223,6 +227,10 @@ declare namespace LocalJSX {
     * A tag target
     */
     'target'?: "_self" | "_blank" | "_parent" | "_top" | null;
+    /**
+    * default state of button if applicable
+    */
+    'targetHidden'?: string;
   }
   interface BcgovCallout extends JSXBase.HTMLAttributes<HTMLBcgovCalloutElement> {}
   interface BcgovCarousel extends JSXBase.HTMLAttributes<HTMLBcgovCarouselElement> {}
@@ -256,6 +264,10 @@ declare namespace LocalJSX {
     */
     'alignment'?: string;
     /**
+    * Adds hover to submenues
+    */
+    'allowHover'?: boolean;
+    /**
     * A number that represents mobile menu breakpoint in px;
     */
     'breakpoint'?: number;
@@ -275,6 +287,10 @@ declare namespace LocalJSX {
     * Menu id used for instructions TODO: this might need more consideration
     */
     'menuId'?: string;
+    /**
+    * Changes timeout for submenu
+    */
+    'menuTimeOut'?: number;
     /**
     * Label for submenu
     */

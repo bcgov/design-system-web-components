@@ -13,8 +13,7 @@ bcgov-header,
   }
   position: relative;
   display: block;
-  background-color: var(--bcgov-wc-color-brand-primary);
-  border-bottom: 2px solid var(--bcgov-wc-color-border);
+
   padding: 0 var(--bcgov-wc-gutter);
   z-index: 99999;
   header {
@@ -45,10 +44,6 @@ bcgov-header,
     }
   }
 
-  a {
-    color: var(--bcgov-wc-color-white);
-  }
-
   .access {
     display: block;
     position: absolute;
@@ -59,7 +54,6 @@ bcgov-header,
     font-size: 0.8rem;
 
     a {
-      color: var(--bcgov-wc-color-white);
       max-width: 150px;
       position: absolute;
       display: block;

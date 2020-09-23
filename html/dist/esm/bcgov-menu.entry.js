@@ -15,9 +15,13 @@ const BcgovMenu = class {
   spacebar to expand submenus, escape key to close submenus, enter to activate menuitems.`;
         /** A number that represents mobile menu breakpoint in px; */
         this.breakpoint = 0;
-        /**  Automatically adds hamburger. */
+        /** Automatically adds hamburger. */
         this.hamburger = true;
         this.active = false;
+        /** Adds hover to submenues */
+        this.allowHover = false;
+        /** Changes timeout for submenu */
+        this.menuTimeOut = 500;
         this.isSubmenu = false;
         this.showSubmenu = (target, expanded) => {
             if (!this.isSubmenu) {
@@ -69,6 +73,9 @@ const BcgovMenu = class {
             this.el.setAttribute("aria-expanded", false);
             this.el.setAttribute("aria-selected", false);
             this.el.setAttribute("tabindex", -1);
+            this.allowHover =
+                this.allowHover ||
+                    this.el.closest("bcgov-menu[primary]").hasAttribute("allow-hover");
         }
         else {
             const firstChild = this.el.querySelector("ul > *:first-child");
@@ -108,16 +115,20 @@ const BcgovMenu = class {
         return isdesktop;
     }
     onMouseEnter(ev) {
-        if (this.isDesktop()) {
+        if (this.isDesktop() && this.allowHover) {
             const element = ev.target;
             element.focus();
             this.showSubmenu(element, true);
         }
     }
     onMouseLeave(event) {
-        if (this.isDesktop()) {
+        if (this.isDesktop() && this.allowHover) {
             const element = event.target;
-            this.showSubmenu(element, false);
+            const self = this;
+            clearTimeout(this.menuTimeOutState);
+            this.menuTimeOutState = setTimeout(function () {
+                self.showSubmenu(element, false);
+            }, self.menuTimeOut);
             if (!this.isSubmenu) {
                 [].forEach.call(this.el.querySelectorAll("ul > *"), function (element) {
                     element.setAttribute("tabindex", -1);
@@ -127,14 +138,12 @@ const BcgovMenu = class {
         }
     }
     onClick(event) {
-        if (!this.isDesktop()) {
-            const element = event.target;
-            const parent = findAncestor(element, "bcgov-menu");
-            if (null === element.closest(".bcgov-primary-menu-close")) {
-                this.showSubmenu(parent, !parent.classList.contains("expanded"));
-            }
-            parent.classList.add("target-hidden");
+        const element = event.target;
+        const parent = findAncestor(element, "bcgov-menu");
+        if (null === element.closest(".bcgov-primary-menu-close")) {
+            this.showSubmenu(parent, !parent.classList.contains("expanded"));
         }
+        parent.classList.add("target-hidden");
     }
     onKeyDown(event) {
         const current = event.srcElement;

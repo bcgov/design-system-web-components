@@ -24,7 +24,7 @@ const BcgovSearch = class {
         }
     }
     render() {
-        return (h(Host, { class: "bcgov-search" }, h("div", { class: "search-container bcgov-form" }, h("slot", null))));
+        return (h(Host, { class: "bcgov-search" }, h("div", { class: "search-container" }, h("slot", null))));
     }
     get el() { return getElement(this); }
 };

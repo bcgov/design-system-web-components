@@ -868,7 +868,7 @@ var BcgovButton = /** @class */ (function () {
         /** The action of the button. */
         this.link = "button";
         /** default state of button if applicable */
-        this.active = "false";
+        this.targetHidden = "false";
         /** Add a callback to handle events */
         this.eventHandler = this.eventHandlerFunction;
         /** Style of button */
@@ -897,7 +897,7 @@ var BcgovButton = /** @class */ (function () {
             this.el.setAttribute("data-breakpoint", "" + this.breakpoint);
             var element = document.getElementById(this.dataTarget);
             if (null !== element) {
-                if ("false" === this.active) {
+                if ("false" === this.targetHidden) {
                     element.classList.add("target-hidden");
                 }
                 window.addEventListener("click", function (event) {
@@ -956,11 +956,17 @@ var BcgovButton = /** @class */ (function () {
     };
     class_1.prototype.render = function () {
         var btnStyle = "" + this.buttonStyle;
+        if (this.el.hasAttribute("active")) {
+            btnStyle = btnStyle + " active";
+        }
+        if (this.el.hasAttribute("disable") || this.el.hasAttribute("disabled")) {
+            btnStyle = btnStyle + " disabled";
+        }
         var props = {
             class: btnStyle,
         };
         if (["hamburger", "search"].includes(this.buttonStyle)) {
-            props["aria-expanded"] = this.active;
+            props["aria-expanded"] = this.targetHidden;
             return (h(Host, { "data-target": this.dataTarget, class: "bcgov-button" }, h("button", Object.assign({}, props), h("div", null), h("slot", null))));
         }
         else {
