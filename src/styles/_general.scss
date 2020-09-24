@@ -71,3 +71,9 @@ table {
     }
   }
 }
+
+.section-content {
+  margin: 0 calc(var(--bcgov-wc-gutter) - 2rem);
+  padding: 2rem;
+  background-color: $bcgov-white;
+}

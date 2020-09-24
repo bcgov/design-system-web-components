@@ -3,9 +3,7 @@ body {
   color: $bcgov-color;
   background-color: $bcgov-color-background;
   .bcgov-main {
-    padding: 2rem 2rem 4rem;
-    min-height: 500px;
-    background: $bcgov-white;
+    background: $bcgov-color-background;
   }
 }
 
