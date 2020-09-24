@@ -1126,7 +1126,7 @@ const BcgovButton = class {
         };
         if (["hamburger", "search"].includes(this.buttonStyle)) {
             props["aria-expanded"] = this.targetHidden;
-            return (h(Host, { "data-target": this.dataTarget, class: "bcgov-button" }, h("button", Object.assign({}, props), h("div", null), h("slot", null))));
+            return (h(Host, { "data-target": this.dataTarget, class: "bcgov-button" }, h("button", Object.assign({}, props), h("div", null), h("span", { class: "bcgov-button-text" }, h("slot", null)))));
         }
         else {
             if ("button" === this.link) {

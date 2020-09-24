@@ -31,6 +31,14 @@ bcgov-header,
 .bcgov-header {
   background-color: $bcgov-blue-primary;
   border-bottom: 2px solid $bcgov-yellow-primary;
+  header {
+    .banner {
+      img {
+        max-width: 175px;
+      }
+    }
+  }
+  .headline,
   a {
     color: $bcgov-white;
   }
@@ -63,6 +71,7 @@ form {
     }
   }
 }
+
 bcgov-search,
 .bcgov-search {
   border-color: $bcgov-color-background;
@@ -143,7 +152,7 @@ bcgov-button,
 
     &.hamburger {
       font-size: 0.8rem;
-      border: 1px solid $bcgov-white;
+      border-color: transparent;
       background-color: $bcgov-blue-primary;
       color: $bcgov-white;
       div {
@@ -152,14 +161,20 @@ bcgov-button,
           border-color: $bcgov-white;
         }
       }
+      .bcgov-button-text {
+        display: none;
+      }
       &:hover {
         background-color: $bcgov-blue-primary-hover;
       }
     }
     &.search {
-      border: 1px solid $bcgov-white;
       color: $bcgov-white;
-      background-color: $bcgov-yellow-primary;
+      border-color: transparent;
+      background-color: transparent;
+      .bcgov-button-text {
+        display: none;
+      }
     }
   }
 }

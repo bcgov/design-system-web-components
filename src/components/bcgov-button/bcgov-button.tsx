@@ -145,7 +145,9 @@ export class BcgovButton {
         <Host data-target={this.dataTarget} class="bcgov-button">
           <button {...props}>
             <div></div>
-            <slot />
+            <span class="bcgov-button-text">
+              <slot />
+            </span>
           </button>
         </Host>
       );

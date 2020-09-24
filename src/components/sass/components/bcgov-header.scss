@@ -24,15 +24,14 @@ bcgov-header,
     @include align-items(center);
 
     .banner {
-      padding: 4px 0;
+      padding: 6px 0;
       margin-left: -1rem;
       a {
         padding: 0;
+        @include flexbox();
       }
       img {
         height: auto;
-        min-width: 175px;
-        max-width: 300px;
         width: 100%;
       }
     }
@@ -40,7 +39,6 @@ bcgov-header,
     .headline,
     .hl {
       padding: 0 1rem;
-      font-size: 1.5rem;
     }
   }
 
