@@ -82,9 +82,12 @@ export class BcgovMenu {
       this.el.setAttribute("aria-expanded", false);
       this.el.setAttribute("aria-selected", false);
       this.el.setAttribute("tabindex", -1);
+      const primaryMenu = this.el.closest("bcgov-menu[primary]");
       this.allowHover =
-        this.allowHover ||
-        this.el.closest("bcgov-menu[primary]").hasAttribute("allow-hover");
+        this.allowHover || primaryMenu.hasAttribute("allow-hover");
+      this.menuTimeOut = primaryMenu.hasAttribute("menu-time-out")
+        ? primaryMenu.getAttribute("menu-time-out")
+        : this.menuTimeOut;
     } else {
       const firstChild = this.el.querySelector("ul > *:first-child");
       if (null !== firstChild) {
@@ -140,6 +143,7 @@ export class BcgovMenu {
       const element = event.target as HTMLElement;
       const self = this;
       clearTimeout(this.menuTimeOutState);
+
       this.menuTimeOutState = setTimeout(function () {
         self.showSubmenu(element, false);
       }, self.menuTimeOut);

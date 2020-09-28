@@ -72,9 +72,12 @@ var BcgovMenu = /** @class */ (function () {
             this.el.setAttribute("aria-expanded", false);
             this.el.setAttribute("aria-selected", false);
             this.el.setAttribute("tabindex", -1);
+            var primaryMenu = this.el.closest("bcgov-menu[primary]");
             this.allowHover =
-                this.allowHover ||
-                    this.el.closest("bcgov-menu[primary]").hasAttribute("allow-hover");
+                this.allowHover || primaryMenu.hasAttribute("allow-hover");
+            this.menuTimeOut = primaryMenu.hasAttribute("menu-time-out")
+                ? primaryMenu.getAttribute("menu-time-out")
+                : this.menuTimeOut;
         }
         else {
             var firstChild = this.el.querySelector("ul > *:first-child");
