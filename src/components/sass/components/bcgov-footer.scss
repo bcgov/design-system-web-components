@@ -18,7 +18,7 @@ bcgov-footer,
   @include flex-grow(1);
   @include align-items(center);
   min-height: 50px;
-  padding: 0.25rem var(--bcgov-wc-gutter);
+
   .footer-logo {
     max-width: 175px;
     width: 100%;

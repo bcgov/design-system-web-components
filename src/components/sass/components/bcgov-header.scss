@@ -14,7 +14,6 @@ bcgov-header,
   position: relative;
   display: block;
 
-  padding: 0 var(--bcgov-wc-gutter);
   z-index: 99999;
   header {
     @include flexbox();

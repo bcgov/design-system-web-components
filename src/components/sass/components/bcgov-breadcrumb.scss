@@ -11,10 +11,8 @@ bcgov-breadcrumb,
       $hydrate_transition_timing
     );
   }
-
   @include flexbox;
-  background-color: var(--bcgov-wc-color-breadcrumb);
-  padding: 1rem var(--bcgov-wc-gutter);
+  padding: 1rem 0;
   @include justify-content(space-between);
   @include align-items(center);
 
@@ -37,18 +35,6 @@ bcgov-breadcrumb,
       &:last-child {
         &:after {
           content: "";
-        }
-      }
-      a {
-        &,
-        &:focus,
-        &:active,
-        &:visited {
-          color: var(--bcgov-wc-color-breadcrumb-link);
-        }
-        &:hover {
-          color: var(--bcgov-wc-color-breadcrumb-link-hover);
-          text-decoration: none;
         }
       }
     }

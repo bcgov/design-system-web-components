@@ -9,4 +9,7 @@ input {
     line-height: 1.2;
     width: inherit;
   }
+  &[type="search"] {
+    -webkit-appearance: textfield;
+  }
 }
