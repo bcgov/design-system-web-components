@@ -1,5 +1,8 @@
 @import "../components/sass/variables";
 /** Gutter mixins **/
+$engage-gutter-desktop: 10%;
+$engage-gutter-tablet: 6%;
+$engage-gutter-phone: 1%;
 @mixin gutter($gutter) {
   bcgov-header,
   bcgov-breadcrumb,
@@ -7,9 +10,6 @@
   bcgov-menu.is-desktop[primary] {
     padding-right: $gutter;
     padding-left: $gutter;
-  }
-  .bcgov-main {
-    margin: 0 $gutter;
   }
 }
 
@@ -221,7 +221,7 @@ bcgov-footer,
   }
 }
 
-@include gutter(1%);
+@include gutter($engage-gutter-phone);
 @media (min-width: 987px) {
-  @include gutter(10%);
+  @include gutter($engage-gutter-desktop);
 }
