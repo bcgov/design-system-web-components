@@ -82,7 +82,7 @@ export class BcgovButton {
             const button = this.el.querySelector("button");
             if (null !== element) {
                 if (undefined !== button && button.hasAttribute("aria-expanded")) {
-                    button.setAttribute("aria-expanded", element.classList.contains("target-hidden") ? "true" : "false");
+                    button.setAttribute("aria-expanded", "true" === element.getAttribute("aria-expanded") ? "false" : "true");
                 }
                 if (element.classList.contains("target-hidden")) {
                     element.classList.remove("target-hidden");

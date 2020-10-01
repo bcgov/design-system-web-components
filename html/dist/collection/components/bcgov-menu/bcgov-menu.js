@@ -72,11 +72,13 @@ export class BcgovMenu {
             this.el.setAttribute("aria-selected", false);
             this.el.setAttribute("tabindex", -1);
             const primaryMenu = this.el.closest("bcgov-menu[primary]");
-            this.allowHover =
-                this.allowHover || primaryMenu.hasAttribute("allow-hover");
-            this.menuTimeOut = primaryMenu.hasAttribute("menu-time-out")
-                ? primaryMenu.getAttribute("menu-time-out")
-                : this.menuTimeOut;
+            if (null !== primaryMenu) {
+                this.allowHover =
+                    this.allowHover || primaryMenu.hasAttribute("allow-hover");
+                this.menuTimeOut = primaryMenu.hasAttribute("menu-time-out")
+                    ? primaryMenu.getAttribute("menu-time-out")
+                    : this.menuTimeOut;
+            }
         }
         else {
             const firstChild = this.el.querySelector("ul > *:first-child");
@@ -144,7 +146,7 @@ export class BcgovMenu {
         if (null === element.closest(".bcgov-primary-menu-close")) {
             this.showSubmenu(parent, !parent.classList.contains("expanded"));
         }
-        parent.classList.add("target-hidden");
+        //parent.classList.add("target-hidden");
     }
     onKeyDown(event) {
         const current = event.srcElement;

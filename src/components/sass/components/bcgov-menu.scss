@@ -34,11 +34,46 @@ bcgov-menu {
       top: 0;
     }
   }
+  /** Arrow for nav in primary and non primary **/
+  bcgov-menu {
+    > div {
+      span {
+        cursor: pointer;
+        &:after {
+          content: " ";
+          position: absolute;
+          cursor: pointer;
+          display: block;
+          width: 8px;
+          height: 8px;
+          top: 12px;
+          right: $padding-x * 1.25;
+          border-bottom-style: solid;
+          border-bottom-width: 2px;
+          border-right-style: solid;
+          border-right-width: 2px;
+          transform: rotateZ(45deg);
+          box-sizing: unset;
+        }
+      }
+    }
+    &.expandable {
+      &.expanded {
+        > div {
+          span {
+            &:after {
+              top: 18px;
+              transform: rotateZ(225deg);
+            }
+          }
+        }
+      }
+    }
+  }
   &[primary],
   &.primary {
     /** Setup the defaults for all menu / submenu **/
     z-index: 99999;
-
     color: var(--menu-mobile-color);
     max-width: 500px;
     width: 100%;
@@ -96,20 +131,9 @@ bcgov-menu {
             right: 0;
             height: 100%;
             width: 45px;
-            cursor: pointer;
             &:after {
-              content: " ";
-              position: absolute;
-              cursor: pointer;
-              display: block;
-              width: 8px;
-              height: 8px;
-              top: 12px;
-              right: $padding-x * 1.25;
-              border-bottom: 2px solid var(--menu-mobile-color);
-              border-right: 2px solid var(--menu-mobile-color);
-              transform: rotateZ(45deg);
-              box-sizing: unset;
+              border-bottom-color: var(--menu-mobile-color);
+              border-right-color: var(--menu-mobile-color);
             }
           }
         }

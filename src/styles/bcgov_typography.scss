@@ -1,4 +1,18 @@
 @import "../components/sass/variables";
+/** Gutter mixins **/
+@mixin gutter($gutter) {
+  bcgov-header,
+  bcgov-breadcrumb,
+  bcgov-footer,
+  bcgov-menu.is-desktop[primary] {
+    padding-right: $gutter;
+    padding-left: $gutter;
+  }
+  #bcgov-digital-main {
+    margin: 0 $gutter;
+  }
+}
+
 body {
   color: $bcgov-color;
   background-color: $bcgov-color-background;
@@ -29,7 +43,6 @@ bcgov-header,
 .bcgov-header {
   background-color: $bcgov-blue-primary;
   border-bottom: 2px solid $bcgov-yellow-primary;
-  padding: 0 var(--bcgov-wc-gutter);
   header {
     .banner {
       img {
@@ -77,7 +90,6 @@ bcgov-menu {
     background-color: $bcgov-color-menu;
     &.is-desktop {
       background-color: $bcgov-color-menu;
-      padding: 0 var(--bcgov-wc-gutter);
     }
   }
 }
@@ -197,7 +209,8 @@ bcgov-footer,
   background-color: $bcgov-blue-primary;
   border-top: 2px solid $bcgov-yellow-primary;
   color: $bcgov-white;
-  padding: 0.25rem var(--bcgov-wc-gutter);
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
   a {
     &,
     &:visited,
@@ -206,4 +219,9 @@ bcgov-footer,
       color: $bcgov-white;
     }
   }
+}
+
+@include gutter(1%);
+@media (min-width: 987px) {
+  @include gutter(10%);
 }

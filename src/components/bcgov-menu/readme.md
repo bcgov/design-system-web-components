@@ -40,7 +40,9 @@ As read using ChromeVox
 * Hamburger icon not placed alone without a text label
 * Navbar links underline on hover to indicate they are clickable
 
-## Example
+## Example 1 Primary Menu 
+
+### Output
 <div>
 <style>
   bcgov-menu.css-example {
@@ -53,8 +55,8 @@ As read using ChromeVox
   --menu-submenu-background-active: #77bbcf;
   }
   </style>
-<bcgov-button button-style="hamburger" target="main-navigation-sample">Menu</bcgov-button>
-<bcgov-menu id="main-navigation-sample"  primary allow-hover class="css-example"  alignment="left" breakpoint="1200">
+<bcgov-button button-style="hamburger" target="main-navigation-sample-1">Menu</bcgov-button>
+<bcgov-menu id="main-navigation-sample-1"  primary allow-hover class="css-example"  alignment="left" breakpoint="1200">
   <a href="/">Home</a>
   <a active href="/sandbox.html">Sandbox</a>
   <bcgov-menu href="/" name="Components">
@@ -82,8 +84,8 @@ As read using ChromeVox
   --menu-submenu-background-active: #77bbcf;
   }
   </style>
-<bcgov-button button-style="hamburger" target="main-navigation-sample">Menu</bcgov-button>
-<bcgov-menu id="main-navigation-sample"  
+<bcgov-button button-style="hamburger" target="main-navigation-sample-1">Menu</bcgov-button>
+<bcgov-menu id="main-navigation-sample-1"  
             primary 
             class="css-example"  
             alignment="left" 
@@ -102,16 +104,29 @@ As read using ChromeVox
 </bcgov-menu>
 ```
 
-### Output
 
-<div class="code">
-<bcgov-button button-style="hamburger" target="main-navigation-sample">Menu</bcgov-button>
-<bcgov-menu id="main-navigation-sample" style="background-color: #036;" primary   alignment="left" breakpoint="1200">
+## Example 2 Menu 
+
+### Output
+<div>
+<style>
+  bcgov-menu.css-example {
+  /** Desktop menu **/
+  --menu-background: #ff3333;
+  --menu-bacground-active: #a8aaad;
+  --menu-border-color: #f8bf28;
+  /** Desktop submenu */
+  --menu-submenu-background: #1e73be;
+  --menu-submenu-background-active: #77bbcf;
+  }
+  </style>
+
+<bcgov-menu id="main-navigation-sample-2"  allow-hover class="css-example"  alignment="left" breakpoint="0">
   <a href="/">Home</a>
-  <a href="/sandbox.html">Sandbox</a>
-  <bcgov-menu active href="/" name="Components">
+  <a active href="/sandbox.html">Sandbox</a>
+  <bcgov-menu  name="Components">
     <a href="/header.html">Header</a>
-    <a href="/menu.html">Menus</a>
+    <a href="/menu.html" active>Menus</a>
     <a href="/buttons.html">Buttons</a>
     <a href="/footer.html">Footer</a>
     <a href="/beta.html">Beta</a>
@@ -121,6 +136,37 @@ As read using ChromeVox
 </bcgov-menu>
 </div>
 
+### Source
+```html
+<style>
+   bcgov-menu.css-example {
+  /** Desktop menu **/
+  --menu-background: #ff3333;
+  --menu-bacground-active: #a8aaad;
+  --menu-border-color: #f8bf28;
+  /** Desktop submenu */
+  --menu-submenu-background: #1e73be;
+  --menu-submenu-background-active: #77bbcf;
+  }
+  </style>
+
+<bcgov-menu id="main-navigation-sample-2"   
+            class="css-example"  
+            alignment="left" 
+            breakpoint="0">
+  <a href="/">Home</a>
+  <a active href="/sandbox.html">Sandbox</a>
+  <bcgov-menu name="Components">
+    <a href="/header.html">Header</a>
+    <a href="/menu.html" active>Menus</a>
+    <a href="/buttons.html">Buttons</a>
+    <a href="/footer.html">Footer</a>
+    <a href="/beta.html">Beta</a>
+    <a href="/callout.html">Callout</a>
+  </bcgov-menu>
+  <a href="/developer.html">Developer</a>
+</bcgov-menu>
+```
 
 ## CSS Variables
 ```css

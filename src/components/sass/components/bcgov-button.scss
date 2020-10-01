@@ -29,7 +29,7 @@ bcgov-button,
     &.hamburger,
     &.search {
       margin: 0;
-      padding: 4px;
+      padding: 0.5rem;
       border-width: 1px;
       border-style: solid;
       border-radius: 0;
@@ -41,15 +41,15 @@ bcgov-button,
       }
       div {
         margin: 0 2px;
+        border-top-width: 2px;
         border-top-style: solid;
-        border-top-width: 3px;
         border-bottom-style: solid;
-        border-bottom-width: 3px;
+        border-bottom-width: 2px;
         min-width: 30px;
         &:before {
           content: " ";
           border-top-style: solid;
-          border-top-width: 3px;
+          border-top-width: 2px;
           margin: 6px 0;
           display: block;
         }

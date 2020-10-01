@@ -115,7 +115,7 @@ export class BcgovButton {
         if (undefined !== button && button.hasAttribute("aria-expanded")) {
           button.setAttribute(
             "aria-expanded",
-            element.classList.contains("target-hidden") ? "true" : "false"
+            "true" === element.getAttribute("aria-expanded") ? "false" : "true"
           );
         }
         if (element.classList.contains("target-hidden")) {

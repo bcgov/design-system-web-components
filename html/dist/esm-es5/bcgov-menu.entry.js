@@ -73,11 +73,13 @@ var BcgovMenu = /** @class */ (function () {
             this.el.setAttribute("aria-selected", false);
             this.el.setAttribute("tabindex", -1);
             var primaryMenu = this.el.closest("bcgov-menu[primary]");
-            this.allowHover =
-                this.allowHover || primaryMenu.hasAttribute("allow-hover");
-            this.menuTimeOut = primaryMenu.hasAttribute("menu-time-out")
-                ? primaryMenu.getAttribute("menu-time-out")
-                : this.menuTimeOut;
+            if (null !== primaryMenu) {
+                this.allowHover =
+                    this.allowHover || primaryMenu.hasAttribute("allow-hover");
+                this.menuTimeOut = primaryMenu.hasAttribute("menu-time-out")
+                    ? primaryMenu.getAttribute("menu-time-out")
+                    : this.menuTimeOut;
+            }
         }
         else {
             var firstChild = this.el.querySelector("ul > *:first-child");
@@ -145,7 +147,7 @@ var BcgovMenu = /** @class */ (function () {
         if (null === element.closest(".bcgov-primary-menu-close")) {
             this.showSubmenu(parent, !parent.classList.contains("expanded"));
         }
-        parent.classList.add("target-hidden");
+        //parent.classList.add("target-hidden");
     };
     class_1.prototype.onKeyDown = function (event) {
         var current = event.srcElement;
