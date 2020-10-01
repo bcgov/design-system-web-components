@@ -38,7 +38,7 @@ bcgov-menu {
   &.primary {
     /** Setup the defaults for all menu / submenu **/
     z-index: 99999;
-    background-color: var(--menu-mobile-background);
+
     color: var(--menu-mobile-color);
     max-width: 500px;
     width: 100%;
@@ -208,8 +208,6 @@ bcgov-menu {
     }
     &[primary],
     &.primary {
-      padding: 0 var(--bcgov-wc-gutter);
-      background-color: var(--menu-background);
       a {
         &,
         &:hover,

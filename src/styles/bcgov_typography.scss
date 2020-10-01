@@ -71,6 +71,17 @@ form {
   }
 }
 
+bcgov-menu {
+  &[primary],
+  .primary {
+    background-color: $bcgov-color-menu;
+    &.is-desktop {
+      background-color: $bcgov-color-menu;
+      padding: 0 var(--bcgov-wc-gutter);
+    }
+  }
+}
+
 bcgov-search,
 .bcgov-search {
   border-color: $bcgov-color-background;
@@ -176,6 +187,9 @@ bcgov-button,
       }
     }
   }
+}
+bcgov-breadcrumb {
+  padding: 1rem 0;
 }
 
 bcgov-footer,

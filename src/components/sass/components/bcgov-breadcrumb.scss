@@ -12,7 +12,6 @@ bcgov-breadcrumb,
     );
   }
   @include flexbox;
-  padding: 1rem 0;
   @include justify-content(space-between);
   @include align-items(center);
 
