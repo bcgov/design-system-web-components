@@ -1,6 +1,7 @@
 @import "variables.scss";
 
 :root {
+  /*
   --bcgov-wc-color-brand-primary: #{$bcgov-blue-primary};
   --bcgov-wc-color-brand-secondary: #{$bcgov-yellow-primary};
   --bcgov-wc-color-border: #{$bcgov-yellow-primary};
@@ -11,11 +12,10 @@
   --bcgov-wc-color-background-seconary: #{$bcgov-color-background};
   --bcgov-wc-color-components: #{$bcgov-color-components};
   --bcgov-wc-color-accessibility: #{$bcgov-color-accessibility};
-
   --bcgov-wc-color-breadcrumb: #{$bcgov-color-breadcrumb};
   --bcgov-wc-color-breadcrumb-link: #{$bcgov-blue-links};
   --bcgov-wc-color-breadcrumb-link-hover: #{$bcgov-blue-links-hover};
-
+*/
   --bcgov-wc-color-white: #{$bcgov-white};
   --bcgov-wc-color-error: #{$bcgov-red-primary};
   --bcgov-wc-color-success: #{$bcgov-green-primary};

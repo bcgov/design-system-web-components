@@ -146,7 +146,9 @@ export class BcgovMenu {
         if (null === element.closest(".bcgov-primary-menu-close")) {
             this.showSubmenu(parent, !parent.classList.contains("expanded"));
         }
-        //parent.classList.add("target-hidden");
+        if ("close-menu-mobile" === element.parentElement.getAttribute("id")) {
+            parent.classList.add("target-hidden");
+        }
     }
     onKeyDown(event) {
         const current = event.srcElement;

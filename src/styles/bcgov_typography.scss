@@ -5,7 +5,6 @@ $engage-gutter-tablet: 6%;
 $engage-gutter-phone: 1%;
 @mixin gutter($gutter) {
   bcgov-header,
-  bcgov-breadcrumb,
   bcgov-footer,
   bcgov-menu.is-desktop[primary] {
     padding-right: $gutter;
