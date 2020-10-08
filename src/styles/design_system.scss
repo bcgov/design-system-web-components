@@ -96,3 +96,7 @@ body {
   text-align: left;
   font-family: var(--bcgov-wc-font-family);
 }
+
+*:focus {
+  outline-color: $bcgov-color-accessibility;
+}

@@ -25,7 +25,7 @@ describe("bcgov-header", () => {
       >Menu</bcgov-button
     >
     </bcgov-header>
-      `
+      `,
     });
     expect(page.root).toEqualHtml(`
     <bcgov-header logo="" class="bcgov-header">
@@ -44,7 +44,7 @@ describe("bcgov-header", () => {
         <bcgov-button button-style="hamburger" class="bcgov-button is-desktop" data-breakpoint="0" data-target="main-navigation">
           <button aria-expanded="false" class="hamburger">
             <div></div>
-            Menu
+            <span class="bcgov-button-text">Menu</span>
           </button>
         </bcgov-button>
       </header>

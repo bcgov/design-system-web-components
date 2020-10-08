@@ -20,7 +20,7 @@ describe("bcgov-menu", () => {
                 <a href="style1.html">Test3</a>
                 <a href="style2.html">Test4</a>
               </bcgov-menu>
-            </bcgov-menu>`
+            </bcgov-menu>`,
     });
 
     expect(page.root).toEqualHtml(`
@@ -35,7 +35,10 @@ describe("bcgov-menu", () => {
           </a>
         </li>
         <bcgov-menu active="" aria-expanded="false" aria-haspopup="true" aria-label="Components" aria-selected="false" class="active expandable" href="https://gov.bc.ca" name="Components" role="menuitem" tabindex="-1">
-          <div><a href="https://gov.bc.ca" tabindex="-1">Components</a></div>
+          <div>
+            <a href="https://gov.bc.ca" tabindex="-1">Components</a>
+            <span></span>
+          </div>
           <ul aria-hidden="true" role="menu">
             <li aria-label="Test3" role="menuitem" tabindex="-1">
               <a aria-hidden="true" href="test3.html" tabindex="-1">Test3</a>
@@ -46,7 +49,10 @@ describe("bcgov-menu", () => {
           </ul>
         </bcgov-menu>
         <bcgov-menu aria-expanded="false" aria-haspopup="true" aria-label="Styles" aria-selected="false" class="expandable" href="https://gov.bc.ca/styles" name="Styles" role="menuitem" tabindex="-1">
-        <div><a href="https://gov.bc.ca/styles" tabindex="-1">Styles</a></div>
+        <div>
+          <a href="https://gov.bc.ca/styles" tabindex="-1">Styles</a>
+          <span></span>
+        </div>
         <ul aria-hidden="true" role="menu">
           <li aria-label="Test3" role="menuitem" tabindex="-1">
             <a aria-hidden="true" href="style1.html" tabindex="-1">Test3</a>
