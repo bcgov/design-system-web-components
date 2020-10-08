@@ -4,6 +4,11 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 const core = require('./core-5a7012d7.js');
 
+/*!
+ * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -501,9 +506,12 @@ function makeInlineSvgAbstract(params) {
       width = _ref.width,
       height = _ref.height;
 
-  var widthClass = "fa-w-".concat(Math.ceil(width / height * 16));
+  var isUploadedIcon = prefix === 'fak';
+  var widthClass = isUploadedIcon ? '' : "fa-w-".concat(Math.ceil(width / height * 16));
   var attrClass = [config.replacementClass, iconName ? "".concat(config.familyPrefix, "-").concat(iconName) : '', widthClass].filter(function (c) {
     return extra.classes.indexOf(c) === -1;
+  }).filter(function (c) {
+    return c !== '' || !!c;
   }).concat(extra.classes).join(' ');
   var content = {
     children: [],
@@ -516,6 +524,9 @@ function makeInlineSvgAbstract(params) {
       'viewBox': "0 0 ".concat(width, " ").concat(height)
     })
   };
+  var uploadedIconWidthStyle = isUploadedIcon && !~extra.classes.indexOf('fa-fw') ? {
+    width: "".concat(width / height * 16 * 0.0625, "em")
+  } : {};
 
   if (watchable) {
     content.attributes[DATA_FA_I2SVG] = '';
@@ -537,7 +548,7 @@ function makeInlineSvgAbstract(params) {
     maskId: maskId,
     transform: transform,
     symbol: symbol,
-    styles: extra.styles
+    styles: _objectSpread({}, uploadedIconWidthStyle, extra.styles)
   });
 
   var _ref2 = mask.found && main.found ? makeIconMasking(args) : makeIconStandard(args),
@@ -1020,6 +1031,10 @@ var icon = resolveIcons(function (iconDefinition) {
   });
 });
 
+/*!
+ * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
 var faSearch = {
   prefix: 'fas',
   iconName: 'search',
