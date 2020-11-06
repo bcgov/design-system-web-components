@@ -901,9 +901,9 @@ var BcgovButton = /** @class */ (function () {
             library.add(faSearch);
             var buttonElement = this.el.querySelector("button");
             var faIcon = icon(faSearch).html[0];
-            buttonElement.innerHTML = "<span class=\"bcgov-svg-icon\">" + faIcon + "</span><span class=\"bcgov-button-text\">" + buttonElement.innerHTML + "</span>";
+            buttonElement.innerHTML = "<span class=\"bcgov-svg-icon\">" + faIcon + "</span>" + buttonElement.innerHTML;
         }
-        else {
+        else if ("search-inline-close" === buttonStyle) {
             var buttonElement = this.el.querySelector("button");
             buttonElement.innerHTML = "<span class=\"bcgov-button-text\">" + buttonElement.innerHTML + "</span>";
         }

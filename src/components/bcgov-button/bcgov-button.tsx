@@ -52,8 +52,8 @@ export class BcgovButton {
       library.add(faSearch);
       const buttonElement = this.el.querySelector("button");
       const faIcon: string = icon(faSearch).html[0];
-      buttonElement.innerHTML = `<span class="bcgov-svg-icon">${faIcon}</span><span class="bcgov-button-text">${buttonElement.innerHTML}</span>`;
-    } else if ( "search-inline-close" ){
+      buttonElement.innerHTML = `<span class="bcgov-svg-icon">${faIcon}</span>${buttonElement.innerHTML}`;
+    } else if ( "search-inline-close" === buttonStyle ){
       const buttonElement = this.el.querySelector("button");
       buttonElement.innerHTML = `<span class="bcgov-button-text">${buttonElement.innerHTML}</span>`
     }
@@ -143,7 +143,6 @@ export class BcgovButton {
     
   }
 
- 
 
   render() {
     let btnStyle = `${this.buttonStyle}`;
