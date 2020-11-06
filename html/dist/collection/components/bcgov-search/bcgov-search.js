@@ -21,6 +21,11 @@ export class BcgovSearch {
             this.el.classList.remove("is-search-desktop");
         }
     }
+    onKeyPress(event) {
+        if (event.which === 10 || event.which === 13) {
+            event.target.closest('form').submit();
+        }
+    }
     render() {
         return (h(Host, { class: "bcgov-search" },
             h("div", { class: "search-container" },
@@ -48,4 +53,11 @@ export class BcgovSearch {
         }
     }; }
     static get elementRef() { return "el"; }
+    static get listeners() { return [{
+            "name": "keypress",
+            "method": "onKeyPress",
+            "target": undefined,
+            "capture": false,
+            "passive": false
+        }]; }
 }

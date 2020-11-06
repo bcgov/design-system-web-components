@@ -13,7 +13,7 @@ Search form.
 <bcgov-button button-style="search" data-target="search-navigation-example">Search</bcgov-button>
 <bcgov-search id="search-navigation-example">
   <form>
-    <input type="search" placeholder="Search" />
+    <input type="search" placeholder="Search" value="something" />
     <bcgov-button button-style="search-inline-close" >Close</bcgov-button>
     <bcgov-button button-style="search-inline">Search</bcgov-button>
   </form>

@@ -4,5 +4,6 @@ export declare class BcgovSearch {
     breakpoint: number;
     componentWillLoad(): void;
     isSearchMobile(): void;
+    onKeyPress(event: any): void;
     render(): any;
 }

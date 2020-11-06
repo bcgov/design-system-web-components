@@ -22,6 +22,11 @@ var BcgovSearch = /** @class */ (function () {
             this.el.classList.remove("is-search-desktop");
         }
     };
+    class_1.prototype.onKeyPress = function (event) {
+        if (event.which === 10 || event.which === 13) {
+            event.target.closest('form').submit();
+        }
+    };
     class_1.prototype.render = function () {
         return (h(Host, { class: "bcgov-search" }, h("div", { class: "search-container" }, h("slot", null))));
     };

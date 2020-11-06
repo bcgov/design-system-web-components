@@ -27,6 +27,11 @@ const BcgovSearch = class {
             this.el.classList.remove("is-search-desktop");
         }
     }
+    onKeyPress(event) {
+        if (event.which === 10 || event.which === 13) {
+            event.target.closest('form').submit();
+        }
+    }
     render() {
         return (core.h(core.Host, { class: "bcgov-search" }, core.h("div", { class: "search-container" }, core.h("slot", null))));
     }

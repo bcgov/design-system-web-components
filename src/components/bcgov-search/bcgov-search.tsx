@@ -1,4 +1,4 @@
-import { Component, Host, h, Element, Prop } from "@stencil/core";
+import { Component, Host, h, Element, Prop, Listen } from "@stencil/core";
 
 @Component({
   tag: "bcgov-search",
@@ -24,6 +24,13 @@ export class BcgovSearch {
       }
     } else {
       this.el.classList.remove("is-search-desktop");
+    }
+  }
+
+  @Listen('keypress')
+  onKeyPress( event ) {
+    if ( event.which === 10 || event.which === 13){
+      event.target.closest('form').submit()
     }
   }
 

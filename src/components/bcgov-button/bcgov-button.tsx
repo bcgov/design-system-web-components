@@ -143,6 +143,8 @@ export class BcgovButton {
     
   }
 
+ 
+
   render() {
     let btnStyle = `${this.buttonStyle}`;
     if (this.el.hasAttribute("active")) {
