@@ -1068,6 +1068,10 @@ const BcgovButton = class {
             const faIcon = icon(faSearch).html[0];
             buttonElement.innerHTML = `<span class="bcgov-svg-icon">${faIcon}</span><span class="bcgov-button-text">${buttonElement.innerHTML}</span>`;
         }
+        else {
+            const buttonElement = this.el.querySelector("button");
+            buttonElement.innerHTML = `<span class="bcgov-button-text">${buttonElement.innerHTML}</span>`;
+        }
     }
     componentWillLoad() {
         if (null !== this.dataTarget) {
@@ -1115,7 +1119,7 @@ const BcgovButton = class {
         }
         return isdesktop;
     }
-    onClick() {
+    onClick(event) {
         if (null !== this.dataTarget) {
             const element = document.getElementById(this.dataTarget);
             const button = this.el.querySelector("button");
@@ -1130,6 +1134,17 @@ const BcgovButton = class {
                     element.classList.add("target-hidden");
                 }
             }
+        }
+        if ('search-inline-close' === this.buttonStyle) {
+            const element = this.el.closest('bcgov-search');
+            if (element.classList.contains("target-hidden")) {
+                element.classList.remove("target-hidden");
+            }
+            else {
+                element.classList.add("target-hidden");
+            }
+            event.preventDefault();
+            return false;
         }
     }
     render() {

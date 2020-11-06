@@ -9,11 +9,12 @@ author: sturple
 Search form.
 
 ## Example 1 (with button)
-<div style="position: relative;">
-<bcgov-button button-style="search" target="search-navigation-example">Search</bcgov-button>
+<div style="position: relative; background-color: #ccc; padding: 1rem;" >
+<bcgov-button button-style="search" data-target="search-navigation-example">Search</bcgov-button>
 <bcgov-search id="search-navigation-example">
   <form>
     <input type="search" placeholder="Search" />
+    <bcgov-button button-style="search-inline-close" >Close</bcgov-button>
     <bcgov-button button-style="search-inline">Search</bcgov-button>
   </form>
 </bcgov-search>

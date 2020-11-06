@@ -6,7 +6,7 @@ export declare class BcgovButton {
     /** Add a callback to handle events */
     eventHandler: Function;
     /** Style of button */
-    buttonStyle: "primary" | "secondary" | "dark" | "hamburger" | "search" | "search-inline";
+    buttonStyle: "primary" | "secondary" | "dark" | "hamburger" | "search" | "search-inline" | "search-inline-close";
     /** A tag target */
     target: "_self" | "_blank" | "_parent" | "_top" | null;
     /** Target, only used on hamburger and search */
@@ -18,6 +18,6 @@ export declare class BcgovButton {
     componentWillLoad(): void;
     getParentBreakpoint(): number;
     isDesktop(): boolean;
-    onClick(): void;
+    onClick(event: any): boolean;
     render(): any;
 }

@@ -30,7 +30,8 @@ export class BcgovButton {
     | "dark"
     | "hamburger"
     | "search"
-    | "search-inline" = "primary";
+    | "search-inline" 
+    | "search-inline-close" = "primary";
 
   /** A tag target */
   @Prop() target: "_self" | "_blank" | "_parent" | "_top" | null = null;
@@ -52,6 +53,9 @@ export class BcgovButton {
       const buttonElement = this.el.querySelector("button");
       const faIcon: string = icon(faSearch).html[0];
       buttonElement.innerHTML = `<span class="bcgov-svg-icon">${faIcon}</span><span class="bcgov-button-text">${buttonElement.innerHTML}</span>`;
+    } else if ( "search-inline-close" ){
+      const buttonElement = this.el.querySelector("button");
+      buttonElement.innerHTML = `<span class="bcgov-button-text">${buttonElement.innerHTML}</span>`
     }
   }
   componentWillLoad() {
@@ -83,6 +87,7 @@ export class BcgovButton {
         self.isDesktop();
       });
     }
+    
   }
 
   getParentBreakpoint() {
@@ -107,7 +112,7 @@ export class BcgovButton {
   }
 
   @Listen("click")
-  onClick() {
+  onClick( event ) {
     if (null !== this.dataTarget) {
       const element = document.getElementById(this.dataTarget);
       const button = this.el.querySelector("button");
@@ -125,6 +130,17 @@ export class BcgovButton {
         }
       }
     }
+    if ('search-inline-close' === this.buttonStyle ){
+      const element = this.el.closest('bcgov-search');
+      if (element.classList.contains("target-hidden")) {
+        element.classList.remove("target-hidden");
+      } else {
+        element.classList.add("target-hidden");
+      }
+      event.preventDefault();
+      return false;
+    }
+    
   }
 
   render() {

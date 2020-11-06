@@ -27,6 +27,10 @@ export class BcgovButton {
             const faIcon = icon(faSearch).html[0];
             buttonElement.innerHTML = `<span class="bcgov-svg-icon">${faIcon}</span><span class="bcgov-button-text">${buttonElement.innerHTML}</span>`;
         }
+        else if ("search-inline-close") {
+            const buttonElement = this.el.querySelector("button");
+            buttonElement.innerHTML = `<span class="bcgov-button-text">${buttonElement.innerHTML}</span>`;
+        }
     }
     componentWillLoad() {
         if (null !== this.dataTarget) {
@@ -76,7 +80,7 @@ export class BcgovButton {
         }
         return isdesktop;
     }
-    onClick() {
+    onClick(event) {
         if (null !== this.dataTarget) {
             const element = document.getElementById(this.dataTarget);
             const button = this.el.querySelector("button");
@@ -91,6 +95,17 @@ export class BcgovButton {
                     element.classList.add("target-hidden");
                 }
             }
+        }
+        if ('search-inline-close' === this.buttonStyle) {
+            const element = this.el.closest('bcgov-search');
+            if (element.classList.contains("target-hidden")) {
+                element.classList.remove("target-hidden");
+            }
+            else {
+                element.classList.add("target-hidden");
+            }
+            event.preventDefault();
+            return false;
         }
     }
     render() {
@@ -193,8 +208,8 @@ export class BcgovButton {
             "type": "string",
             "mutable": false,
             "complexType": {
-                "original": "| \"primary\"\n    | \"secondary\"\n    | \"dark\"\n    | \"hamburger\"\n    | \"search\"\n    | \"search-inline\"",
-                "resolved": "\"dark\" | \"hamburger\" | \"primary\" | \"search\" | \"search-inline\" | \"secondary\"",
+                "original": "| \"primary\"\n    | \"secondary\"\n    | \"dark\"\n    | \"hamburger\"\n    | \"search\"\n    | \"search-inline\" \n    | \"search-inline-close\"",
+                "resolved": "\"dark\" | \"hamburger\" | \"primary\" | \"search\" | \"search-inline\" | \"search-inline-close\" | \"secondary\"",
                 "references": {}
             },
             "required": false,

@@ -150,14 +150,14 @@ In addition to [fundamental accessibility]() requirements, this component meets 
 
 ## Properties
 
-| Property       | Attribute       | Description                               | Type                                                                               | Default                     |
-| -------------- | --------------- | ----------------------------------------- | ---------------------------------------------------------------------------------- | --------------------------- |
-| `buttonStyle`  | `button-style`  | Style of button                           | `"dark" \| "hamburger" \| "primary" \| "search" \| "search-inline" \| "secondary"` | `"primary"`                 |
-| `dataTarget`   | `data-target`   | Target, only used on hamburger and search | `string`                                                                           | `null`                      |
-| `eventHandler` | --              | Add a callback to handle events           | `Function`                                                                         | `this.eventHandlerFunction` |
-| `link`         | `link`          | The action of the button.                 | `string`                                                                           | `"button"`                  |
-| `target`       | `target`        | A tag target                              | `"_blank" \| "_parent" \| "_self" \| "_top"`                                       | `null`                      |
-| `targetHidden` | `target-hidden` | default state of button if applicable     | `string`                                                                           | `"false"`                   |
+| Property       | Attribute       | Description                               | Type                                                                                                        | Default                     |
+| -------------- | --------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------- | --------------------------- |
+| `buttonStyle`  | `button-style`  | Style of button                           | `"dark" \| "hamburger" \| "primary" \| "search" \| "search-inline" \| "search-inline-close" \| "secondary"` | `"primary"`                 |
+| `dataTarget`   | `data-target`   | Target, only used on hamburger and search | `string`                                                                                                    | `null`                      |
+| `eventHandler` | --              | Add a callback to handle events           | `Function`                                                                                                  | `this.eventHandlerFunction` |
+| `link`         | `link`          | The action of the button.                 | `string`                                                                                                    | `"button"`                  |
+| `target`       | `target`        | A tag target                              | `"_blank" \| "_parent" \| "_self" \| "_top"`                                                                | `null`                      |
+| `targetHidden` | `target-hidden` | default state of button if applicable     | `string`                                                                                                    | `"false"`                   |
 
 
 ----------------------------------------------

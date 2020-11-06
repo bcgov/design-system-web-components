@@ -65,6 +65,20 @@ bcgov-search,
               display: none;
             }
           }
+          &[button-style="search-inline-close"] {
+            button {
+              background-color: transparent;
+              border: 0;
+            }
+
+            .bcgov-button-text {
+              font-size: 0;
+              &:after {
+                content: ">";
+                font-size: 1rem;
+              }
+            }
+          }
         }
       }
     }

@@ -903,6 +903,10 @@ var BcgovButton = /** @class */ (function () {
             var faIcon = icon(faSearch).html[0];
             buttonElement.innerHTML = "<span class=\"bcgov-svg-icon\">" + faIcon + "</span><span class=\"bcgov-button-text\">" + buttonElement.innerHTML + "</span>";
         }
+        else {
+            var buttonElement = this.el.querySelector("button");
+            buttonElement.innerHTML = "<span class=\"bcgov-button-text\">" + buttonElement.innerHTML + "</span>";
+        }
     };
     class_1.prototype.componentWillLoad = function () {
         if (null !== this.dataTarget) {
@@ -951,7 +955,7 @@ var BcgovButton = /** @class */ (function () {
         }
         return isdesktop;
     };
-    class_1.prototype.onClick = function () {
+    class_1.prototype.onClick = function (event) {
         if (null !== this.dataTarget) {
             var element = document.getElementById(this.dataTarget);
             var button = this.el.querySelector("button");
@@ -966,6 +970,17 @@ var BcgovButton = /** @class */ (function () {
                     element.classList.add("target-hidden");
                 }
             }
+        }
+        if ('search-inline-close' === this.buttonStyle) {
+            var element = this.el.closest('bcgov-search');
+            if (element.classList.contains("target-hidden")) {
+                element.classList.remove("target-hidden");
+            }
+            else {
+                element.classList.add("target-hidden");
+            }
+            event.preventDefault();
+            return false;
         }
     };
     class_1.prototype.render = function () {

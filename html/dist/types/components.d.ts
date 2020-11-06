@@ -23,7 +23,8 @@ export namespace Components {
     | "dark"
     | "hamburger"
     | "search"
-    | "search-inline";
+    | "search-inline"
+    | "search-inline-close";
     /**
     * Target, only used on hamburger and search
     */
@@ -210,7 +211,8 @@ declare namespace LocalJSX {
     | "dark"
     | "hamburger"
     | "search"
-    | "search-inline";
+    | "search-inline"
+    | "search-inline-close";
     /**
     * Target, only used on hamburger and search
     */
