@@ -40,22 +40,26 @@ bcgov-header,
   }
 
   .access {
-    display: block;
-    position: absolute;
-    height: 40px;
-    width: 150px;
-    left: 5px;
-    top: 5px;
+    position: relative;
+    height: 0;
+    width: 0;
     font-size: 0.8rem;
-
     a {
-      max-width: 150px;
-      position: absolute;
+      width: 0;
+      position: fixed;
       display: block;
       padding: 5px;
       opacity: 0;
+      top: 5px;
+      z-index: -1;
       &:focus {
         opacity: 1;
+        background-color: #fff;
+        text-align: center;
+        width: 150px;
+        height: 50px;
+        color: inherit;
+        z-index: 9999999;
       }
     }
   }
