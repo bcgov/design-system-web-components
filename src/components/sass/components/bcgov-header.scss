@@ -41,16 +41,16 @@ bcgov-header,
 
   .access {
     position: relative;
-    height: 0;
+    height: 100%;
     width: 0;
     font-size: 0.8rem;
     a {
       width: 0;
-      position: fixed;
+      position: absolute;
       display: block;
       padding: 5px;
       opacity: 0;
-      top: 5px;
+      top: 2px;
       z-index: -1;
       &:focus {
         opacity: 1;
@@ -59,7 +59,7 @@ bcgov-header,
         width: 150px;
         height: 50px;
         color: inherit;
-        z-index: 9999999;
+        z-index: 1;
       }
     }
   }
