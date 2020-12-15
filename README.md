@@ -1,12 +1,6 @@
----
-description: How to install web components.
-title:  BCGov Web Components.
-author: sturple
----
+![img](https://img.shields.io/badge/Lifecycle-Maturing-007EC6)
 
 # BCGov Design System Web Components
-
-[![img](https://img.shields.io/badge/Lifecycle-Maturing-007EC6)]
 
 ## Install
 
