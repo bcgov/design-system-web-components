@@ -45,11 +45,8 @@ const BcgovMenu = class {
                 submenu.setAttribute("aria-hidden", expanded ? "false" : "true");
                 if (expanded) {
                     const firstFocus = target.querySelector("ul > li:first-child");
-                    firstFocus.setAttribute("tabindex", "-1");
-                    firstFocus.focus();
-                }
-                else {
-                    this.el.focus();
+                    firstFocus.setAttribute("tabindex", "0");
+                    //firstFocus.focus();
                 }
             }
         };
@@ -126,7 +123,7 @@ const BcgovMenu = class {
     onMouseEnter(ev) {
         if (this.isDesktop() && this.allowHover) {
             const element = ev.target;
-            element.focus();
+            //element.focus();
             this.showSubmenu(element, true);
         }
     }
@@ -166,11 +163,14 @@ const BcgovMenu = class {
                     event.preventDefault();
                     event.stopPropagation();
                     this.showSubmenu(this.el, true);
+                    const firstFocus = this.el.querySelector("ul > li:first-child");
+                    firstFocus.focus();
                     break;
                 case utils.keys.esc:
                     event.preventDefault();
                     event.stopPropagation();
                     this.showSubmenu(this.el, false);
+                    this.el.focus();
                     break;
                 case utils.keys.right:
                     event.preventDefault();

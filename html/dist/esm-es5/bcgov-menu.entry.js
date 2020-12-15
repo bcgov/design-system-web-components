@@ -40,11 +40,8 @@ var BcgovMenu = /** @class */ (function () {
                 submenu.setAttribute("aria-hidden", expanded ? "false" : "true");
                 if (expanded) {
                     var firstFocus = target.querySelector("ul > li:first-child");
-                    firstFocus.setAttribute("tabindex", "-1");
-                    firstFocus.focus();
-                }
-                else {
-                    _this.el.focus();
+                    firstFocus.setAttribute("tabindex", "0");
+                    //firstFocus.focus();
                 }
             }
         };
@@ -121,7 +118,7 @@ var BcgovMenu = /** @class */ (function () {
     class_1.prototype.onMouseEnter = function (ev) {
         if (this.isDesktop() && this.allowHover) {
             var element = ev.target;
-            element.focus();
+            //element.focus();
             this.showSubmenu(element, true);
         }
     };
@@ -161,11 +158,14 @@ var BcgovMenu = /** @class */ (function () {
                     event.preventDefault();
                     event.stopPropagation();
                     this.showSubmenu(this.el, true);
+                    var firstFocus = this.el.querySelector("ul > li:first-child");
+                    firstFocus.focus();
                     break;
                 case keys.esc:
                     event.preventDefault();
                     event.stopPropagation();
                     this.showSubmenu(this.el, false);
+                    this.el.focus();
                     break;
                 case keys.right:
                     event.preventDefault();

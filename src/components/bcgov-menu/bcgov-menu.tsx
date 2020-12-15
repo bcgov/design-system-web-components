@@ -134,7 +134,7 @@ export class BcgovMenu {
   onMouseEnter(ev: Event) {
     if (this.isDesktop() && this.allowHover) {
       const element = ev.target as HTMLElement;
-      element.focus();
+      //element.focus();
       this.showSubmenu(element, true);
     }
   }
@@ -183,11 +183,16 @@ export class BcgovMenu {
           event.preventDefault();
           event.stopPropagation();
           this.showSubmenu(this.el, true);
+          const firstFocus: HTMLElement = this.el.querySelector(
+            "ul > li:first-child"
+          );
+          firstFocus.focus();
           break;
         case keys.esc:
           event.preventDefault();
           event.stopPropagation();
           this.showSubmenu(this.el, false);
+          this.el.focus();
           break;
         case keys.right:
           event.preventDefault();
@@ -267,10 +272,10 @@ export class BcgovMenu {
         const firstFocus: HTMLElement = target.querySelector(
           "ul > li:first-child"
         );
-        firstFocus.setAttribute("tabindex", "-1");
-        firstFocus.focus();
+        firstFocus.setAttribute("tabindex", "0");
+        //firstFocus.focus();
       } else {
-        this.el.focus();
+        //this.el.focus();
       }
     }
   };

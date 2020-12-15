@@ -39,11 +39,11 @@ export class BcgovMenu {
                 submenu.setAttribute("aria-hidden", expanded ? "false" : "true");
                 if (expanded) {
                     const firstFocus = target.querySelector("ul > li:first-child");
-                    firstFocus.setAttribute("tabindex", "-1");
-                    firstFocus.focus();
+                    firstFocus.setAttribute("tabindex", "0");
+                    //firstFocus.focus();
                 }
                 else {
-                    this.el.focus();
+                    //this.el.focus();
                 }
             }
         };
@@ -120,7 +120,7 @@ export class BcgovMenu {
     onMouseEnter(ev) {
         if (this.isDesktop() && this.allowHover) {
             const element = ev.target;
-            element.focus();
+            //element.focus();
             this.showSubmenu(element, true);
         }
     }
@@ -160,11 +160,14 @@ export class BcgovMenu {
                     event.preventDefault();
                     event.stopPropagation();
                     this.showSubmenu(this.el, true);
+                    const firstFocus = this.el.querySelector("ul > li:first-child");
+                    firstFocus.focus();
                     break;
                 case keys.esc:
                     event.preventDefault();
                     event.stopPropagation();
                     this.showSubmenu(this.el, false);
+                    this.el.focus();
                     break;
                 case keys.right:
                     event.preventDefault();
