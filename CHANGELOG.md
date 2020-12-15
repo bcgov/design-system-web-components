@@ -1,3 +1,9 @@
+### 1.1.4 December 15, 2020
+* Accessibility updates.
+* Updated Readme.md
+* style updates.
+
+
 ### 1.1.3 September 23, 2020
 * Menu updates
     * Adding option for hoverover or click menu
