@@ -72,7 +72,7 @@ export class BcgovHeader {
 
   render() {
     return (
-      <Host class="bcgov-header">
+      <Host className="bcgov-header">
         <header>
           {this.getImage()}
           <slot></slot>

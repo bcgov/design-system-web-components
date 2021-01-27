@@ -58,7 +58,7 @@ const BcgovHeader = class {
         }
     }
     render() {
-        return (h(Host, { class: "bcgov-header" }, h("header", null, this.getImage(), h("slot", null))));
+        return (h(Host, { className: "bcgov-header" }, h("header", null, this.getImage(), h("slot", null))));
     }
     static get assetsDirs() { return ["../../assets"]; }
     get el() { return getElement(this); }

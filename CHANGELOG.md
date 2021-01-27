@@ -1,3 +1,7 @@
+### 1.2.0 January 30, 2021
+* Making some of the styles for forms simpler, removing bcgov-forms and just using .bcgov-forms.
+* updating form input accessibility.
+
 ### 1.1.4 December 15, 2020
 * Accessibility updates.
 * Updated Readme.md

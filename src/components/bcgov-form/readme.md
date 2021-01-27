@@ -9,7 +9,7 @@ author: dlevineBC
 
 ## Example 1 - Inline
 ### Component
-
+<div>
 <bcgov-form >
     <form >
         <ul>
@@ -42,10 +42,11 @@ author: dlevineBC
         </ul>
     </form>
 </bcgov-form>
+</div>
 
 ## Example 2 - Block list
 ### Component
-
+<div>
 <form class="form-styles">
     <ul>
         <li>
@@ -81,11 +82,12 @@ author: dlevineBC
         <li> <input type="submit" value="submit" /></li>
     </ul>
 </form>
-
+</div>
 
 
 ## Example 2 - Block list
 ### Component
+<div>
 <bcgov-form >
     <form >
         <div>
@@ -118,7 +120,7 @@ author: dlevineBC
         <div> <input type="submit" value="submit" /></div>
     </form>
 </bcgov-form>
-
+</div>
 
 ## Example 2 - Block div
 ### Component

@@ -18,7 +18,7 @@ var BcgovFooter = /** @class */ (function () {
     };
     class_1.prototype.render = function () {
         var classes = "bcgov-footer" /*+ " align-" + this.alignment*/;
-        var props = { role: "footer", class: classes };
+        var props = { role: "footer", className: classes };
         return (h(Host, Object.assign({}, props), h("slot", null), this.getImage()));
     };
     return class_1;
