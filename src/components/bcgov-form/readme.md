@@ -46,7 +46,7 @@ author: dlevineBC
 
 ## Example 2 - Block list
 ### Component
-<div>
+
 <form class="form-styles">
     <ul>
         <li>
@@ -82,47 +82,43 @@ author: dlevineBC
         <li> <input type="submit" value="submit" /></li>
     </ul>
 </form>
-</div>
+
 
 
 ## Example 2 - Block list
 ### Component
-<div>
-<bcgov-form >
-    <form >
-        <div>
-            <input type="radio" name="radio_input" /><label>First Choice</label>
-            <input type="radio" name="radio_input" /><label>Second Choice</label>
-            <input type="radio" name="radio_input" /><label>Third Choice</label>
-        </div>
-        <div>
-            <label>My Text Element</label>
-            <input type="text"  value="" placeholder="My Text Element" />
-        </div>
-        <div>
-            <label>My Textarea Element</label>
-            <textarea>This is my content</textarea>
-        </div>
-        <div>
-            <input type="checkbox" checked ><label>Checkbox 1</label>
-            <input type="checkbox" ><label>Checkbox 2</label>
-            <input type="checkbox" ><label>Checkbox 3</label>
-        </div>
-        <div>
-            <label>Select option</label>
-            <select>
-                <option value="">Select Option</option>
-                <option value="one">One</option>
-                <option value="two">Two</option>
-                <option value="none">Has a long option</option>
-            </select>
-        </div>
-        <div> <input type="submit" value="submit" /></div>
-    </form>
-</bcgov-form>
-</div>
+<form >
+    <div>
+        <input type="radio" name="radio_input" /><label>First Choice</label>
+        <input type="radio" name="radio_input" /><label>Second Choice</label>
+        <input type="radio" name="radio_input" /><label>Third Choice</label>
+    </div>
+    <div>
+        <label>My Text Element</label>
+        <input type="text"  value="" placeholder="My Text Element" />
+    </div>
+    <div>
+        <label>My Textarea Element</label>
+        <textarea>This is my content</textarea>
+    </div>
+    <div>
+        <input type="checkbox" checked ><label>Checkbox 1</label>
+        <input type="checkbox" ><label>Checkbox 2</label>
+        <input type="checkbox" ><label>Checkbox 3</label>
+    </div>
+    <div>
+        <label>Select option</label>
+        <select>
+            <option value="">Select Option</option>
+            <option value="one">One</option>
+            <option value="two">Two</option>
+            <option value="none">Has a long option</option>
+        </select>
+    </div>
+    <div> <input type="submit" value="submit" /></div>
+</form>
 
-## Example 2 - Block div
+## Example 2 - Block div no styles.
 ### Component
 
 <form class="no-styles" >
@@ -134,6 +130,28 @@ author: dlevineBC
         </li>
         <li> <input type="submit" value="submit" /></li>
     </ul>
+     <div>
+        <label>My Text Element</label>
+        <input type="text"  value="" placeholder="My Text Element" />
+    </div>
+    <div>
+        <label>My Textarea Element</label>
+        <textarea>This is my content</textarea>
+    </div>
+    <div>
+        <input type="checkbox" checked ><label>Checkbox 1</label>
+        <input type="checkbox" ><label>Checkbox 2</label>
+        <input type="checkbox" ><label>Checkbox 3</label>
+    </div>
+    <div>
+        <label>Select option</label>
+        <select>
+            <option value="">Select Option</option>
+            <option value="one">One</option>
+            <option value="two">Two</option>
+            <option value="none">Has a long option</option>
+        </select>
+    </div>
 </form>
 
 
