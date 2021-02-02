@@ -28,14 +28,14 @@ describe("bcgov-header", () => {
       `,
     });
     expect(page.root).toEqualHtml(`
-    <bcgov-header logo="" class="bcgov-header">
+    <bcgov-header logo="" class="bcgov-header" className="bcgov-header" >
       <header>
         <div class="banner">
           <a class="branding-logo" aria-label="branding logo" href="https://www2.gov.bc.ca/gov/content/home">
             <img src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF" alt="Branding logo">
           </a>
         </div>
-        <div class="headline">DevHub<bcgov-beta class="bcgov-beta " aria-label="This Application is currently in Beta Phase" aria-role="alert" tabindex="0">Beta</bcgov-beta></div>
+        <div class="headline">DevHub<bcgov-beta class="bcgov-beta " aria-label="This Application is currently in Beta Phase" role="alert" tabindex="0">Beta</bcgov-beta></div>
         <div aria="" class="access">
           <a href="#main-navigation" aria-label="Skip to navigation">Skip to navigation</a>
           <a href="#main-content" aria-label="Skip to Contents">Skip to Contents</a>

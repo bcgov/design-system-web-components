@@ -17,7 +17,7 @@ export class BcgovBeta {
       <Host
         class="bcgov-beta"
         aria-label={this.content}
-        aria-role="alert"
+        role="alert"
         tabindex="0"
       ></Host>
     );

@@ -10,7 +10,7 @@ var BcgovBeta = /** @class */ (function () {
         this.el.innerHTML = this.label;
     };
     class_1.prototype.render = function () {
-        return (h(Host, { class: "bcgov-beta", "aria-label": this.content, "aria-role": "alert", tabindex: "0" }));
+        return (h(Host, { class: "bcgov-beta", "aria-label": this.content, role: "alert", tabindex: "0" }));
     };
     Object.defineProperty(class_1.prototype, "el", {
         get: function () { return getElement(this); },

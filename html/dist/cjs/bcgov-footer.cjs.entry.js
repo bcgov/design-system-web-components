@@ -23,7 +23,7 @@ const BcgovFooter = class {
     }
     render() {
         const classes = "bcgov-footer" /*+ " align-" + this.alignment*/;
-        const props = { role: "footer", className: classes };
+        const props = { className: classes };
         return (core.h(core.Host, Object.assign({}, props), core.h("slot", null), this.getImage()));
     }
 };

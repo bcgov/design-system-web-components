@@ -25,7 +25,7 @@ describe("bcgov-menu", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <bcgov-menu class="is-desktop">
+    <bcgov-menu class="is-desktop" >
       <ul class="align-left" role="menubar" tabindex="0" >
         <li aria-label="Test" role="menuitem" tabindex="-1">
           <a aria-hidden="true" href="test.html" tabindex="-1">Test</a>
@@ -35,7 +35,7 @@ describe("bcgov-menu", () => {
             <span>Adding span</span>
           </a>
         </li>
-        <bcgov-menu active="" aria-expanded="false" aria-haspopup="true" aria-label="Components" aria-selected="false" class="active expandable" href="https://gov.bc.ca" name="Components" role="menuitem" tabindex="-1">
+        <bcgov-menu active="" aria-expanded="false" aria-haspopup="true" aria-label="Components"  class="active expandable" href="https://gov.bc.ca" name="Components" role="menuitem" tabindex="-1">
           <div>
             <a href="https://gov.bc.ca" tabindex="-1">Components</a>
             <span></span>
@@ -49,7 +49,7 @@ describe("bcgov-menu", () => {
             </li>
           </ul>
         </bcgov-menu>
-        <bcgov-menu aria-expanded="false" aria-haspopup="true" aria-label="Styles" aria-selected="false" class="expandable" href="https://gov.bc.ca/styles" name="Styles" role="menuitem" tabindex="-1">
+        <bcgov-menu aria-expanded="false" aria-haspopup="true" aria-label="Styles"  class="expandable" href="https://gov.bc.ca/styles" name="Styles" role="menuitem" tabindex="-1">
         <div>
           <a href="https://gov.bc.ca/styles" tabindex="-1">Styles</a>
           <span></span>
@@ -68,7 +68,7 @@ describe("bcgov-menu", () => {
     `);
   });
 
-  it("Render Menu", async () => {
+  it("Render Menu 2", async () => {
     const page = await newSpecPage({
       components: [BcgovMenu, BcgovHeader],
       html: `<bcgov-header><bcgov-menu  >
@@ -86,7 +86,7 @@ describe("bcgov-menu", () => {
     });
 
     expect(page.root).toEqualHtml(`
-    <bcgov-header class="bcgov-header">
+    <bcgov-header class="bcgov-header" className="bcgov-header" >
       <header>
         <bcgov-menu class="is-desktop">
           <ul class="align-left" role="menubar" tabindex="0" >
@@ -98,7 +98,7 @@ describe("bcgov-menu", () => {
                 <span>Adding span</span>
               </a>
             </li>
-            <bcgov-menu active="" aria-expanded="false" aria-haspopup="true" aria-label="Components" aria-selected="false" class="active expandable" href="https://gov.bc.ca" name="Components" role="menuitem" tabindex="-1">
+            <bcgov-menu active="" aria-expanded="false" aria-haspopup="true" aria-label="Components"  class="active expandable" href="https://gov.bc.ca" name="Components" role="menuitem" tabindex="-1">
               <div>
                 <a href="https://gov.bc.ca" tabindex="-1">Components</a>
                 <span></span>
@@ -112,7 +112,7 @@ describe("bcgov-menu", () => {
                 </li>
               </ul>
             </bcgov-menu>
-            <bcgov-menu aria-expanded="false" aria-haspopup="true" aria-label="Styles" aria-selected="false" class="expandable" href="https://gov.bc.ca/styles" name="Styles" role="menuitem" tabindex="-1">
+            <bcgov-menu aria-expanded="false" aria-haspopup="true" aria-label="Styles"  class="expandable" href="https://gov.bc.ca/styles" name="Styles" role="menuitem" tabindex="-1">
             <div>
               <a href="https://gov.bc.ca/styles" tabindex="-1">Styles</a>
               <span></span>

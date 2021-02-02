@@ -33,7 +33,6 @@ export class BcgovMenu {
             }
             target.setAttribute("aria-expanded", expanded ? "true" : "false");
             target.setAttribute("tabindex", expanded ? "-1" : "0");
-            target.setAttribute("aria-selected", expanded ? "true" : "false");
             const submenu = target.querySelector("ul");
             if (null !== submenu) {
                 submenu.setAttribute("aria-hidden", expanded ? "false" : "true");
@@ -69,7 +68,6 @@ export class BcgovMenu {
         if (this.isSubmenu) {
             this.el.setAttribute("aria-haspopup", true);
             this.el.setAttribute("aria-expanded", false);
-            this.el.setAttribute("aria-selected", false);
             this.el.setAttribute("tabindex", -1);
             const primaryMenu = this.el.closest("bcgov-menu[primary]");
             if (null !== primaryMenu) {

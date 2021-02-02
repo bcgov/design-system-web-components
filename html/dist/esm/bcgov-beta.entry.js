@@ -11,7 +11,7 @@ const BcgovBeta = class {
         this.el.innerHTML = this.label;
     }
     render() {
-        return (h(Host, { class: "bcgov-beta", "aria-label": this.content, "aria-role": "alert", tabindex: "0" }));
+        return (h(Host, { class: "bcgov-beta", "aria-label": this.content, role: "alert", tabindex: "0" }));
     }
     get el() { return getElement(this); }
 };
