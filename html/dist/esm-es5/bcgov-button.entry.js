@@ -1,6 +1,6 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-07a37eb8.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './index-d7bc6b18.js';
 /*!
- * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 function _classCallCheck(instance, Constructor) {
@@ -110,14 +110,6 @@ var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
 var DEFAULT_FAMILY_PREFIX = 'fa';
 var DEFAULT_REPLACEMENT_CLASS = 'svg-inline--fa';
 var DATA_FA_I2SVG = 'data-fa-i2svg';
-var PRODUCTION = function () {
-    try {
-        return "production" === 'production';
-    }
-    catch (e) {
-        return false;
-    }
-}();
 var DUOTONE_CLASSES = {
     GROUP: 'group',
     SWAP_OPACITY: 'swap-opacity',
@@ -195,6 +187,7 @@ if (IS_DOM) {
     if (!loaded)
         DOCUMENT.addEventListener('DOMContentLoaded', listener);
 }
+var asyncSetTimer = typeof setImmediate === 'undefined' ? setTimeout : setImmediate;
 var meaninglessTransform = {
     size: 16,
     x: 0,
@@ -868,7 +861,7 @@ var icon = resolveIcons(function (iconDefinition) {
     });
 });
 /*!
- * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 var faSearch = {
@@ -877,7 +870,7 @@ var faSearch = {
     icon: [512, 512, [], "f002", "M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"]
 };
 var BcgovButton = /** @class */ (function () {
-    function class_1(hostRef) {
+    function BcgovButton(hostRef) {
         registerInstance(this, hostRef);
         /** The action of the button. */
         this.link = "button";
@@ -893,8 +886,8 @@ var BcgovButton = /** @class */ (function () {
         this.dataTarget = null;
         this.breakpoint = 700;
     }
-    class_1.prototype.eventHandlerFunction = function () { };
-    class_1.prototype.componentDidRender = function () {
+    BcgovButton.prototype.eventHandlerFunction = function () { };
+    BcgovButton.prototype.componentDidRender = function () {
         this.eventHandler(this.el);
         var buttonStyle = this.el.getAttribute("button-style");
         if ("search" === buttonStyle || "search-inline" === buttonStyle) {
@@ -908,7 +901,7 @@ var BcgovButton = /** @class */ (function () {
             buttonElement.innerHTML = "<span class=\"bcgov-button-text\">" + buttonElement.innerHTML + "</span>";
         }
     };
-    class_1.prototype.componentWillLoad = function () {
+    BcgovButton.prototype.componentWillLoad = function () {
         if (null !== this.dataTarget) {
             var self_1 = this;
             this.breakpoint = this.getParentBreakpoint();
@@ -935,7 +928,7 @@ var BcgovButton = /** @class */ (function () {
             });
         }
     };
-    class_1.prototype.getParentBreakpoint = function () {
+    BcgovButton.prototype.getParentBreakpoint = function () {
         var value = "0";
         if (null !== this.dataTarget) {
             var element = document.getElementById(this.dataTarget);
@@ -945,7 +938,7 @@ var BcgovButton = /** @class */ (function () {
         }
         return parseInt(value);
     };
-    class_1.prototype.isDesktop = function () {
+    BcgovButton.prototype.isDesktop = function () {
         var isdesktop = false;
         if (window.innerWidth >= this.breakpoint) {
             this.el.classList.add("is-desktop");
@@ -955,7 +948,7 @@ var BcgovButton = /** @class */ (function () {
         }
         return isdesktop;
     };
-    class_1.prototype.onClick = function (event) {
+    BcgovButton.prototype.onClick = function (event) {
         if (null !== this.dataTarget) {
             var element = document.getElementById(this.dataTarget);
             var button = this.el.querySelector("button");
@@ -983,7 +976,7 @@ var BcgovButton = /** @class */ (function () {
             return false;
         }
     };
-    class_1.prototype.render = function () {
+    BcgovButton.prototype.render = function () {
         var btnStyle = "" + this.buttonStyle;
         if (this.el.hasAttribute("active")) {
             btnStyle = btnStyle + " active";
@@ -1019,11 +1012,11 @@ var BcgovButton = /** @class */ (function () {
             }
         }
     };
-    Object.defineProperty(class_1.prototype, "el", {
+    Object.defineProperty(BcgovButton.prototype, "el", {
         get: function () { return getElement(this); },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
-    return class_1;
+    return BcgovButton;
 }());
 export { BcgovButton as bcgov_button };

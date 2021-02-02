@@ -1,22 +1,22 @@
-import { r as registerInstance, h, g as getElement, H as Host } from './core-07a37eb8.js';
+import { r as registerInstance, h, g as getElement, H as Host } from './index-d7bc6b18.js';
 var BcgovBeta = /** @class */ (function () {
-    function class_1(hostRef) {
+    function BcgovBeta(hostRef) {
         registerInstance(this, hostRef);
         this.content = "This Application is currently in Beta Phase";
         this.label = "Beta";
     }
-    class_1.prototype.componentWillLoad = function () {
+    BcgovBeta.prototype.componentWillLoad = function () {
         this.content = this.el.textContent || this.content;
         this.el.innerHTML = this.label;
     };
-    class_1.prototype.render = function () {
+    BcgovBeta.prototype.render = function () {
         return (h(Host, { class: "bcgov-beta", "aria-label": this.content, role: "alert", tabindex: "0" }));
     };
-    Object.defineProperty(class_1.prototype, "el", {
+    Object.defineProperty(BcgovBeta.prototype, "el", {
         get: function () { return getElement(this); },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
-    return class_1;
+    return BcgovBeta;
 }());
 export { BcgovBeta as bcgov_beta };

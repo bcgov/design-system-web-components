@@ -13,15 +13,18 @@
   var scriptElm = doc.createElement('script');
   scriptElm.setAttribute('type', 'module');
   scriptElm.src = url + '/bcgov-web-components.esm.js';
-  doc.head.appendChild(scriptElm);
   warn.push(scriptElm.outerHTML);
+  scriptElm.setAttribute('data-stencil-namespace', 'bcgov-web-components');
+  doc.head.appendChild(scriptElm);
 
+  
   scriptElm = doc.createElement('script');
   scriptElm.setAttribute('nomodule', '');
   scriptElm.src = url + '/bcgov-web-components.js';
-  doc.head.appendChild(scriptElm);
   warn.push(scriptElm.outerHTML);
-
+  scriptElm.setAttribute('data-stencil-namespace', 'bcgov-web-components');
+  doc.head.appendChild(scriptElm)
+  
   console.warn(warn.join('\n'));
 
 })(document);

@@ -1,4 +1,4 @@
-import { Host, h } from "@stencil/core";
+import { Component, Host, h, Element, Prop } from "@stencil/core";
 export class BcgovBeta {
     constructor() {
         this.content = "This Application is currently in Beta Phase";

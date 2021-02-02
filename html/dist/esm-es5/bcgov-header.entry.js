@@ -1,15 +1,15 @@
-import { r as registerInstance, c as getAssetPath, h, H as Host, g as getElement } from './core-07a37eb8.js';
-import { f as filterATags } from './utils-129bfbdc.js';
+import { r as registerInstance, c as getAssetPath, h, H as Host, g as getElement } from './index-d7bc6b18.js';
+import { f as filterATags } from './utils-c2c867e8.js';
 var BcgovHeader = /** @class */ (function () {
-    function class_1(hostRef) {
+    function BcgovHeader(hostRef) {
         registerInstance(this, hostRef);
         /** link for logo */
         this.href = "https://www2.gov.bc.ca/gov/content/home";
         /** Logo options -- might not work... */
         this.logo = "gov_bc_logo.svg";
     }
-    class_1.prototype.componentWillLoad = function () { };
-    class_1.prototype.componentDidRender = function () {
+    BcgovHeader.prototype.componentWillLoad = function () { };
+    BcgovHeader.prototype.componentDidRender = function () {
         var self = this;
         [].forEach.call(this.el.querySelectorAll("div[aria]"), function (element) {
             element.classList.add("access");
@@ -42,7 +42,7 @@ var BcgovHeader = /** @class */ (function () {
             });
         });
     };
-    class_1.prototype.getImage = function () {
+    BcgovHeader.prototype.getImage = function () {
         if ("" === this.logo) {
             return "";
         }
@@ -56,19 +56,19 @@ var BcgovHeader = /** @class */ (function () {
             //return <div class="banner">{markup}</div>;
         }
     };
-    class_1.prototype.render = function () {
+    BcgovHeader.prototype.render = function () {
         return (h(Host, { className: "bcgov-header" }, h("header", null, this.getImage(), h("slot", null))));
     };
-    Object.defineProperty(class_1, "assetsDirs", {
+    Object.defineProperty(BcgovHeader, "assetsDirs", {
         get: function () { return ["../../assets"]; },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
-    Object.defineProperty(class_1.prototype, "el", {
+    Object.defineProperty(BcgovHeader.prototype, "el", {
         get: function () { return getElement(this); },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
-    return class_1;
+    return BcgovHeader;
 }());
 export { BcgovHeader as bcgov_header };

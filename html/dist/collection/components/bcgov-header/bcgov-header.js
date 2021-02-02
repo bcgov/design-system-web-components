@@ -1,4 +1,4 @@
-import { h, Host, getAssetPath } from "@stencil/core";
+import { Component, Prop, h, Host, Element, getAssetPath } from "@stencil/core";
 import { filterATags } from "../utils/utils";
 export class BcgovHeader {
     constructor() {

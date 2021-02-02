@@ -2,10 +2,10 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const core = require('./core-5a7012d7.js');
+const index = require('./index-c57e3215.js');
 
 /*!
- * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 
@@ -124,13 +124,6 @@ var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
 var DEFAULT_FAMILY_PREFIX = 'fa';
 var DEFAULT_REPLACEMENT_CLASS = 'svg-inline--fa';
 var DATA_FA_I2SVG = 'data-fa-i2svg';
-var PRODUCTION = function () {
-  try {
-    return "production" === 'production';
-  } catch (e) {
-    return false;
-  }
-}();
 var DUOTONE_CLASSES = {
   GROUP: 'group',
   SWAP_OPACITY: 'swap-opacity',
@@ -218,6 +211,7 @@ if (IS_DOM) {
   loaded = (DOCUMENT.documentElement.doScroll ? /^loaded|^c/ : /^loaded|^i|^c/).test(DOCUMENT.readyState);
   if (!loaded) DOCUMENT.addEventListener('DOMContentLoaded', listener);
 }
+var asyncSetTimer = typeof setImmediate === 'undefined' ? setTimeout : setImmediate;
 var meaninglessTransform = {
   size: 16,
   x: 0,
@@ -1032,7 +1026,7 @@ var icon = resolveIcons(function (iconDefinition) {
 });
 
 /*!
- * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 var faSearch = {
@@ -1043,7 +1037,7 @@ var faSearch = {
 
 const BcgovButton = class {
     constructor(hostRef) {
-        core.registerInstance(this, hostRef);
+        index.registerInstance(this, hostRef);
         /** The action of the button. */
         this.link = "button";
         /** default state of button if applicable */
@@ -1166,24 +1160,24 @@ const BcgovButton = class {
             else if (this.buttonStyle === 'hamburger') {
                 props['aria-label'] = "Hamburger";
             }
-            return (core.h(core.Host, { "data-target": this.dataTarget, class: "bcgov-button" }, core.h("button", Object.assign({}, props), core.h("div", null), core.h("span", { class: "bcgov-button-text" }, core.h("slot", null)))));
+            return (index.h(index.Host, { "data-target": this.dataTarget, class: "bcgov-button" }, index.h("button", Object.assign({}, props), index.h("div", null), index.h("span", { class: "bcgov-button-text" }, index.h("slot", null)))));
         }
         else {
             if ("button" === this.link) {
                 if ("search-inline" == this.buttonStyle) {
                     props["type"] = "submit";
                 }
-                return (core.h(core.Host, { class: "bcgov-button" }, core.h("button", Object.assign({}, props), core.h("slot", null))));
+                return (index.h(index.Host, { class: "bcgov-button" }, index.h("button", Object.assign({}, props), index.h("slot", null))));
             }
             else {
                 props["href"] = this.link;
                 props["target"] = this.target;
                 props["role"] = "button";
-                return (core.h(core.Host, { class: "bcgov-button" }, core.h("a", Object.assign({}, props), core.h("slot", null))));
+                return (index.h(index.Host, { class: "bcgov-button" }, index.h("a", Object.assign({}, props), index.h("slot", null))));
             }
         }
     }
-    get el() { return core.getElement(this); }
+    get el() { return index.getElement(this); }
 };
 
 exports.bcgov_button = BcgovButton;

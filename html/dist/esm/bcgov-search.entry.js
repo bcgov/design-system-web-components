@@ -1,4 +1,4 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-07a37eb8.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './index-d7bc6b18.js';
 
 const BcgovSearch = class {
     constructor(hostRef) {

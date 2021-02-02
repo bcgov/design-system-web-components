@@ -1,4 +1,4 @@
-import { Host, h } from "@stencil/core";
+import { Component, Host, h, Element } from "@stencil/core";
 import { breadCrumbElement } from "../utils/utils";
 export class BcgovBreadcrumb {
     componentWillLoad() {

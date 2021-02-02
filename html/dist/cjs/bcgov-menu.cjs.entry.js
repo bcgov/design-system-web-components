@@ -2,12 +2,12 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const core = require('./core-5a7012d7.js');
-const utils = require('./utils-2cab225a.js');
+const index = require('./index-c57e3215.js');
+const utils = require('./utils-91595a00.js');
 
 const BcgovMenu = class {
     constructor(hostRef) {
-        core.registerInstance(this, hostRef);
+        index.registerInstance(this, hostRef);
         /** Alignment of menu */
         this.alignment = "left";
         /** Menu id used for instructions
@@ -225,7 +225,7 @@ const BcgovMenu = class {
             if (undefined !== this.active && this.active) {
                 hostClass += " active";
             }
-            return (core.h(core.Host, { role: "menuitem", class: hostClass, "aria-label": this.name }, core.h("div", null, core.h("a", { href: this.href, tabindex: "-1" }, this.name), core.h("span", null), core.h("slot", { name: "submenu-link" })), core.h("ul", { role: "menu", "aria-hidden": "true" }, core.h("slot", null))));
+            return (index.h(index.Host, { role: "menuitem", class: hostClass, "aria-label": this.name }, index.h("div", null, index.h("a", { href: this.href, tabindex: "-1" }, this.name), index.h("span", null), index.h("slot", { name: "submenu-link" })), index.h("ul", { role: "menu", "aria-hidden": "true" }, index.h("slot", null))));
         }
         else {
             const props = { role: "menubar", tabindex: "0", class: alignment };
@@ -235,10 +235,10 @@ const BcgovMenu = class {
             if (undefined !== this.sidebar) {
                 props["class"] += " sidebar-menu";
             }
-            return (core.h(core.Host, null, core.h("ul", Object.assign({}, props), undefined !== this.primary && (core.h("li", { role: "menuitem", class: "bcgov-primary-menu-close", tabindex: "-1", "aria-hidden": "true", "aria-labelId": "close-menu-mobile" }, core.h("a", { href: "#", "aria-label": "Close Mobile Menu", id: "close-menu-mobile" }, core.h("span", null, "x")))), core.h("slot", null)), undefined !== this.primary && (core.h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
+            return (index.h(index.Host, null, index.h("ul", Object.assign({}, props), undefined !== this.primary && (index.h("li", { role: "menuitem", class: "bcgov-primary-menu-close", tabindex: "-1", "aria-hidden": "true", "aria-labelId": "close-menu-mobile" }, index.h("a", { href: "#", "aria-label": "Close Mobile Menu", id: "close-menu-mobile" }, index.h("span", null, "x")))), index.h("slot", null)), undefined !== this.primary && (index.h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
         }
     }
-    get el() { return core.getElement(this); }
+    get el() { return index.getElement(this); }
 };
 
 exports.bcgov_menu = BcgovMenu;

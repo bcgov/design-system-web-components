@@ -1,4 +1,4 @@
-import { Host, h } from "@stencil/core";
+import { Component, Host, h, Element, Prop, Listen } from "@stencil/core";
 export class BcgovSearch {
     constructor() {
         /** A number that represents mobile search breakpoint in px; */

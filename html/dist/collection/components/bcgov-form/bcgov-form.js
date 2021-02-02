@@ -1,4 +1,4 @@
-import { Host, h } from "@stencil/core";
+import { Component, Host, h } from "@stencil/core";
 export class BcgovForm {
     render() {
         return (h(Host, { className: "bcgov-form" },

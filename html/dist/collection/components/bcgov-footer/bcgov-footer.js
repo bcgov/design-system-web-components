@@ -1,4 +1,4 @@
-import { Host, h, getAssetPath } from "@stencil/core";
+import { Component, Host, h, Prop, getAssetPath } from "@stencil/core";
 export class BcgovFooter {
     constructor() {
         /** Alignment of menu */
@@ -36,7 +36,7 @@ export class BcgovFooter {
             "optional": false,
             "docs": {
                 "tags": [],
-                "text": "Alignment of menu\nBuilt in Logos, other wise just add image, before or after menu."
+                "text": "Built in Logos, other wise just add image, before or after menu."
             },
             "attribute": "logo",
             "reflect": false,

@@ -1,11 +1,11 @@
-import { r as registerInstance, h, H as Host } from './core-07a37eb8.js';
+import { r as registerInstance, h, H as Host } from './index-d7bc6b18.js';
 var BcgovCallout = /** @class */ (function () {
-    function class_1(hostRef) {
+    function BcgovCallout(hostRef) {
         registerInstance(this, hostRef);
     }
-    class_1.prototype.render = function () {
+    BcgovCallout.prototype.render = function () {
         return (h(Host, { class: "bcgov-callout" }, h("slot", null)));
     };
-    return class_1;
+    return BcgovCallout;
 }());
 export { BcgovCallout as bcgov_callout };

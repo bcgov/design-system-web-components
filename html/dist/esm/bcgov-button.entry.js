@@ -1,7 +1,7 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-07a37eb8.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './index-d7bc6b18.js';
 
 /*!
- * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 
@@ -120,13 +120,6 @@ var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
 var DEFAULT_FAMILY_PREFIX = 'fa';
 var DEFAULT_REPLACEMENT_CLASS = 'svg-inline--fa';
 var DATA_FA_I2SVG = 'data-fa-i2svg';
-var PRODUCTION = function () {
-  try {
-    return "production" === 'production';
-  } catch (e) {
-    return false;
-  }
-}();
 var DUOTONE_CLASSES = {
   GROUP: 'group',
   SWAP_OPACITY: 'swap-opacity',
@@ -214,6 +207,7 @@ if (IS_DOM) {
   loaded = (DOCUMENT.documentElement.doScroll ? /^loaded|^c/ : /^loaded|^i|^c/).test(DOCUMENT.readyState);
   if (!loaded) DOCUMENT.addEventListener('DOMContentLoaded', listener);
 }
+var asyncSetTimer = typeof setImmediate === 'undefined' ? setTimeout : setImmediate;
 var meaninglessTransform = {
   size: 16,
   x: 0,
@@ -1028,7 +1022,7 @@ var icon = resolveIcons(function (iconDefinition) {
 });
 
 /*!
- * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 var faSearch = {

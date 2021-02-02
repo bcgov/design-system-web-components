@@ -2,11 +2,11 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const core = require('./core-5a7012d7.js');
+const index = require('./index-c57e3215.js');
 
 const BcgovSearch = class {
     constructor(hostRef) {
-        core.registerInstance(this, hostRef);
+        index.registerInstance(this, hostRef);
         /** A number that represents mobile search breakpoint in px; */
         this.breakpoint = 0;
     }
@@ -33,9 +33,9 @@ const BcgovSearch = class {
         }
     }
     render() {
-        return (core.h(core.Host, { class: "bcgov-search" }, core.h("div", { class: "search-container" }, core.h("slot", null))));
+        return (index.h(index.Host, { class: "bcgov-search" }, index.h("div", { class: "search-container" }, index.h("slot", null))));
     }
-    get el() { return core.getElement(this); }
+    get el() { return index.getElement(this); }
 };
 
 exports.bcgov_search = BcgovSearch;

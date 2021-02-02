@@ -1,7 +1,7 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './core-07a37eb8.js';
-import { m as menuElement, a as findAncestor, k as keys } from './utils-129bfbdc.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './index-d7bc6b18.js';
+import { m as menuElement, a as findAncestor, k as keys } from './utils-c2c867e8.js';
 var BcgovMenu = /** @class */ (function () {
-    function class_1(hostRef) {
+    function BcgovMenu(hostRef) {
         var _this = this;
         registerInstance(this, hostRef);
         /** Alignment of menu */
@@ -45,7 +45,7 @@ var BcgovMenu = /** @class */ (function () {
             }
         };
     }
-    class_1.prototype.componentWillLoad = function () {
+    BcgovMenu.prototype.componentWillLoad = function () {
         this.isSubmenu = "UL" === this.el.parentElement.nodeName;
         [].forEach.call(this.el.querySelectorAll("a"), function (element) {
             menuElement(element);
@@ -62,7 +62,7 @@ var BcgovMenu = /** @class */ (function () {
     /**
      * This sets up inital attributes for sub menus
      */
-    class_1.prototype.componentDidRender = function () {
+    BcgovMenu.prototype.componentDidRender = function () {
         if (this.isSubmenu) {
             this.el.setAttribute("aria-haspopup", true);
             this.el.setAttribute("aria-expanded", false);
@@ -83,7 +83,7 @@ var BcgovMenu = /** @class */ (function () {
             }
         }
     };
-    class_1.prototype.isDesktop = function () {
+    BcgovMenu.prototype.isDesktop = function () {
         var isdesktop = false;
         if (!this.isSubmenu) {
             if (window.innerWidth >= this.breakpoint) {
@@ -113,14 +113,14 @@ var BcgovMenu = /** @class */ (function () {
         }
         return isdesktop;
     };
-    class_1.prototype.onMouseEnter = function (ev) {
+    BcgovMenu.prototype.onMouseEnter = function (ev) {
         if (this.isDesktop() && this.allowHover) {
             var element = ev.target;
             //element.focus();
             this.showSubmenu(element, true);
         }
     };
-    class_1.prototype.onMouseLeave = function (event) {
+    BcgovMenu.prototype.onMouseLeave = function (event) {
         if (this.isDesktop() && this.allowHover) {
             var element_1 = event.target;
             var self_1 = this;
@@ -136,7 +136,7 @@ var BcgovMenu = /** @class */ (function () {
             }
         }
     };
-    class_1.prototype.onClick = function (event) {
+    BcgovMenu.prototype.onClick = function (event) {
         var element = event.target;
         var parent = findAncestor(element, "bcgov-menu");
         if (null === element.closest(".bcgov-primary-menu-close")) {
@@ -146,7 +146,7 @@ var BcgovMenu = /** @class */ (function () {
             parent.classList.add("target-hidden");
         }
     };
-    class_1.prototype.onKeyDown = function (event) {
+    BcgovMenu.prototype.onKeyDown = function (event) {
         var current = event.srcElement;
         if (!this.isSubmenu || true) {
             switch (event.keyCode) {
@@ -184,7 +184,7 @@ var BcgovMenu = /** @class */ (function () {
             }
         }
     };
-    class_1.prototype.focusChange = function (current, direction) {
+    BcgovMenu.prototype.focusChange = function (current, direction) {
         if (direction === void 0) { direction = "next"; }
         var element;
         if (current === this.el.querySelector("ul")) {
@@ -213,7 +213,7 @@ var BcgovMenu = /** @class */ (function () {
             element.focus();
         }
     };
-    class_1.prototype.render = function () {
+    BcgovMenu.prototype.render = function () {
         var alignment = "align-" + this.alignment;
         var instructionID = "bcgov-instructions-" + this.menuId;
         var hostClass = "expandable";
@@ -234,11 +234,11 @@ var BcgovMenu = /** @class */ (function () {
             return (h(Host, null, h("ul", Object.assign({}, props), undefined !== this.primary && (h("li", { role: "menuitem", class: "bcgov-primary-menu-close", tabindex: "-1", "aria-hidden": "true", "aria-labelId": "close-menu-mobile" }, h("a", { href: "#", "aria-label": "Close Mobile Menu", id: "close-menu-mobile" }, h("span", null, "x")))), h("slot", null)), undefined !== this.primary && (h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
         }
     };
-    Object.defineProperty(class_1.prototype, "el", {
+    Object.defineProperty(BcgovMenu.prototype, "el", {
         get: function () { return getElement(this); },
-        enumerable: true,
+        enumerable: false,
         configurable: true
     });
-    return class_1;
+    return BcgovMenu;
 }());
 export { BcgovMenu as bcgov_menu };

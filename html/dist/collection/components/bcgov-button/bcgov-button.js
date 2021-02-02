@@ -1,4 +1,4 @@
-import { h, Host } from "@stencil/core";
+import { Component, h, Prop, Element, Host, Listen, State, } from "@stencil/core";
 import { library, icon } from "@fortawesome/fontawesome-svg-core";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 export class BcgovButton {

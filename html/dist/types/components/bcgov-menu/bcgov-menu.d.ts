@@ -1,3 +1,4 @@
+import { Element } from "../../stencil-public-runtime";
 export declare class BcgovMenu {
     /** Alignment of menu */
     alignment: string;

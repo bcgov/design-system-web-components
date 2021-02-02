@@ -1,4 +1,4 @@
-import { Host, h } from "@stencil/core";
+import { Component, Host, h, Prop, Element, Listen, State, } from "@stencil/core";
 import { menuElement, keys, findAncestor } from "../utils/utils";
 export class BcgovMenu {
     constructor() {
