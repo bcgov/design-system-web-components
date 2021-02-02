@@ -1160,6 +1160,12 @@ const BcgovButton = class {
         };
         if (["hamburger", "search"].includes(this.buttonStyle)) {
             props["aria-expanded"] = this.targetHidden;
+            if (this.buttonStyle === 'search') {
+                props['aria-label'] = "Search";
+            }
+            else if (this.buttonStyle === 'hamburger') {
+                props['aria-label'] = "Hamburger";
+            }
             return (core.h(core.Host, { "data-target": this.dataTarget, class: "bcgov-button" }, core.h("button", Object.assign({}, props), core.h("div", null), core.h("span", { class: "bcgov-button-text" }, core.h("slot", null)))));
         }
         else {

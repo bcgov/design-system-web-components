@@ -42,7 +42,7 @@ describe("bcgov-header", () => {
           <a href="https://www2.gov.bc.ca/gov/content/home/accessibility" aria-label="Skip to Accessibility Statement">Skip to Accessibility Statement</a>
         </div>
         <bcgov-button button-style="hamburger" class="bcgov-button is-desktop" data-breakpoint="0" data-target="main-navigation">
-          <button aria-expanded="false" class="hamburger">
+          <button aria-expanded="false" aria-label="Hamburger" class="hamburger">
             <div></div>
             <span class="bcgov-button-text">Menu</span>
           </button>
