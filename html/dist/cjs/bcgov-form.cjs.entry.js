@@ -9,7 +9,7 @@ const BcgovForm = class {
         core.registerInstance(this, hostRef);
     }
     render() {
-        return (core.h(core.Host, null, core.h("slot", null)));
+        return (core.h(core.Host, { className: "bcgov-form" }, core.h("slot", null)));
     }
 };
 

@@ -158,6 +158,13 @@ export class BcgovButton {
 
     if (["hamburger", "search"].includes(this.buttonStyle)) {
       props["aria-expanded"] = this.targetHidden;
+      if ( this.buttonStyle === 'search' ){
+        props['aria-label'] = "Search";
+      }
+      else if ( this.buttonStyle === 'hamburger' ) {
+        props['aria-label'] = "Hamburger"
+      }
+    
       return (
         <Host data-target={this.dataTarget} class="bcgov-button">
           <button {...props}>

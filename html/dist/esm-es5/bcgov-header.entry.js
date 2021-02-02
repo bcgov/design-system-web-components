@@ -57,7 +57,7 @@ var BcgovHeader = /** @class */ (function () {
         }
     };
     class_1.prototype.render = function () {
-        return (h(Host, { class: "bcgov-header" }, h("header", null, this.getImage(), h("slot", null))));
+        return (h(Host, { className: "bcgov-header" }, h("header", null, this.getImage(), h("slot", null))));
     };
     Object.defineProperty(class_1, "assetsDirs", {
         get: function () { return ["../../assets"]; },

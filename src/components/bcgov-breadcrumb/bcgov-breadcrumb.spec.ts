@@ -18,7 +18,7 @@ describe("bcgov-breadcrumb", () => {
       `
     });
     expect(page.root).toEqualHtml(`
-    <bcgov-breadcrumb aria-label="Breadcrumb" class="bcgov-breadcrumb" role="nav" >
+    <bcgov-breadcrumb aria-label="Breadcrumb" class="bcgov-breadcrumb" role="navigation" >
       <ol itemscope="" itemtype="http://schema.org/BreadcrumbList">
         <li aria-label="Home" itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="#home" itemprop="item"><span itemprop="name">Home</span></a></li>
         <li aria-label="Components" itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="#Components" itemprop="item"><span itemprop="name">Components</span></a></li>

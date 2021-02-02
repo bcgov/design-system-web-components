@@ -56,7 +56,7 @@ export class BcgovHeader {
         }
     }
     render() {
-        return (h(Host, { class: "bcgov-header" },
+        return (h(Host, { className: "bcgov-header" },
             h("header", null,
                 this.getImage(),
                 h("slot", null))));

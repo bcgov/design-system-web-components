@@ -15,7 +15,7 @@ const BcgovBreadcrumb = class {
         });
     }
     render() {
-        return (core.h(core.Host, { "aria-label": "Breadcrumb", role: "nav", class: "bcgov-breadcrumb" }, core.h("ol", { itemscope: true, itemtype: "http://schema.org/BreadcrumbList" }, core.h("slot", null)), core.h("slot", { name: "breadcrumb-extra" })));
+        return (core.h(core.Host, { "aria-label": "Breadcrumb", role: "navigation", class: "bcgov-breadcrumb" }, core.h("ol", { itemscope: true, itemtype: "http://schema.org/BreadcrumbList" }, core.h("slot", null)), core.h("slot", { name: "breadcrumb-extra" })));
     }
     get el() { return core.getElement(this); }
 };

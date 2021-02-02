@@ -10,7 +10,7 @@ var BcgovBreadcrumb = /** @class */ (function () {
         });
     };
     class_1.prototype.render = function () {
-        return (h(Host, { "aria-label": "Breadcrumb", role: "nav", class: "bcgov-breadcrumb" }, h("ol", { itemscope: true, itemtype: "http://schema.org/BreadcrumbList" }, h("slot", null)), h("slot", { name: "breadcrumb-extra" })));
+        return (h(Host, { "aria-label": "Breadcrumb", role: "navigation", class: "bcgov-breadcrumb" }, h("ol", { itemscope: true, itemtype: "http://schema.org/BreadcrumbList" }, h("slot", null)), h("slot", { name: "breadcrumb-extra" })));
     };
     Object.defineProperty(class_1.prototype, "el", {
         get: function () { return getElement(this); },

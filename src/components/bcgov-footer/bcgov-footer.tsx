@@ -23,7 +23,7 @@ export class BcgovFooter {
   }
   render() {
     const classes: string = "bcgov-footer" /*+ " align-" + this.alignment*/;
-    const props = { role: "footer", class: classes };
+    const props = {  className: classes };
     return (
       <Host {...props}>
         <slot></slot>

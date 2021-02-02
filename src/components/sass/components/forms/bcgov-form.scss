@@ -1,40 +1,22 @@
-bcgov-form,
-.bcgov-form,
-form:not(.no-styling):not(.no-styles) {
-  ul {
-    list-style: none;
-    margin: 0 0 1rem;
-  }
+form:not(.no-styles) {
   margin: 0.5rem 0;
   position: relative;
-
-  label {
-    font-weight: bold;
-  }
   /** focus **/
-  textarea:focus,
-  select:focus,
-  input[type="text"]:focus,
-  input[type="password"]:focus,
-  input[type="datetime"]:focus,
-  input[type="datetime-local"]:focus,
-  input[type="date"]:focus,
-  input[type="month"]:focus,
-  input[type="time"]:focus,
-  input[type="week"]:focus,
-  input[type="number"]:focus,
-  input[type="email"]:focus,
-  input[type="url"]:focus,
-  input[type="search"]:focus,
-  input[type="tel"]:focus,
-  input[type="color"]:focus,
-  button:focus,
-  .btn:focus,
-  a:focus,
-  .uneditable-input:focus {
-    outline: 4px solid var(--bcgov-wc-color-accessibility) !important;
-    box-shadow: none;
-    outline-offset: 2px;
+  input:not([type="submit"]),
+  textarea,
+  select,
+  .uneditable-input {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    padding: 10px 8px;
+    font-family: inherit;
+    width: 100%;
+    &:focus {
+      outline-width: 2px;
+      box-shadow: none;
+      outline-offset: 2px;
+    }
   }
 
   input[disabled],
@@ -47,17 +29,6 @@ form:not(.no-styling):not(.no-styles) {
     background-color: $bcgov-form-component-disabled;
   }
 
-  input,
-  input:not([type="submit"]),
-  textarea,
-  select {
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 4px;
-    padding: 10px 8px;
-    font-family: inherit;
-    width: 100%;
-  }
   @import "radio";
   @import "select";
   @import "input";
