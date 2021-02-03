@@ -1,4 +1,4 @@
-import "core-js/stable";
+
 import "highlight.js/scss/default.scss";
 import cssVars from "css-vars-ponyfill";
 import "../styles/index.scss";

@@ -58,8 +58,12 @@ module.exports = env => {
       }
     },
     entry: {
-      components: Path.join(config.paths.resources, "scripts/components.js"),
+      components:[
+        
+        Path.join(config.paths.resources, "scripts/components.js"),
+      ],
       app: [
+        
         Path.join(config.paths.resources, "scripts/index.js"),
         Path.join(config.paths.resources, "styles/index.scss")
       ]

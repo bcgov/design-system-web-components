@@ -5,6 +5,11 @@ export const config: Config = {
   namespace: "bcgov-web-components",
   hashFileNames: false,
   enableCache: true,
+  buildEs5: true,
+  extras: {
+    cssVarsShim: true,
+    safari10: true,
+  },
   devServer: {
     reloadStrategy: null
   },
