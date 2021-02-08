@@ -1,11 +1,1 @@
-import { r as registerInstance, h, H as Host } from './index-d7bc6b18.js';
-var BcgovForm = /** @class */ (function () {
-    function BcgovForm(hostRef) {
-        registerInstance(this, hostRef);
-    }
-    BcgovForm.prototype.render = function () {
-        return (h(Host, { className: "bcgov-form" }, h("slot", null)));
-    };
-    return BcgovForm;
-}());
-export { BcgovForm as bcgov_form };
+import{r as registerInstance,h,H as Host}from"./index-e8a35f72.js";var BcgovForm=function(){function r(r){registerInstance(this,r)}r.prototype.render=function(){return h(Host,{className:"bcgov-form"},h("slot",null))};return r}();export{BcgovForm as bcgov_form};

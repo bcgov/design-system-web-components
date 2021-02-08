@@ -1,6 +1,6 @@
 
-import "highlight.js/scss/default.scss";
-import cssVars from "css-vars-ponyfill";
+//import "highlight.js/scss/default.scss";
+//import cssVars from "css-vars-ponyfill";
 import "../styles/index.scss";
 
 cssVars({});
@@ -34,7 +34,7 @@ document.addEventListener(
         const pre = document.createElement("pre");
         const code = document.createElement("code");
         code.classList.add("language-html");
-        code.classList.add("hljs");
+        //code.classList.add("hljs");
 
         code.innerHTML = safe_tags_replace(element.innerHTML);
         pre.appendChild(code);

@@ -1,11 +1,1 @@
-import { r as registerInstance, h, H as Host } from './index-d7bc6b18.js';
-var BcgovCarousel = /** @class */ (function () {
-    function BcgovCarousel(hostRef) {
-        registerInstance(this, hostRef);
-    }
-    BcgovCarousel.prototype.render = function () {
-        return (h(Host, { class: "bcgov-carousel" }, h("slot", null)));
-    };
-    return BcgovCarousel;
-}());
-export { BcgovCarousel as bcgov_carousel };
+import{r as registerInstance,h,H as Host}from"./index-e8a35f72.js";var BcgovCarousel=function(){function r(r){registerInstance(this,r)}r.prototype.render=function(){return h(Host,{class:"bcgov-carousel"},h("slot",null))};return r}();export{BcgovCarousel as bcgov_carousel};

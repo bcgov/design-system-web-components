@@ -105,13 +105,13 @@ module.exports = env => {
           test: /\.js$/,
           include: config.paths.resources,
           use: "eslint"
-        },*/
+        },
         {
           test: /\.(js)$/,
           include: config.paths.resources,
           exclude: /node_modules/,
           use: "babel-loader"
-        },
+        },*/
         {
           test: /\.(ttf|otf|eot|woff2?|png|jpe?g|gif|svg|ico)$/,
           include: config.paths.assets,
@@ -140,7 +140,7 @@ module.exports = env => {
             {
               loader: MiniCssExtractPlugin.loader,
               options: {
-                hmr: !isProduction
+                
               }
             },
             "css-loader"

@@ -1,10 +1,11 @@
 'use strict';
 
 function _interopNamespace(e) {
-  if (e && e.__esModule) { return e; } else {
-    var n = {};
-    if (e) {
-      Object.keys(e).forEach(function (k) {
+  if (e && e.__esModule) return e;
+  var n = Object.create(null);
+  if (e) {
+    Object.keys(e).forEach(function (k) {
+      if (k !== 'default') {
         var d = Object.getOwnPropertyDescriptor(e, k);
         Object.defineProperty(n, k, d.get ? d : {
           enumerable: true,
@@ -12,11 +13,11 @@ function _interopNamespace(e) {
             return e[k];
           }
         });
-      });
-    }
-    n['default'] = e;
-    return n;
+      }
+    });
   }
+  n['default'] = e;
+  return Object.freeze(n);
 }
 
 const NAMESPACE = 'bcgov-web-components';
@@ -28,7 +29,6 @@ let useNativeShadowDom = false;
 let checkSlotFallbackVisibility = false;
 let checkSlotRelocate = false;
 let isSvgMode = false;
-let queueCongestion = 0;
 let queuePending = false;
 const win = typeof window !== 'undefined' ? window : {};
 const CSS =  win.CSS ;
@@ -42,7 +42,6 @@ const plt = {
     rel: (el, eventName, listener, opts) => el.removeEventListener(eventName, listener, opts),
     ce: (eventName, opts) => new CustomEvent(eventName, opts),
 };
-const supportsShadow =  /*@__PURE__*/ (() => (doc.head.attachShadow + '').indexOf('[native') > -1)() ;
 const promiseResolve = (v) => Promise.resolve(v);
 const addHostEventListeners = (elm, hostRef, listeners, attachParentListeners) => {
     if ( listeners) {
@@ -56,14 +55,19 @@ const addHostEventListeners = (elm, hostRef, listeners, attachParentListeners) =
     }
 };
 const hostListenerProxy = (hostRef, methodName) => (ev) => {
-    {
-        if (hostRef.$flags$ & 256 /* isListenReady */) {
-            // instance is ready, let's call it's member method for this event
-            hostRef.$lazyInstance$[methodName](ev);
+    try {
+        {
+            if (hostRef.$flags$ & 256 /* isListenReady */) {
+                // instance is ready, let's call it's member method for this event
+                hostRef.$lazyInstance$[methodName](ev);
+            }
+            else {
+                (hostRef.$queuedListeners$ = hostRef.$queuedListeners$ || []).push([methodName, ev]);
+            }
         }
-        else {
-            (hostRef.$queuedListeners$ = hostRef.$queuedListeners$ || []).push([methodName, ev]);
-        }
+    }
+    catch (e) {
+        consoleError(e);
     }
 };
 // prettier-ignore
@@ -93,24 +97,11 @@ const uniqueTime = (key, measureText) => {
  */
 const EMPTY_OBJ = {};
 const isDef = (v) => v != null;
-const noop = () => {
-    /* noop*/
-};
 const isComplexType = (o) => {
     // https://jsperf.com/typeof-fn-object/5
     o = typeof o;
     return o === 'object' || o === 'function';
 };
-const IS_DENO_ENV = typeof Deno !== 'undefined';
-const IS_NODE_ENV = !IS_DENO_ENV &&
-    typeof global !== 'undefined' &&
-    typeof require === 'function' &&
-    !!global.process &&
-    typeof __filename === 'string' &&
-    (!global.origin || typeof global.origin !== 'string');
-const IS_DENO_WINDOWS_ENV = IS_DENO_ENV && Deno.build.os === 'windows';
-const getCurrentDirectory = IS_NODE_ENV ? process.cwd : IS_DENO_ENV ? Deno.cwd : () => '/';
-const exit = IS_NODE_ENV ? process.exit : IS_DENO_ENV ? Deno.exit : noop;
 /**
  * Production h() function based on Preact by
  * Jason Miller (@developit)
@@ -700,24 +691,22 @@ const updateFallbackSlotVisibility = (elm) => {
                 // then hide it if there are other slots in the light dom
                 childNode.hidden = false;
                 for (j = 0; j < ilen; j++) {
-                    if (childNodes[j]['s-hn'] !== childNode['s-hn']) {
-                        // this sibling node is from a different component
-                        nodeType = childNodes[j].nodeType;
-                        if (slotNameAttr !== '') {
-                            // this is a named fallback slot node
-                            if (nodeType === 1 /* ElementNode */ && slotNameAttr === childNodes[j].getAttribute('slot')) {
-                                childNode.hidden = true;
-                                break;
-                            }
+                    nodeType = childNodes[j].nodeType;
+                    if (childNodes[j]['s-hn'] !== childNode['s-hn'] || slotNameAttr !== '') {
+                        // this sibling node is from a different component OR is a named fallback slot node
+                        if (nodeType === 1 /* ElementNode */ && slotNameAttr === childNodes[j].getAttribute('slot')) {
+                            childNode.hidden = true;
+                            break;
                         }
-                        else {
-                            // this is a default fallback slot node
-                            // any element or text node (with content)
-                            // should hide the default fallback slot node
-                            if (nodeType === 1 /* ElementNode */ || (nodeType === 3 /* TextNode */ && childNodes[j].textContent.trim() !== '')) {
-                                childNode.hidden = true;
-                                break;
-                            }
+                    }
+                    else {
+                        // this is a default fallback slot node
+                        // any element or text node (with content)
+                        // should hide the default fallback slot node
+                        if (nodeType === 1 /* ElementNode */ ||
+                            (nodeType === 3 /* TextNode */ && childNodes[j].textContent.trim() !== '')) {
+                            childNode.hidden = true;
+                            break;
                         }
                     }
                 }
@@ -741,7 +730,7 @@ const relocateSlotContent = (elm) => {
     let ilen = childNodes.length;
     for (; i < ilen; i++) {
         childNode = childNodes[i];
-        if (childNode['s-sr'] && (node = childNode['s-cr'])) {
+        if (childNode['s-sr'] && (node = childNode['s-cr']) && node.parentNode) {
             // first got the content reference comment node
             // then we got it's parent, which is where all the host content is in now
             hostContentNodes = node.parentNode.childNodes;
@@ -834,7 +823,7 @@ const renderVdom = (hostRef, renderFnResults) => {
     }
     {
         contentRef = hostElm['s-cr'];
-        useNativeShadowDom = supportsShadow && (cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) !== 0;
+        useNativeShadowDom =  (cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) !== 0;
         // always reset
         checkSlotFallbackVisibility = false;
     }
@@ -935,7 +924,7 @@ const scheduleUpdate = (hostRef, isInitialLoad) => {
         return;
     }
     attachToAncestor(hostRef, hostRef.$ancestorComponent$);
-    // there is no ancestorc omponent or the ancestor component
+    // there is no ancestor component or the ancestor component
     // has already fired off its lifecycle update then
     // fire off the initial update
     const dispatch = () => dispatchHooks(hostRef, isInitialLoad);
@@ -960,19 +949,14 @@ const dispatchHooks = (hostRef, isInitialLoad) => {
     endSchedule();
     return then(promise, () => updateComponent(hostRef, instance));
 };
-const updateComponent = (hostRef, instance, isInitialLoad) => {
+const updateComponent = async (hostRef, instance, isInitialLoad) => {
     // updateComponent
     const elm = hostRef.$hostElement$;
     const endUpdate = createTime('update', hostRef.$cmpMeta$.$tagName$);
     const rc = elm['s-rc'];
     const endRender = createTime('render', hostRef.$cmpMeta$.$tagName$);
     {
-        {
-            // looks like we've got child nodes to render into this host element
-            // or we need to update the css class/attrs on the host element
-            // DOM WRITE!
-            renderVdom(hostRef, callRender(hostRef, instance));
-        }
+        callRender(hostRef, instance);
     }
     if ( plt.$cssShim$) {
         plt.$cssShim$.updateHost(elm);
@@ -999,7 +983,7 @@ const updateComponent = (hostRef, instance, isInitialLoad) => {
         }
     }
 };
-const callRender = (hostRef, instance) => {
+const callRender = (hostRef, instance, elm) => {
     try {
         instance =  instance.render() ;
         {
@@ -1008,11 +992,21 @@ const callRender = (hostRef, instance) => {
         {
             hostRef.$flags$ |= 2 /* hasRendered */;
         }
+        {
+            {
+                // looks like we've got child nodes to render into this host element
+                // or we need to update the css class/attrs on the host element
+                // DOM WRITE!
+                {
+                    renderVdom(hostRef, instance);
+                }
+            }
+        }
     }
     catch (e) {
-        consoleError(e);
+        consoleError(e, hostRef.$hostElement$);
     }
-    return instance;
+    return null;
 };
 const postUpdateComponent = (hostRef) => {
     const tagName = hostRef.$cmpMeta$.$tagName$;
@@ -1056,25 +1050,11 @@ const postUpdateComponent = (hostRef) => {
     // ( •_•)>⌐■-■
     // (⌐■_■)
 };
-const forceUpdate = (ref) => {
-    {
-        const hostRef = getHostRef(ref);
-        const isConnected = hostRef.$hostElement$.isConnected;
-        if (isConnected && (hostRef.$flags$ & (2 /* hasRendered */ | 16 /* isQueuedForUpdate */)) === 2 /* hasRendered */) {
-            scheduleUpdate(hostRef, false);
-        }
-        // Returns "true" when the forced update was successfully scheduled
-        return isConnected;
-    }
-};
 const appDidLoad = (who) => {
     // on appload
     // we have finish the first big initial render
     {
         addHydratedFlag(doc.documentElement);
-    }
-    {
-        plt.$flags$ |= 2 /* appLoaded */;
     }
     nextTick(() => emitEvent(win, 'appload', { detail: { namespace: NAMESPACE } }));
 };
@@ -1287,11 +1267,7 @@ const connectedCallback = (elm) => {
                 });
             }
             {
-                // connectedCallback, taskQueue, initialLoad
-                // angular sets attribute AFTER connectCallback
-                // https://github.com/angular/angular/issues/18909
-                // https://github.com/angular/angular/issues/19940
-                nextTick(() => initializeComponent(elm, hostRef, cmpMeta));
+                initializeComponent(elm, hostRef, cmpMeta);
             }
         }
         else {
@@ -1342,11 +1318,6 @@ const bootstrapLazy = (lazyBundles, options = {}) => {
     let isBootstrapping = true;
     Object.assign(plt, options);
     plt.$resourcesUrl$ = new URL(options.resourcesUrl || './', doc.baseURI).href;
-    {
-        if (options.syncQueue) {
-            plt.$flags$ |= 4 /* queueSync */;
-        }
-    }
     lazyBundles.map(lazyBundle => lazyBundle[1].map(compactMeta => {
         const cmpMeta = {
             $flags$: compactMeta[0],
@@ -1359,9 +1330,6 @@ const bootstrapLazy = (lazyBundles, options = {}) => {
         }
         {
             cmpMeta.$listeners$ = compactMeta[3];
-        }
-        if ( !supportsShadow && cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) {
-            cmpMeta.$flags$ |= 8 /* needsShadowDomShim */;
         }
         const tagName =  cmpMeta.$tagName$;
         const HostElement = class extends HTMLElement {
@@ -1376,13 +1344,10 @@ const bootstrapLazy = (lazyBundles, options = {}) => {
                     // and this browser supports shadow dom
                     // add the read-only property "shadowRoot" to the host element
                     // adding the shadow root build conditionals to minimize runtime
-                    if (supportsShadow) {
+                    {
                         {
                             self.attachShadow({ mode: 'open' });
                         }
-                    }
-                    else if ( !('shadowRoot' in self)) {
-                        self.shadowRoot = self;
                     }
                 }
             }
@@ -1401,9 +1366,6 @@ const bootstrapLazy = (lazyBundles, options = {}) => {
             }
             disconnectedCallback() {
                 plt.jmp(() => disconnectedCallback(this));
-            }
-            forceUpdate() {
-                forceUpdate(this);
             }
             componentOnReady() {
                 return getHostRef(this).$onReadyPromise$;
@@ -1456,7 +1418,7 @@ const registerHost = (elm, cmpMeta) => {
     return hostRefs.set(elm, hostRef);
 };
 const isMemberInElement = (elm, memberName) => memberName in elm;
-const consoleError = (e) => console.error(e);
+const consoleError = (e, el) => ( 0, console.error)(e, el);
 const cmpModules = /*@__PURE__*/ new Map();
 const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
     // loadModuleImport
@@ -1466,7 +1428,7 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
     if (module) {
         return module[exportName];
     }
-    return Promise.resolve().then(function () { return _interopNamespace(require(
+    return Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require(
     /* webpackInclude: /\.entry\.js$/ */
     /* webpackExclude: /\.system\.entry\.js$/ */
     /* webpackMode: "lazy" */
@@ -1479,7 +1441,6 @@ const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
 };
 const queueDomReads = [];
 const queueDomWrites = [];
-const queueDomWritesLow = [];
 const queueTask = (queue, write) => (cb) => {
     queue.push(cb);
     if (!queuePending) {
@@ -1503,48 +1464,18 @@ const consume = (queue) => {
     }
     queue.length = 0;
 };
-const consumeTimeout = (queue, timeout) => {
-    let i = 0;
-    let ts = 0;
-    while (i < queue.length && (ts = performance.now()) < timeout) {
-        try {
-            queue[i++](ts);
-        }
-        catch (e) {
-            consoleError(e);
-        }
-    }
-    if (i === queue.length) {
-        queue.length = 0;
-    }
-    else if (i !== 0) {
-        queue.splice(0, i);
-    }
-};
 const flush = () => {
-    {
-        queueCongestion++;
-    }
     // always force a bunch of medium callbacks to run, but still have
     // a throttle on how many can run in a certain time
     // DOM READS!!!
     consume(queueDomReads);
     // DOM WRITES!!!
     {
-        const timeout = (plt.$flags$ & 6 /* queueMask */) === 2 /* appLoaded */ ? performance.now() + 14 * Math.ceil(queueCongestion * (1.0 / 10.0)) : Infinity;
-        consumeTimeout(queueDomWrites, timeout);
-        consumeTimeout(queueDomWritesLow, timeout);
-        if (queueDomWrites.length > 0) {
-            queueDomWritesLow.push(...queueDomWrites);
-            queueDomWrites.length = 0;
-        }
-        if ((queuePending = queueDomReads.length + queueDomWrites.length + queueDomWritesLow.length > 0)) {
+        consume(queueDomWrites);
+        if ((queuePending = queueDomReads.length > 0)) {
             // still more to do yet, but we've run out of time
             // let's let this thing cool off and try again in the next tick
             plt.raf(flush);
-        }
-        else {
-            queueCongestion = 0;
         }
     }
 };
