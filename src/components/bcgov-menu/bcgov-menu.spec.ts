@@ -27,7 +27,7 @@ describe("bcgov-menu", () => {
     expect(page.root).toEqualHtml(`
     <bcgov-menu class="is-desktop" >
       <ul class="align-left" role="menubar" tabindex="0" >
-        <li aria-label="Test" role="menuitem" tabindex="-1">
+        <li aria-label="Test" role="menuitem" tabindex="0">
           <a aria-hidden="true" href="test.html" tabindex="-1">Test</a>
         </li>
         <li aria-label="Adding span" class="active" role="menuitem" tabindex="-1">
@@ -90,7 +90,7 @@ describe("bcgov-menu", () => {
       <header>
         <bcgov-menu class="is-desktop">
           <ul class="align-left" role="menubar" tabindex="0" >
-            <li aria-label="Test" role="menuitem" tabindex="-1">
+            <li aria-label="Test" role="menuitem" tabindex="0">
               <a aria-hidden="true" href="test.html" tabindex="-1">Test</a>
             </li>
             <li aria-label="Adding span" class="active" role="menuitem" tabindex="-1">

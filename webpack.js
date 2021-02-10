@@ -15,7 +15,7 @@ const loadPlugins = isProduction => {
   if (!isProduction) {
     plugins.push(
       new WebpackShellPlugin({
-        onBuildStart: ["stencil build --prod --watch --es5"],
+        onBuildStart: ["stencil build --dev --watch "],
         dev: true
       })
     );
@@ -58,8 +58,12 @@ module.exports = env => {
       }
     },
     entry: {
-      components: Path.join(config.paths.resources, "scripts/components.js"),
+      components:[
+        
+        Path.join(config.paths.resources, "scripts/components.js"),
+      ],
       app: [
+        
         Path.join(config.paths.resources, "scripts/index.js"),
         Path.join(config.paths.resources, "styles/index.scss")
       ]
@@ -101,13 +105,13 @@ module.exports = env => {
           test: /\.js$/,
           include: config.paths.resources,
           use: "eslint"
-        },*/
+        },
         {
           test: /\.(js)$/,
           include: config.paths.resources,
           exclude: /node_modules/,
           use: "babel-loader"
-        },
+        },*/
         {
           test: /\.(ttf|otf|eot|woff2?|png|jpe?g|gif|svg|ico)$/,
           include: config.paths.assets,
@@ -136,7 +140,7 @@ module.exports = env => {
             {
               loader: MiniCssExtractPlugin.loader,
               options: {
-                hmr: !isProduction
+                
               }
             },
             "css-loader"

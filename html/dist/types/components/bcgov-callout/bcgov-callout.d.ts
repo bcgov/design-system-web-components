@@ -1,3 +1,3 @@
 export declare class BcgovCallout {
-    render(): any;
+  render(): any;
 }
