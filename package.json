@@ -20,8 +20,8 @@
     "src/styles"
   ],
   "scripts": {
-    "build": "stencil build --prod --docs-readme && webpack  --progress --config webpack.js  --colors ",
-    "build:production": "stencil build --prod --docs-readme && webpack  --progress --config webpack.js  --colors ",
+    "build": "stencil build  --dev --es5 --docs-readme && webpack  --progress --config webpack.js  --colors ",
+    "build:production": "stencil build --prod --es5 --docs-readme  && webpack  --progress --config webpack.js  --colors ",
     "start": "webpack-dev-server --env.development --watch --open --config webpack.js  --colors",
     "deploy": "gh-pages -d html",
     "build.sjs": "stencil build --prod",

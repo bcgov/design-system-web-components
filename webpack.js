@@ -15,7 +15,7 @@ const loadPlugins = isProduction => {
   if (!isProduction) {
     plugins.push(
       new WebpackShellPlugin({
-        onBuildStart: ["stencil build --prod --watch --es5"],
+        onBuildStart: ["stencil build --dev --watch "],
         dev: true
       })
     );
