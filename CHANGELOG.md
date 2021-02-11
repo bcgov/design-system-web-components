@@ -1,3 +1,8 @@
+### 1.3.0 February 10, 2021
+* updating stencil build dependencies.
+* Clean up of dependencies.
+* Bumping version
+
 ### 1.2.0 January 30, 2021
 * Making some of the styles for forms simpler, removing bcgov-forms and just using .bcgov-forms.
 * updating form input accessibility.
