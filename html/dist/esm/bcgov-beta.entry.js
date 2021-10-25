@@ -1,4 +1,4 @@
-import { r as registerInstance, h, e as Host, g as getElement } from './index-268dcccf.js';
+import { r as registerInstance, h, g as getElement, H as Host } from './index-54307ef5.js';
 
 let BcgovBeta = class {
   constructor(hostRef) {

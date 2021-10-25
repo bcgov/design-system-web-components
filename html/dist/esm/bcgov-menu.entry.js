@@ -1,5 +1,5 @@
-import { r as registerInstance, h, e as Host, g as getElement } from './index-268dcccf.js';
-import { m as menuElement, a as findAncestor, k as keys } from './utils-3032e340.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './index-54307ef5.js';
+import { m as menuElement, a as findAncestor, k as keys } from './utils-9a052f8d.js';
 
 let BcgovMenu = class {
   constructor(hostRef) {
@@ -42,9 +42,6 @@ let BcgovMenu = class {
           const firstFocus = target.querySelector("ul > li:first-child");
           firstFocus.setAttribute("tabindex", "0");
           //firstFocus.focus();
-        }
-        else {
-          //this.el.focus();
         }
       }
     };
@@ -189,9 +186,6 @@ let BcgovMenu = class {
     }
   }
   focusChange(current, direction = "next") {
-    if (this.isSubmenu) {
-      //return;
-    }
     let element;
     if (current === this.el.querySelector("ul")) {
       element = current.querySelector("li:first-child");

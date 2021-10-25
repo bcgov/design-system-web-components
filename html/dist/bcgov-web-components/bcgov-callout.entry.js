@@ -1,12 +1,1 @@
-import { r as registerInstance, h, e as Host } from './index-268dcccf.js';
-
-let BcgovCallout = class {
-  constructor(hostRef) {
-    registerInstance(this, hostRef);
-  }
-  render() {
-    return (h(Host, { class: "bcgov-callout" }, h("slot", null)));
-  }
-};
-
-export { BcgovCallout as bcgov_callout };
+import{r as s,h as l,H as o}from"./index-54307ef5.js";let r=class{constructor(l){s(this,l)}render(){return l(o,{class:"bcgov-callout"},l("slot",null))}};export{r as bcgov_callout}

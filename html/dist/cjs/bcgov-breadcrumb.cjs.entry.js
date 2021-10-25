@@ -2,8 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-a80b6824.js');
-const utils = require('./utils-7ed0d0d6.js');
+const index = require('./index-56948967.js');
+const utils = require('./utils-af2d3a52.js');
 
 let BcgovBreadcrumb = class {
   constructor(hostRef) {

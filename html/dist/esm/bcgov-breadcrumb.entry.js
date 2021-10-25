@@ -1,5 +1,5 @@
-import { r as registerInstance, h, e as Host, g as getElement } from './index-268dcccf.js';
-import { b as breadCrumbElement } from './utils-3032e340.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './index-54307ef5.js';
+import { b as breadCrumbElement } from './utils-9a052f8d.js';
 
 let BcgovBreadcrumb = class {
   constructor(hostRef) {

@@ -20,9 +20,9 @@
     "src/styles"
   ],
   "scripts": {
-    "build": "stencil build  --dev --es5 --docs-readme && webpack  --progress --config webpack.js  --colors ",
-    "build:production": "stencil build --prod --es5 --docs-readme  && webpack  --progress --config webpack.js  --colors ",
-    "start": "webpack-dev-server --env.development --watch --open --config webpack.js  --colors",
+    "build": "stencil build  --dev --es5 --docs-readme && webpack  --progress --config webpack.js",
+    "build:production": "stencil build --prod --es5 --docs-readme  && webpack  --progress --config webpack.js",
+    "start": "webpack-dev-server --env.development --watch --open --config webpack.js",
     "deploy": "gh-pages -d html",
     "build.sjs": "stencil build --prod",
     "start.sjs": "stencil build --dev  --watch --serve",
@@ -61,8 +61,8 @@
     "showdown": "^1.9.1",
     "showdown-highlight": "^2.1.8",
     "style-loader": "^2.0.0",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12",
+    "webpack": "^5.60.0",
+    "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^4.2",
     "webpack-shell-plugin": "^0.5.0"

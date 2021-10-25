@@ -1,4 +1,4 @@
-import { r as registerInstance, h, e as Host } from './index-268dcccf.js';
+import { r as registerInstance, h, H as Host } from './index-54307ef5.js';
 
 let BcgovForm = class {
   constructor(hostRef) {

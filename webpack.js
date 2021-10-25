@@ -84,6 +84,7 @@ module.exports = env => {
     },
 
     stats: {
+      ids: true,
       hash: true,
       outputPath: true,
       assets: true,
@@ -92,7 +93,6 @@ module.exports = env => {
       warnings: true,
       reasons: true,
       source: true,
-      children: false,
       modules: false,
       publicPath: true
     },
@@ -166,10 +166,6 @@ module.exports = env => {
           ]
         }
       ]
-    },
-    node: {
-        Buffer: false, 
-        process: false,
     }
   };
   return settings;
