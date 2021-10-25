@@ -1,6 +1,10 @@
 ### 1.3.1 October 25, 2021
 * Clean up of dependencies.
-* Replaced node-sass with sass library
+    * Replaced node-sass with sass library
+    * Upgraded webpack server to V4
+    * Upgraded webpack-cli V4
+    * Upgraded webpack V5
+    * Upgraded webpack and other plugins and utilities.
 * Bumping version
 * Updated css to use math.div
 
