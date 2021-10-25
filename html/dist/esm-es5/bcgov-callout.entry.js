@@ -1,1 +1,1 @@
-import{r as registerInstance,h,H as Host}from"./index-e8a35f72.js";var BcgovCallout=function(){function t(t){registerInstance(this,t)}t.prototype.render=function(){return h(Host,{class:"bcgov-callout"},h("slot",null))};return t}();export{BcgovCallout as bcgov_callout};
+import{r as registerInstance,h,H as Host}from"./index-54307ef5.js";var BcgovCallout=function(){function t(t){registerInstance(this,t)}t.prototype.render=function(){return h(Host,{class:"bcgov-callout"},h("slot",null))};return t}();export{BcgovCallout as bcgov_callout};

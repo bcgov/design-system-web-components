@@ -1,9 +1,9 @@
 'use strict';
 
-const index = require('./index-cb239ad2.js');
+const index = require('./index-56948967.js');
 
 /*
- Stencil Client Patch Browser v2.4.0 | MIT Licensed | https://stenciljs.com
+ Stencil Client Patch Browser v2.9.0 | MIT Licensed | https://stenciljs.com
  */
 const patchBrowser = () => {
     {
@@ -11,10 +11,11 @@ const patchBrowser = () => {
         index.plt.$cssShim$ = index.win.__cssshim;
     }
     // @ts-ignore
-    const scriptElm =  Array.from(index.doc.querySelectorAll('script')).find(s => new RegExp(`\/${index.NAMESPACE}(\\.esm)?\\.js($|\\?|#)`).test(s.src) || s.getAttribute('data-stencil-namespace') === index.NAMESPACE)
+    const scriptElm = Array.from(index.doc.querySelectorAll('script')).find((s) => new RegExp(`\/${index.NAMESPACE}(\\.esm)?\\.js($|\\?|#)`).test(s.src) ||
+            s.getAttribute('data-stencil-namespace') === index.NAMESPACE)
         ;
-    const opts =  {};
-    if ( 'onbeforeload' in scriptElm && !history.scrollRestoration /* IS_ESM_BUILD */) {
+    const opts = {};
+    if ('onbeforeload' in scriptElm && !history.scrollRestoration /* IS_ESM_BUILD */) {
         // Safari < v11 support: This IF is true if it's Safari below v11.
         // This fn cannot use async/await since Safari didn't support it until v11,
         // however, Safari 10 did support modules. Safari 10 also didn't support "nomodule",

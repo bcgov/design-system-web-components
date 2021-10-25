@@ -1,6 +1,6 @@
-import { r as registerInstance, h, g as getElement, H as Host } from './index-e8a35f72.js';
+import { r as registerInstance, h, g as getElement, H as Host } from './index-54307ef5.js';
 
-const BcgovBeta = class {
+let BcgovBeta = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     this.content = "This Application is currently in Beta Phase";

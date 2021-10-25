@@ -1,7 +1,7 @@
 const Path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { readdirSync, readFileSync } = require("fs");
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const parseMD = require("parse-md");
 const showdown = require("showdown");
 const showdownHighlight = require("showdown-highlight");

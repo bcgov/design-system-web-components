@@ -1,7 +1,7 @@
-import { r as registerInstance, c as getAssetPath, h, H as Host, g as getElement } from './index-e8a35f72.js';
+import { r as registerInstance, c as getAssetPath, h, H as Host, g as getElement } from './index-54307ef5.js';
 import { f as filterATags } from './utils-9a052f8d.js';
 
-const BcgovHeader = class {
+let BcgovHeader = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     /** link for logo */

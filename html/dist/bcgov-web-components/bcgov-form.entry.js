@@ -1,1 +1,1 @@
-import{r,h as s,H as o}from"./index-e8a35f72.js";const t=class{constructor(s){r(this,s)}render(){return s(o,{className:"bcgov-form"},s("slot",null))}};export{t as bcgov_form}
+import{r,h as s,H as o}from"./index-54307ef5.js";let e=class{constructor(s){r(this,s)}render(){return s(o,{className:"bcgov-form"},s("slot",null))}};export{e as bcgov_form}

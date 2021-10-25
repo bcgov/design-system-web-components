@@ -1,7 +1,7 @@
 const Path = require("path");
 const createHTMLPages = require("./src/scripts/build");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-const WebpackShellPlugin = require("webpack-shell-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const WebpackShellPlugin = require('webpack-shell-plugin-next');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Webpack = require("webpack");
 
@@ -50,7 +50,7 @@ module.exports = env => {
   const settings = {
     context: config.paths.assets,
     mode: isProduction ? "production" : "development",
-    devtool: config.sourceMaps ? "#source-map" : undefined,
+    devtool: config.sourceMaps ? "source-map" : 'eval-source-map',
     optimization: {
       splitChunks: {
         chunks: "async",
@@ -59,11 +59,9 @@ module.exports = env => {
     },
     entry: {
       components:[
-        
         Path.join(config.paths.resources, "scripts/components.js"),
       ],
       app: [
-        
         Path.join(config.paths.resources, "scripts/index.js"),
         Path.join(config.paths.resources, "styles/index.scss")
       ]
@@ -75,15 +73,18 @@ module.exports = env => {
       chunkFilename: "js/[name].chunk.js"
     },
     devServer: {
-      inline: true,
-      contentBase: Path.join(__dirname, "src"),
-      watchContentBase: true,
-      disableHostCheck: true,
-      host: "0.0.0.0",
-      useLocalIp: false //set to true to use actual ip address
+      host: "local-ip",
+      hot: "only",
+      open: true,
+      static: {
+          directory: Path.join(__dirname, "src"),
+          watch: true
+      },
+      allowedHosts: "all",
     },
 
     stats: {
+      ids: true,
       hash: true,
       outputPath: true,
       assets: true,
@@ -92,7 +93,6 @@ module.exports = env => {
       warnings: true,
       reasons: true,
       source: true,
-      children: false,
       modules: false,
       publicPath: true
     },

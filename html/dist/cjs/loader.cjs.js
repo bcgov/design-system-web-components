@@ -2,17 +2,17 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-cb239ad2.js');
+const index = require('./index-56948967.js');
 
 /*
- Stencil Client Patch Esm v2.4.0 | MIT Licensed | https://stenciljs.com
+ Stencil Client Patch Esm v2.9.0 | MIT Licensed | https://stenciljs.com
  */
 const patchEsm = () => {
     // NOTE!! This fn cannot use async/await!
     // @ts-ignore
-    if ( !(index.CSS && index.CSS.supports && index.CSS.supports('color', 'var(--c)'))) {
+    if (!(index.CSS && index.CSS.supports && index.CSS.supports('color', 'var(--c)'))) {
         // @ts-ignore
-        return Promise.resolve().then(function () { return require(/* webpackChunkName: "polyfills-css-shim" */ './css-shim-285ec151.js'); }).then(() => {
+        return Promise.resolve().then(function () { return require(/* webpackChunkName: "polyfills-css-shim" */ './css-shim-17741caa.js'); }).then(() => {
             if ((index.plt.$cssShim$ = index.win.__cssshim)) {
                 return index.plt.$cssShim$.i();
             }

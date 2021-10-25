@@ -1,7 +1,7 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './index-e8a35f72.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './index-54307ef5.js';
 
 /*!
- * Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 
@@ -114,7 +114,7 @@ var _ref = _WINDOW.navigator || {},
 var WINDOW = _WINDOW;
 var DOCUMENT = _DOCUMENT;
 var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
-var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
+~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
 
 var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
 var DEFAULT_FAMILY_PREFIX = 'fa';
@@ -207,7 +207,7 @@ if (IS_DOM) {
   loaded = (DOCUMENT.documentElement.doScroll ? /^loaded|^c/ : /^loaded|^i|^c/).test(DOCUMENT.readyState);
   if (!loaded) DOCUMENT.addEventListener('DOMContentLoaded', listener);
 }
-var asyncSetTimer = typeof setImmediate === 'undefined' ? setTimeout : setImmediate;
+typeof setImmediate === 'undefined' ? setTimeout : setImmediate;
 var meaninglessTransform = {
   size: 16,
   x: 0,
@@ -640,9 +640,6 @@ function defineIcons(prefix, icons) {
 
 var styles = namespace.styles,
     shims = namespace.shims;
-var _byUnicode = {};
-var _byLigature = {};
-var _byOldName = {};
 var build = function build() {
   var lookup = function lookup(reducer) {
     return reduce(styles, function (o, style, prefix) {
@@ -651,14 +648,14 @@ var build = function build() {
     }, {});
   };
 
-  _byUnicode = lookup(function (acc, icon, iconName) {
+  lookup(function (acc, icon, iconName) {
     if (icon[3]) {
       acc[icon[3]] = iconName;
     }
 
     return acc;
   });
-  _byLigature = lookup(function (acc, icon, iconName) {
+  lookup(function (acc, icon, iconName) {
     var ligatures = icon[2];
     acc[iconName] = iconName;
     ligatures.forEach(function (ligature) {
@@ -667,7 +664,7 @@ var build = function build() {
     return acc;
   });
   var hasRegular = 'far' in styles;
-  _byOldName = reduce(shims, function (acc, shim) {
+  reduce(shims, function (acc, shim) {
     var oldName = shim[0];
     var prefix = shim[1];
     var iconName = shim[2];
@@ -724,18 +721,18 @@ var ANIMATION_BASE = {
   repeatCount: 'indefinite',
   dur: '2s'
 };
-var RING = {
+({
   tag: 'path',
   attributes: _objectSpread({}, FILL, {
     d: 'M156.5,447.7l-12.6,29.5c-18.7-9.5-35.9-21.2-51.5-34.9l22.7-22.7C127.6,430.5,141.5,440,156.5,447.7z M40.6,272H8.5 c1.4,21.2,5.4,41.7,11.7,61.1L50,321.2C45.1,305.5,41.8,289,40.6,272z M40.6,240c1.4-18.8,5.2-37,11.1-54.1l-29.5-12.6 C14.7,194.3,10,216.7,8.5,240H40.6z M64.3,156.5c7.8-14.9,17.2-28.8,28.1-41.5L69.7,92.3c-13.7,15.6-25.5,32.8-34.9,51.5 L64.3,156.5z M397,419.6c-13.9,12-29.4,22.3-46.1,30.4l11.9,29.8c20.7-9.9,39.8-22.6,56.9-37.6L397,419.6z M115,92.4 c13.9-12,29.4-22.3,46.1-30.4l-11.9-29.8c-20.7,9.9-39.8,22.6-56.8,37.6L115,92.4z M447.7,355.5c-7.8,14.9-17.2,28.8-28.1,41.5 l22.7,22.7c13.7-15.6,25.5-32.9,34.9-51.5L447.7,355.5z M471.4,272c-1.4,18.8-5.2,37-11.1,54.1l29.5,12.6 c7.5-21.1,12.2-43.5,13.6-66.8H471.4z M321.2,462c-15.7,5-32.2,8.2-49.2,9.4v32.1c21.2-1.4,41.7-5.4,61.1-11.7L321.2,462z M240,471.4c-18.8-1.4-37-5.2-54.1-11.1l-12.6,29.5c21.1,7.5,43.5,12.2,66.8,13.6V471.4z M462,190.8c5,15.7,8.2,32.2,9.4,49.2h32.1 c-1.4-21.2-5.4-41.7-11.7-61.1L462,190.8z M92.4,397c-12-13.9-22.3-29.4-30.4-46.1l-29.8,11.9c9.9,20.7,22.6,39.8,37.6,56.9 L92.4,397z M272,40.6c18.8,1.4,36.9,5.2,54.1,11.1l12.6-29.5C317.7,14.7,295.3,10,272,8.5V40.6z M190.8,50 c15.7-5,32.2-8.2,49.2-9.4V8.5c-21.2,1.4-41.7,5.4-61.1,11.7L190.8,50z M442.3,92.3L419.6,115c12,13.9,22.3,29.4,30.5,46.1 l29.8-11.9C470,128.5,457.3,109.4,442.3,92.3z M397,92.4l22.7-22.7c-15.6-13.7-32.8-25.5-51.5-34.9l-12.6,29.5 C370.4,72.1,384.4,81.5,397,92.4z'
   })
-};
+});
 
 var OPACITY_ANIMATE = _objectSpread({}, ANIMATION_BASE, {
   attributeName: 'opacity'
 });
 
-var DOT = {
+({
   tag: 'circle',
   attributes: _objectSpread({}, FILL, {
     cx: '256',
@@ -754,8 +751,8 @@ var DOT = {
       values: '1;0;1;1;0;1;'
     })
   }]
-};
-var QUESTION = {
+});
+({
   tag: 'path',
   attributes: _objectSpread({}, FILL, {
     opacity: '1',
@@ -767,8 +764,8 @@ var QUESTION = {
       values: '1;0;0;0;0;1;'
     })
   }]
-};
-var EXCLAMATION = {
+});
+({
   tag: 'path',
   attributes: _objectSpread({}, FILL, {
     opacity: '0',
@@ -780,7 +777,7 @@ var EXCLAMATION = {
       values: '0;0;1;1;0;0;'
     })
   }]
-};
+});
 function asFoundIcon(icon) {
   var width = icon[0];
   var height = icon[1];
@@ -1022,7 +1019,7 @@ var icon = resolveIcons(function (iconDefinition) {
 });
 
 /*!
- * Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 var faSearch = {
@@ -1031,7 +1028,7 @@ var faSearch = {
   icon: [512, 512, [], "f002", "M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"]
 };
 
-const BcgovButton = class {
+let BcgovButton = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     /** The action of the button. */
