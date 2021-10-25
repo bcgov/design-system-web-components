@@ -1,6 +1,6 @@
-import { r as registerInstance, h, H as Host } from './index-e8a35f72.js';
+import { r as registerInstance, h, e as Host } from './index-268dcccf.js';
 
-const BcgovCallout = class {
+let BcgovCallout = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
   }

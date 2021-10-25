@@ -22,7 +22,7 @@ bcgov-menu {
   }
   a {
     position: relative;
-    padding: $padding-x/2 $padding-y $padding-x/2 $padding-y;
+    padding: math.div($padding-x,2) $padding-y math.div($padding-x,2) $padding-y;
     display: block;
 
     &:before {
@@ -222,7 +222,7 @@ bcgov-menu {
     }
     a {
       border: 1px solid transparent;
-      padding: $padding-x/2 $padding-y * 1.25;
+      padding: math.div($padding-x,2) $padding-y * 1.25;
       margin: 0;
       &:before {
         content: "";

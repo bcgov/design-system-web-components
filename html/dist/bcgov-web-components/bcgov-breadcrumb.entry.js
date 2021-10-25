@@ -1,1 +1,19 @@
-import{r,h as a,H as t,g as e}from"./index-e8a35f72.js";import{b as s}from"./utils-9a052f8d.js";const o=class{constructor(a){r(this,a)}componentWillLoad(){[].forEach.call(this.el.querySelectorAll("a, span"),(function(r){s(r)}))}render(){return a(t,{"aria-label":"Breadcrumb",role:"navigation",class:"bcgov-breadcrumb"},a("ol",{itemscope:!0,itemtype:"http://schema.org/BreadcrumbList"},a("slot",null)),a("slot",{name:"breadcrumb-extra"}))}get el(){return e(this)}};export{o as bcgov_breadcrumb}
+import { r as registerInstance, h, e as Host, g as getElement } from './index-268dcccf.js';
+import { b as breadCrumbElement } from './utils-3032e340.js';
+
+let BcgovBreadcrumb = class {
+  constructor(hostRef) {
+    registerInstance(this, hostRef);
+  }
+  componentWillLoad() {
+    [].forEach.call(this.el.querySelectorAll("a, span"), function (element) {
+      breadCrumbElement(element);
+    });
+  }
+  render() {
+    return (h(Host, { "aria-label": "Breadcrumb", role: "navigation", class: "bcgov-breadcrumb" }, h("ol", { itemscope: true, itemtype: "http://schema.org/BreadcrumbList" }, h("slot", null)), h("slot", { name: "breadcrumb-extra" })));
+  }
+  get el() { return getElement(this); }
+};
+
+export { BcgovBreadcrumb as bcgov_breadcrumb };

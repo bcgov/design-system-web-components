@@ -1,6 +1,6 @@
-import { r as registerInstance, c as getAssetPath, h, H as Host } from './index-e8a35f72.js';
+import { r as registerInstance, f as getAssetPath, h, e as Host } from './index-268dcccf.js';
 
-const BcgovFooter = class {
+let BcgovFooter = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     /** Alignment of menu */

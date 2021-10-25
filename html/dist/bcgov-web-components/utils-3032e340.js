@@ -10,6 +10,13 @@ const filterATags = element => {
   }
   return element;
 };
+const moveElement = (element, parent) => {
+  const nName = element.nodeName.toLowerCase();
+  if ("a" === nName) {
+    filterATags(element);
+  }
+  parent.appendChild(element);
+};
 const breadCrumbElement = element => {
   const nName = element.nodeName.toLowerCase();
   if (("a" === nName || "span" === nName) &&

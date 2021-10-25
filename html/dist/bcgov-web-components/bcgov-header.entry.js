@@ -1,1 +1,67 @@
-import{r as s,c as t,h as a,H as o,g as e}from"./index-e8a35f72.js";import{f as i}from"./utils-9a052f8d.js";const n=class{constructor(t){s(this,t),this.href="https://www2.gov.bc.ca/gov/content/home",this.logo="gov_bc_logo.svg"}componentWillLoad(){}componentDidRender(){const s=this;[].forEach.call(this.el.querySelectorAll("div[aria]"),(function(s){s.classList.add("access")}));let t,a=this.el.querySelectorAll("img"),o=document.createElement("div");o.classList.add("banner"),[].forEach.call(a,(function(a){void 0!==s.href&&""!==s.href?(void 0===t&&(t=document.createElement("a"),t.classList.add("branding-logo"),t.setAttribute("aria-label","branding logo"),t.setAttribute("href",s.href),o.appendChild(t)),t.appendChild(a.cloneNode(!0))):o.appendChild(a.cloneNode(!0)),a.parentNode.replaceChild(o,a)})),[].forEach.call(this.el.querySelectorAll("div[aria]"),(function(s){[].forEach.call(s.querySelectorAll("a"),(function(s){s.setAttribute("aria",""),i(s)}))}))}getImage(){if(""===this.logo)return"";{let s=t(`./assets/${this.logo}`),o=a("img",{class:"header-logo",src:s,alt:"Logo"});return""!==this.href&&(o=a("a",{class:"branding-logo",href:this.href,"aria-label":"branding logo"},o)),""}}render(){return a(o,{className:"bcgov-header"},a("header",null,this.getImage(),a("slot",null)))}static get assetsDirs(){return["../../assets"]}get el(){return e(this)}};export{n as bcgov_header}
+import { r as registerInstance, f as getAssetPath, h, e as Host, g as getElement } from './index-268dcccf.js';
+import { f as filterATags } from './utils-3032e340.js';
+
+let BcgovHeader = class {
+  constructor(hostRef) {
+    registerInstance(this, hostRef);
+    /** link for logo */
+    this.href = "https://www2.gov.bc.ca/gov/content/home";
+    /** Logo options -- might not work... */
+    this.logo = "gov_bc_logo.svg";
+  }
+  componentWillLoad() { }
+  componentDidRender() {
+    const self = this;
+    [].forEach.call(this.el.querySelectorAll("div[aria]"), function (element) {
+      element.classList.add("access");
+    });
+    let $img = this.el.querySelectorAll("img");
+    let divTag = document.createElement("div");
+    let atag;
+    divTag.classList.add("banner");
+    [].forEach.call($img, function (element) {
+      if (undefined !== self.href && "" !== self.href) {
+        if (undefined === atag) {
+          atag = document.createElement("a");
+          atag.classList.add("branding-logo");
+          atag.setAttribute("aria-label", "branding logo");
+          atag.setAttribute("href", self.href);
+          divTag.appendChild(atag);
+        }
+        atag.appendChild(element.cloneNode(true));
+      }
+      else {
+        divTag.appendChild(element.cloneNode(true));
+      }
+      //element.replaceWith(divTag);
+      element.parentNode.replaceChild(divTag, element);
+    });
+    [].forEach.call(this.el.querySelectorAll("div[aria]"), function (element) {
+      [].forEach.call(element.querySelectorAll("a"), function (element) {
+        element.setAttribute("aria", "");
+        filterATags(element);
+      });
+    });
+  }
+  getImage() {
+    if ("" === this.logo) {
+      return "";
+    }
+    else {
+      let image = getAssetPath(`./assets/${this.logo}`);
+      let markup = h("img", { class: "header-logo", src: image, alt: "Logo" });
+      if ("" !== this.href) {
+        markup = (h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, markup));
+      }
+      return "";
+      //return <div class="banner">{markup}</div>;
+    }
+  }
+  render() {
+    return (h(Host, { className: "bcgov-header" }, h("header", null, this.getImage(), h("slot", null))));
+  }
+  static get assetsDirs() { return ["../../assets"]; }
+  get el() { return getElement(this); }
+};
+
+export { BcgovHeader as bcgov_header };

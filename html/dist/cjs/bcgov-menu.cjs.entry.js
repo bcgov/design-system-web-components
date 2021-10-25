@@ -2,10 +2,10 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-cb239ad2.js');
-const utils = require('./utils-af2d3a52.js');
+const index = require('./index-a80b6824.js');
+const utils = require('./utils-7ed0d0d6.js');
 
-const BcgovMenu = class {
+let BcgovMenu = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     /** Alignment of menu */
@@ -46,6 +46,9 @@ const BcgovMenu = class {
           const firstFocus = target.querySelector("ul > li:first-child");
           firstFocus.setAttribute("tabindex", "0");
           //firstFocus.focus();
+        }
+        else {
+          //this.el.focus();
         }
       }
     };
@@ -190,6 +193,9 @@ const BcgovMenu = class {
     }
   }
   focusChange(current, direction = "next") {
+    if (this.isSubmenu) {
+      //return;
+    }
     let element;
     if (current === this.el.querySelector("ul")) {
       element = current.querySelector("li:first-child");

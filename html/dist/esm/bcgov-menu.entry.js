@@ -1,7 +1,7 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './index-e8a35f72.js';
-import { m as menuElement, a as findAncestor, k as keys } from './utils-9a052f8d.js';
+import { r as registerInstance, h, e as Host, g as getElement } from './index-268dcccf.js';
+import { m as menuElement, a as findAncestor, k as keys } from './utils-3032e340.js';
 
-const BcgovMenu = class {
+let BcgovMenu = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     /** Alignment of menu */
@@ -42,6 +42,9 @@ const BcgovMenu = class {
           const firstFocus = target.querySelector("ul > li:first-child");
           firstFocus.setAttribute("tabindex", "0");
           //firstFocus.focus();
+        }
+        else {
+          //this.el.focus();
         }
       }
     };
@@ -186,6 +189,9 @@ const BcgovMenu = class {
     }
   }
   focusChange(current, direction = "next") {
+    if (this.isSubmenu) {
+      //return;
+    }
     let element;
     if (current === this.el.querySelector("ul")) {
       element = current.querySelector("li:first-child");

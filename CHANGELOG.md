@@ -1,3 +1,10 @@
+### 1.3.1 October 25, 2021
+* Clean up of dependencies.
+* Replaced node-sass with sass library
+* Bumping version
+* Updated css to use math.div
+
+
 ### 1.3.0 February 10, 2021
 * updating stencil build dependencies.
 * Clean up of dependencies.

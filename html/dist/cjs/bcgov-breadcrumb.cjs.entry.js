@@ -2,10 +2,10 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-cb239ad2.js');
-const utils = require('./utils-af2d3a52.js');
+const index = require('./index-a80b6824.js');
+const utils = require('./utils-7ed0d0d6.js');
 
-const BcgovBreadcrumb = class {
+let BcgovBreadcrumb = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
   }

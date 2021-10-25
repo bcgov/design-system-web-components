@@ -1,1 +1,12 @@
-import{r,h as s,H as o}from"./index-e8a35f72.js";const t=class{constructor(s){r(this,s)}render(){return s(o,{className:"bcgov-form"},s("slot",null))}};export{t as bcgov_form}
+import { r as registerInstance, h, e as Host } from './index-268dcccf.js';
+
+let BcgovForm = class {
+  constructor(hostRef) {
+    registerInstance(this, hostRef);
+  }
+  render() {
+    return (h(Host, { className: "bcgov-form" }, h("slot", null)));
+  }
+};
+
+export { BcgovForm as bcgov_form };

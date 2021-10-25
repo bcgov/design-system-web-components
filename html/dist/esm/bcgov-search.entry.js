@@ -1,6 +1,6 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './index-e8a35f72.js';
+import { r as registerInstance, h, e as Host, g as getElement } from './index-268dcccf.js';
 
-const BcgovSearch = class {
+let BcgovSearch = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     /** A number that represents mobile search breakpoint in px; */

@@ -166,6 +166,10 @@ module.exports = env => {
           ]
         }
       ]
+    },
+    node: {
+        Buffer: false, 
+        process: false,
     }
   };
   return settings;

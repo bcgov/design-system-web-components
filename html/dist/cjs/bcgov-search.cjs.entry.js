@@ -2,9 +2,9 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-cb239ad2.js');
+const index = require('./index-a80b6824.js');
 
-const BcgovSearch = class {
+let BcgovSearch = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     /** A number that represents mobile search breakpoint in px; */
