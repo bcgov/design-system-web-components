@@ -1,3 +1,11 @@
+### 1.3.2 November 4, 2021
+* Changed z-index scale of elements to fall below wp-admin bar
+    * `#wpadminbar` (99999) is treated as ceiling
+    * `*:focus` (9999) is treated as floor
+    * `.bcgov-search` remains at floor (9999)
+    * `.bcgov-header` and `.bcgov-menu.primary` are middle (11000)
+    * `.bcgov-menu ul` sits just above the middle (11100)
+
 ### 1.3.1 October 25, 2021
 * Clean up of dependencies.
     * Replaced node-sass with sass library
