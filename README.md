@@ -100,3 +100,8 @@ All components should meet or exceed [WCAG 2.0 AA](https://www.w3.org/TR/WCAG20/
     - submenu
     - accessibility, and accessibility instructions
 - **Tabs**  `<bcgov-tabs><bcgov-tab>` *Not Implemented*
+
+## Development
+Builds are known to work with node v15.14.0 and npm v7.7.6.
+
+Tip: `npm --no-save install` with npm7 will prevent unnecessary package-lock.json changes from needing to be committed back to the repository; not forcing an upgrade for others with npm6.

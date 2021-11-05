@@ -73,7 +73,7 @@ bcgov-menu {
   &[primary],
   &.primary {
     /** Setup the defaults for all menu / submenu **/
-    z-index: 99999;
+    z-index: 11000;
     color: var(--menu-mobile-color);
     max-width: 500px;
     width: 100%;
@@ -121,7 +121,7 @@ bcgov-menu {
       }
       bcgov-menu {
         ul {
-          z-index: 999999;
+          z-index: 11100;
           background-color: var(--menu-mobile-submenu-background);
         }
         > div {
