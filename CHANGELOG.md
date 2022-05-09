@@ -1,3 +1,6 @@
+### 1.3.3 May 9, 2022
+* Fix dependabot alerts DESCW-274.
+
 ### 1.3.2 November 4, 2021
 * Changed z-index scale of elements to fall below wp-admin bar
     * `#wpadminbar` (99999) is treated as ceiling

@@ -1,7 +1,7 @@
-import { r as registerInstance, h, H as Host, g as getElement } from './index-54307ef5.js';
+import { r as registerInstance, h, H as Host, g as getElement } from './index-cfce1eb0.js';
 import { m as menuElement, a as findAncestor, k as keys } from './utils-9a052f8d.js';
 
-let BcgovMenu = class {
+const BcgovMenu = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
     /** Alignment of menu */
