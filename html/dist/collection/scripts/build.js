@@ -16,7 +16,7 @@ const marked = require("marked");
 const parseMarkDown = mdfile => {
   const output = readFileSync(mdfile, "utf8");
   let { metadata, content } = parseMD.default(output);
-  content = converter.makeHtml(marked(String(content)));
+  content = converter.makeHtml(marked.parse(String(content)));
   return merge({ bodyHtml: content }, metadata);
 };
 

@@ -2,10 +2,10 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-56948967.js');
+const index = require('./index-a2f6f6bb.js');
 const utils = require('./utils-af2d3a52.js');
 
-let BcgovMenu = class {
+const BcgovMenu = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
     /** Alignment of menu */

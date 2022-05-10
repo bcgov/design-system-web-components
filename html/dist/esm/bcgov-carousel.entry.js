@@ -1,6 +1,6 @@
-import { r as registerInstance, h, H as Host } from './index-54307ef5.js';
+import { r as registerInstance, h, H as Host } from './index-cfce1eb0.js';
 
-let BcgovCarousel = class {
+const BcgovCarousel = class {
   constructor(hostRef) {
     registerInstance(this, hostRef);
   }

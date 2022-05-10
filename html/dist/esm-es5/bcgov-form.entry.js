@@ -1,1 +1,1 @@
-import{r as registerInstance,h,H as Host}from"./index-54307ef5.js";var BcgovForm=function(){function r(r){registerInstance(this,r)}r.prototype.render=function(){return h(Host,{className:"bcgov-form"},h("slot",null))};return r}();export{BcgovForm as bcgov_form};
+import{r as registerInstance,h,H as Host}from"./index-cfce1eb0.js";var BcgovForm=function(){function r(r){registerInstance(this,r)}r.prototype.render=function(){return h(Host,{className:"bcgov-form"},h("slot",null))};return r}();export{BcgovForm as bcgov_form};

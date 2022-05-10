@@ -1,7 +1,7 @@
-import { p as plt, w as win, d as doc, N as NAMESPACE, a as promiseResolve, b as bootstrapLazy } from './index-54307ef5.js';
+import { p as plt, w as win, d as doc, N as NAMESPACE, a as promiseResolve, b as bootstrapLazy } from './index-cfce1eb0.js';
 
 /*
- Stencil Client Patch Browser v2.9.0 | MIT Licensed | https://stenciljs.com
+ Stencil Client Patch Browser v2.15.2 | MIT Licensed | https://stenciljs.com
  */
 const patchBrowser = () => {
     {
