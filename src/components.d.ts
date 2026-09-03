@@ -7,7 +7,13 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface BcgovBeta {
+        /**
+          * @default "This Application is currently in Beta Phase"
+         */
         "content": string;
+        /**
+          * @default "Beta"
+         */
         "label": string;
     }
     interface BcgovBreadcrumb {
@@ -15,6 +21,7 @@ export namespace Components {
     interface BcgovButton {
         /**
           * Style of button
+          * @default "primary"
          */
         "buttonStyle": | "primary"
     | "secondary"
@@ -25,22 +32,27 @@ export namespace Components {
     | "search-inline-close";
         /**
           * Target, only used on hamburger and search
+          * @default null
          */
         "dataTarget": string;
         /**
           * Add a callback to handle events
+          * @default this.eventHandlerFunction
          */
         "eventHandler": Function;
         /**
           * The action of the button.
+          * @default "button"
          */
         "link": string;
         /**
           * A tag target
+          * @default null
          */
         "target": "_self" | "_blank" | "_parent" | "_top" | null;
         /**
           * default state of button if applicable
+          * @default "false"
          */
         "targetHidden": string;
     }
@@ -51,6 +63,7 @@ export namespace Components {
     interface BcgovFooter {
         /**
           * Built in Logos, other wise just add image, before or after menu.
+          * @default "gov_bc_logo_white.png"
          */
         "logo": | ""
     | "gov_bc_logo.svg"
@@ -62,10 +75,12 @@ export namespace Components {
     interface BcgovHeader {
         /**
           * link for logo
+          * @default "https://www2.gov.bc.ca/gov/content/home"
          */
         "href": string;
         /**
           * Logo options -- might not work...
+          * @default "gov_bc_logo.svg"
          */
         "logo": | ""
     | "gov_bc_logo.svg"
@@ -73,21 +88,28 @@ export namespace Components {
     | "gov_bc_logo_grey.jpg";
     }
     interface BcgovMenu {
+        /**
+          * @default false
+         */
         "active": boolean;
         /**
           * Alignment of menu
+          * @default "left"
          */
         "alignment": string;
         /**
           * Adds hover to submenues
+          * @default false
          */
         "allowHover": boolean;
         /**
           * A number that represents mobile menu breakpoint in px;
+          * @default 0
          */
         "breakpoint": number;
         /**
           * Automatically adds hamburger.
+          * @default true
          */
         "hamburger": boolean;
         /**
@@ -96,14 +118,17 @@ export namespace Components {
         "href": string;
         /**
           * Aria Instructions
+          * @default `Use arrow keys to navigate between menuitems,   spacebar to expand submenus, escape key to close submenus, enter to activate menuitems.`
          */
         "instructions": string;
         /**
           * Menu id used for instructions TODO: this might need more consideration
+          * @default "menu"
          */
         "menuId": string;
         /**
           * Changes timeout for submenu
+          * @default 500
          */
         "menuTimeOut": number;
         /**
@@ -116,6 +141,7 @@ export namespace Components {
     interface BcgovSearch {
         /**
           * A number that represents mobile search breakpoint in px;
+          * @default 0
          */
         "breakpoint": number;
     }
@@ -196,7 +222,13 @@ declare global {
 }
 declare namespace LocalJSX {
     interface BcgovBeta {
+        /**
+          * @default "This Application is currently in Beta Phase"
+         */
         "content"?: string;
+        /**
+          * @default "Beta"
+         */
         "label"?: string;
     }
     interface BcgovBreadcrumb {
@@ -204,6 +236,7 @@ declare namespace LocalJSX {
     interface BcgovButton {
         /**
           * Style of button
+          * @default "primary"
          */
         "buttonStyle"?: | "primary"
     | "secondary"
@@ -214,22 +247,27 @@ declare namespace LocalJSX {
     | "search-inline-close";
         /**
           * Target, only used on hamburger and search
+          * @default null
          */
         "dataTarget"?: string;
         /**
           * Add a callback to handle events
+          * @default this.eventHandlerFunction
          */
         "eventHandler"?: Function;
         /**
           * The action of the button.
+          * @default "button"
          */
         "link"?: string;
         /**
           * A tag target
+          * @default null
          */
         "target"?: "_self" | "_blank" | "_parent" | "_top" | null;
         /**
           * default state of button if applicable
+          * @default "false"
          */
         "targetHidden"?: string;
     }
@@ -240,6 +278,7 @@ declare namespace LocalJSX {
     interface BcgovFooter {
         /**
           * Built in Logos, other wise just add image, before or after menu.
+          * @default "gov_bc_logo_white.png"
          */
         "logo"?: | ""
     | "gov_bc_logo.svg"
@@ -251,10 +290,12 @@ declare namespace LocalJSX {
     interface BcgovHeader {
         /**
           * link for logo
+          * @default "https://www2.gov.bc.ca/gov/content/home"
          */
         "href"?: string;
         /**
           * Logo options -- might not work...
+          * @default "gov_bc_logo.svg"
          */
         "logo"?: | ""
     | "gov_bc_logo.svg"
@@ -262,21 +303,28 @@ declare namespace LocalJSX {
     | "gov_bc_logo_grey.jpg";
     }
     interface BcgovMenu {
+        /**
+          * @default false
+         */
         "active"?: boolean;
         /**
           * Alignment of menu
+          * @default "left"
          */
         "alignment"?: string;
         /**
           * Adds hover to submenues
+          * @default false
          */
         "allowHover"?: boolean;
         /**
           * A number that represents mobile menu breakpoint in px;
+          * @default 0
          */
         "breakpoint"?: number;
         /**
           * Automatically adds hamburger.
+          * @default true
          */
         "hamburger"?: boolean;
         /**
@@ -285,14 +333,17 @@ declare namespace LocalJSX {
         "href"?: string;
         /**
           * Aria Instructions
+          * @default `Use arrow keys to navigate between menuitems,   spacebar to expand submenus, escape key to close submenus, enter to activate menuitems.`
          */
         "instructions"?: string;
         /**
           * Menu id used for instructions TODO: this might need more consideration
+          * @default "menu"
          */
         "menuId"?: string;
         /**
           * Changes timeout for submenu
+          * @default 500
          */
         "menuTimeOut"?: number;
         /**
@@ -305,36 +356,86 @@ declare namespace LocalJSX {
     interface BcgovSearch {
         /**
           * A number that represents mobile search breakpoint in px;
+          * @default 0
          */
         "breakpoint"?: number;
     }
+
+    interface BcgovBetaAttributes {
+        "content": string;
+        "label": string;
+    }
+    interface BcgovButtonAttributes {
+        "link": string;
+        "targetHidden": string;
+        "buttonStyle": | "primary"
+    | "secondary"
+    | "dark"
+    | "hamburger"
+    | "search"
+    | "search-inline" 
+    | "search-inline-close";
+        "target": "_self" | "_blank" | "_parent" | "_top" | null;
+        "dataTarget": string;
+    }
+    interface BcgovFooterAttributes {
+        "logo": | ""
+    | "gov_bc_logo.svg"
+    | "gov_bc_logo_white.png"
+    | "gov_bc_logo_grey.jpg";
+    }
+    interface BcgovHeaderAttributes {
+        "href": string;
+        "logo": | ""
+    | "gov_bc_logo.svg"
+    | "gov_bc_logo_white.png"
+    | "gov_bc_logo_grey.jpg";
+    }
+    interface BcgovMenuAttributes {
+        "alignment": string;
+        "primary": string;
+        "sidebar": string;
+        "menuId": string;
+        "instructions": string;
+        "href": string;
+        "name": string;
+        "breakpoint": number;
+        "hamburger": boolean;
+        "active": boolean;
+        "allowHover": boolean;
+        "menuTimeOut": number;
+    }
+    interface BcgovSearchAttributes {
+        "breakpoint": number;
+    }
+
     interface IntrinsicElements {
-        "bcgov-beta": BcgovBeta;
+        "bcgov-beta": Omit<BcgovBeta, keyof BcgovBetaAttributes> & { [K in keyof BcgovBeta & keyof BcgovBetaAttributes]?: BcgovBeta[K] } & { [K in keyof BcgovBeta & keyof BcgovBetaAttributes as `attr:${K}`]?: BcgovBetaAttributes[K] } & { [K in keyof BcgovBeta & keyof BcgovBetaAttributes as `prop:${K}`]?: BcgovBeta[K] };
         "bcgov-breadcrumb": BcgovBreadcrumb;
-        "bcgov-button": BcgovButton;
+        "bcgov-button": Omit<BcgovButton, keyof BcgovButtonAttributes> & { [K in keyof BcgovButton & keyof BcgovButtonAttributes]?: BcgovButton[K] } & { [K in keyof BcgovButton & keyof BcgovButtonAttributes as `attr:${K}`]?: BcgovButtonAttributes[K] } & { [K in keyof BcgovButton & keyof BcgovButtonAttributes as `prop:${K}`]?: BcgovButton[K] };
         "bcgov-callout": BcgovCallout;
         "bcgov-carousel": BcgovCarousel;
-        "bcgov-footer": BcgovFooter;
+        "bcgov-footer": Omit<BcgovFooter, keyof BcgovFooterAttributes> & { [K in keyof BcgovFooter & keyof BcgovFooterAttributes]?: BcgovFooter[K] } & { [K in keyof BcgovFooter & keyof BcgovFooterAttributes as `attr:${K}`]?: BcgovFooterAttributes[K] } & { [K in keyof BcgovFooter & keyof BcgovFooterAttributes as `prop:${K}`]?: BcgovFooter[K] };
         "bcgov-form": BcgovForm;
-        "bcgov-header": BcgovHeader;
-        "bcgov-menu": BcgovMenu;
-        "bcgov-search": BcgovSearch;
+        "bcgov-header": Omit<BcgovHeader, keyof BcgovHeaderAttributes> & { [K in keyof BcgovHeader & keyof BcgovHeaderAttributes]?: BcgovHeader[K] } & { [K in keyof BcgovHeader & keyof BcgovHeaderAttributes as `attr:${K}`]?: BcgovHeaderAttributes[K] } & { [K in keyof BcgovHeader & keyof BcgovHeaderAttributes as `prop:${K}`]?: BcgovHeader[K] };
+        "bcgov-menu": Omit<BcgovMenu, keyof BcgovMenuAttributes> & { [K in keyof BcgovMenu & keyof BcgovMenuAttributes]?: BcgovMenu[K] } & { [K in keyof BcgovMenu & keyof BcgovMenuAttributes as `attr:${K}`]?: BcgovMenuAttributes[K] } & { [K in keyof BcgovMenu & keyof BcgovMenuAttributes as `prop:${K}`]?: BcgovMenu[K] };
+        "bcgov-search": Omit<BcgovSearch, keyof BcgovSearchAttributes> & { [K in keyof BcgovSearch & keyof BcgovSearchAttributes]?: BcgovSearch[K] } & { [K in keyof BcgovSearch & keyof BcgovSearchAttributes as `attr:${K}`]?: BcgovSearchAttributes[K] } & { [K in keyof BcgovSearch & keyof BcgovSearchAttributes as `prop:${K}`]?: BcgovSearch[K] };
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "bcgov-beta": LocalJSX.BcgovBeta & JSXBase.HTMLAttributes<HTMLBcgovBetaElement>;
-            "bcgov-breadcrumb": LocalJSX.BcgovBreadcrumb & JSXBase.HTMLAttributes<HTMLBcgovBreadcrumbElement>;
-            "bcgov-button": LocalJSX.BcgovButton & JSXBase.HTMLAttributes<HTMLBcgovButtonElement>;
-            "bcgov-callout": LocalJSX.BcgovCallout & JSXBase.HTMLAttributes<HTMLBcgovCalloutElement>;
-            "bcgov-carousel": LocalJSX.BcgovCarousel & JSXBase.HTMLAttributes<HTMLBcgovCarouselElement>;
-            "bcgov-footer": LocalJSX.BcgovFooter & JSXBase.HTMLAttributes<HTMLBcgovFooterElement>;
-            "bcgov-form": LocalJSX.BcgovForm & JSXBase.HTMLAttributes<HTMLBcgovFormElement>;
-            "bcgov-header": LocalJSX.BcgovHeader & JSXBase.HTMLAttributes<HTMLBcgovHeaderElement>;
-            "bcgov-menu": LocalJSX.BcgovMenu & JSXBase.HTMLAttributes<HTMLBcgovMenuElement>;
-            "bcgov-search": LocalJSX.BcgovSearch & JSXBase.HTMLAttributes<HTMLBcgovSearchElement>;
+            "bcgov-beta": LocalJSX.IntrinsicElements["bcgov-beta"] & JSXBase.HTMLAttributes<HTMLBcgovBetaElement>;
+            "bcgov-breadcrumb": LocalJSX.IntrinsicElements["bcgov-breadcrumb"] & JSXBase.HTMLAttributes<HTMLBcgovBreadcrumbElement>;
+            "bcgov-button": LocalJSX.IntrinsicElements["bcgov-button"] & JSXBase.HTMLAttributes<HTMLBcgovButtonElement>;
+            "bcgov-callout": LocalJSX.IntrinsicElements["bcgov-callout"] & JSXBase.HTMLAttributes<HTMLBcgovCalloutElement>;
+            "bcgov-carousel": LocalJSX.IntrinsicElements["bcgov-carousel"] & JSXBase.HTMLAttributes<HTMLBcgovCarouselElement>;
+            "bcgov-footer": LocalJSX.IntrinsicElements["bcgov-footer"] & JSXBase.HTMLAttributes<HTMLBcgovFooterElement>;
+            "bcgov-form": LocalJSX.IntrinsicElements["bcgov-form"] & JSXBase.HTMLAttributes<HTMLBcgovFormElement>;
+            "bcgov-header": LocalJSX.IntrinsicElements["bcgov-header"] & JSXBase.HTMLAttributes<HTMLBcgovHeaderElement>;
+            "bcgov-menu": LocalJSX.IntrinsicElements["bcgov-menu"] & JSXBase.HTMLAttributes<HTMLBcgovMenuElement>;
+            "bcgov-search": LocalJSX.IntrinsicElements["bcgov-search"] & JSXBase.HTMLAttributes<HTMLBcgovSearchElement>;
         }
     }
 }
