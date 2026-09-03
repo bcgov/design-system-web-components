@@ -1,4 +1,4 @@
-import { r as registerInstance, a as getElement, h, H as Host } from './index-DQ-lwiDk.js';
+import { r as registerInstance, a as getElement, h, H as Host } from './index-DW13K2iW.js';
 import { b as breadCrumbElement } from './utils-IupWkDWR.js';
 
 const BcgovBreadcrumb = class {

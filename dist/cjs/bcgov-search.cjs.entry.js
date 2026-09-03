@@ -1,6 +1,6 @@
 'use strict';
 
-var index = require('./index-rECYbytW.js');
+var index = require('./index-B8yp6nTe.js');
 
 const BcgovSearch = class {
     constructor(hostRef) {

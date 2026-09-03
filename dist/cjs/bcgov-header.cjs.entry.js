@@ -1,6 +1,6 @@
 'use strict';
 
-var index = require('./index-rECYbytW.js');
+var index = require('./index-B8yp6nTe.js');
 var utils = require('./utils-CbGEIwKE.js');
 
 const BcgovHeader = class {
