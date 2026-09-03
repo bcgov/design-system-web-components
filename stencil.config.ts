@@ -1,38 +1,31 @@
-import { Config } from "@stencil/core";
-import { sass } from "@stencil/sass";
+import { Config } from '@stencil/core';
+import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: "bcgov-web-components",
-  hashFileNames: false,
-  enableCache: true,
-  buildEs5: true,
-  extras: {
-    cssVarsShim: true,
-    safari10: true,
-  },
-  devServer: {
-    reloadStrategy: null
-  },
   outputTargets: [
     {
-      type: "dist",
-      dir: "html/dist",
-      esmLoaderPath: "./loader"
+      type: 'dist',
+      esmLoaderPath: './loader',
     },
     {
-      type: "docs-readme"
+      type: 'dist-custom-elements',
+      customElementsExportBehavior: 'auto-define-custom-elements',
+      externalRuntime: false,
     },
     {
-      type: "www",
-      serviceWorker: null,
-      dir: "html/dist/www"
-    }
+      type: 'docs-readme',
+      
+    },
+    {
+      type: 'www',
+      serviceWorker: null, // disable service workers
+    },
   ],
   globalStyle: "src/components/sass/style.scss",
-  /*globalScript: "src/components/scripts/components.ts",*/
   plugins: [
     sass({
-      injectGlobalPaths: ["src/components/sass/variables.scss", "src/components/sass/mixins.scss"]
+      injectGlobalPaths: ["src/styles/index.scss","src/components/sass/variables.scss", "src/components/sass/mixins.scss"]
     })
   ]
 };

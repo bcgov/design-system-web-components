@@ -6,16 +6,20 @@
     "experimentalDecorators": true,
     "lib": [
       "dom",
-      "es2017"
+      "es2022"
     ],
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "module": "esnext",
-    "target": "es2017",
-    "sourceMap": true,
+    "target": "es2022",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "rootDir": "./",
     "jsx": "react",
-    "jsxFactory": "h"
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "h.Fragment",
+    "types": [
+      "@stencil/vitest/globals"
+    ]
   },
   "include": [
     "src",

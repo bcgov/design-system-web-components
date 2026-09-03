@@ -1,0 +1,1 @@
+import{r as c,h as d,H as f}from"./p-DQ-lwiDk.js";const s=class{constructor(d){c(this,d)}render(){return d(f,{key:"24e0f71b28f4ffc6ebdd5dcb7d1ba0b5ffed3771",class:"bcgov-callout"},d("slot",{key:"58c17fe1325bdc4d31f5aa11e9f7df0d3d6f69d9"}))}};export{s as bcgov_callout}

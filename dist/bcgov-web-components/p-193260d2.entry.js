@@ -1,0 +1,1 @@
+import{r as c,h as e,H as s}from"./p-DQ-lwiDk.js";const a=class{constructor(e){c(this,e)}render(){return e(s,{key:"dc36212374ecefb0f77e18124c67ae53e1a9945a",class:"bcgov-carousel"},e("slot",{key:"52a79c83f6760e34554ba937328b55cd2591b476"}))}};export{a as bcgov_carousel}

@@ -1,0 +1,1 @@
+import{r as a,h as c,H as e}from"./p-DQ-lwiDk.js";const r=class{constructor(c){a(this,c)}render(){return c(e,{key:"2e0430e4a5ec92183cbb42a1f95b39e177db94ac",className:"bcgov-form"},c("slot",{key:"f63d7de354466752b4cfca866b18df95a1da55d2"}))}};export{r as bcgov_form}
