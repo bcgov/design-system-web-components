@@ -12,16 +12,6 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/bcgov-web-component/bcgov-web-components.esm.js",
-  "exports": {
-
-
-    "./loader": {
-      "import": "./dist/loader/index.js",
-      "require": "./dist/loader/index.cjs",
-      "types": "./dist/loader/index.d.ts"
-    }
-    
-  },
   "files": [
     "dist/",
     "dist/loader",
