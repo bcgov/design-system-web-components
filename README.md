@@ -10,61 +10,41 @@ npm i git+https://github.com/bcgov/design-system-web-components.git
 
 ## Use with module bundler (Webpack, React, Angular)
 
+## Upgrade from v1.3.3 to v2.0.0
+- when upgrading to new version the stencil v2, added a class of `hydrated` in the `html` tag. 
+  - this no longer works, and therefore in each repo, there will be css to need to be removed
+```css
+## remove this css
+html {
+  display: none;
+  &.hydrated {
+    display: block;
+  }
+}
+```
+## import into package.json
+```json
+    "devDependencies": {
+      "@bcgov/web-components": "github:bcgov/design-system-web-components#feature/stencil-4",
+      ....
+    }
+```
+
 ### Use with CSS
 -index.js file
 ```javascript
-import "core-js/stable"; // makes it ie11 compatible, needs to be first item.
-.....
-import "@bcgov/web-components/html/dist/bcgov-web-components/bcgov-web-components.css";
-import { applyPolyfills, defineCustomElements } from "@bcgov/web-components/html/dist/loader";
-
-applyPolyfills().then(() => {
-  defineCustomElements(window);
-});
+import '@bcgov/web-components/dist/bcgov-web-components/bcgov-web-components.esm';
 ```
 
 ### Use with SCSS
 
 index.js file
 ```javascript
-import "core-js/stable"; // makes it ie11 compatible, needs to be first item.
 .....
 import "@bcgov/web-components/src/components/sass/style.scss";
-import { applyPolyfills, defineCustomElements } from "@bcgov/web-components/html/dist/loader";
-
-applyPolyfills().then(() => {
-  defineCustomElements(window);
-});
 ```
 
 * See [StencilJS implementation into frameworks](https://stenciljs.com/docs/overview)
-
-### Making IE11 compatable.
-```npm npm i corejs ```
-
-package.json file
-```json
-  "browserslist": [
-    "> 1.5%",
-    "ie >= 11",
-    "edge >= 17"
-  ],
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "useBuiltIns": "usage",
-          "corejs": "3.0.0",
-          "targets": {
-            "esmodules": true,
-            "ie": "11"
-          }
-        }
-      ]
-    ]
-  }
-```
 
 
 ## Description
@@ -73,7 +53,6 @@ The BCGov Web components was created to give a standard look and feel to meet th
 Here is how it does it:
 - Uses a technology call [Web Components](https://www.webcomponents.org/)
 - Uses a compiler that generates Web Components called [StencilJS](https://stenciljs.com/)
-- Uses a testing framework [Jest](https://jestjs.io/) and [Puppeteer](https://pptr.dev/).
 - Uses [sass](https://sass-lang.com/) files
 - Uses **Webpack** for creating web pages for the Design System.
 

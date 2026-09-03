@@ -1,1 +1,0 @@
-import{r,h as s,H as o}from"./index-cfce1eb0.js";const c=class{constructor(s){r(this,s)}render(){return s(o,{className:"bcgov-form"},s("slot",null))}};export{c as bcgov_form}

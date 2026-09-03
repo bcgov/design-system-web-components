@@ -47,6 +47,13 @@ Learn how to [insert a callout component](https://www2.gov.bc.ca/gov/content/gov
 <!-- Auto Generated Below -->
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

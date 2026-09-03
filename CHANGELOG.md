@@ -1,3 +1,7 @@
+### 2.0.0 September 30, 2026
+- updgrade to Stencil v4
+  - upgraded build files
+  - 
 ### 1.3.3 May 9, 2022
 * Fix dependabot alerts DESCW-274.
 

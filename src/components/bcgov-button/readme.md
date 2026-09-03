@@ -160,6 +160,13 @@ In addition to [fundamental accessibility]() requirements, this component meets 
 | `targetHidden` | `target-hidden` | default state of button if applicable     | `string`                                                                                                    | `"false"`                   |
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

@@ -1,1 +1,0 @@
-import{r as registerInstance,h,H as Host}from"./index-cfce1eb0.js";var BcgovCarousel=function(){function r(r){registerInstance(this,r)}r.prototype.render=function(){return h(Host,{class:"bcgov-carousel"},h("slot",null))};return r}();export{BcgovCarousel as bcgov_carousel};

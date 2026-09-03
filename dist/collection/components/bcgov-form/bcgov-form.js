@@ -1,0 +1,7 @@
+import { Host, h } from "@stencil/core";
+export class BcgovForm {
+    render() {
+        return (h(Host, { key: '2e0430e4a5ec92183cbb42a1f95b39e177db94ac', className: "bcgov-form" }, h("slot", { key: 'f63d7de354466752b4cfca866b18df95a1da55d2' })));
+    }
+    static get is() { return "bcgov-form"; }
+}
