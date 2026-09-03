@@ -24,7 +24,9 @@
   },
   "files": [
     "dist/",
-    "dist/loader"
+    "dist/loader",
+    "src/components",
+    "src/styles"
     
   ],
   "scripts": {
