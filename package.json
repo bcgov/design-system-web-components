@@ -17,13 +17,13 @@
     "dist/loader",
     "src/components",
     "src/styles"
-    
+
   ],
   "scripts": {
     "build": "stencil build",
     "start": "stencil build --dev --watch --serve",
-    "test": "stencil-test --prod",
-    "test:watch": "stencil-test --prod --watch",
+    "test": "stencil-test --prod --reporter=verbose",
+    "test:watch": "stencil-test --prod --watch --reporter=verbose",
     "generate": "stencil generate"
   },
   "devDependencies": {
