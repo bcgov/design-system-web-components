@@ -27,7 +27,7 @@ html {
 
 ```json
     "devDependencies": {
-      "@bcgov/web-components": "2.0.0",
+      "@bcgov/web-components": "github:bcgov/design-system-web-components#feature/stencil-4",
       ....
     }
 ```
