@@ -10,9 +10,9 @@ npm i git+https://github.com/bcgov/design-system-web-components.git
 
 ## Use with module bundler (Webpack, React, Angular)
 
-## Upgrade from v1.3.3 to v2.0.0
+## Upgrading from v1.x
 
-Version 2.0.0 is built with Stencil 4. Remove any site CSS that hides the page until the `html` element receives a `hydrated` class. Stencil applies hydration state to components, not to the page root.
+The current release is built with Stencil 4. Remove any site CSS that hides the page until the `html` element receives a `hydrated` class. Stencil applies hydration state to components, not to the page root.
 
 ```css
 html {
@@ -27,7 +27,7 @@ html {
 
 ```json
     "devDependencies": {
-      "@bcgov/web-components": "github:bcgov/design-system-web-components#feature/stencil-4",
+      "@bcgov/web-components": "github:bcgov/design-system-web-components#<tag-or-branch>",
       ....
     }
 ```
