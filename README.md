@@ -27,7 +27,7 @@ html {
 
 ```json
     "devDependencies": {
-      "@bcgov/web-components": "github:bcgov/design-system-web-components#<tag-or-branch>",
+      "@bcgov/web-components": "github:bcgov/design-system-web-components#2.0.0",
       ....
     }
 ```
