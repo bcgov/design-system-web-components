@@ -1,7 +1,10 @@
+/// <reference types="vite/client" />
+
 import { describe, it, render } from '@stencil/vitest';
 import { expect } from 'vitest';
 import { page } from 'vitest/browser';
-import '../../../dist/bcgov-web-components/bcgov-web-components.css';
+import '../../styles/index.scss';
+import '../sass/style.scss';
 
 describe('bcgov-beta', () => {
   it('renders the default label and accessible message', async () => {
