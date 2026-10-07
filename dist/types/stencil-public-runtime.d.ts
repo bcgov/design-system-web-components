@@ -752,7 +752,7 @@ declare namespace LocalJSX {
 }
 export { LocalJSX as JSX };
 export declare namespace JSXBase {
-    interface IntrinsicElements {
+    export interface IntrinsicElements {
         slot: JSXBase.SlotAttributes<HTMLSlotElement>;
         a: JSXBase.AnchorHTMLAttributes<HTMLAnchorElement>;
         abbr: JSXBase.HTMLAttributes;
@@ -923,12 +923,12 @@ export declare namespace JSXBase {
         use: JSXBase.SVGAttributes;
         view: JSXBase.SVGAttributes;
     }
-    interface SlotAttributes<T = HTMLSlotElement> extends JSXAttributes<T> {
+    export interface SlotAttributes<T = HTMLSlotElement> extends JSXAttributes<T> {
         name?: string;
         slot?: string;
         onSlotchange?: (event: Event) => void;
     }
-    interface AnchorHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface AnchorHTMLAttributes<T> extends HTMLAttributes<T> {
         download?: any;
         href?: string;
         hrefLang?: string;
@@ -939,9 +939,9 @@ export declare namespace JSXBase {
         target?: string;
         referrerPolicy?: ReferrerPolicy;
     }
-    interface AudioHTMLAttributes<T> extends MediaHTMLAttributes<T> {
+    export interface AudioHTMLAttributes<T> extends MediaHTMLAttributes<T> {
     }
-    interface AreaHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface AreaHTMLAttributes<T> extends HTMLAttributes<T> {
         alt?: string;
         coords?: string;
         download?: any;
@@ -953,14 +953,14 @@ export declare namespace JSXBase {
         shape?: string;
         target?: string;
     }
-    interface BaseHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface BaseHTMLAttributes<T> extends HTMLAttributes<T> {
         href?: string;
         target?: string;
     }
-    interface BlockquoteHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface BlockquoteHTMLAttributes<T> extends HTMLAttributes<T> {
         cite?: string;
     }
-    interface ButtonHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface ButtonHTMLAttributes<T> extends HTMLAttributes<T> {
         disabled?: boolean;
         form?: string;
         formAction?: string;
@@ -983,45 +983,45 @@ export declare namespace JSXBase {
         commandFor?: string;
         commandfor?: string;
     }
-    interface CanvasHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface CanvasHTMLAttributes<T> extends HTMLAttributes<T> {
         height?: number | string;
         width?: number | string;
     }
-    interface ColHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface ColHTMLAttributes<T> extends HTMLAttributes<T> {
         span?: number;
     }
-    interface ColgroupHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface ColgroupHTMLAttributes<T> extends HTMLAttributes<T> {
         span?: number;
     }
-    interface DetailsHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface DetailsHTMLAttributes<T> extends HTMLAttributes<T> {
         open?: boolean;
         name?: string;
         onToggle?: (event: ToggleEvent) => void;
     }
-    interface DelHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface DelHTMLAttributes<T> extends HTMLAttributes<T> {
         cite?: string;
         dateTime?: string;
         datetime?: string;
     }
-    interface DialogHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface DialogHTMLAttributes<T> extends HTMLAttributes<T> {
         onCancel?: (event: Event) => void;
         onClose?: (event: Event) => void;
         open?: boolean;
         returnValue?: string;
         closedby?: 'any' | 'closerequest' | 'none';
     }
-    interface EmbedHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface EmbedHTMLAttributes<T> extends HTMLAttributes<T> {
         height?: number | string;
         src?: string;
         type?: string;
         width?: number | string;
     }
-    interface FieldsetHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface FieldsetHTMLAttributes<T> extends HTMLAttributes<T> {
         disabled?: boolean;
         form?: string;
         name?: string;
     }
-    interface FormHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface FormHTMLAttributes<T> extends HTMLAttributes<T> {
         acceptCharset?: string;
         acceptcharset?: string;
         action?: string;
@@ -1035,10 +1035,10 @@ export declare namespace JSXBase {
         novalidate?: boolean | string;
         target?: string;
     }
-    interface HtmlHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface HtmlHTMLAttributes<T> extends HTMLAttributes<T> {
         manifest?: string;
     }
-    interface IframeHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface IframeHTMLAttributes<T> extends HTMLAttributes<T> {
         allow?: string;
         allowFullScreen?: boolean;
         allowfullScreen?: string | boolean;
@@ -1065,7 +1065,7 @@ export declare namespace JSXBase {
         srcdoc?: string;
         width?: number | string;
     }
-    interface ImgHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface ImgHTMLAttributes<T> extends HTMLAttributes<T> {
         alt?: string;
         crossOrigin?: string;
         crossorigin?: string;
@@ -1084,12 +1084,12 @@ export declare namespace JSXBase {
         usemap?: string;
         width?: number | string;
     }
-    interface InsHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface InsHTMLAttributes<T> extends HTMLAttributes<T> {
         cite?: string;
         dateTime?: string;
         datetime?: string;
     }
-    interface InputHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface InputHTMLAttributes<T> extends HTMLAttributes<T> {
         accept?: string;
         allowdirs?: boolean;
         alt?: string;
@@ -1152,7 +1152,7 @@ export declare namespace JSXBase {
         popoverTargetElement?: Element | null;
         popoverTarget?: string;
     }
-    interface KeygenHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface KeygenHTMLAttributes<T> extends HTMLAttributes<T> {
         challenge?: string;
         disabled?: boolean;
         form?: string;
@@ -1162,14 +1162,14 @@ export declare namespace JSXBase {
         keyparams?: string;
         name?: string;
     }
-    interface LabelHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface LabelHTMLAttributes<T> extends HTMLAttributes<T> {
         form?: string;
         htmlFor?: string;
     }
-    interface LiHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface LiHTMLAttributes<T> extends HTMLAttributes<T> {
         value?: string | string[] | number;
     }
-    interface LinkHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface LinkHTMLAttributes<T> extends HTMLAttributes<T> {
         as?: string;
         fetchPriority?: 'high' | 'low' | 'auto';
         fetchpriority?: 'high' | 'low' | 'auto';
@@ -1183,13 +1183,13 @@ export declare namespace JSXBase {
         sizes?: string;
         type?: string;
     }
-    interface MapHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface MapHTMLAttributes<T> extends HTMLAttributes<T> {
         name?: string;
     }
-    interface MenuHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface MenuHTMLAttributes<T> extends HTMLAttributes<T> {
         type?: string;
     }
-    interface MediaHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface MediaHTMLAttributes<T> extends HTMLAttributes<T> {
         autoPlay?: boolean;
         autoplay?: boolean | string;
         controls?: boolean;
@@ -1229,7 +1229,7 @@ export declare namespace JSXBase {
         onVolumeChange?: (event: Event) => void;
         onWaiting?: (event: Event) => void;
     }
-    interface MetaHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface MetaHTMLAttributes<T> extends HTMLAttributes<T> {
         charSet?: string;
         charset?: string;
         content?: string;
@@ -1237,7 +1237,7 @@ export declare namespace JSXBase {
         httpequiv?: string;
         name?: string;
     }
-    interface MeterHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface MeterHTMLAttributes<T> extends HTMLAttributes<T> {
         form?: string;
         high?: number;
         low?: number;
@@ -1246,10 +1246,10 @@ export declare namespace JSXBase {
         optimum?: number;
         value?: string | string[] | number;
     }
-    interface QuoteHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface QuoteHTMLAttributes<T> extends HTMLAttributes<T> {
         cite?: string;
     }
-    interface ObjectHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface ObjectHTMLAttributes<T> extends HTMLAttributes<T> {
         classID?: string;
         classid?: string;
         data?: string;
@@ -1262,34 +1262,34 @@ export declare namespace JSXBase {
         width?: number | string;
         wmode?: string;
     }
-    interface OlHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface OlHTMLAttributes<T> extends HTMLAttributes<T> {
         reversed?: boolean;
         start?: number;
     }
-    interface OptgroupHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface OptgroupHTMLAttributes<T> extends HTMLAttributes<T> {
         disabled?: boolean;
         label?: string;
     }
-    interface OptionHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface OptionHTMLAttributes<T> extends HTMLAttributes<T> {
         disabled?: boolean;
         label?: string;
         selected?: boolean;
         value?: string | string[] | number;
     }
-    interface OutputHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface OutputHTMLAttributes<T> extends HTMLAttributes<T> {
         form?: string;
         htmlFor?: string;
         name?: string;
     }
-    interface ParamHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface ParamHTMLAttributes<T> extends HTMLAttributes<T> {
         name?: string;
         value?: string | string[] | number;
     }
-    interface ProgressHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface ProgressHTMLAttributes<T> extends HTMLAttributes<T> {
         max?: number | string;
         value?: string | string[] | number;
     }
-    interface ScriptHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface ScriptHTMLAttributes<T> extends HTMLAttributes<T> {
         async?: boolean;
         charSet?: string;
         charset?: string;
@@ -1304,7 +1304,7 @@ export declare namespace JSXBase {
         src?: string;
         type?: string;
     }
-    interface SelectHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface SelectHTMLAttributes<T> extends HTMLAttributes<T> {
         disabled?: boolean;
         form?: string;
         multiple?: boolean;
@@ -1314,7 +1314,7 @@ export declare namespace JSXBase {
         autoComplete?: string;
         autocomplete?: string;
     }
-    interface SourceHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface SourceHTMLAttributes<T> extends HTMLAttributes<T> {
         height?: number;
         media?: string;
         sizes?: string;
@@ -1323,20 +1323,20 @@ export declare namespace JSXBase {
         type?: string;
         width?: number;
     }
-    interface StyleHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface StyleHTMLAttributes<T> extends HTMLAttributes<T> {
         media?: string;
         nonce?: string;
         scoped?: boolean;
         type?: string;
     }
-    interface TableHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface TableHTMLAttributes<T> extends HTMLAttributes<T> {
         cellPadding?: number | string;
         cellpadding?: number | string;
         cellSpacing?: number | string;
         cellspacing?: number | string;
         summary?: string;
     }
-    interface TextareaHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface TextareaHTMLAttributes<T> extends HTMLAttributes<T> {
         autoComplete?: string;
         autocomplete?: string;
         cols?: number;
@@ -1357,12 +1357,12 @@ export declare namespace JSXBase {
         value?: string | string[] | number;
         wrap?: string;
     }
-    interface TdHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface TdHTMLAttributes<T> extends HTMLAttributes<T> {
         colSpan?: number;
         headers?: string;
         rowSpan?: number;
     }
-    interface ThHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface ThHTMLAttributes<T> extends HTMLAttributes<T> {
         abbr?: string;
         colSpan?: number;
         headers?: string;
@@ -1370,10 +1370,10 @@ export declare namespace JSXBase {
         rowspan?: number | string;
         scope?: string;
     }
-    interface TimeHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface TimeHTMLAttributes<T> extends HTMLAttributes<T> {
         dateTime?: string;
     }
-    interface TrackHTMLAttributes<T> extends HTMLAttributes<T> {
+    export interface TrackHTMLAttributes<T> extends HTMLAttributes<T> {
         default?: boolean;
         kind?: string;
         label?: string;
@@ -1381,14 +1381,14 @@ export declare namespace JSXBase {
         srcLang?: string;
         srclang?: string;
     }
-    interface VideoHTMLAttributes<T> extends MediaHTMLAttributes<T> {
+    export interface VideoHTMLAttributes<T> extends MediaHTMLAttributes<T> {
         height?: number | string;
         playsInline?: boolean;
         playsinline?: boolean | string;
         poster?: string;
         width?: number | string;
     }
-    interface HTMLAttributes<T = HTMLElement> extends DOMAttributes<T> {
+    export interface HTMLAttributes<T = HTMLElement> extends DOMAttributes<T> {
         innerHTML?: string;
         accessKey?: string;
         autoFocus?: boolean;
@@ -1454,7 +1454,7 @@ export declare namespace JSXBase {
         security?: string;
         unselectable?: boolean;
     }
-    interface SVGAttributes<T = SVGElement> extends DOMAttributes<T> {
+    export interface SVGAttributes<T = SVGElement> extends DOMAttributes<T> {
         class?: string | {
             [className: string]: boolean;
         };
@@ -1716,13 +1716,19 @@ export declare namespace JSXBase {
         zoomAndPan?: string;
     }
     /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ToggleEvent) */
-    interface ToggleEvent extends Event {
+    export interface ToggleEvent extends Event {
         /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ToggleEvent/newState) */
         readonly newState: string;
         /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/ToggleEvent/oldState) */
         readonly oldState: string;
     }
-    interface DOMAttributes<T> extends JSXAttributes<T> {
+    type AriaIDLPropertyName = {
+        [K in keyof ARIAMixin]: ARIAMixin[K] extends string | null ? K : never;
+    }[keyof ARIAMixin];
+    type JSXAriaProperties = {
+        [K in AriaIDLPropertyName]?: string | boolean | undefined;
+    };
+    export interface DOMAttributes<T> extends JSXAttributes<T>, JSXAriaProperties {
         slot?: string;
         part?: string;
         exportparts?: string;
@@ -1852,8 +1858,8 @@ export declare namespace JSXBase {
         onTransitionStart?: (event: TransitionEvent) => void;
         onTransitionStartCapture?: (event: TransitionEvent) => void;
         [key: `aria-${string}`]: string | boolean | undefined;
-        [key: `aria${string}`]: string | boolean | undefined;
     }
+    export {};
 }
 export interface JSXAttributes<T = Element> {
     key?: string | number;

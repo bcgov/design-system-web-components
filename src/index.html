@@ -9,10 +9,55 @@
     <link rel="stylesheet" href="./build/bcgov-web-components.css" />
     <script type="module" src="./build/bcgov-web-components.esm.js"></script>
     <script nomodule src="./build/bcgov-web-components.js"></script>
+    <style>
+      body {
+        box-sizing: border-box;
+        width: calc(100% - 3rem);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.5rem 0;
+      }
+      .demo-carousel-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .demo-carousel-items figure {
+        margin: 0;
+      }
+      .demo-carousel-items img {
+        display: block;
+        width: 240px;
+        height: 140px;
+        object-fit: cover;
+      }
+      .demo-callout {
+        --bcgov-wc-color-background-primary: #003366;
+        --bcgov-wc-color-background-seconary: #eaf3f8;
+      }
+      .demo-primary-menu.target-hidden {
+        display: none;
+      }
+      @media (min-width: 768px) {
+        .demo-primary-menu.target-hidden {
+          display: block;
+        }
+      }
+    </style>
   </head>
 
   <body>
     <h1>BCGov Web Components</h1>
+
+    <h2>Beta</h2>
+    <p>This service is still being developed. <bcgov-beta>This service is in beta</bcgov-beta></p>
+
+    <h2>Breadcrumb</h2>
+    <bcgov-breadcrumb>
+      <a href="#home">Home</a>
+      <a href="#components">Components</a>
+      <span>Breadcrumb</span>
+    </bcgov-breadcrumb>
 
     <h2>Buttons</h2>
     <h3>Primary</h3>
@@ -39,5 +84,81 @@
         </span>
     </div>
 
+    <h2>Callout</h2>
+    <bcgov-callout class="demo-callout">
+      <strong>Important information</strong>
+      <p>This callout highlights useful context within the page content.</p>
+    </bcgov-callout>
+
+    <h2>Carousel</h2>
+    <bcgov-carousel>
+      <div class="demo-carousel-items">
+        <figure>
+          <img src="https://placehold.co/480x280/e5e7eb/475569?text=Sample+1" alt="Neutral gray placeholder image, sample 1" />
+          <figcaption>Carousel item 1</figcaption>
+        </figure>
+        <figure>
+          <img src="https://placehold.co/480x280/e5e7eb/475569?text=Sample+2" alt="Neutral gray placeholder image, sample 2" />
+          <figcaption>Carousel item 2</figcaption>
+        </figure>
+        <figure>
+          <img src="https://placehold.co/480x280/e5e7eb/475569?text=Sample+3" alt="Neutral gray placeholder image, sample 3" />
+          <figcaption>Carousel item 3</figcaption>
+        </figure>
+      </div>
+    </bcgov-carousel>
+
+    <h2>Form</h2>
+    <bcgov-form>
+      <form>
+        <p>
+          <label for="demo-name">Name</label>
+          <input id="demo-name" name="name" type="text" placeholder="Your name" />
+        </p>
+        <p>
+          <label for="demo-topic">Topic</label>
+          <select id="demo-topic" name="topic">
+            <option value="">Select a topic</option>
+            <option value="services">Services</option>
+            <option value="support">Support</option>
+          </select>
+        </p>
+        <p><button type="submit">Submit</button></p>
+      </form>
+    </bcgov-form>
+
+    <h2>Header</h2>
+    <bcgov-header>
+      <div class="headline">Demo service</div>
+    </bcgov-header>
+
+    <h2>Menu</h2>
+    <bcgov-button button-style="hamburger" data-target="demo-primary-menu">Menu</bcgov-button>
+    <bcgov-menu id="demo-primary-menu" class="demo-primary-menu" primary allow-hover breakpoint="768">
+      <a active href="#overview">Overview</a>
+      <bcgov-menu name="Services">
+        <a href="#permits">Permits</a>
+        <a href="#support">Support</a>
+      </bcgov-menu>
+      <a href="#contact">Contact</a>
+    </bcgov-menu>
+
+    <h2>Search</h2>
+    <bcgov-search style="position: relative; z-index: auto;">
+      <form>
+        <label for="demo-search">Search this demo</label>
+        <input id="demo-search" type="search" placeholder="Search" />
+        <bcgov-button button-style="search-inline">Search</bcgov-button>
+      </form>
+    </bcgov-search>
+
+    <h2>Footer</h2>
+    <bcgov-footer>
+      <bcgov-menu>
+        <a href="#home">Home</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#contact">Contact us</a>
+      </bcgov-menu>
+    </bcgov-footer>
   </body>
 </html>
