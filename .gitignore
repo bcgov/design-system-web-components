@@ -6,6 +6,10 @@ screenshot/
 .sass-cache/
 .versions/
 __screenshots__/
+!src/components/bcgov-beta/__screenshots__/
+!src/components/bcgov-beta/__screenshots__/bcgov-beta.cmp.test.ts/
+!src/components/bcgov-beta/__screenshots__/bcgov-beta.cmp.test.ts/bcgov-beta-matches-the-beta-indicator-screenshot-1-chromium-linux.png
+src/components/bcgov-beta/__screenshots__/bcgov-beta.cmp.test.ts/*-chromium-darwin.png
 .vitest-attachments
 
 # Dependencies and local configuration

@@ -22,8 +22,7 @@
   "scripts": {
     "build": "stencil build",
     "start": "stencil build --dev --watch --serve",
-    "test": "stencil-test --prod --reporter=verbose",
-    "test:watch": "stencil-test --prod --watch --reporter=verbose",
+    "test": "node scripts/test.js",
     "generate": "stencil generate"
   },
   "devDependencies": {
