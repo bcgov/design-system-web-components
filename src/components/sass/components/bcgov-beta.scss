@@ -1,3 +1,6 @@
+@use "../mixins/general";
+@use "../variables";
+
 bcgov-beta,
 .bcgov-beta {
   opacity: 0;
@@ -5,10 +8,10 @@ bcgov-beta,
   &.hydrated {
     opacity: 1;
     visibility: visible;
-    @include transition(
-      $hydrate_transition_property,
-      $hydrate_transition_speed,
-      $hydrate_transition_timing
+    @include general.transition(
+      variables.$hydrate_transition_property,
+      variables.$hydrate_transition_speed,
+      variables.$hydrate_transition_timing
     );
   }
   color: var(--bcgov-wc-color-brand-secondary);

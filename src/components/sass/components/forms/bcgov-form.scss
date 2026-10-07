@@ -1,3 +1,6 @@
+@use "sass:meta";
+@use "../../variables";
+
 form:not(.no-styles) {
   margin: 0.5rem 0;
   position: relative;
@@ -26,12 +29,12 @@ form:not(.no-styles) {
   select[readonly],
   textarea[readonly] {
     cursor: not-allowed;
-    background-color: $bcgov-form-component-disabled;
+    background-color: variables.$bcgov-form-component-disabled;
   }
 
-  @import "radio";
-  @import "select";
-  @import "input";
-  @import "checkbox";
-  @import "textarea";
+  @include meta.load-css("radio");
+  @include meta.load-css("select");
+  @include meta.load-css("input");
+  @include meta.load-css("checkbox");
+  @include meta.load-css("textarea");
 }

@@ -1,13 +1,17 @@
+@use "../mixins/flex";
+@use "../mixins/general";
+@use "../variables";
+
 .bcgov-header {
   opacity: 0;
   visibility: hidden;
   &.hydrated {
     opacity: 1;
     visibility: visible;
-    @include transition(
-      $hydrate_transition_property,
-      $hydrate_transition_speed,
-      $hydrate_transition_timing
+    @include general.transition(
+      variables.$hydrate_transition_property,
+      variables.$hydrate_transition_speed,
+      variables.$hydrate_transition_timing
     );
   }
   position: relative;
@@ -15,17 +19,17 @@
 
   z-index: 11000;
   header {
-    @include flexbox();
-    @include flex-wrap(wrap);
-    @include justify-content(normal);
-    @include flex-grow(1);
-    @include align-items(center);
+    @include flex.flexbox();
+    @include flex.flex-wrap(wrap);
+    @include flex.justify-content(normal);
+    @include flex.flex-grow(1);
+    @include flex.align-items(center);
 
     .banner {
       padding: 6px 0;
       a {
         padding: 0;
-        @include flexbox();
+        @include flex.flexbox();
       }
       img {
         width: 100%;
@@ -63,7 +67,7 @@
     }
   }
   @media screen and (min-width: 762px) {
-    @include flexbox();
+    @include flex.flexbox();
   }
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     opacity: 1;

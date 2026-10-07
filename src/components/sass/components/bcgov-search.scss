@@ -1,3 +1,7 @@
+@use "../mixins/flex";
+@use "../mixins/general";
+@use "../variables";
+
 bcgov-search,
 .bcgov-search {
   opacity: 0;
@@ -5,10 +9,10 @@ bcgov-search,
   &.hydrated {
     opacity: 1;
     visibility: visible;
-    @include transition(
-      $hydrate_transition_property,
-      $hydrate_transition_speed,
-      $hydrate_transition_timing
+    @include general.transition(
+      variables.$hydrate_transition_property,
+      variables.$hydrate_transition_speed,
+      variables.$hydrate_transition_timing
     );
   }
   display: block;
@@ -28,11 +32,11 @@ bcgov-search,
     border-width: 1px;
     padding: 2px;
     form {
-      @include flexbox();
-      @include flex-direction(column);
-      @include align-content(center);
-      @include justify-content(flex-end);
-      @include flex-wrap(wrap);
+      @include flex.flexbox();
+      @include flex.flex-direction(column);
+      @include flex.align-content(center);
+      @include flex.justify-content(flex-end);
+      @include flex.flex-wrap(wrap);
       margin: 0 !important;
       bcgov-button {
         button {
@@ -46,11 +50,11 @@ bcgov-search,
   &.is-search-desktop {
     .search-container {
       form {
-        @include flex-direction(row);
+        @include flex.flex-direction(row);
         > input,
         select,
         input:not([type="submit"]) {
-          @include flex(2 1);
+          @include flex.flex(2 1);
           width: 100%;
           &[type="search"] {
             border: none !important;

@@ -1,14 +1,14 @@
 @use 'sass:math';
-@import "../mixins";
-@import "bcgov-button";
-@import "bcgov-header";
-@import "bcgov-footer";
-@import "bcgov-beta";
-@import "bcgov-menu";
-@import "bcgov-callout";
-@import "bcgov-search";
-@import "./forms/bcgov-form";
-@import "bcgov-breadcrumb";
+@use "../mixins";
+@use "bcgov-button";
+@use "bcgov-header";
+@use "bcgov-footer";
+@use "bcgov-beta";
+@use "bcgov-menu";
+@use "bcgov-callout";
+@use "bcgov-search";
+@use "forms/bcgov-form";
+@use "bcgov-breadcrumb";
 
 *:focus {
   outline-width: 2px;

@@ -1,3 +1,7 @@
+@use "../mixins/flex";
+@use "../mixins/general";
+@use "../variables";
+
 bcgov-breadcrumb,
 .bcgov-breadcrumb {
   opacity: 0;
@@ -5,20 +9,20 @@ bcgov-breadcrumb,
   &.hydrated {
     opacity: 1;
     visibility: visible;
-    @include transition(
-      $hydrate_transition_property,
-      $hydrate_transition_speed,
-      $hydrate_transition_timing
+    @include general.transition(
+      variables.$hydrate_transition_property,
+      variables.$hydrate_transition_speed,
+      variables.$hydrate_transition_timing
     );
   }
-  @include flexbox;
-  @include justify-content(space-between);
-  @include align-items(center);
+  @include flex.flexbox;
+  @include flex.justify-content(space-between);
+  @include flex.align-items(center);
 
   ol {
     list-style: none;
-    @include flexbox();
-    @include align-items(center);
+    @include flex.flexbox();
+    @include flex.align-items(center);
     margin: 0;
     padding: 0;
     font-size: 0.95rem;

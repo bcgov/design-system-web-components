@@ -1,5 +1,7 @@
+@use "../../mixins/general";
+
 select {
-  @include appearance(none);
+  @include general.appearance(none);
   padding-right: 1.3em;
   appearance: none;
   position: relative;
@@ -8,6 +10,6 @@ select {
   background-repeat: no-repeat;
   background-size: 1.8em 1em;
   background-position: right center;
-  @include background-clip(border-box);
+  @include general.background-clip(border-box);
   box-shadow: none;
 }

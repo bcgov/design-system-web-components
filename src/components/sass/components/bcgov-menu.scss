@@ -1,3 +1,7 @@
+@use "../mixins/flex";
+@use "../mixins/general";
+@use "../variables";
+
 @use "sass:math";
 bcgov-menu {
   opacity: 0;
@@ -5,10 +9,10 @@ bcgov-menu {
   &.hydrated {
     opacity: 1;
     visibility: visible;
-    @include transition(
-      $hydrate_transition_property,
-      $hydrate_transition_speed,
-      $hydrate_transition_timing
+    @include general.transition(
+      variables.$hydrate_transition_property,
+      variables.$hydrate_transition_speed,
+      variables.$hydrate_transition_timing
     );
   }
   padding: 0;
@@ -23,7 +27,7 @@ bcgov-menu {
   }
   a {
     position: relative;
-    padding: math.div($padding-x,2) $padding-y math.div($padding-x,2) $padding-y;
+    padding: math.div(variables.$padding-x,2) variables.$padding-y math.div(variables.$padding-x,2) variables.$padding-y;
     display: block;
 
     &:before {
@@ -31,7 +35,7 @@ bcgov-menu {
       position: absolute;
       height: 100%;
       border-left: 1px solid var(--menu-mobile-border-color);
-      right: $padding-x * 3;
+      right: variables.$padding-x * 3;
       top: 0;
     }
   }
@@ -48,7 +52,7 @@ bcgov-menu {
           width: 8px;
           height: 8px;
           top: 12px;
-          right: $padding-x * 1.25;
+          right: variables.$padding-x * 1.25;
           border-bottom-style: solid;
           border-bottom-width: 2px;
           border-right-style: solid;
@@ -205,25 +209,25 @@ bcgov-menu {
     position: relative;
     max-width: 100%;
     ul {
-      @include flexbox();
-      @include flex-wrap(wrap);
-      @include align-items(center);
+      @include flex.flexbox();
+      @include flex.flex-wrap(wrap);
+      @include flex.align-items(center);
       position: relative;
       &.align-right {
-        margin-right: -$padding-x;
-        @include justify-content(flex-end);
+        margin-right: -(variables.$padding-x);
+        @include flex.justify-content(flex-end);
       }
       &.align-left {
-        @include justify-content(flex-start);
-        margin-left: -$padding-x;
+        @include flex.justify-content(flex-start);
+        margin-left: -(variables.$padding-x);
       }
       &.align-center {
-        @include justify-content(center);
+        @include flex.justify-content(center);
       }
     }
     a {
       border: 1px solid transparent;
-      padding: math.div($padding-x,2) $padding-y * 1.25;
+      padding: math.div(variables.$padding-x,2) variables.$padding-y * 1.25;
       margin: 0;
       &:before {
         content: "";
@@ -264,7 +268,7 @@ bcgov-menu {
             }
 
             a {
-              padding-right: $padding-y * 2.5;
+              padding-right: variables.$padding-y * 2.5;
             }
           }
 

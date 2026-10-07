@@ -1,21 +1,25 @@
+@use "../mixins/flex";
+@use "../mixins/general";
+@use "../variables";
+
 .bcgov-footer {
   opacity: 0;
   visibility: hidden;
   &.hydrated {
     opacity: 1;
     visibility: visible;
-    @include transition(
-      $hydrate_transition_property,
-      $hydrate_transition_speed,
-      $hydrate_transition_timing
+    @include general.transition(
+      variables.$hydrate_transition_property,
+      variables.$hydrate_transition_speed,
+      variables.$hydrate_transition_timing
     );
   }
 
-  @include flexbox();
-  @include flex-wrap(wrap);
-  @include justify-content(space-between);
-  @include flex-grow(1);
-  @include align-items(center);
+  @include flex.flexbox();
+  @include flex.flex-wrap(wrap);
+  @include flex.justify-content(space-between);
+  @include flex.flex-grow(1);
+  @include flex.align-items(center);
   min-height: 50px;
 
   .footer-logo {

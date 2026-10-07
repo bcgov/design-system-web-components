@@ -1,62 +1,63 @@
-@import "variables.scss";
+@use "sass:meta";
+@use "variables.scss";
 
 
 :root {
   /*
-  --bcgov-wc-color-brand-primary: #{$bcgov-blue-primary};
-  --bcgov-wc-color-brand-secondary: #{$bcgov-yellow-primary};
-  --bcgov-wc-color-border: #{$bcgov-yellow-primary};
-  --bcgov-wc-color-text: #{$bcgov-color};
-  --bcgov-wc-color-link: #{$bcgov-blue-links};
-  --bcgov-wc-color-link-hover: #{$bcgov-blue-links-hover};
-  --bcgov-wc-color-background-primary: #{$bcgov-blue-background};
-  --bcgov-wc-color-background-seconary: #{$bcgov-color-background};
-  --bcgov-wc-color-components: #{$bcgov-color-components};
-  --bcgov-wc-color-accessibility: #{$bcgov-color-accessibility};
-  --bcgov-wc-color-breadcrumb: #{$bcgov-color-breadcrumb};
-  --bcgov-wc-color-breadcrumb-link: #{$bcgov-blue-links};
-  --bcgov-wc-color-breadcrumb-link-hover: #{$bcgov-blue-links-hover};
+  --bcgov-wc-color-brand-primary: #{variables.$bcgov-blue-primary};
+  --bcgov-wc-color-brand-secondary: #{variables.$bcgov-yellow-primary};
+  --bcgov-wc-color-border: #{variables.$bcgov-yellow-primary};
+  --bcgov-wc-color-text: #{variables.$bcgov-color};
+  --bcgov-wc-color-link: #{variables.$bcgov-blue-links};
+  --bcgov-wc-color-link-hover: #{variables.$bcgov-blue-links-hover};
+  --bcgov-wc-color-background-primary: #{variables.$bcgov-blue-background};
+  --bcgov-wc-color-background-seconary: #{variables.$bcgov-color-background};
+  --bcgov-wc-color-components: #{variables.$bcgov-color-components};
+  --bcgov-wc-color-accessibility: #{variables.$bcgov-color-accessibility};
+  --bcgov-wc-color-breadcrumb: #{variables.$bcgov-color-breadcrumb};
+  --bcgov-wc-color-breadcrumb-link: #{variables.$bcgov-blue-links};
+  --bcgov-wc-color-breadcrumb-link-hover: #{variables.$bcgov-blue-links-hover};
 */
-  --bcgov-wc-color-white: #{$bcgov-white};
-  --bcgov-wc-color-error: #{$bcgov-red-primary};
-  --bcgov-wc-color-success: #{$bcgov-green-primary};
-  --bcgov-wc-font-family: #{$bcgov-font-family};
-  --bcgov-wc-gutter: #{$gutter-primary};
+  --bcgov-wc-color-white: #{variables.$bcgov-white};
+  --bcgov-wc-color-error: #{variables.$bcgov-red-primary};
+  --bcgov-wc-color-success: #{variables.$bcgov-green-primary};
+  --bcgov-wc-font-family: #{variables.$bcgov-font-family};
+  --bcgov-wc-gutter: #{variables.$gutter-primary};
 
-  --button-hamburger-background: #{$bcgov-blue-primary};
-  --button-hamburger-background-hover: #{$bcgov-blue-primary};
+  --button-hamburger-background: #{variables.$bcgov-blue-primary};
+  --button-hamburger-background-hover: #{variables.$bcgov-blue-primary};
 
   /** Desktop menu **/
-  --menu-background: #{$bcgov-color-menu};
-  --menu-background-active: #{$bcgov-color-menu-active};
-  --menu-color: #{$bcgov-white};
-  --menu-color-hover: #{$bcgov-white};
-  --menu-color-active: #{$bcgov-white};
-  --menu-border-color: #{$bcgov-color-menu-border};
+  --menu-background: #{variables.$bcgov-color-menu};
+  --menu-background-active: #{variables.$bcgov-color-menu-active};
+  --menu-color: #{variables.$bcgov-white};
+  --menu-color-hover: #{variables.$bcgov-white};
+  --menu-color-active: #{variables.$bcgov-white};
+  --menu-border-color: #{variables.$bcgov-color-menu-border};
 
   /** Desktop submenu */
-  --menu-submenu-background: #{$bcgov-color-submenu};
-  --menu-submenu-background-active: #{$bcgov-color-menu-active};
-  --menu-submenu-color: #{$bcgov-white};
-  --menu-submenu-color-hover: #{$bcgov-white};
-  --menu-submenu-color-active: #{$bcgov-white};
-  --menu-submenu-border-color: #{$bcgov-color-menu-border};
+  --menu-submenu-background: #{variables.$bcgov-color-submenu};
+  --menu-submenu-background-active: #{variables.$bcgov-color-menu-active};
+  --menu-submenu-color: #{variables.$bcgov-white};
+  --menu-submenu-color-hover: #{variables.$bcgov-white};
+  --menu-submenu-color-active: #{variables.$bcgov-white};
+  --menu-submenu-border-color: #{variables.$bcgov-color-menu-border};
 
   /** Mobile  Menu**/
-  --menu-mobile-border-color: #{$bcgov-color-menu-border};
+  --menu-mobile-border-color: #{variables.$bcgov-color-menu-border};
 
-  --menu-mobile-background: #{$bcgov-color-menu};
-  --menu-mobile-background-active: #{$bcgov-color-menu-active};
-  --menu-mobile-color: #{$bcgov-white};
-  --menu-mobile-color-hover: #{$bcgov-white};
-  --menu-mobile-color-active: #{$bcgov-white};
+  --menu-mobile-background: #{variables.$bcgov-color-menu};
+  --menu-mobile-background-active: #{variables.$bcgov-color-menu-active};
+  --menu-mobile-color: #{variables.$bcgov-white};
+  --menu-mobile-color-hover: #{variables.$bcgov-white};
+  --menu-mobile-color-active: #{variables.$bcgov-white};
 
   /** Mobile submenu */
-  --menu-mobile-submenu-background: #{$bcgov-color-submenu};
-  --menu-mobile-submenu-background-active: #{$bcgov-color-menu-active};
-  --menu-mobile-submenu-color: #{$bcgov-white};
-  --menu-mobile-submenu-color-hover: #{$bcgov-white};
-  --menu-mobile-submenu-color-active: #{$bcgov-white};
+  --menu-mobile-submenu-background: #{variables.$bcgov-color-submenu};
+  --menu-mobile-submenu-background-active: #{variables.$bcgov-color-menu-active};
+  --menu-mobile-submenu-color: #{variables.$bcgov-white};
+  --menu-mobile-submenu-color-hover: #{variables.$bcgov-white};
+  --menu-mobile-submenu-color-active: #{variables.$bcgov-white};
 }
 
-@import "components/components.scss";
+@include meta.load-css("components/components.scss");

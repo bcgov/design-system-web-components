@@ -1,7 +1,7 @@
-@import "../components/sass/mixins";
-@import "../components/sass/variables";
+@use "../components/sass/mixins";
+@use "../components/sass/variables";
 html {
-  font-size: $font-size;
+  font-size: variables.$font-size;
   line-height: 1.6;
   -webkit-text-size-adjust: 100%;
 }
@@ -25,21 +25,21 @@ h6,
 h1,
 .h1 {
   margin-top: 0;
-  font-size: $h1-font-size;
+  font-size: variables.$h1-font-size;
 }
 h2,
 .h2 {
-  font-size: $h2-font-size;
+  font-size: variables.$h2-font-size;
 }
 
 h3,
 .h3 {
-  font-size: $h3-font-size;
+  font-size: variables.$h3-font-size;
 }
 
 h4,
 .h4 {
-  font-size: $h4-font-size;
+  font-size: variables.$h4-font-size;
 }
 
 p {
@@ -98,5 +98,5 @@ body {
 }
 
 *:focus {
-  outline-color: $bcgov-color-accessibility;
+  outline-color: variables.$bcgov-color-accessibility;
 }

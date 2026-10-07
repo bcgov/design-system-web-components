@@ -1,3 +1,6 @@
+@use "../components/sass/mixins/flex";
+@use "../components/sass/variables";
+
 table {
   td,
   th {
@@ -39,7 +42,7 @@ table {
 .colour-wrapper {
   margin: 0;
   padding: 0;
-  @include flexbox();
+  @include flex.flexbox();
   list-style: none;
   .colour-card {
     flex: 1;
@@ -75,5 +78,5 @@ table {
 .section-content {
   margin: 0 calc(var(--bcgov-wc-gutter) - 2rem);
   padding: 2rem;
-  background-color: $bcgov-white;
+  background-color: variables.$bcgov-white;
 }

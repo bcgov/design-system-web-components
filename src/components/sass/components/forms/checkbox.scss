@@ -1,6 +1,8 @@
+@use "../../mixins/general";
+
 input[type="checkbox"] {
   position: relative;
-  @include appearance(none);
+  @include general.appearance(none);
   top: 4px;
   width: 20px;
   height: 20px;
