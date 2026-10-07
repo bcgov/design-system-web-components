@@ -93,6 +93,16 @@ npm install
 npm run build
 ```
 
+### Component demo
+
+Start the Stencil development server to view the demo page, which showcases all components:
+
+```sh
+npm start
+```
+
+Open the local URL printed in the terminal. The demo page source is `src/index.html`.
+
 Run the component tests with `npm test`.
 
 The test suite includes unit tests and browser-based component tests. Install the Chromium browser used by the browser tests after installing dependencies:
@@ -112,3 +122,7 @@ Run tests in watch mode with:
 ```sh
 npm run test:watch
 ```
+
+## Migration Steps
+
+For migrating existing Stencil 2 component tests to this repository's Stencil 4 test setup, follow the [Stencil 4 testing migration guide](docs/stencil-4-testing-migration.md). It includes the setup changes, recommended test patterns, and a reference component test suite.
