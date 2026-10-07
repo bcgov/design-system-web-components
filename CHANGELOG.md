@@ -1,3 +1,8 @@
+### 2.0.0 September 30, 2026
+- Migrated the build and generated distribution files from Stencil 2 to Stencil 4.
+- Updated the package entry points, loader, custom-elements output, and generated type declarations.
+- Updated component test tooling to use Vitest and Playwright.
+- Removed the legacy page-level hydration CSS requirement; consuming sites must remove `html.hydrated` gating styles when upgrading.
 ### 1.3.3 May 9, 2022
 * Fix dependabot alerts DESCW-274.
 

@@ -181,6 +181,13 @@ As read using ChromeVox
 | `logo`   | `logo`    | Logo options -- might not work... | `"" \| "gov_bc_logo.svg" \| "gov_bc_logo_grey.jpg" \| "gov_bc_logo_white.png"` | `"gov_bc_logo.svg"`                         |
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

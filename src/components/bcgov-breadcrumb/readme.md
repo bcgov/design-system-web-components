@@ -44,6 +44,14 @@ status: draft
 <!-- Auto Generated Below -->
 
 
+## Slots
+
+| Slot                 | Description      |
+| -------------------- | ---------------- |
+|                      | The default slot |
+| `"breadcrumb-extra"` |                  |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

@@ -1,8 +1,9 @@
 www/
 html/*
 screenshot/
-dist/
-!html/dist
+.vitest-attachments
+__screenshots__/
+
 
 *~
 *.sw[mnpcod]
@@ -26,4 +27,3 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
-package-lock.json

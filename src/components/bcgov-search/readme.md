@@ -102,6 +102,13 @@ Search form.
 | `breakpoint` | `breakpoint` | A number that represents mobile search breakpoint in px; | `number` | `0`     |
 
 
+## Slots
+
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

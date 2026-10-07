@@ -12,10 +12,32 @@
   </head>
 
   <body>
-    <bcgov-button primary goto="https://apple.ca" external="true"
-      >Basic Button (primary)</bcgov-button
-    >
-    <bcgov-button secondary>Basic Button (secondary)</bcgov-button>
-    <bcgov-button dark>Basic Button (dark)</bcgov-button>
+    <h1>BCGov Web Components</h1>
+
+    <h2>Buttons</h2>
+    <h3>Primary</h3>
+    <div>
+        <bcgov-button  >Primary Button </bcgov-button>
+        <bcgov-button  link="https://gov.bc.ca" >Primary Button Link</bcgov-button>
+        <bcgov-button  active link="https://gov.bc.ca" >Primary Button Active</bcgov-button>
+        <bcgov-button  disabled link="https://gov.bc.ca" >Primary Button Disabled</bcgov-button>
+    </div>
+    <h3>Secondary</h3>
+    <div>
+        <bcgov-button button-style="secondary" >Secondary Button</bcgov-button>
+        <bcgov-button link="https://gov.bc.ca" button-style="secondary" >Secondary Button Link</bcgov-button>
+        <bcgov-button active button-style="secondary" >Secondary Button Active</bcgov-button>
+        <bcgov-button disabled button-style="secondary" >Secondary Button Disabled</bcgov-button>
+    </div>
+    <h3>Dark</h3>
+    <div>
+        <span style="background-color: #036; padding: 2px 10px; display:inline-block">
+            <bcgov-button button-style="dark" >Dark Button</bcgov-button>
+            <bcgov-button link="https://gov.bc.ca"  button-style="dark" >Dark Button Link</bcgov-button>
+            <bcgov-button active button-style="dark" >Dark Button Active</bcgov-button>
+            <bcgov-button disabled button-style="dark" >Dark Button Disabled</bcgov-button>
+        </span>
+    </div>
+
   </body>
 </html>

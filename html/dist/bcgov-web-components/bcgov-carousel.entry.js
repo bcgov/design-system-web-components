@@ -1,1 +1,0 @@
-import{r as s,h as r,H as c}from"./index-cfce1eb0.js";const o=class{constructor(r){s(this,r)}render(){return r(c,{class:"bcgov-carousel"},r("slot",null))}};export{o as bcgov_carousel}
