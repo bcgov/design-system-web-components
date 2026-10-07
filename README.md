@@ -59,30 +59,28 @@ Here is how it does it:
 - Uses a technology called [Web Components](https://www.webcomponents.org/)
 - Uses a compiler that generates Web Components called [StencilJS](https://stenciljs.com/)
 - Uses [sass](https://sass-lang.com/) files
-- Uses **Webpack** for creating web pages for the Design System.
+- Uses the Stencil CLI to build the package and run the local component demo.
 
 ## Accessibility
 
 All components should meet or exceed [WCAG 2.0 AA](https://www.w3.org/TR/WCAG20/) standards Although this is the intention, this is very much a **work in progress**.
 
-## Components
+## Component demo
 
-- **Collapse**  `<bcgov-collapse>` *Not Implenented*
-- **Beta** [Beta](beta.html) `<bcgov-beta>`
-- **Button** [Button](button.html) `<bcgov-button>`
-- **Callout** [Callout](callout.html) `bcgov-callout>`
-- **Footer** [Footer](footer.html) `<bcgov-footer>`
-- **Forms**  `<bcgov-forms><bcgov-radio><bcgov-checkbox>` *Not Implemented*
-- **Header** [Header](header.html) `<bcgov-header>`
-  - logo
-  - headline
-  - skip links for accessibility
-- **Menu** [Menu](menu.html) `<bcgov-menu>`
-  - links
-  - format (alignment: {left|center|right})
-  - submenu
-  - accessibility, and accessibility instructions
-- **Tabs**  `<bcgov-tabs><bcgov-tab>` *Not Implemented*
+The demo shows the components currently available in this package:
+
+![Screenshot of the component demo showing Beta, Breadcrumb, Button, Callout, Carousel, Form, Header, Menu, Search, and Footer](screenshot.png)
+
+- Beta: `<bcgov-beta>`
+- Breadcrumb: `<bcgov-breadcrumb>`
+- Button: `<bcgov-button>`
+- Callout: `<bcgov-callout>`
+- Carousel: `<bcgov-carousel>`
+- Footer: `<bcgov-footer>`
+- Form: `<bcgov-form>`
+- Header: `<bcgov-header>`
+- Menu: `<bcgov-menu>`
+- Search: `<bcgov-search>`
 
 ## Development
 
@@ -92,6 +90,16 @@ Install dependencies and build the package with:
 npm install
 npm run build
 ```
+
+### Component demo
+
+Start the Stencil development server to view the demo page, which showcases all components:
+
+```sh
+npm start
+```
+
+Open [http://localhost:3333/](http://localhost:3333/) (or the URL printed in the terminal if the port differs). The demo page source is `src/index.html`.
 
 Run the component tests with `npm test`.
 
@@ -112,3 +120,7 @@ Run tests in watch mode with:
 ```sh
 npm run test:watch
 ```
+
+## Migration Steps
+
+For migrating existing Stencil 2 component tests to this repository's Stencil 4 test setup, follow the [Stencil 4 testing migration guide](docs/stencil-4-testing-migration.md). It includes the setup changes, recommended test patterns, and a reference component test suite.
