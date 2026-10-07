@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## 2.0.0 October 7, 2026
 
 - Added a Stencil 2-to-4 component testing migration guide and a button test reference covering snapshots, mocked callbacks, and click behavior.
 - Expanded the component demo and README with examples of all ten available components.
