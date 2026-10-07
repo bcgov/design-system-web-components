@@ -1,10 +1,30 @@
+# Build and generated output
 www/
 html/*
 screenshot/
-.vitest-attachments
+.stencil/
+.sass-cache/
+.versions/
 __screenshots__/
+.vitest-attachments
 
+# Dependencies and local configuration
+node_modules/
+.env
 
+# Editors and IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Operating system files
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
+$RECYCLE.BIN/
+
+# Temporary files and logs
 *~
 *.sw[mnpcod]
 *.log
@@ -12,19 +32,6 @@ __screenshots__/
 *.tmp
 *.tmp.*
 log.txt
-*.sublime-project
-*.sublime-workspace
 
-.stencil/
-.idea/
-.vscode/
-.sass-cache/
-.versions/
-node_modules/
-$RECYCLE.BIN/
-
-.DS_Store
-Thumbs.db
-UserInterfaceState.xcuserstate
-.env
-/plan.md
+# Local planning files
+**/*plan.md

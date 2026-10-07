@@ -115,6 +115,8 @@ Run tests once with:
 npm test
 ```
 
+Pull requests run the same test suite in GitHub Actions through the `component-tests` workflow. Configure `component-tests` as a required status check in the repository's branch protection rules or ruleset to prevent merging when tests fail.
+
 Run tests in watch mode with:
 
 ```sh
