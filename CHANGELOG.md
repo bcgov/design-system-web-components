@@ -2,6 +2,7 @@
 
 ## 2.0.0 October 7, 2026
 - Added a workflow that runs component tests on pull requests and via manual dispatch.
+- Migrated bcgov-search tests to the Stencil 4 browser test suite.
 
 - Added a Stencil 2-to-4 component testing migration guide and a button test reference covering snapshots, mocked callbacks, and click behavior.
 - Expanded the component demo and README with examples of all ten available components.
