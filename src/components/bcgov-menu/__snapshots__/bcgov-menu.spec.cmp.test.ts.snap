@@ -1,0 +1,123 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`bcgov-menu > renders a menu inside bcgov-header 1`] = `
+<bcgov-header class="bcgov-header hydrated" classname="bcgov-header">
+  <header>
+    <bcgov-menu class="is-desktop hydrated">
+      <ul role="menubar" tabindex="0" class="align-left">
+        <li role="menuitem" tabindex="0" aria-label="Test">
+          <a href="test.html" tabindex="-1" aria-hidden="true">
+            Test
+          </a>
+        </li>
+        <li class="active" role="menuitem" tabindex="-1" aria-label="Adding span">
+          <a active href="test2.html" tabindex="-1" aria-hidden="true">
+            <span>
+              Adding span
+            </span>
+          </a>
+        </li>
+        <bcgov-menu active name="Components" href="https://gov.bc.ca" role="menuitem" class="expandable active hydrated" aria-label="Components" aria-haspopup="true" aria-expanded="false" tabindex="-1">
+          <div>
+            <a href="https://gov.bc.ca" tabindex="-1">
+              Components
+            </a>
+            <span></span>
+          </div>
+          <ul role="menu" aria-hidden="true">
+            <li role="menuitem" tabindex="-1" aria-label="Test3">
+              <a href="test3.html" tabindex="-1" aria-hidden="true">
+                Test3
+              </a>
+            </li>
+            <li role="menuitem" tabindex="-1" aria-label="Test4">
+              <a href="test4.html" tabindex="-1" aria-hidden="true">
+                Test4
+              </a>
+            </li>
+          </ul>
+        </bcgov-menu>
+        <bcgov-menu name="Styles" href="https://gov.bc.ca/styles" role="menuitem" class="expandable hydrated" aria-label="Styles" aria-haspopup="true" aria-expanded="false" tabindex="-1">
+          <div>
+            <a href="https://gov.bc.ca/styles" tabindex="-1">
+              Styles
+            </a>
+            <span></span>
+          </div>
+          <ul role="menu" aria-hidden="true">
+            <li role="menuitem" tabindex="-1" aria-label="Test3">
+              <a href="style1.html" tabindex="-1" aria-hidden="true">
+                Test3
+              </a>
+            </li>
+            <li role="menuitem" tabindex="-1" aria-label="Test4">
+              <a href="style2.html" tabindex="-1" aria-hidden="true">
+                Test4
+              </a>
+            </li>
+          </ul>
+        </bcgov-menu>
+      </ul>
+    </bcgov-menu>
+  </header>
+</bcgov-header>
+`;
+
+exports[`bcgov-menu > renders a menu with nested submenus 1`] = `
+<bcgov-menu class="is-desktop hydrated">
+  <ul role="menubar" tabindex="0" class="align-left">
+    <li role="menuitem" tabindex="0" aria-label="Test">
+      <a href="test.html" tabindex="-1" aria-hidden="true">
+        Test
+      </a>
+    </li>
+    <li class="active" role="menuitem" tabindex="-1" aria-label="Adding span">
+      <a active href="test2.html" tabindex="-1" aria-hidden="true">
+        <span>
+          Adding span
+        </span>
+      </a>
+    </li>
+    <bcgov-menu active name="Components" href="https://gov.bc.ca" role="menuitem" class="expandable active hydrated" aria-label="Components" aria-haspopup="true" aria-expanded="false" tabindex="-1">
+      <div>
+        <a href="https://gov.bc.ca" tabindex="-1">
+          Components
+        </a>
+        <span></span>
+      </div>
+      <ul role="menu" aria-hidden="true">
+        <li role="menuitem" tabindex="-1" aria-label="Test3">
+          <a href="test3.html" tabindex="-1" aria-hidden="true">
+            Test3
+          </a>
+        </li>
+        <li role="menuitem" tabindex="-1" aria-label="Test4">
+          <a href="test4.html" tabindex="-1" aria-hidden="true">
+            Test4
+          </a>
+        </li>
+      </ul>
+    </bcgov-menu>
+    <bcgov-menu name="Styles" href="https://gov.bc.ca/styles" role="menuitem" class="expandable hydrated" aria-label="Styles" aria-haspopup="true" aria-expanded="false" tabindex="-1">
+      <div>
+        <a href="https://gov.bc.ca/styles" tabindex="-1">
+          Styles
+        </a>
+        <span></span>
+      </div>
+      <ul role="menu" aria-hidden="true">
+        <li role="menuitem" tabindex="-1" aria-label="Test3">
+          <a href="style1.html" tabindex="-1" aria-hidden="true">
+            Test3
+          </a>
+        </li>
+        <li role="menuitem" tabindex="-1" aria-label="Test4">
+          <a href="style2.html" tabindex="-1" aria-hidden="true">
+            Test4
+          </a>
+        </li>
+      </ul>
+    </bcgov-menu>
+  </ul>
+</bcgov-menu>
+`;
