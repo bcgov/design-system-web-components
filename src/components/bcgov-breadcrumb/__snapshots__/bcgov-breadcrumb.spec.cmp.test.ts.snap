@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`bcgov-breadcrumb > Render BreadCrumb 1`] = `
+<bcgov-breadcrumb aria-label="Breadcrumb" role="navigation" class="bcgov-breadcrumb hydrated">
+  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+    <li aria-label="Home" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+      <a href="#home" itemprop="item">
+        <span itemprop="name">
+          Home
+        </span>
+      </a>
+    </li>
+    <li aria-label="Components" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+      <a href="#Components" itemprop="item">
+        <span itemprop="name">
+          Components
+        </span>
+      </a>
+    </li>
+    <li aria-label="Design System" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+      <a href="#DesignSystem" itemprop="item">
+        <span itemprop="name">
+          Design System
+        </span>
+      </a>
+    </li>
+    <li aria-label="Bread Crumbs" itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+      <span itemprop="name" aria-current="page" tabindex="0">
+        Bread Crumbs
+      </span>
+    </li>
+  </ol>
+</bcgov-breadcrumb>
+`;
