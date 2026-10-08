@@ -117,7 +117,11 @@ npm test
 
 Pull requests run the same test suite in GitHub Actions through the `component-tests` workflow. Configure `component-tests` as a required status check in the repository's branch protection rules or ruleset to prevent merging when tests fail.
 
-On macOS, `npm test` runs the suite in a Dockerized Playwright Ubuntu Noble image, pinned to the Playwright version in the lockfile. This keeps browser screenshot comparisons on Linux, consistent with the `ubuntu-latest` CI runner and its Linux screenshot baseline. On Linux, tests run directly on the host.
+Run tests in watch mode with:
+
+```sh
+npm run test:watch
+```
 
 ## Migration Steps
 
