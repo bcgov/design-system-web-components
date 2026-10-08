@@ -25,6 +25,9 @@ describe('bcgov-beta', () => {
 
     expect(root.getAttribute('label')).toBe('Custom Beta');
     expect(root.getAttribute('aria-label')).toBe('This is my beta message');
+    expect(root.getAttribute('role')).toBe('alert');
+    expect(root.classList.contains('bcgov-beta')).toBe(true);
+    expect(root.getAttribute('tabindex')).toBe('0');
     expect(root.textContent?.trim()).toBe('Custom Beta');
   });
 });
