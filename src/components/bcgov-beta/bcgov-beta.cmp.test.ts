@@ -1,5 +1,4 @@
-import { describe, it, render } from '@stencil/vitest';
-import { expect } from 'vitest';
+import { describe, expect, it, render } from '@stencil/vitest';
 
 describe('bcgov-beta', () => {
   it('renders the default label and accessible message', async () => {
