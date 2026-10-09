@@ -1,9 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`bcgov-button > renders primary button markup 1`] = `
-<bcgov-button class="bcgov-button hydrated">
-  <button class="primary">
-    Save
-  </button>
-</bcgov-button>
-`;
