@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`bcgov-carousel > renders the component host 1`] = `
+<bcgov-carousel class="bcgov-carousel hydrated">
+  <mock:shadow-root>
+    <slot></slot>
+  </mock:shadow-root>
+</bcgov-carousel>
+`;
