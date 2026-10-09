@@ -6,7 +6,7 @@ import { Component, Element, Host, h, Prop } from "@stencil/core";
 export class BcgovTableRow {
   @Element() el: HTMLElement;
 
-  /** This column is the header. */
+  /** Indicates whether this row is the table header. */
   @Prop() header: boolean;
 
   componentDidLoad() {

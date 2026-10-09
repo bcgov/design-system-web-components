@@ -4377,7 +4377,7 @@ const BcgovTableRow = class {
         registerInstance(this, hostRef);
     }
     get el() { return getElement(this); }
-    /** This column is the header. */
+    /** Indicates whether this row is the table header. */
     header;
     componentDidLoad() {
         const table = this.el.parentElement;
@@ -4409,7 +4409,7 @@ const BcgovTableRow = class {
         const rowClass = this.header
             ? "bcgov-table-row header-row"
             : "bcgov-table-row";
-        return (h$2(Host, { key: 'ee33b834bbb0a53a75de2b4df0e9cbe8b76b95c3', class: rowClass, role: "listitem" }, h$2("slot", { key: '426c0598b613c6ef23479860d574428528c4ca31' })));
+        return (h$2(Host, { key: '0df9c58389d0bac118383ae32605f043ad689f31', class: rowClass, role: "listitem" }, h$2("slot", { key: '10c708fac9580957a1aea99158a2e002097e75f2' })));
     }
 };
 
