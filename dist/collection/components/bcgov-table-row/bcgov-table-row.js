@@ -1,7 +1,7 @@
 import { Host, h } from "@stencil/core";
 export class BcgovTableRow {
     el;
-    /** This column is the header. */
+    /** Indicates whether this row is the table header. */
     header;
     componentDidLoad() {
         const table = this.el.parentElement;
@@ -33,7 +33,7 @@ export class BcgovTableRow {
         const rowClass = this.header
             ? "bcgov-table-row header-row"
             : "bcgov-table-row";
-        return (h(Host, { key: '678d72dd0c4dcb29955f9c29866234577ea92ed3', class: rowClass, role: "listitem" }, h("slot", { key: 'e1a9908de9b7661a96c3d450c36132b844bb60ab' })));
+        return (h(Host, { key: 'eb9458de9a8e6e3bf2b5145c4b133b0e5fb6c785', class: rowClass, role: "listitem" }, h("slot", { key: '214ff7740e7bd00e22a4db3413edbdd4d2a544bc' })));
     }
     static get is() { return "bcgov-table-row"; }
     static get properties() {
@@ -50,7 +50,7 @@ export class BcgovTableRow {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "This column is the header."
+                    "text": "Indicates whether this row is the table header."
                 },
                 "getter": false,
                 "setter": false,

@@ -162,7 +162,7 @@ export namespace Components {
     }
     interface BcgovTableRow {
         /**
-          * This column is the header.
+          * Indicates whether this row is the table header.
          */
         "header": boolean;
     }
@@ -412,7 +412,7 @@ declare namespace LocalJSX {
     }
     interface BcgovTableRow {
         /**
-          * This column is the header.
+          * Indicates whether this row is the table header.
          */
         "header"?: boolean;
     }

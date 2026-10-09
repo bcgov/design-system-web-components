@@ -1,6 +1,6 @@
 export declare class BcgovTableRow {
     el: HTMLElement;
-    /** This column is the header. */
+    /** Indicates whether this row is the table header. */
     header: boolean;
     componentDidLoad(): void;
     render(): any;

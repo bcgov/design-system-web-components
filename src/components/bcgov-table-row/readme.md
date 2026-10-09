@@ -11,9 +11,9 @@ See the [`bcgov-table` example](../bcgov-table/readme.md) for complete markup.
 
 ## Properties
 
-| Property | Attribute | Description                | Type      | Default     |
-| -------- | --------- | -------------------------- | --------- | ----------- |
-| `header` | `header`  | This column is the header. | `boolean` | `undefined` |
+| Property | Attribute | Description                                     | Type      | Default     |
+| -------- | --------- | ----------------------------------------------- | --------- | ----------- |
+| `header` | `header`  | Indicates whether this row is the table header. | `boolean` | `undefined` |
 
 
 ## Slots
