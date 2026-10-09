@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`bcgov-header > Render header with default logo 1`] = `
+<bcgov-header logo class="bcgov-header hydrated" classname="bcgov-header">
+  <header>
+    <div class="banner">
+      <a class="branding-logo" aria-label="branding logo" href="https://www2.gov.bc.ca/gov/content/home">
+        <img src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF" alt="Branding logo">
+      </a>
+    </div>
+    <div class="headline">
+      DevHub
+      <bcgov-beta class="bcgov-beta hydrated" aria-label="This Application is currently in Beta Phase" role="alert" tabindex="0">
+        Beta
+      </bcgov-beta>
+    </div>
+    <div aria class="access">
+      <a href="#main-navigation" aria-label="Skip to navigation">
+        Skip to navigation
+      </a>
+      <a href="#main-content" aria-label="Skip to Contents">
+        Skip to Contents
+      </a>
+      <a href="https://www2.gov.bc.ca/gov/content/home/accessibility" aria-label="Skip to Accessibility Statement">
+        Skip to Accessibility Statement
+      </a>
+    </div>
+    <bcgov-button button-style="hamburger" data-target="main-navigation" data-breakpoint="0" class="is-desktop bcgov-button hydrated">
+      <button class="hamburger" aria-expanded="false" aria-label="Hamburger">
+        <div></div>
+        <span class="bcgov-button-text">
+          Menu
+        </span>
+      </button>
+    </bcgov-button>
+  </header>
+</bcgov-header>
+`;
