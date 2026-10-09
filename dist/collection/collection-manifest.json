@@ -10,6 +10,7 @@
     "components/bcgov-header/bcgov-header.js",
     "components/bcgov-menu/bcgov-menu.js",
     "components/bcgov-search/bcgov-search.js",
+    "components/bcgov-tab/bcgov-tab.js",
     "components/bcgov-tabs/bcgov-tabs.js"
   ],
   "mixins": [],
