@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.0.0 October 9, 2026
+
+- Migrated `bcgov-table` and `bcgov-table-row` from the upstream development branch with responsive Sass and Stencil 4-compatible tests.
+
 ## 2.0.0 October 8, 2026
 
 - Migrated `bcgov-beta` tests to Stencil 4/Vitest with browser-based behavior coverage.

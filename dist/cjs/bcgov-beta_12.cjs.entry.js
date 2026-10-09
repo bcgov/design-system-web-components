@@ -1,19 +1,21 @@
-import { r as registerInstance, a as getElement, h as h$2, H as Host, c as getAssetPath } from './index-p84c0ubL.js';
+'use strict';
+
+var index = require('./index-Ar1Fq4kP.js');
 
 const BcgovBeta = class {
     constructor(hostRef) {
-        registerInstance(this, hostRef);
+        index.registerInstance(this, hostRef);
     }
     content = "This Application is currently in Beta Phase";
     label = "Beta";
     stateContent = "";
-    get el() { return getElement(this); }
+    get el() { return index.getElement(this); }
     componentWillLoad() {
         this.stateContent = this.el.textContent || this.content;
         this.el.innerHTML = this.label;
     }
     render() {
-        return (h$2(Host, { key: '24addbdeca5d4d1c24980254e5a26ad22ab01592', class: "bcgov-beta", "aria-label": this.stateContent, role: "alert", tabindex: "0" }));
+        return (index.h(index.Host, { key: '24addbdeca5d4d1c24980254e5a26ad22ab01592', class: "bcgov-beta", "aria-label": this.stateContent, role: "alert", tabindex: "0" }));
     }
 };
 
@@ -91,16 +93,16 @@ const keys = {
 
 const BcgovBreadcrumb = class {
     constructor(hostRef) {
-        registerInstance(this, hostRef);
+        index.registerInstance(this, hostRef);
     }
-    get el() { return getElement(this); }
+    get el() { return index.getElement(this); }
     componentWillLoad() {
         [].forEach.call(this.el.querySelectorAll("a, span"), function (element) {
             breadCrumbElement(element);
         });
     }
     render() {
-        return (h$2(Host, { key: '35a7801b1542f1c86a0d4bb18e817ce7cd936813', "aria-label": "Breadcrumb", role: "navigation", class: "bcgov-breadcrumb" }, h$2("ol", { key: '5309360e717ece218387a7a00fbeff0360a02cc9', itemscope: true, itemtype: "http://schema.org/BreadcrumbList" }, h$2("slot", { key: '81227867ec4104f16c8ec407312e6316daf3f9ec' })), h$2("slot", { key: '75df1a38a168fc1d8c95d2c9f3ab031f910b3969', name: "breadcrumb-extra" })));
+        return (index.h(index.Host, { key: '35a7801b1542f1c86a0d4bb18e817ce7cd936813', "aria-label": "Breadcrumb", role: "navigation", class: "bcgov-breadcrumb" }, index.h("ol", { key: '5309360e717ece218387a7a00fbeff0360a02cc9', itemscope: true, itemtype: "http://schema.org/BreadcrumbList" }, index.h("slot", { key: '81227867ec4104f16c8ec407312e6316daf3f9ec' })), index.h("slot", { key: '75df1a38a168fc1d8c95d2c9f3ab031f910b3969', name: "breadcrumb-extra" })));
     }
 };
 
@@ -3798,7 +3800,7 @@ var faSearch = faMagnifyingGlass;
 
 const BcgovButton = class {
     constructor(hostRef) {
-        registerInstance(this, hostRef);
+        index.registerInstance(this, hostRef);
     }
     /** The action of the button. */
     link = "button";
@@ -3813,7 +3815,7 @@ const BcgovButton = class {
     /** Target, only used on hamburger and search */
     dataTarget = null;
     breakpoint = 700;
-    get el() { return getElement(this); }
+    get el() { return index.getElement(this); }
     eventHandlerFunction() { }
     componentDidRender() {
         this.eventHandler(this.el);
@@ -3922,20 +3924,20 @@ const BcgovButton = class {
             else if (this.buttonStyle === 'hamburger') {
                 props['aria-label'] = "Hamburger";
             }
-            return (h$2(Host, { "data-target": this.dataTarget, class: "bcgov-button" }, h$2("button", { ...props }, h$2("div", null), h$2("span", { class: "bcgov-button-text" }, h$2("slot", null)))));
+            return (index.h(index.Host, { "data-target": this.dataTarget, class: "bcgov-button" }, index.h("button", { ...props }, index.h("div", null), index.h("span", { class: "bcgov-button-text" }, index.h("slot", null)))));
         }
         else {
             if ("button" === this.link) {
                 if ("search-inline" == this.buttonStyle) {
                     props["type"] = "submit";
                 }
-                return (h$2(Host, { class: "bcgov-button" }, h$2("button", { ...props }, h$2("slot", null))));
+                return (index.h(index.Host, { class: "bcgov-button" }, index.h("button", { ...props }, index.h("slot", null))));
             }
             else {
                 props["href"] = this.link;
                 props["target"] = this.target;
                 props["role"] = "button";
-                return (h$2(Host, { class: "bcgov-button" }, h$2("a", { ...props }, h$2("slot", null))));
+                return (index.h(index.Host, { class: "bcgov-button" }, index.h("a", { ...props }, index.h("slot", null))));
             }
         }
     }
@@ -3943,25 +3945,25 @@ const BcgovButton = class {
 
 const BcgovCallout = class {
     constructor(hostRef) {
-        registerInstance(this, hostRef);
+        index.registerInstance(this, hostRef);
     }
     render() {
-        return (h$2(Host, { key: '24e0f71b28f4ffc6ebdd5dcb7d1ba0b5ffed3771', class: "bcgov-callout" }, h$2("slot", { key: '58c17fe1325bdc4d31f5aa11e9f7df0d3d6f69d9' })));
+        return (index.h(index.Host, { key: '24e0f71b28f4ffc6ebdd5dcb7d1ba0b5ffed3771', class: "bcgov-callout" }, index.h("slot", { key: '58c17fe1325bdc4d31f5aa11e9f7df0d3d6f69d9' })));
     }
 };
 
 const BcgovCarousel = class {
     constructor(hostRef) {
-        registerInstance(this, hostRef);
+        index.registerInstance(this, hostRef);
     }
     render() {
-        return (h$2(Host, { key: 'dc36212374ecefb0f77e18124c67ae53e1a9945a', class: "bcgov-carousel" }, h$2("slot", { key: '52a79c83f6760e34554ba937328b55cd2591b476' })));
+        return (index.h(index.Host, { key: 'dc36212374ecefb0f77e18124c67ae53e1a9945a', class: "bcgov-carousel" }, index.h("slot", { key: '52a79c83f6760e34554ba937328b55cd2591b476' })));
     }
 };
 
 const BcgovFooter = class {
     constructor(hostRef) {
-        registerInstance(this, hostRef);
+        index.registerInstance(this, hostRef);
     }
     /** Alignment of menu */
     /*@Prop() alignment: "left" | "right" = "left";*/
@@ -3972,35 +3974,35 @@ const BcgovFooter = class {
             return "";
         }
         else {
-            let image = getAssetPath(`../../assets/${this.logo}`);
-            return h$2("img", { class: "footer-logo", src: image, alt: "Logo" });
+            let image = index.getAssetPath(`../../assets/${this.logo}`);
+            return index.h("img", { class: "footer-logo", src: image, alt: "Logo" });
         }
     }
     render() {
         const classes = "bcgov-footer" /*+ " align-" + this.alignment*/;
         const props = { className: classes };
-        return (h$2(Host, { key: '5448b5089627e57d3bbd9efc7974271940dbdf0c', ...props }, h$2("slot", { key: '8dec0009ce0eccd7c00069bece5b1137c0016665' }), this.getImage()));
+        return (index.h(index.Host, { key: '5448b5089627e57d3bbd9efc7974271940dbdf0c', ...props }, index.h("slot", { key: '8dec0009ce0eccd7c00069bece5b1137c0016665' }), this.getImage()));
     }
 };
 
 const BcgovForm = class {
     constructor(hostRef) {
-        registerInstance(this, hostRef);
+        index.registerInstance(this, hostRef);
     }
     render() {
-        return (h$2(Host, { key: '2e0430e4a5ec92183cbb42a1f95b39e177db94ac', className: "bcgov-form" }, h$2("slot", { key: 'f63d7de354466752b4cfca866b18df95a1da55d2' })));
+        return (index.h(index.Host, { key: '2e0430e4a5ec92183cbb42a1f95b39e177db94ac', className: "bcgov-form" }, index.h("slot", { key: 'f63d7de354466752b4cfca866b18df95a1da55d2' })));
     }
 };
 
 const BcgovHeader = class {
     constructor(hostRef) {
-        registerInstance(this, hostRef);
+        index.registerInstance(this, hostRef);
     }
     /** link for logo */
     href = "https://www2.gov.bc.ca/gov/content/home";
     /** Logo options -- might not work... */
     logo = "gov_bc_logo.svg";
-    get el() { return getElement(this); }
+    get el() { return index.getElement(this); }
     componentWillLoad() { }
     componentDidRender() {
         const self = this;
@@ -4040,24 +4042,24 @@ const BcgovHeader = class {
             return "";
         }
         else {
-            let image = getAssetPath(`./assets/${this.logo}`);
-            let markup = h$2("img", { class: "header-logo", src: image, alt: "Logo" });
+            let image = index.getAssetPath(`./assets/${this.logo}`);
+            let markup = index.h("img", { class: "header-logo", src: image, alt: "Logo" });
             if ("" !== this.href) {
-                markup = (h$2("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, markup));
+                markup = (index.h("a", { class: "branding-logo", href: this.href, "aria-label": "branding logo" }, markup));
             }
             return "";
             //return <div class="banner">{markup}</div>;
         }
     }
     render() {
-        return (h$2(Host, { key: 'cff0733445fd23d6e5141cc16b3b25827ea5ff78', className: "bcgov-header" }, h$2("header", { key: 'd4d2815f80ebf873564defb352f8eb5cbfa91ecb' }, this.getImage(), h$2("slot", { key: 'b710c68c07992ced4f082f15ad702d6510074c9d' }))));
+        return (index.h(index.Host, { key: 'cff0733445fd23d6e5141cc16b3b25827ea5ff78', className: "bcgov-header" }, index.h("header", { key: 'd4d2815f80ebf873564defb352f8eb5cbfa91ecb' }, this.getImage(), index.h("slot", { key: 'b710c68c07992ced4f082f15ad702d6510074c9d' }))));
     }
     static get assetsDirs() { return ["../../assets"]; }
 };
 
 const BcgovMenu = class {
     constructor(hostRef) {
-        registerInstance(this, hostRef);
+        index.registerInstance(this, hostRef);
     }
     /** Alignment of menu */
     alignment = "left";
@@ -4088,7 +4090,7 @@ const BcgovMenu = class {
     allTags;
     bodyTag;
     menuTimeOutState;
-    get el() { return getElement(this); }
+    get el() { return index.getElement(this); }
     componentWillLoad() {
         this.isSubmenu = "UL" === this.el.parentElement.nodeName;
         [].forEach.call(this.el.querySelectorAll("a"), function (element) {
@@ -4286,7 +4288,7 @@ const BcgovMenu = class {
             if (undefined !== this.active && this.active) {
                 hostClass += " active";
             }
-            return (h$2(Host, { role: "menuitem", class: hostClass, "aria-label": this.name }, h$2("div", null, h$2("a", { href: this.href, tabindex: "-1" }, this.name), h$2("span", null), h$2("slot", { name: "submenu-link" })), h$2("ul", { role: "menu", "aria-hidden": "true" }, h$2("slot", null))));
+            return (index.h(index.Host, { role: "menuitem", class: hostClass, "aria-label": this.name }, index.h("div", null, index.h("a", { href: this.href, tabindex: "-1" }, this.name), index.h("span", null), index.h("slot", { name: "submenu-link" })), index.h("ul", { role: "menu", "aria-hidden": "true" }, index.h("slot", null))));
         }
         else {
             const props = { role: "menubar", tabindex: "0", class: alignment };
@@ -4296,16 +4298,16 @@ const BcgovMenu = class {
             if (undefined !== this.sidebar) {
                 props["class"] += " sidebar-menu";
             }
-            return (h$2(Host, null, h$2("ul", { ...props }, undefined !== this.primary && (h$2("li", { role: "menuitem", class: "bcgov-primary-menu-close", tabindex: "-1", "aria-hidden": "true", "aria-labelId": "close-menu-mobile" }, h$2("a", { href: "#", "aria-label": "Close Mobile Menu", id: "close-menu-mobile" }, h$2("span", null, "x")))), h$2("slot", null)), undefined !== this.primary && (h$2("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
+            return (index.h(index.Host, null, index.h("ul", { ...props }, undefined !== this.primary && (index.h("li", { role: "menuitem", class: "bcgov-primary-menu-close", tabindex: "-1", "aria-hidden": "true", "aria-labelId": "close-menu-mobile" }, index.h("a", { href: "#", "aria-label": "Close Mobile Menu", id: "close-menu-mobile" }, index.h("span", null, "x")))), index.h("slot", null)), undefined !== this.primary && (index.h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
         }
     }
 };
 
 const BcgovSearch = class {
     constructor(hostRef) {
-        registerInstance(this, hostRef);
+        index.registerInstance(this, hostRef);
     }
-    get el() { return getElement(this); }
+    get el() { return index.getElement(this); }
     /** A number that represents mobile search breakpoint in px; */
     breakpoint = 0;
     componentWillLoad() {
@@ -4331,8 +4333,88 @@ const BcgovSearch = class {
         }
     }
     render() {
-        return (h$2(Host, { key: '0db28b3ea26404b398bf2766c7200aa56f915b80', class: "bcgov-search" }, h$2("div", { key: '92cb7b38d72e6e76dd29ae3662026a86c31fdee1', class: "search-container" }, h$2("slot", { key: '82a9ac49b7faa85de481bed847a9975d623a5bcd' }))));
+        return (index.h(index.Host, { key: '0db28b3ea26404b398bf2766c7200aa56f915b80', class: "bcgov-search" }, index.h("div", { key: '92cb7b38d72e6e76dd29ae3662026a86c31fdee1', class: "search-container" }, index.h("slot", { key: '82a9ac49b7faa85de481bed847a9975d623a5bcd' }))));
     }
 };
 
-export { BcgovBeta as bcgov_beta, BcgovBreadcrumb as bcgov_breadcrumb, BcgovButton as bcgov_button, BcgovCallout as bcgov_callout, BcgovCarousel as bcgov_carousel, BcgovFooter as bcgov_footer, BcgovForm as bcgov_form, BcgovHeader as bcgov_header, BcgovMenu as bcgov_menu, BcgovSearch as bcgov_search };
+const BcgovTable = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+    }
+    /** Breakpoint at which the table turns into rows. */
+    breakpoint = 960;
+    /** The primary column. */
+    primaryColumn;
+    /** Shows header columns when not in table. */
+    showColumnLabels;
+    get el() { return index.getElement(this); }
+    componentWillLoad() {
+        this.isTable();
+    }
+    onWindowResize() {
+        this.isTable();
+    }
+    isTable() {
+        this.el.classList.toggle("is-table", window.innerWidth >= this.breakpoint);
+    }
+    render() {
+        const tableClass = this.showColumnLabels
+            ? "bcgov-table show-column-labels"
+            : "bcgov-table";
+        return (index.h(index.Host, { key: '6bc4ec3a77348faa490577c8805d35dd8130d8e3', class: tableClass, role: "list" }, index.h("slot", { key: '8217523bd365384274e074a43ba9e54f99647678' })));
+    }
+};
+
+const BcgovTableRow = class {
+    constructor(hostRef) {
+        index.registerInstance(this, hostRef);
+    }
+    get el() { return index.getElement(this); }
+    /** This column is the header. */
+    header;
+    componentDidLoad() {
+        const table = this.el.parentElement;
+        if (table?.nodeName !== "BCGOV-TABLE" || this.header) {
+            return;
+        }
+        const primaryColumn = Number(table.getAttribute("primary-column"));
+        if (!Number.isInteger(primaryColumn) || primaryColumn <= 0) {
+            return;
+        }
+        const headerLabels = Array.from(table.querySelectorAll("bcgov-table-row[header], .header-row"))
+            .filter((row) => row !== this.el)
+            .flatMap((row) => Array.from(row.children, (cell) => (cell.textContent ?? "").replace(/[\n\r]+|[\s]{2,}/g, " ")));
+        const cells = Array.from(this.el.children).filter((cell) => cell.tagName === "DIV");
+        cells.forEach((cell, index) => {
+            if (index + 1 === primaryColumn) {
+                cell.classList.add("primary-column");
+            }
+            const label = headerLabels[index];
+            if (label !== undefined) {
+                const labelElement = document.createElement("span");
+                labelElement.className = "table-column-header-label";
+                labelElement.textContent = label;
+                cell.insertBefore(labelElement, cell.firstChild);
+            }
+        });
+    }
+    render() {
+        const rowClass = this.header
+            ? "bcgov-table-row header-row"
+            : "bcgov-table-row";
+        return (index.h(index.Host, { key: '678d72dd0c4dcb29955f9c29866234577ea92ed3', class: rowClass, role: "listitem" }, index.h("slot", { key: 'e1a9908de9b7661a96c3d450c36132b844bb60ab' })));
+    }
+};
+
+exports.bcgov_beta = BcgovBeta;
+exports.bcgov_breadcrumb = BcgovBreadcrumb;
+exports.bcgov_button = BcgovButton;
+exports.bcgov_callout = BcgovCallout;
+exports.bcgov_carousel = BcgovCarousel;
+exports.bcgov_footer = BcgovFooter;
+exports.bcgov_form = BcgovForm;
+exports.bcgov_header = BcgovHeader;
+exports.bcgov_menu = BcgovMenu;
+exports.bcgov_search = BcgovSearch;
+exports.bcgov_table = BcgovTable;
+exports.bcgov_table_row = BcgovTableRow;

@@ -145,6 +145,27 @@ export namespace Components {
          */
         "breakpoint": number;
     }
+    interface BcgovTable {
+        /**
+          * Breakpoint at which the table turns into rows.
+          * @default 960
+         */
+        "breakpoint": number;
+        /**
+          * The primary column.
+         */
+        "primaryColumn": number;
+        /**
+          * Shows header columns when not in table.
+         */
+        "showColumnLabels": boolean;
+    }
+    interface BcgovTableRow {
+        /**
+          * This column is the header.
+         */
+        "header": boolean;
+    }
 }
 declare global {
     interface HTMLBcgovBetaElement extends Components.BcgovBeta, HTMLStencilElement {
@@ -207,6 +228,18 @@ declare global {
         prototype: HTMLBcgovSearchElement;
         new (): HTMLBcgovSearchElement;
     };
+    interface HTMLBcgovTableElement extends Components.BcgovTable, HTMLStencilElement {
+    }
+    var HTMLBcgovTableElement: {
+        prototype: HTMLBcgovTableElement;
+        new (): HTMLBcgovTableElement;
+    };
+    interface HTMLBcgovTableRowElement extends Components.BcgovTableRow, HTMLStencilElement {
+    }
+    var HTMLBcgovTableRowElement: {
+        prototype: HTMLBcgovTableRowElement;
+        new (): HTMLBcgovTableRowElement;
+    };
     interface HTMLElementTagNameMap {
         "bcgov-beta": HTMLBcgovBetaElement;
         "bcgov-breadcrumb": HTMLBcgovBreadcrumbElement;
@@ -218,6 +251,8 @@ declare global {
         "bcgov-header": HTMLBcgovHeaderElement;
         "bcgov-menu": HTMLBcgovMenuElement;
         "bcgov-search": HTMLBcgovSearchElement;
+        "bcgov-table": HTMLBcgovTableElement;
+        "bcgov-table-row": HTMLBcgovTableRowElement;
     }
 }
 declare namespace LocalJSX {
@@ -360,6 +395,27 @@ declare namespace LocalJSX {
          */
         "breakpoint"?: number;
     }
+    interface BcgovTable {
+        /**
+          * Breakpoint at which the table turns into rows.
+          * @default 960
+         */
+        "breakpoint"?: number;
+        /**
+          * The primary column.
+         */
+        "primaryColumn"?: number;
+        /**
+          * Shows header columns when not in table.
+         */
+        "showColumnLabels"?: boolean;
+    }
+    interface BcgovTableRow {
+        /**
+          * This column is the header.
+         */
+        "header"?: boolean;
+    }
 
     interface BcgovBetaAttributes {
         "content": string;
@@ -408,6 +464,14 @@ declare namespace LocalJSX {
     interface BcgovSearchAttributes {
         "breakpoint": number;
     }
+    interface BcgovTableAttributes {
+        "breakpoint": number;
+        "primaryColumn": number;
+        "showColumnLabels": boolean;
+    }
+    interface BcgovTableRowAttributes {
+        "header": boolean;
+    }
 
     interface IntrinsicElements {
         "bcgov-beta": Omit<BcgovBeta, keyof BcgovBetaAttributes> & { [K in keyof BcgovBeta & keyof BcgovBetaAttributes]?: BcgovBeta[K] } & { [K in keyof BcgovBeta & keyof BcgovBetaAttributes as `attr:${K}`]?: BcgovBetaAttributes[K] } & { [K in keyof BcgovBeta & keyof BcgovBetaAttributes as `prop:${K}`]?: BcgovBeta[K] };
@@ -420,6 +484,8 @@ declare namespace LocalJSX {
         "bcgov-header": Omit<BcgovHeader, keyof BcgovHeaderAttributes> & { [K in keyof BcgovHeader & keyof BcgovHeaderAttributes]?: BcgovHeader[K] } & { [K in keyof BcgovHeader & keyof BcgovHeaderAttributes as `attr:${K}`]?: BcgovHeaderAttributes[K] } & { [K in keyof BcgovHeader & keyof BcgovHeaderAttributes as `prop:${K}`]?: BcgovHeader[K] };
         "bcgov-menu": Omit<BcgovMenu, keyof BcgovMenuAttributes> & { [K in keyof BcgovMenu & keyof BcgovMenuAttributes]?: BcgovMenu[K] } & { [K in keyof BcgovMenu & keyof BcgovMenuAttributes as `attr:${K}`]?: BcgovMenuAttributes[K] } & { [K in keyof BcgovMenu & keyof BcgovMenuAttributes as `prop:${K}`]?: BcgovMenu[K] };
         "bcgov-search": Omit<BcgovSearch, keyof BcgovSearchAttributes> & { [K in keyof BcgovSearch & keyof BcgovSearchAttributes]?: BcgovSearch[K] } & { [K in keyof BcgovSearch & keyof BcgovSearchAttributes as `attr:${K}`]?: BcgovSearchAttributes[K] } & { [K in keyof BcgovSearch & keyof BcgovSearchAttributes as `prop:${K}`]?: BcgovSearch[K] };
+        "bcgov-table": Omit<BcgovTable, keyof BcgovTableAttributes> & { [K in keyof BcgovTable & keyof BcgovTableAttributes]?: BcgovTable[K] } & { [K in keyof BcgovTable & keyof BcgovTableAttributes as `attr:${K}`]?: BcgovTableAttributes[K] } & { [K in keyof BcgovTable & keyof BcgovTableAttributes as `prop:${K}`]?: BcgovTable[K] };
+        "bcgov-table-row": Omit<BcgovTableRow, keyof BcgovTableRowAttributes> & { [K in keyof BcgovTableRow & keyof BcgovTableRowAttributes]?: BcgovTableRow[K] } & { [K in keyof BcgovTableRow & keyof BcgovTableRowAttributes as `attr:${K}`]?: BcgovTableRowAttributes[K] } & { [K in keyof BcgovTableRow & keyof BcgovTableRowAttributes as `prop:${K}`]?: BcgovTableRow[K] };
     }
 }
 export { LocalJSX as JSX };
@@ -436,6 +502,8 @@ declare module "@stencil/core" {
             "bcgov-header": LocalJSX.IntrinsicElements["bcgov-header"] & JSXBase.HTMLAttributes<HTMLBcgovHeaderElement>;
             "bcgov-menu": LocalJSX.IntrinsicElements["bcgov-menu"] & JSXBase.HTMLAttributes<HTMLBcgovMenuElement>;
             "bcgov-search": LocalJSX.IntrinsicElements["bcgov-search"] & JSXBase.HTMLAttributes<HTMLBcgovSearchElement>;
+            "bcgov-table": LocalJSX.IntrinsicElements["bcgov-table"] & JSXBase.HTMLAttributes<HTMLBcgovTableElement>;
+            "bcgov-table-row": LocalJSX.IntrinsicElements["bcgov-table-row"] & JSXBase.HTMLAttributes<HTMLBcgovTableRowElement>;
         }
     }
 }
