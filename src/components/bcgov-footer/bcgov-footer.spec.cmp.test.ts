@@ -1,10 +1,15 @@
 import { describe, expect, it, render } from '@stencil/vitest';
 
 describe('bcgov-footer', () => {
+  it('builds', async () => {
+    const { root } = await render('<bcgov-footer></bcgov-footer>');
+
+    expect(root.tagName.toLowerCase()).toBe('bcgov-footer');
+  });
+
   it('renders the default logo', async () => {
     const { root } = await render('<bcgov-footer></bcgov-footer>');
 
-    expect(root.classList.contains('bcgov-footer')).toBe(true);
-    expect(root.querySelector('img')).not.toBeNull();
+    expect(root).toMatchSnapshot();
   });
 });
