@@ -1,7 +1,20 @@
 # CHANGELOG
 
+## 2.0.0 October 9, 2026
+
+- Migrated `bcgov-tabs` to Stencil 4 and added component tests.
+- Added accessible tab controls to the demo and refreshed its screenshot.
+
 ## 2.0.0 October 8, 2026
 
+- Migrated `bcgov-search` tests to Stencil 4/Vitest with browser-based behavior coverage.
+- Migrated `bcgov-menu` tests to Stencil 4/Vitest with browser-based behavior coverage.
+- Migrated `bcgov-header` tests to Stencil 4/Vitest with browser-based behavior coverage.
+- Migrated `bcgov-form` tests to Stencil 4/Vitest with browser-based behavior coverage.
+- Migrated `bcgov-footer` tests to Stencil 4/Vitest with browser-based behavior coverage.
+- Migrated `bcgov-carousel` tests to Stencil 4/Vitest with browser-based behavior coverage.
+- Migrated `bcgov-callout` tests to Stencil 4/Vitest with browser-based behavior coverage.
+- Migrated `bcgov-button` tests to Stencil 4/Vitest with browser-based behavior coverage.
 - Migrated `bcgov-beta` tests to Stencil 4/Vitest with browser-based behavior coverage.
 
 ## 2.0.0 October 7, 2026

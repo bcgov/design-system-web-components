@@ -145,6 +145,8 @@ export namespace Components {
          */
         "breakpoint": number;
     }
+    interface BcgovTabs {
+    }
 }
 declare global {
     interface HTMLBcgovBetaElement extends Components.BcgovBeta, HTMLStencilElement {
@@ -207,6 +209,12 @@ declare global {
         prototype: HTMLBcgovSearchElement;
         new (): HTMLBcgovSearchElement;
     };
+    interface HTMLBcgovTabsElement extends Components.BcgovTabs, HTMLStencilElement {
+    }
+    var HTMLBcgovTabsElement: {
+        prototype: HTMLBcgovTabsElement;
+        new (): HTMLBcgovTabsElement;
+    };
     interface HTMLElementTagNameMap {
         "bcgov-beta": HTMLBcgovBetaElement;
         "bcgov-breadcrumb": HTMLBcgovBreadcrumbElement;
@@ -218,6 +226,7 @@ declare global {
         "bcgov-header": HTMLBcgovHeaderElement;
         "bcgov-menu": HTMLBcgovMenuElement;
         "bcgov-search": HTMLBcgovSearchElement;
+        "bcgov-tabs": HTMLBcgovTabsElement;
     }
 }
 declare namespace LocalJSX {
@@ -360,6 +369,8 @@ declare namespace LocalJSX {
          */
         "breakpoint"?: number;
     }
+    interface BcgovTabs {
+    }
 
     interface BcgovBetaAttributes {
         "content": string;
@@ -420,6 +431,7 @@ declare namespace LocalJSX {
         "bcgov-header": Omit<BcgovHeader, keyof BcgovHeaderAttributes> & { [K in keyof BcgovHeader & keyof BcgovHeaderAttributes]?: BcgovHeader[K] } & { [K in keyof BcgovHeader & keyof BcgovHeaderAttributes as `attr:${K}`]?: BcgovHeaderAttributes[K] } & { [K in keyof BcgovHeader & keyof BcgovHeaderAttributes as `prop:${K}`]?: BcgovHeader[K] };
         "bcgov-menu": Omit<BcgovMenu, keyof BcgovMenuAttributes> & { [K in keyof BcgovMenu & keyof BcgovMenuAttributes]?: BcgovMenu[K] } & { [K in keyof BcgovMenu & keyof BcgovMenuAttributes as `attr:${K}`]?: BcgovMenuAttributes[K] } & { [K in keyof BcgovMenu & keyof BcgovMenuAttributes as `prop:${K}`]?: BcgovMenu[K] };
         "bcgov-search": Omit<BcgovSearch, keyof BcgovSearchAttributes> & { [K in keyof BcgovSearch & keyof BcgovSearchAttributes]?: BcgovSearch[K] } & { [K in keyof BcgovSearch & keyof BcgovSearchAttributes as `attr:${K}`]?: BcgovSearchAttributes[K] } & { [K in keyof BcgovSearch & keyof BcgovSearchAttributes as `prop:${K}`]?: BcgovSearch[K] };
+        "bcgov-tabs": BcgovTabs;
     }
 }
 export { LocalJSX as JSX };
@@ -436,6 +448,7 @@ declare module "@stencil/core" {
             "bcgov-header": LocalJSX.IntrinsicElements["bcgov-header"] & JSXBase.HTMLAttributes<HTMLBcgovHeaderElement>;
             "bcgov-menu": LocalJSX.IntrinsicElements["bcgov-menu"] & JSXBase.HTMLAttributes<HTMLBcgovMenuElement>;
             "bcgov-search": LocalJSX.IntrinsicElements["bcgov-search"] & JSXBase.HTMLAttributes<HTMLBcgovSearchElement>;
+            "bcgov-tabs": LocalJSX.IntrinsicElements["bcgov-tabs"] & JSXBase.HTMLAttributes<HTMLBcgovTabsElement>;
         }
     }
 }
