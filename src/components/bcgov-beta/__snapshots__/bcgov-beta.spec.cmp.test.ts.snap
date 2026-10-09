@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`bcgov-beta > Render Beta 1`] = `
+<bcgov-beta class="bcgov-beta hydrated" aria-label="This is my beta message" role="alert" tabindex="0">
+  Beta
+</bcgov-beta>
+`;
+
+exports[`bcgov-beta > Render Beta Custon Label 1`] = `
+<bcgov-beta label="Custom Beta" class="bcgov-beta hydrated" aria-label="This is my beta message" role="alert" tabindex="0">
+  Custom Beta
+</bcgov-beta>
+`;
