@@ -35,45 +35,6 @@
         --bcgov-wc-color-background-primary: #003366;
         --bcgov-wc-color-background-seconary: #eaf3f8;
       }
-      .demo-tabs {
-        display: block;
-        margin: 1rem 0;
-      }
-      .demo-tabs__list {
-        display: flex;
-        flex-wrap: wrap;
-        border-bottom: 2px solid #d6d6d6;
-      }
-      .demo-tabs__tab {
-        appearance: none;
-        border: 0;
-        border-bottom: 3px solid transparent;
-        margin-bottom: -2px;
-        padding: 0.75rem 1rem;
-        background: transparent;
-        color: #313132;
-        cursor: pointer;
-        font: inherit;
-        font-weight: 600;
-      }
-      .demo-tabs__tab:hover {
-        background: #f2f2f2;
-      }
-      .demo-tabs__tab[aria-selected="true"] {
-        border-bottom-color: #fcba19;
-        color: #003366;
-      }
-      .demo-tabs__tab:focus-visible {
-        outline: 3px solid #1a5a96;
-        outline-offset: 2px;
-        z-index: 1;
-      }
-      .demo-tabs__panel {
-        padding: 1rem 0;
-      }
-      .demo-tabs__panel[hidden] {
-        display: none;
-      }
       .demo-primary-menu.target-hidden {
         display: none;
       }
@@ -192,48 +153,9 @@
     </bcgov-search>
 
     <h2>Tabs</h2>
-    <bcgov-tabs class="demo-tabs" data-demo-tabs>
-      <div class="demo-tabs__list" role="tablist" aria-label="Tabs demo">
-        <button
-          class="demo-tabs__tab"
-          id="demo-tab-overview"
-          type="button"
-          role="tab"
-          aria-controls="demo-panel-overview"
-          aria-selected="true"
-          tabindex="0"
-        >Overview</button>
-        <button
-          class="demo-tabs__tab"
-          id="demo-tab-details"
-          type="button"
-          role="tab"
-          aria-controls="demo-panel-details"
-          aria-selected="false"
-          tabindex="-1"
-        >Details</button>
-      </div>
-      <section
-        class="demo-tabs__panel"
-        id="demo-panel-overview"
-        role="tabpanel"
-        aria-labelledby="demo-tab-overview"
-        tabindex="0"
-      >
-        <h3>Overview</h3>
-        <p>This content is provided through the tabs component's default slot.</p>
-      </section>
-      <section
-        class="demo-tabs__panel"
-        id="demo-panel-details"
-        role="tabpanel"
-        aria-labelledby="demo-tab-details"
-        tabindex="0"
-        hidden
-      >
-        <h3>Details</h3>
-        <p>The component wraps content while the demo provides the tab controls.</p>
-      </section>
+    <bcgov-tabs>
+      <div>Tab content</div>
+      <div>More content</div>
     </bcgov-tabs>
 
     <h2>Footer</h2>
@@ -244,48 +166,5 @@
         <a href="#contact">Contact us</a>
       </bcgov-menu>
     </bcgov-footer>
-    <script>
-      document.querySelectorAll('[data-demo-tabs]').forEach((tabSet) => {
-        const tabs = Array.from(tabSet.querySelectorAll('[role="tab"]'));
-        const activateTab = (selectedTab) => {
-          tabs.forEach((tab) => {
-            const isSelected = tab === selectedTab;
-            tab.setAttribute('aria-selected', String(isSelected));
-            tab.tabIndex = isSelected ? 0 : -1;
-
-            const panelId = tab.getAttribute('aria-controls');
-            const panel = panelId && tabSet.querySelector(`#${panelId}`);
-            if (panel) panel.hidden = !isSelected;
-          });
-        };
-
-        tabs.forEach((tab, position) => {
-          tab.addEventListener('click', () => activateTab(tab));
-          tab.addEventListener('keydown', (event) => {
-            let nextTab;
-            switch (event.key) {
-              case 'ArrowRight':
-                nextTab = tabs[(position + 1) % tabs.length];
-                break;
-              case 'ArrowLeft':
-                nextTab = tabs[(position - 1 + tabs.length) % tabs.length];
-                break;
-              case 'Home':
-                nextTab = tabs[0];
-                break;
-              case 'End':
-                nextTab = tabs[tabs.length - 1];
-                break;
-              default:
-                return;
-            }
-
-            event.preventDefault();
-            nextTab.focus();
-            activateTab(nextTab);
-          });
-        });
-      });
-    </script>
   </body>
 </html>
