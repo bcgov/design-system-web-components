@@ -11,6 +11,8 @@
     "components/bcgov-menu/bcgov-menu.js",
     "components/bcgov-search/bcgov-search.js",
     "components/bcgov-tab/bcgov-tab.js",
+    "components/bcgov-table/bcgov-table.js",
+    "components/bcgov-table-row/bcgov-table-row.js",
     "components/bcgov-tabs/bcgov-tabs.js"
   ],
   "mixins": [],

@@ -69,7 +69,7 @@ All components should meet or exceed [WCAG 2.0 AA](https://www.w3.org/TR/WCAG20/
 
 The demo shows the components currently available in this package:
 
-![Screenshot of the component demo showing Beta, Breadcrumb, Button, Callout, Carousel, Form, Header, Menu, Search, Tab, Tabs, and Footer](screenshot.png)
+![Screenshot of the component demo](screenshot.png)
 
 - Beta: `<bcgov-beta>`
 - Breadcrumb: `<bcgov-breadcrumb>`
@@ -83,6 +83,7 @@ The demo shows the components currently available in this package:
 - Search: `<bcgov-search>`
 - Tab: `<bcgov-tab>`
 - Tabs: `<bcgov-tabs>`
+- Table: `<bcgov-table>` and `<bcgov-table-row>`
 
 ## Development
 

@@ -5,6 +5,7 @@
 - Migrated `bcgov-tabs` to Stencil 4 and added component tests.
 - Simplified the `bcgov-tabs` demo to show its unstyled, non-functional slot wrapper.
 - Migrated `bcgov-tab` to Stencil 4 and added component tests.
+- Migrated `bcgov-table` and `bcgov-table-row` from the upstream development branch with responsive Sass and Stencil 4-compatible tests.
 
 ## 2.0.0 October 8, 2026
 
