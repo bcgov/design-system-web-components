@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`bcgov-button > render buttons 1`] = `
+"
+        <div>
+          <h4>Buttons</h4>
+          <bcgov-button class="bcgov-button hydrated"><!----><button class="primary">Primary</button></bcgov-button>
+          <bcgov-button button-style="secondary" class="bcgov-button hydrated"><!----><button class="secondary">Secondary</button></bcgov-button>
+          <span style="background-color: #000; padding: 8px; display: inline-block"><bcgov-button button-style="dark" class="bcgov-button hydrated"><!----><button class="dark">Dark</button></bcgov-button></span>
+          <bcgov-button button-style="hamburger" class="bcgov-button hydrated"><!----><button class="hamburger" aria-expanded="false" aria-label="Hamburger"><div></div><span class="bcgov-button-text">Menu</span></button></bcgov-button>
+          <bcgov-button button-style="search" class="bcgov-button hydrated"><!----><button class="search" aria-expanded="false" aria-label="Search"><span class="bcgov-svg-icon"><svg data-prefix="fas" data-icon="magnifying-glass" class="svg-inline--fa fa-magnifying-glass" role="img" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path></svg></span><span class="bcgov-button-text"><div></div><span class="bcgov-button-text">Search</span></span></button></bcgov-button>
+          <bcgov-button button-style="search-inline" class="bcgov-button hydrated"><!----><button class="search-inline" type="submit"><span class="bcgov-svg-icon"><svg data-prefix="fas" data-icon="magnifying-glass" class="svg-inline--fa fa-magnifying-glass" role="img" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path></svg></span><span class="bcgov-button-text">Search</span></button></bcgov-button>
+        </div>
+        <div>
+          <h4>Links (role="button")</h4>
+          <bcgov-button link="https://gov.bc.ca" class="bcgov-button hydrated"><!----><a class="primary" href="https://gov.bc.ca" role="button">Primary</a></bcgov-button>
+          <bcgov-button link="https://gov.bc.ca" button-style="secondary" class="bcgov-button hydrated"><!----><a class="secondary" href="https://gov.bc.ca" role="button">Secondary</a></bcgov-button>
+          <span style="background-color: #000; padding: 8px; display: inline-block"><bcgov-button link="https://gov.bc.ca" button-style="dark" class="bcgov-button hydrated"><!----><a class="dark" href="https://gov.bc.ca" role="button">Dark</a></bcgov-button></span>
+        </div>
+      "
+`;
