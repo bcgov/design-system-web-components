@@ -1,0 +1,85 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`bcgov-button > Render Dark Button 1`] = `
+<bcgov-button button-style="dark" class="bcgov-button hydrated">
+  <button class="dark">
+    Dark Button
+  </button>
+</bcgov-button>
+`;
+
+exports[`bcgov-button > Render Hamburger Button 1`] = `
+<bcgov-button button-style="hamburger" class="bcgov-button hydrated">
+  <button class="hamburger" aria-expanded="false" aria-label="Hamburger">
+    <div></div>
+    <span class="bcgov-button-text">
+      Menu
+    </span>
+  </button>
+</bcgov-button>
+`;
+
+exports[`bcgov-button > Render Link Button 1`] = `
+<bcgov-button link="https://gov.bc.ca" class="bcgov-button hydrated">
+  <a class="primary" href="https://gov.bc.ca" role="button">
+    Link Button
+  </a>
+</bcgov-button>
+`;
+
+exports[`bcgov-button > Render Link Button With Target 1`] = `
+<bcgov-button target="_blank" link="https://gov.bc.ca" class="bcgov-button hydrated">
+  <a class="primary" href="https://gov.bc.ca" target="_blank" role="button">
+    Link Button
+  </a>
+</bcgov-button>
+`;
+
+exports[`bcgov-button > Render Primary Button 1`] = `
+<bcgov-button class="bcgov-button hydrated">
+  <button class="primary">
+    Primary Button
+  </button>
+</bcgov-button>
+`;
+
+exports[`bcgov-button > Render Search Button 1`] = `
+<bcgov-button button-style="search" class="bcgov-button hydrated">
+  <button class="search" aria-expanded="false" aria-label="Search">
+    <span class="bcgov-svg-icon">
+      <svg data-prefix="fas" data-icon="magnifying-glass" class="svg-inline--fa fa-magnifying-glass" role="img" viewBox="0 0 512 512" aria-hidden="true">
+        <path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path>
+      </svg>
+    </span>
+    <span class="bcgov-button-text">
+      <div></div>
+      <span class="bcgov-button-text">
+        Search
+      </span>
+    </span>
+  </button>
+</bcgov-button>
+`;
+
+exports[`bcgov-button > Render Search Inline Button 1`] = `
+<bcgov-button button-style="search-inline" class="bcgov-button hydrated">
+  <button class="search-inline" type="submit">
+    <span class="bcgov-svg-icon">
+      <svg data-prefix="fas" data-icon="magnifying-glass" class="svg-inline--fa fa-magnifying-glass" role="img" viewBox="0 0 512 512" aria-hidden="true">
+        <path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0 416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path>
+      </svg>
+    </span>
+    <span class="bcgov-button-text">
+      Search Inline
+    </span>
+  </button>
+</bcgov-button>
+`;
+
+exports[`bcgov-button > Render Seconary Button 1`] = `
+<bcgov-button button-style="secondary" class="bcgov-button hydrated">
+  <button class="secondary">
+    Secondary Button
+  </button>
+</bcgov-button>
+`;

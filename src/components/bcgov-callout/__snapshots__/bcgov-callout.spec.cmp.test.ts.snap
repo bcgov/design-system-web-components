@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`bcgov-callout > should render my component 1`] = `
+<bcgov-callout class="bcgov-callout hydrated">
+  I am a BCGov Callout
+</bcgov-callout>
+`;
