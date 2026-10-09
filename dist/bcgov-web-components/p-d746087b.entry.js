@@ -1,0 +1,1 @@
+import{r as c,h as e,H as r}from"./p-p84c0ubL.js";const s=class{constructor(e){c(this,e)}render(){return e(r,{key:"4b0585bcc8accd4cebc4e55c63fab91064e6eb95"},e("slot",{key:"ef7a03c16c73c80b63281dd40eda191702e0070f"}))}};export{s as bcgov_tab}
