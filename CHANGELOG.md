@@ -5,6 +5,7 @@
 - Added a workflow that runs component tests on pull requests and via manual dispatch.
 - Migrated bcgov-menu tests to the Stencil 4 browser test suite, including submenu interaction coverage.
 
+- Added a workflow that runs component tests on pull requests and via manual dispatch.
 - Added a Stencil 2-to-4 component testing migration guide and a button test reference covering snapshots, mocked callbacks, and click behavior.
 - Expanded the component demo and README with examples of all ten available components.
 - Fixed markdownlint warnings in CHANGELOG
