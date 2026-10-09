@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`bcgov-footer > renders the default logo 1`] = `
+<bcgov-footer class="bcgov-footer hydrated" classname="bcgov-footer">
+  <img class="footer-logo" src="/assets/gov_bc_logo_white.png" alt="Logo">
+</bcgov-footer>
+`;

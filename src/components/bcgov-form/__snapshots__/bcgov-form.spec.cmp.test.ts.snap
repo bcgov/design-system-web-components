@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`bcgov-form > renders slotted form content 1`] = `
+<bcgov-form class="bcgov-form hydrated" classname="bcgov-form">
+  <input>
+</bcgov-form>
+`;
