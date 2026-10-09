@@ -12,7 +12,7 @@ This guide describes the repository's Stencil 4 test pattern for migrating compo
 | Render a test page with `{ components, html }` and assert `page.root` | Render a template string and assert against the returned `root` DOM element |
 | Jest APIs and Stencil's mock-document page | Vitest APIs; the repository's component tests run with its Stencil/Vitest browser setup |
 
-Examples of the old `newSpecPage` pattern remain in disabled `*.spec.tsoff` files, such as [`bcgov-beta.spec.tsoff`](../src/components/bcgov-beta/bcgov-beta.spec.tsoff). Use the current test runner and patterns below for new migrations rather than copying the old Jest setup.
+Disabled `*.spec.tsoff` files preserve examples from the repository's original Stencil 2/Jest test suite, including the `newSpecPage` pattern. Treat them as migration history; use the current test runner and patterns below for new migrations rather than copying the old setup.
 
 ## Migration steps
 
