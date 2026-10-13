@@ -7,7 +7,10 @@ title: Tabs
 ## Example
 
 ```html
-<bcgov-tabs><div>Tab content</div><div>More content</div></bcgov-tabs>
+<bcgov-tabs>
+	<bcgov-tab><h2>Overview</h2><p>First panel content.</p></bcgov-tab>
+	<bcgov-tab><h2>Details</h2><p>Second panel content.</p></bcgov-tab>
+</bcgov-tabs>
 ```
 
 <!-- markdownlint-disable MD012 -->

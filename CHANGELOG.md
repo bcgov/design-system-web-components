@@ -3,7 +3,8 @@
 ## 2.0.0 October 9, 2026
 
 - Migrated `bcgov-tabs` to Stencil 4 and added component tests.
-- Added accessible tab controls to the demo and refreshed its screenshot.
+- Simplified the `bcgov-tabs` demo to show its unstyled, non-functional slot wrapper.
+- Migrated `bcgov-tab` to Stencil 4 and added component tests.
 
 ## 2.0.0 October 8, 2026
 
