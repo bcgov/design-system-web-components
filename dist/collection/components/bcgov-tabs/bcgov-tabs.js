@@ -1,7 +1,7 @@
 import { Host, h } from "@stencil/core";
 export class BcgovTabs {
     render() {
-        return (h(Host, { key: '110d0951031a2c92a217a5e96bca0e7c1b7e2ad7' }, h("slot", { key: '7a65d62645b7fb31a060af683997dcd5a7feeb92' })));
+        return (h(Host, { key: '7752469c25f8020227865a4d535fa244392a2250' }, h("slot", { key: 'f0e8fba4a3e641145fdcb1fc9d995d2ab8e22ebd' })));
     }
     static get is() { return "bcgov-tabs"; }
     static get encapsulation() { return "shadow"; }
