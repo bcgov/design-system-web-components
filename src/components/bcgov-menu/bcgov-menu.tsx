@@ -80,7 +80,7 @@ export class BcgovMenu {
     if (this.isSubmenu) {
       this.el.setAttribute("aria-haspopup", true);
       this.el.setAttribute("aria-expanded", false);
-    
+
       this.el.setAttribute("tabindex", -1);
       const primaryMenu = this.el.closest("bcgov-menu[primary]");
       if (null !== primaryMenu) {

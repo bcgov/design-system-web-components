@@ -29,3 +29,6 @@ jobs:
 
       - name: Run component tests
         run: npm test
+
+      - name: Run e2e tests
+        run: npm run test:e2e
