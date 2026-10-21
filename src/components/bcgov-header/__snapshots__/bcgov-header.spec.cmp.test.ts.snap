@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`bcgov-header > Render header with default logo 1`] = `
-<bcgov-header logo class="bcgov-header hydrated" classname="bcgov-header">
+<bcgov-header logo="" class="bcgov-header hydrated" classname="bcgov-header">
   <header>
     <div class="banner">
       <a class="branding-logo" aria-label="branding logo" href="https://www2.gov.bc.ca/gov/content/home">
@@ -14,7 +14,7 @@ exports[`bcgov-header > Render header with default logo 1`] = `
         Beta
       </bcgov-beta>
     </div>
-    <div aria class="access">
+    <div aria="" class="access">
       <a href="#main-navigation" aria-label="Skip to navigation">
         Skip to navigation
       </a>

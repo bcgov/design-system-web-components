@@ -11,13 +11,13 @@ exports[`bcgov-menu > renders a menu inside bcgov-header 1`] = `
           </a>
         </li>
         <li class="active" role="menuitem" tabindex="-1" aria-label="Adding span">
-          <a active href="test2.html" tabindex="-1" aria-hidden="true">
+          <a active="" href="test2.html" tabindex="-1" aria-hidden="true">
             <span>
               Adding span
             </span>
           </a>
         </li>
-        <bcgov-menu active name="Components" href="https://gov.bc.ca" role="menuitem" class="expandable active hydrated" aria-label="Components" aria-haspopup="true" aria-expanded="false" tabindex="-1">
+        <bcgov-menu active="" name="Components" href="https://gov.bc.ca" role="menuitem" class="expandable active hydrated" aria-label="Components" aria-haspopup="true" aria-expanded="false" tabindex="-1">
           <div>
             <a href="https://gov.bc.ca" tabindex="-1">
               Components
@@ -72,13 +72,13 @@ exports[`bcgov-menu > renders a menu with nested submenus 1`] = `
       </a>
     </li>
     <li class="active" role="menuitem" tabindex="-1" aria-label="Adding span">
-      <a active href="test2.html" tabindex="-1" aria-hidden="true">
+      <a active="" href="test2.html" tabindex="-1" aria-hidden="true">
         <span>
           Adding span
         </span>
       </a>
     </li>
-    <bcgov-menu active name="Components" href="https://gov.bc.ca" role="menuitem" class="expandable active hydrated" aria-label="Components" aria-haspopup="true" aria-expanded="false" tabindex="-1">
+    <bcgov-menu active="" name="Components" href="https://gov.bc.ca" role="menuitem" class="expandable active hydrated" aria-label="Components" aria-haspopup="true" aria-expanded="false" tabindex="-1">
       <div>
         <a href="https://gov.bc.ca" tabindex="-1">
           Components

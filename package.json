@@ -34,10 +34,9 @@
     "@stencil/core": "^4.27.1 || ^5.0.0-0",
     "@stencil/playwright": "^0.6.0",
     "@stencil/sass": "^3.3.3",
-    "@stencil/vitest": "^1.8.3",
+    "@stencil/vitest": "^1.16.1",
     "@types/node": "^22.13.5",
-    "playwright": "^1.52.0",
-    "vitest": "^4.0.0"
+    "vitest": "^5.0.5"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
