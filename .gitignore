@@ -1,6 +1,7 @@
 # Build and generated output
 www/
 html/*
+test-results/
 screenshot/
 .stencil/
 .sass-cache/

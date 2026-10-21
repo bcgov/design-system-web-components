@@ -17,23 +17,25 @@
     "dist/loader",
     "src/components",
     "src/styles"
-
   ],
   "scripts": {
     "build": "stencil build",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil-test --prod --reporter=verbose",
+    "test:e2e": "playwright test",
     "test:watch": "stencil-test --prod --watch --reporter=verbose",
     "generate": "stencil generate"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
     "@fortawesome/fontawesome-svg-core": "^7.3.1",
     "@fortawesome/free-solid-svg-icons": "^7.3.1",
+    "@playwright/test": "^1.64.1",
     "@stencil/core": "^4.27.1 || ^5.0.0-0",
+    "@stencil/playwright": "^0.6.0",
     "@stencil/sass": "^3.3.3",
     "@stencil/vitest": "^1.8.3",
     "@types/node": "^22.13.5",
-    "@vitest/browser-playwright": "^4.0.0",
     "playwright": "^1.52.0",
     "vitest": "^4.0.0"
   },
@@ -41,5 +43,4 @@
     "node": "^20.19.0 || >=22.12.0"
   },
   "license": "Apache-2.0"
-
 }

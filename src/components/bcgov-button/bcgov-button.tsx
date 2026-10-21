@@ -87,7 +87,6 @@ export class BcgovButton {
         self.isDesktop();
       });
     }
-    
   }
 
   getParentBreakpoint() {
@@ -140,7 +139,6 @@ export class BcgovButton {
       event.preventDefault();
       return false;
     }
-    
   }
 
 
@@ -164,7 +162,6 @@ export class BcgovButton {
       else if ( this.buttonStyle === 'hamburger' ) {
         props['aria-label'] = "Hamburger"
       }
-    
       return (
         <Host data-target={this.dataTarget} class="bcgov-button">
           <button {...props}>

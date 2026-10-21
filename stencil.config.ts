@@ -15,11 +15,11 @@ export const config: Config = {
     },
     {
       type: 'docs-readme',
-      
     },
     {
       type: 'www',
       serviceWorker: null, // disable service workers
+      copy: [{ src: '**/*.html' }, { src: '**/*.css' }]
     },
   ],
   globalStyle: "src/components/sass/style.scss",

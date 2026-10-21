@@ -6,7 +6,8 @@
     "experimentalDecorators": true,
     "lib": [
       "dom",
-      "es2022"
+      "es2022",
+      "ESNext.Disposable"
     ],
     "moduleResolution": "bundler",
     "module": "esnext",
