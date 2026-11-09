@@ -1,5 +1,5 @@
-import { p as promiseResolve, g as globalScripts, b as bootstrapLazy } from './index-tbR_EOXU.js';
-export { s as setNonce } from './index-tbR_EOXU.js';
+import { p as promiseResolve, g as globalScripts, b as bootstrapLazy } from './index-Dm4_yysL.js';
+export { s as setNonce } from './index-Dm4_yysL.js';
 
 /*
  Stencil Client Patch Browser v4.45.2 | MIT Licensed | https://stenciljs.com

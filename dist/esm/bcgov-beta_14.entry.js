@@ -1,4 +1,4 @@
-import { r as registerInstance, a as getElement, h as h$2, H as Host, c as getAssetPath } from './index-tbR_EOXU.js';
+import { r as registerInstance, a as getElement, h as h$2, H as Host, c as getAssetPath } from './index-Dm4_yysL.js';
 
 const BcgovBeta = class {
     constructor(hostRef) {
