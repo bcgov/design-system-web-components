@@ -1,5 +1,5 @@
-import { g as globalScripts, b as bootstrapLazy } from './index-tbR_EOXU.js';
-export { s as setNonce } from './index-tbR_EOXU.js';
+import { g as globalScripts, b as bootstrapLazy } from './index-Dm4_yysL.js';
+export { s as setNonce } from './index-Dm4_yysL.js';
 
 const defineCustomElements = async (win, options) => {
   if (typeof window === 'undefined') return undefined;

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.0.0 November 9, 2026
+
+- Removed the global focus-style override so the search button's focus indicator is visible.
+
 ## 2.0.0 October 9, 2026
 
 - Migrated `bcgov-tabs` to Stencil 4 and added component tests.
