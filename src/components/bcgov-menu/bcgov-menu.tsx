@@ -50,7 +50,21 @@ export class BcgovMenu {
     }
   }
 
-  @Listen("focusout")
+  @Listen("click", { target: "document" })
+  onDocumentClick(event: MouseEvent) {
+    const target = event.target;
+    if (target instanceof Node && this.el.contains(target)) {
+      return;
+    }
+
+    this.el
+      .querySelectorAll<HTMLButtonElement>(
+        'button.disclosure-toggle[aria-expanded="true"]'
+      )
+      .forEach((button) => this.setExpanded(button, false));
+  }
+
+  @Listen("blur")
   onFocusOut(event: FocusEvent) {
     const nextTarget = event.relatedTarget as Node | null;
     this.el

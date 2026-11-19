@@ -1,6 +1,6 @@
 'use strict';
 
-var index = require('./index-B3SLkLFV.js');
+var index = require('./index-XuhnungH.js');
 
 const BcgovBeta = class {
     constructor(hostRef) {
@@ -4064,6 +4064,15 @@ const BcgovMenu = class {
             this.setExpanded(button, button.getAttribute("aria-expanded") !== "true");
         }
     }
+    onDocumentClick(event) {
+        const target = event.target;
+        if (target instanceof Node && this.el.contains(target)) {
+            return;
+        }
+        this.el
+            .querySelectorAll('button.disclosure-toggle[aria-expanded="true"]')
+            .forEach((button) => this.setExpanded(button, false));
+    }
     onFocusOut(event) {
         const nextTarget = event.relatedTarget;
         this.el
@@ -4228,7 +4237,7 @@ const BcgovMenu = class {
         });
     }
     render() {
-        return (index.h(index.Host, { key: 'ec6c49dc1507f1867ab9f8fc78d62e38eb4e849a' }, index.h("nav", { key: '713b84a94034dfc775dd1d5e03b1321630ce4b94', "aria-label": this.label }, this.primary && (index.h("button", { key: '7ace3e8ccb09cbf45ce58fc73df898d94d5e9692', class: "bcgov-primary-menu-close", type: "button", "aria-label": "Close mobile navigation" }, index.h("span", { key: '00acc4a19c36c3d728c2d63af51c160d0fe954a2', "aria-hidden": "true" }, "x"))), index.h("ul", { key: '2b2e9a87eae78dfbab64aaa3bba0e5b6046ff6dc', class: `align-${this.alignment}` }, index.h("slot", { key: '6779fd7d2854bc42327ce855c745888d2661a712' })))));
+        return (index.h(index.Host, { key: '7be5fcd617d36d212acadbf642bc3807489d3d86' }, index.h("nav", { key: 'c0cec89e3a3c416319779a818138eb585b0f6c61', "aria-label": this.label }, this.primary && (index.h("button", { key: '913395147d53e809989e436fd1cd4e8f76b51a44', class: "bcgov-primary-menu-close", type: "button", "aria-label": "Close mobile navigation" }, index.h("span", { key: 'ad403657ace0023d46e02a3590ecbfc98cb5a09e', "aria-hidden": "true" }, "x"))), index.h("ul", { key: '7084b24e6b00211a8b41e5c63f9aa739e144479e', class: `align-${this.alignment}` }, index.h("slot", { key: '83f147f7378350b107f85acea04da3cd0fbb9e57' })))));
     }
 };
 

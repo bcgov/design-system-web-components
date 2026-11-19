@@ -132,6 +132,37 @@ describe("bcgov-menu disclosure navigation", () => {
     outsideButton.remove();
   });
 
+  it("closes expanded submenus when clicking a non-focusable target outside", async () => {
+    const { root, waitForChanges } = await render(`
+      <bcgov-menu>
+        <li>
+          <button class="disclosure-toggle" type="button">Services</button>
+          <ul>
+            <li><a href="#support">Support</a></li>
+          </ul>
+        </li>
+      </bcgov-menu>
+    `);
+    const toggle = root.querySelector<HTMLButtonElement>(
+      "button.disclosure-toggle"
+    );
+    const submenu = toggle.parentElement.querySelector("ul");
+    const outsideTarget = document.createElement("div");
+    outsideTarget.textContent = "Outside";
+    document.body.appendChild(outsideTarget);
+
+    await userEvent.click(toggle);
+    await waitForChanges();
+    expect(toggle.getAttribute("aria-expanded")).toBe("true");
+
+    await userEvent.click(outsideTarget);
+    await waitForChanges();
+
+    expect(toggle.getAttribute("aria-expanded")).toBe("false");
+    expect(submenu.hidden).toBe(true);
+    outsideTarget.remove();
+  });
+
   it("closes a submenu when focus moves to another item and keeps siblings exclusive", async () => {
     const { root, waitForChanges } = await render(`
       <bcgov-menu>
@@ -172,5 +203,42 @@ describe("bcgov-menu disclosure navigation", () => {
     expect(servicesList.hidden).toBe(false);
     expect(aboutToggle.getAttribute("aria-expanded")).toBe("false");
     expect(aboutList.hidden).toBe(true);
+  });
+
+  it("opens a tapped sibling submenu after closing the current one on mobile", async () => {
+    const { root, waitForChanges } = await render(`
+      <bcgov-menu breakpoint="9999">
+        <li>
+          <button class="disclosure-toggle" type="button">Services</button>
+          <ul>
+            <li><a href="#support">Support</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="disclosure-toggle" type="button">About</button>
+          <ul>
+            <li><a href="#team">Our team</a></li>
+          </ul>
+        </li>
+      </bcgov-menu>
+    `);
+    const [servicesToggle, aboutToggle] = root.querySelectorAll<HTMLButtonElement>(
+      "button.disclosure-toggle"
+    );
+    const servicesList = servicesToggle.parentElement.querySelector("ul");
+    const aboutList = aboutToggle.parentElement.querySelector("ul");
+
+    expect(root.classList.contains("is-desktop")).toBe(false);
+    await userEvent.click(servicesToggle);
+    await waitForChanges();
+    expect(servicesToggle.getAttribute("aria-expanded")).toBe("true");
+
+    await userEvent.click(aboutToggle);
+    await waitForChanges();
+
+    expect(servicesToggle.getAttribute("aria-expanded")).toBe("false");
+    expect(servicesList.hidden).toBe(true);
+    expect(aboutToggle.getAttribute("aria-expanded")).toBe("true");
+    expect(aboutList.hidden).toBe(false);
   });
 });

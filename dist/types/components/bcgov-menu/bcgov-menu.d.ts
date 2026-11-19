@@ -13,6 +13,7 @@ export declare class BcgovMenu {
     componentWillLoad(): void;
     onResize(): void;
     onClick(event: Event): void;
+    onDocumentClick(event: MouseEvent): void;
     onFocusOut(event: FocusEvent): void;
     onKeyDown(event: KeyboardEvent): void;
     private updateDesktop;

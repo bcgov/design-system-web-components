@@ -1,3 +1,5 @@
+'use strict';
+
 const NAMESPACE = 'bcgov-web-components';
 const BUILD = /* bcgov-web-components */ { hydratedSelectorName: "hydrated", lazyLoad: true, propChangeCallback: false, slotRelocation: true, state: true, updatable: true};
 
@@ -1886,6 +1888,9 @@ var hostListenerProxy = (hostRef, methodName) => (ev) => {
   }
 };
 var getHostListenerTarget = (doc, elm, flags) => {
+  if (flags & 4 /* TargetDocument */) {
+    return doc;
+  }
   if (flags & 8 /* TargetWindow */) {
     return win;
   }
@@ -1902,4 +1907,12 @@ function transformTag(tag) {
   return tag;
 }
 
-export { Host as H, getElement as a, bootstrapLazy as b, getAssetPath as c, globalScripts as g, h, promiseResolve as p, registerInstance as r, setNonce as s };
+exports.Host = Host;
+exports.bootstrapLazy = bootstrapLazy;
+exports.getAssetPath = getAssetPath;
+exports.getElement = getElement;
+exports.globalScripts = globalScripts;
+exports.h = h;
+exports.promiseResolve = promiseResolve;
+exports.registerInstance = registerInstance;
+exports.setNonce = setNonce;
