@@ -1,7 +1,6 @@
 export declare const filterATags: (element: any) => any;
 export declare const moveElement: (element: any, parent: any) => void;
 export declare const breadCrumbElement: (element: any) => void;
-export declare const menuElement: (element: any) => void;
 export declare const findAncestor: (el: any, sel: string) => any;
 export declare const keys: {
     tab: number;

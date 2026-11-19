@@ -43,11 +43,11 @@ As read using ChromeVox
 ## Example with external image
 <div>
 <bcgov-footer  logo>
-  <bcgov-menu >
-    <a href="/">Home</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
+  <bcgov-menu label="Footer">
+    <li><a href="/">Home</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a></li>
   </bcgov-menu>
   <img
     src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
@@ -59,11 +59,11 @@ As read using ChromeVox
 
 ```html
 <bcgov-footer  logo>
-  <bcgov-menu >
-    <a href="/">Home</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
+  <bcgov-menu label="Footer">
+    <li><a href="/">Home</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a></li>
   </bcgov-menu>
   <img
     src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
@@ -73,11 +73,11 @@ As read using ChromeVox
 ### Output
 <div class="code">
 <bcgov-footer  logo>
-  <bcgov-menu >
-    <a href="/">Home</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
+  <bcgov-menu label="Footer">
+    <li><a href="/">Home</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a></li>
   </bcgov-menu>
   <img
     src="https://www2.gov.bc.ca/assets/download/6124280C12B44DA492667E23E8BC38BF"
@@ -88,11 +88,11 @@ As read using ChromeVox
 ## Example with bc logo
 <div>
 <bcgov-footer  logo="gov_bc_logo.svg">
-  <bcgov-menu >
-    <a href="/">Home</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
+  <bcgov-menu label="Footer">
+    <li><a href="/">Home</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a></li>
   </bcgov-menu>
 </bcgov-footer>
 </div>
@@ -100,11 +100,11 @@ As read using ChromeVox
 ### Source
 ```html
 <bcgov-footer logo="gov_bc_logo.svg">
-  <bcgov-menu >
-    <a href="/">Home</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
+  <bcgov-menu label="Footer">
+    <li><a href="/">Home</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a></li>
   </bcgov-menu>
 </bcgov-footer>
 ```
@@ -112,11 +112,11 @@ As read using ChromeVox
 ### Output
 <div class="code">
 <bcgov-footer  logo="gov_bc_logo.svg">
-  <bcgov-menu >
-    <a href="/">Home</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
+  <bcgov-menu label="Footer">
+    <li><a href="/">Home</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a></li>
   </bcgov-menu>
 </bcgov-footer>
 </div>
@@ -125,11 +125,11 @@ As read using ChromeVox
 <div>
 <bcgov-footer >
 <div>
-  <bcgov-menu >
-    <a href="/">Home</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
+  <bcgov-menu label="Footer">
+    <li><a href="/">Home</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a></li>
   </bcgov-menu>
   </div>
 </bcgov-footer>
@@ -138,11 +138,11 @@ As read using ChromeVox
 ### Source
 ```html
 <bcgov-footer >
-  <bcgov-menu >
-    <a href="/">Home</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
+  <bcgov-menu label="Footer">
+    <li><a href="/">Home</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a></li>
   </bcgov-menu>
 </bcgov-footer>
 ```
@@ -150,11 +150,11 @@ As read using ChromeVox
 <div class="code">
 <bcgov-footer >
   <div>
-  <bcgov-menu >
-    <a href="/">Home</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a>
-    <a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a>
+  <bcgov-menu label="Footer">
+    <li><a href="/">Home</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/disclaimer">Disclaimer</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/privacy">Privacy</a></li>
+    <li><a href="https://www2.gov.bc.ca/gov/content/home/accessibility">Accessibility</a></li>
   </bcgov-menu>
   </div>
 </bcgov-footer>

@@ -134,13 +134,31 @@
 
     <h2>Menu</h2>
     <bcgov-button button-style="hamburger" data-target="demo-primary-menu">Menu</bcgov-button>
-    <bcgov-menu id="demo-primary-menu" class="demo-primary-menu" primary allow-hover breakpoint="768">
-      <a active href="#overview">Overview</a>
-      <bcgov-menu name="Services">
-        <a href="#permits">Permits</a>
-        <a href="#support">Support</a>
-      </bcgov-menu>
-      <a href="#contact">Contact</a>
+    <bcgov-menu
+      id="demo-primary-menu"
+      class="demo-primary-menu"
+      primary
+      label="Primary navigation"
+      breakpoint="768"
+    >
+      <li><a active href="#overview">Overview</a></li>
+      <li>
+        <a href="#">About</a>
+        <ul>
+          <li><a href="#about-us">About us</a></li>
+          <li><a href="#our-mission">Our mission</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Pages</a>
+        <ul>
+          <li><a href="#page-1">Page 1</a></li>
+          <li><a href="#page-2">Page 2</a></li>
+          <li><a href="#page-3">Page 3</a></li>
+          <li><a href="#page-4">Page 4</a></li>
+        </ul>
+      </li>
+      <li><a href="#contact">Contact</a></li>
     </bcgov-menu>
 
     <h2>Search</h2>
@@ -191,10 +209,10 @@
 
     <h2>Footer</h2>
     <bcgov-footer>
-      <bcgov-menu>
-        <a href="#home">Home</a>
-        <a href="#privacy">Privacy</a>
-        <a href="#contact">Contact us</a>
+      <bcgov-menu label="Footer">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#contact">Contact us</a></li>
       </bcgov-menu>
     </bcgov-footer>
   </body>

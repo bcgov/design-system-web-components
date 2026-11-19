@@ -20,7 +20,7 @@ export class BcgovTable {
         const tableClass = this.showColumnLabels
             ? "bcgov-table show-column-labels"
             : "bcgov-table";
-        return (h(Host, { key: 'ba66d17719739bc7b994f9edff12c3536dc81e94', class: tableClass, role: "list" }, h("slot", { key: '4ba507e9e4c027fb0e37bf445fa334359a8d559b' })));
+        return (h(Host, { key: 'e9072dd5f3bd4097cb3675c00126ed93930111d3', class: tableClass, role: "list" }, h("slot", { key: '5698a0da6ea5e2cfca7a766f5dc2c09bee7e3f75' })));
     }
     static get is() { return "bcgov-table"; }
     static get properties() {
