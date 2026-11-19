@@ -48,25 +48,6 @@ export const breadCrumbElement = element => {
   }
 };
 
-export const menuElement = element => {
-  const nName: string = element.nodeName.toLowerCase();
-  if ("a" === nName && "li" !== element.parentNode.nodeName.toLowerCase()) {
-    filterATags(element);
-    element.setAttribute("tabindex", "-1");
-    element.setAttribute("aria-hidden", "true");
-    const liTag: HTMLElement = document.createElement("li");
-    if (element.hasAttribute("active")) {
-      liTag.classList.add("active");
-    }
-    liTag.setAttribute("role", "menuitem");
-    liTag.setAttribute("tabindex", "-1");
-    liTag.setAttribute("aria-label", element.textContent);
-    liTag.appendChild(element.cloneNode(true));
-
-    element.parentNode.replaceChild(liTag, element);
-  }
-};
-
 export const findAncestor = (el: any, sel: string) => {
   while (
     (el = el.parentElement) &&

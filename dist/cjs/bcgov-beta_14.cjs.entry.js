@@ -1,6 +1,6 @@
 'use strict';
 
-var index = require('./index-Un8T9LGp.js');
+var index = require('./index-XuhnungH.js');
 
 const BcgovBeta = class {
     constructor(hostRef) {
@@ -57,38 +57,6 @@ const breadCrumbElement = element => {
         liTag.appendChild(element.cloneNode(true));
         element.parentNode.replaceChild(liTag, element);
     }
-};
-const menuElement = element => {
-    const nName = element.nodeName.toLowerCase();
-    if ("a" === nName && "li" !== element.parentNode.nodeName.toLowerCase()) {
-        filterATags(element);
-        element.setAttribute("tabindex", "-1");
-        element.setAttribute("aria-hidden", "true");
-        const liTag = document.createElement("li");
-        if (element.hasAttribute("active")) {
-            liTag.classList.add("active");
-        }
-        liTag.setAttribute("role", "menuitem");
-        liTag.setAttribute("tabindex", "-1");
-        liTag.setAttribute("aria-label", element.textContent);
-        liTag.appendChild(element.cloneNode(true));
-        element.parentNode.replaceChild(liTag, element);
-    }
-};
-const findAncestor = (el, sel) => {
-    while ((el = el.parentElement) &&
-        !(el.matches || el.matchesSelector).call(el, sel))
-        ;
-    return el;
-};
-const keys = {
-    enter: 13,
-    esc: 27,
-    space: 32,
-    left: 37,
-    up: 38,
-    right: 39,
-    down: 40
 };
 
 const BcgovBreadcrumb = class {
@@ -4057,249 +4025,219 @@ const BcgovHeader = class {
     static get assetsDirs() { return ["../../assets"]; }
 };
 
+let submenuSequence = 0;
 const BcgovMenu = class {
     constructor(hostRef) {
         index.registerInstance(this, hostRef);
     }
-    /** Alignment of menu */
+    /** Horizontal alignment of the top-level list. */
     alignment = "left";
-    primary;
-    sidebar;
-    /** Menu id used for instructions
-     * TODO: this might need more consideration
-     */
-    menuId = "menu";
-    /** Aria Instructions */
-    instructions = `Use arrow keys to navigate between menuitems,
-  spacebar to expand submenus, escape key to close submenus, enter to activate menuitems.`;
-    /** Link for menu */
-    href;
-    /** Label for submenu */
-    name;
-    /** A number that represents mobile menu breakpoint in px; */
+    /** Viewport width at which the menu switches to desktop styling. */
     breakpoint = 0;
-    /** Automatically adds hamburger. */
-    hamburger = true;
-    active = false;
-    /** Adds hover to submenues */
-    allowHover = false;
-    /** Changes timeout for submenu */
-    menuTimeOut = 500;
-    isSubmenu = false;
-    clone;
-    allTags;
-    bodyTag;
-    menuTimeOutState;
+    /** Accessible name for the navigation landmark. */
+    label = "Navigation";
+    /** Apply primary header-navigation styling and a mobile close button. */
+    primary = false;
+    /** Use the compact sidebar layout. */
+    sidebar = false;
     get el() { return index.getElement(this); }
     componentWillLoad() {
-        this.isSubmenu = "UL" === this.el.parentElement.nodeName;
-        [].forEach.call(this.el.querySelectorAll("a"), function (element) {
-            menuElement(element);
+        this.updateDesktop();
+        this.initializeDisclosures();
+        this.el.querySelectorAll("a[active]").forEach((link) => {
+            if (link.parentElement?.nodeName === "LI") {
+                link.parentElement.classList.add("active");
+            }
         });
-        const self = this;
-        this.bodyTag = document.getElementsByTagName("BODY")[0];
-        if (!this.isSubmenu) {
-            this.isDesktop();
-            window.addEventListener("resize", function () {
-                self.isDesktop();
-            });
-        }
     }
-    /**
-     * This sets up inital attributes for sub menus
-     */
-    componentDidRender() {
-        if (this.isSubmenu) {
-            this.el.setAttribute("aria-haspopup", true);
-            this.el.setAttribute("aria-expanded", false);
-            this.el.setAttribute("tabindex", -1);
-            const primaryMenu = this.el.closest("bcgov-menu[primary]");
-            if (null !== primaryMenu) {
-                this.allowHover =
-                    this.allowHover || primaryMenu.hasAttribute("allow-hover");
-                this.menuTimeOut = primaryMenu.hasAttribute("menu-time-out")
-                    ? primaryMenu.getAttribute("menu-time-out")
-                    : this.menuTimeOut;
-            }
-        }
-        else {
-            const firstChild = this.el.querySelector("ul > *:first-child");
-            if (null !== firstChild) {
-                firstChild.setAttribute("tabindex", 0);
-            }
-        }
-    }
-    isDesktop() {
-        let isdesktop = false;
-        if (!this.isSubmenu) {
-            if (window.innerWidth >= this.breakpoint) {
-                if (!this.el.classList.contains("is-desktop")) {
-                    this.el.classList.add("is-desktop");
-                }
-                if (undefined !== this.primary) {
-                    if (!this.bodyTag.classList.contains("bcgov-menu-primary-is-desktop")) {
-                        this.bodyTag.classList.add("bcgov-menu-primary-is-desktop");
-                    }
-                }
-                isdesktop = true;
-            }
-            else {
-                this.el.classList.remove("is-desktop");
-                if (undefined !== this.primary) {
-                    this.bodyTag.classList.remove("bcgov-menu-primary-is-desktop");
-                }
-            }
-        }
-        else {
-            let parent = findAncestor(this.el, "bcgov-menu");
-            if (null !== parent && parent.getAttribute("breakpoint")) {
-                const bp = parseInt(parent.getAttribute("breakpoint"));
-                isdesktop = window.innerWidth >= bp;
-            }
-        }
-        return isdesktop;
-    }
-    onMouseEnter(ev) {
-        if (this.isDesktop() && this.allowHover) {
-            const element = ev.target;
-            //element.focus();
-            this.showSubmenu(element, true);
-        }
-    }
-    onMouseLeave(event) {
-        if (this.isDesktop() && this.allowHover) {
-            const element = event.target;
-            const self = this;
-            clearTimeout(this.menuTimeOutState);
-            this.menuTimeOutState = setTimeout(function () {
-                self.showSubmenu(element, false);
-            }, self.menuTimeOut);
-            if (!this.isSubmenu) {
-                [].forEach.call(this.el.querySelectorAll("ul > *"), function (element) {
-                    element.setAttribute("tabindex", -1);
-                    element.blur();
-                });
-            }
-        }
+    onResize() {
+        this.updateDesktop();
     }
     onClick(event) {
-        const element = event.target;
-        const parent = findAncestor(element, "bcgov-menu");
-        if (null === element.closest(".bcgov-primary-menu-close")) {
-            this.showSubmenu(parent, !parent.classList.contains("expanded"));
+        const target = event.target;
+        if (target.closest(".bcgov-primary-menu-close")) {
+            this.el.classList.add("target-hidden");
+            return;
         }
-        if ("close-menu-mobile" === element.parentElement.getAttribute("id")) {
-            parent.classList.add("target-hidden");
+        const button = target.closest("button.disclosure-toggle");
+        if (button && this.el.contains(button)) {
+            this.setExpanded(button, button.getAttribute("aria-expanded") !== "true");
         }
+    }
+    onDocumentClick(event) {
+        const target = event.target;
+        if (target instanceof Node && this.el.contains(target)) {
+            return;
+        }
+        this.el
+            .querySelectorAll('button.disclosure-toggle[aria-expanded="true"]')
+            .forEach((button) => this.setExpanded(button, false));
+    }
+    onFocusOut(event) {
+        const nextTarget = event.relatedTarget;
+        this.el
+            .querySelectorAll('button.disclosure-toggle[aria-expanded="true"]')
+            .forEach((button) => {
+            const submenu = this.getSubmenu(button);
+            const item = button.parentElement;
+            if (submenu &&
+                item &&
+                nextTarget instanceof Node &&
+                !item.contains(nextTarget)) {
+                this.setExpanded(button, false);
+            }
+        });
     }
     onKeyDown(event) {
-        const current = event.srcElement;
-        {
-            switch (event.keyCode) {
-                case keys.enter:
-                    current.querySelector("a").click();
-                case keys.space:
-                    event.preventDefault();
-                    event.stopPropagation();
-                    this.showSubmenu(this.el, true);
-                    const firstFocus = this.el.querySelector("ul > li:first-child");
-                    firstFocus.focus();
-                    break;
-                case keys.esc:
-                    event.preventDefault();
-                    event.stopPropagation();
-                    this.showSubmenu(this.el, false);
-                    this.el.focus();
-                    break;
-                case keys.right:
-                    event.preventDefault();
-                    this.focusChange(current, "next");
-                    break;
-                case keys.left:
-                    event.preventDefault();
-                    this.focusChange(current, "prev");
-                    break;
-                case keys.up:
-                    event.preventDefault();
-                    this.focusChange(current, "up");
-                    break;
-                case keys.down:
-                    event.preventDefault();
-                    this.focusChange(current, "down");
-                    break;
-            }
-        }
-    }
-    focusChange(current, direction = "next") {
-        let element;
-        if (current === this.el.querySelector("ul")) {
-            element = current.querySelector("li:first-child");
-            element = this.isDesktop() ? element.nextElementSibling : element;
-            current = element;
-        }
-        else {
-            if ("next" === direction || "down" === direction) {
-                element = current.nextElementSibling;
-            }
-            else if ("prev" == direction || "up" === direction) {
-                element = current.previousElementSibling;
-            }
-        }
-        const insideSub = null !== findAncestor(current, 'ul[role="menu"]');
-        const checkAllowed = (insideSub && ("up" === direction || "down" === direction)) ||
-            (!insideSub && ("prev" === direction || "next" === direction));
-        if (!checkAllowed) {
+        const target = event.target;
+        if (!target.matches("a, button") ||
+            target.closest(".bcgov-primary-menu-close")) {
             return;
         }
-        if (null != element &&
-            ("LI" === current.nodeName || "BCGOV-MENU" === current.nodeName)) {
-            current.setAttribute("tabindex", "-1");
-            element.setAttribute("tabindex", "0");
-            element.focus();
-        }
-    }
-    showSubmenu = (target, expanded) => {
-        if (!this.isSubmenu) {
+        if (event.key === "Escape") {
+            let item = target.closest("li");
+            while (item && this.el.contains(item)) {
+                const toggle = Array.from(item.children).find((child) => child.matches("button.disclosure-toggle"));
+                if (toggle?.getAttribute("aria-expanded") === "true") {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    this.setExpanded(toggle, false);
+                    toggle.focus();
+                    return;
+                }
+                item = item.parentElement?.closest("li") ?? null;
+            }
             return;
         }
-        if (expanded) {
-            target.classList.add("expanded");
-        }
-        else {
-            target.classList.remove("expanded");
-        }
-        target.setAttribute("aria-expanded", expanded ? "true" : "false");
-        target.setAttribute("tabindex", expanded ? "-1" : "0");
-        const submenu = target.querySelector("ul");
-        if (null !== submenu) {
-            submenu.setAttribute("aria-hidden", expanded ? "false" : "true");
-            if (expanded) {
-                const firstFocus = target.querySelector("ul > li:first-child");
-                firstFocus.setAttribute("tabindex", "0");
-                //firstFocus.focus();
+        const toggle = target.matches("button.disclosure-toggle")
+            ? target
+            : null;
+        const submenu = toggle ? this.getSubmenu(toggle) : null;
+        if (event.key === "ArrowDown" &&
+            submenu &&
+            toggle?.getAttribute("aria-expanded") === "true") {
+            const firstItem = this.getListItems(submenu)[0];
+            if (firstItem) {
+                event.preventDefault();
+                firstItem.focus();
             }
+            return;
         }
-    };
+        const list = target.closest("ul");
+        if (!list) {
+            return;
+        }
+        const items = this.getListItems(list);
+        const index = items.indexOf(target);
+        if (index < 0) {
+            return;
+        }
+        let destination;
+        switch (event.key) {
+            case "ArrowDown":
+                destination = index + 1;
+                break;
+            case "ArrowUp":
+                destination = index - 1;
+                break;
+            case "Home":
+                destination = 0;
+                break;
+            case "End":
+                destination = items.length - 1;
+                break;
+            default:
+                return;
+        }
+        if (destination >= 0 && destination < items.length) {
+            event.preventDefault();
+            items[destination].focus();
+        }
+    }
+    updateDesktop() {
+        const isDesktop = window.innerWidth >= this.breakpoint;
+        this.el.classList.toggle("is-desktop", isDesktop);
+        if (this.primary) {
+            document.body.classList.toggle("bcgov-menu-primary-is-desktop", isDesktop);
+        }
+    }
+    initializeDisclosures() {
+        this.el
+            .querySelectorAll("li > ul")
+            .forEach((submenu) => {
+            const item = submenu.parentElement;
+            const link = Array.from(item.children).find((child) => child.nodeName === "A");
+            let button = Array.from(item.children).find((child) => child.matches("button.disclosure-toggle"));
+            const generated = !button;
+            if (!button) {
+                button = document.createElement("button");
+                button.className = "disclosure-toggle";
+                button.type = "button";
+                item.insertBefore(button, submenu);
+            }
+            const id = button.getAttribute("aria-controls") ||
+                submenu.id ||
+                `bcgov-menu-submenu-${++submenuSequence}`;
+            submenu.id = id;
+            button.type = "button";
+            button.setAttribute("aria-controls", id);
+            button.classList.toggle("has-label", !link);
+            if (link && !button.hasAttribute("aria-label")) {
+                button.setAttribute("aria-label", `Toggle ${link.textContent?.trim() || "submenu"}`);
+            }
+            else if (!link &&
+                !button.hasAttribute("aria-label") &&
+                (generated || !button.textContent?.trim())) {
+                const label = Array.from(item.childNodes)
+                    .filter((child) => child !== submenu && child !== button)
+                    .map((child) => child.textContent?.trim())
+                    .filter(Boolean)
+                    .join(" ") || "submenu";
+                button.setAttribute("aria-label", `Toggle ${label}`);
+            }
+            const expanded = button.getAttribute("aria-expanded") === "true";
+            button.setAttribute("aria-expanded", String(expanded));
+            submenu.hidden = !expanded;
+            item.classList.toggle("expanded", expanded);
+        });
+    }
+    getSubmenu(button) {
+        const parent = button.parentElement;
+        if (!parent || parent.nodeName !== "LI") {
+            return null;
+        }
+        const submenu = Array.from(parent.children).find((child) => child.nodeName === "UL");
+        return submenu ? submenu : null;
+    }
+    setExpanded(button, expanded) {
+        const submenu = this.getSubmenu(button);
+        if (!submenu) {
+            throw new Error("Each disclosure-toggle button must share a list item with a nested ul.");
+        }
+        const list = button.parentElement.parentElement;
+        this.el
+            .querySelectorAll('button.disclosure-toggle[aria-expanded="true"]')
+            .forEach((openButton) => {
+            if (openButton !== button &&
+                openButton.parentElement.parentElement === list) {
+                this.setExpanded(openButton, false);
+            }
+        });
+        button.setAttribute("aria-expanded", String(expanded));
+        submenu.hidden = !expanded;
+        button.parentElement.classList.toggle("expanded", expanded);
+    }
+    getListItems(list) {
+        return Array.from(list.children).flatMap((item) => {
+            if (item.nodeName !== "LI") {
+                return [];
+            }
+            return Array.from(item.children).filter((child) => child.nodeType === 1 &&
+                (child.matches("a") || child.matches("button.disclosure-toggle")));
+        });
+    }
     render() {
-        const alignment = "align-" + this.alignment;
-        const instructionID = "bcgov-instructions-" + this.menuId;
-        let hostClass = "expandable";
-        if (this.isSubmenu) {
-            if (undefined !== this.active && this.active) {
-                hostClass += " active";
-            }
-            return (index.h(index.Host, { role: "menuitem", class: hostClass, "aria-label": this.name }, index.h("div", null, index.h("a", { href: this.href, tabindex: "-1" }, this.name), index.h("span", null), index.h("slot", { name: "submenu-link" })), index.h("ul", { role: "menu", "aria-hidden": "true" }, index.h("slot", null))));
-        }
-        else {
-            const props = { role: "menubar", tabindex: "0", class: alignment };
-            if (undefined !== this.primary) {
-                props["aria-labelledby"] = instructionID;
-            }
-            if (undefined !== this.sidebar) {
-                props["class"] += " sidebar-menu";
-            }
-            return (index.h(index.Host, null, index.h("ul", { ...props }, undefined !== this.primary && (index.h("li", { role: "menuitem", class: "bcgov-primary-menu-close", tabindex: "-1", "aria-hidden": "true", "aria-labelId": "close-menu-mobile" }, index.h("a", { href: "#", "aria-label": "Close Mobile Menu", id: "close-menu-mobile" }, index.h("span", null, "x")))), index.h("slot", null)), undefined !== this.primary && (index.h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
-        }
+        return (index.h(index.Host, { key: '7be5fcd617d36d212acadbf642bc3807489d3d86' }, index.h("nav", { key: 'c0cec89e3a3c416319779a818138eb585b0f6c61', "aria-label": this.label }, this.primary && (index.h("button", { key: '913395147d53e809989e436fd1cd4e8f76b51a44', class: "bcgov-primary-menu-close", type: "button", "aria-label": "Close mobile navigation" }, index.h("span", { key: 'ad403657ace0023d46e02a3590ecbfc98cb5a09e', "aria-hidden": "true" }, "x"))), index.h("ul", { key: '7084b24e6b00211a8b41e5c63f9aa739e144479e', class: `align-${this.alignment}` }, index.h("slot", { key: '83f147f7378350b107f85acea04da3cd0fbb9e57' })))));
     }
 };
 
@@ -4333,7 +4271,7 @@ const BcgovSearch = class {
         }
     }
     render() {
-        return (index.h(index.Host, { key: '0db28b3ea26404b398bf2766c7200aa56f915b80', class: "bcgov-search" }, index.h("div", { key: '92cb7b38d72e6e76dd29ae3662026a86c31fdee1', class: "search-container" }, index.h("slot", { key: '82a9ac49b7faa85de481bed847a9975d623a5bcd' }))));
+        return (index.h(index.Host, { key: 'b52d9789ad60323f1151e20f9e01e3fda2e880c6', class: "bcgov-search" }, index.h("div", { key: '3fdcc647583a46b964ebca04398325d4f324dced', class: "search-container" }, index.h("slot", { key: '95f6ddd142d0ddafcd42b09641503d0d0e01fd28' }))));
     }
 };
 
@@ -4342,7 +4280,7 @@ const BcgovTab = class {
         index.registerInstance(this, hostRef);
     }
     render() {
-        return (index.h(index.Host, { key: '4b0585bcc8accd4cebc4e55c63fab91064e6eb95' }, index.h("slot", { key: 'ef7a03c16c73c80b63281dd40eda191702e0070f' })));
+        return (index.h(index.Host, { key: '4927082c467fb4303102a52dfc4ecd8fbe491032' }, index.h("slot", { key: 'd43d23ee3e7dbaebc23bcc62198ca640423561df' })));
     }
 };
 
@@ -4370,7 +4308,7 @@ const BcgovTable = class {
         const tableClass = this.showColumnLabels
             ? "bcgov-table show-column-labels"
             : "bcgov-table";
-        return (index.h(index.Host, { key: 'ba66d17719739bc7b994f9edff12c3536dc81e94', class: tableClass, role: "list" }, index.h("slot", { key: '4ba507e9e4c027fb0e37bf445fa334359a8d559b' })));
+        return (index.h(index.Host, { key: 'e9072dd5f3bd4097cb3675c00126ed93930111d3', class: tableClass, role: "list" }, index.h("slot", { key: '5698a0da6ea5e2cfca7a766f5dc2c09bee7e3f75' })));
     }
 };
 
@@ -4411,7 +4349,7 @@ const BcgovTableRow = class {
         const rowClass = this.header
             ? "bcgov-table-row header-row"
             : "bcgov-table-row";
-        return (index.h(index.Host, { key: '0df9c58389d0bac118383ae32605f043ad689f31', class: rowClass, role: "listitem" }, index.h("slot", { key: '10c708fac9580957a1aea99158a2e002097e75f2' })));
+        return (index.h(index.Host, { key: '394a367f303e87b3a0279150c40f1cfccc6e655a', class: rowClass, role: "listitem" }, index.h("slot", { key: 'dcfc5f4d6a6d32921f27b708af4b1e12727cc69a' })));
     }
 };
 
@@ -4420,7 +4358,7 @@ const BcgovTabs = class {
         index.registerInstance(this, hostRef);
     }
     render() {
-        return (index.h(index.Host, { key: '7752469c25f8020227865a4d535fa244392a2250' }, index.h("slot", { key: 'f0e8fba4a3e641145fdcb1fc9d995d2ab8e22ebd' })));
+        return (index.h(index.Host, { key: '4f21636e5d84a543463fe1a1f6fad9eae35edd9c' }, index.h("slot", { key: 'aba7e4ea1d4a7b77972f27e31f199080431b69dc' })));
     }
 };
 

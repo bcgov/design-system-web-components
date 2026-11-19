@@ -9,7 +9,15 @@ author: orinevares
 # Menu
 Navigation bars provide a list of links to different pages on a website or application.
 
+Submenus use disclosure buttons within a navigation landmark. Use Tab to move
+between links and buttons, Enter or Space to toggle a submenu, and Escape to
+close an expanded submenu. Arrow keys, Home, and End provide optional movement
+between items; moving focus outside the navigation closes expanded submenus.
 
+Provide one `<li>` for each item. For a submenu, nest its `<ul>` inside the
+parent `<li>`. The component creates and manages the disclosure button, so a
+top-level link remains independently clickable. No nested `bcgov-menu`
+elements or manually authored disclosure buttons are needed.
 
 
 ## Use This For
@@ -56,18 +64,21 @@ As read using ChromeVox
   }
   </style>
 <bcgov-button button-style="hamburger" target="main-navigation-sample-1">Menu</bcgov-button>
-<bcgov-menu id="main-navigation-sample-1"  primary allow-hover class="css-example"  alignment="left" breakpoint="1200">
-  <a href="/">Home</a>
-  <a active href="/sandbox.html">Sandbox</a>
-  <bcgov-menu href="/" name="Components">
-    <a href="/header.html">Header</a>
-    <a href="/menu.html" active>Menus</a>
-    <a href="/buttons.html">Buttons</a>
-    <a href="/footer.html">Footer</a>
-    <a href="/beta.html">Beta</a>
-    <a href="/callout.html">Callout</a>
-  </bcgov-menu>
-  <a href="/developer.html">Developer</a>
+<bcgov-menu id="main-navigation-sample-1" primary label="Primary navigation" class="css-example" alignment="left" breakpoint="1200">
+  <li><a href="/">Home</a></li>
+  <li><a active href="/sandbox.html">Sandbox</a></li>
+  <li>
+    <a href="/">Components</a>
+    <ul>
+      <li><a href="/header.html">Header</a></li>
+      <li><a href="/menu.html" active>Menus</a></li>
+      <li><a href="/buttons.html">Buttons</a></li>
+      <li><a href="/footer.html">Footer</a></li>
+      <li><a href="/beta.html">Beta</a></li>
+      <li><a href="/callout.html">Callout</a></li>
+    </ul>
+  </li>
+  <li><a href="/developer.html">Developer</a></li>
 </bcgov-menu>
 </div>
 
@@ -85,22 +96,21 @@ As read using ChromeVox
   }
   </style>
 <bcgov-button button-style="hamburger" target="main-navigation-sample-1">Menu</bcgov-button>
-<bcgov-menu id="main-navigation-sample-1"  
-            primary 
-            class="css-example"  
-            alignment="left" 
-            breakpoint="1200">
-  <a href="/">Home</a>
-  <a active href="/sandbox.html">Sandbox</a>
-  <bcgov-menu href="/" name="Components">
-    <a href="/header.html">Header</a>
-    <a href="/menu.html" active>Menus</a>
-    <a href="/buttons.html">Buttons</a>
-    <a href="/footer.html">Footer</a>
-    <a href="/beta.html">Beta</a>
-    <a href="/callout.html">Callout</a>
-  </bcgov-menu>
-  <a href="/developer.html">Developer</a>
+<bcgov-menu id="main-navigation-sample-1" primary label="Primary navigation" class="css-example" alignment="left" breakpoint="1200">
+  <li><a href="/">Home</a></li>
+  <li><a active href="/sandbox.html">Sandbox</a></li>
+  <li>
+    <a href="/">Components</a>
+    <ul>
+      <li><a href="/header.html">Header</a></li>
+      <li><a href="/menu.html" active>Menus</a></li>
+      <li><a href="/buttons.html">Buttons</a></li>
+      <li><a href="/footer.html">Footer</a></li>
+      <li><a href="/beta.html">Beta</a></li>
+      <li><a href="/callout.html">Callout</a></li>
+    </ul>
+  </li>
+  <li><a href="/developer.html">Developer</a></li>
 </bcgov-menu>
 ```
 
@@ -121,18 +131,21 @@ As read using ChromeVox
   }
   </style>
 
-<bcgov-menu id="main-navigation-sample-2"  allow-hover class="css-example"  alignment="left" breakpoint="0">
-  <a href="/">Home</a>
-  <a active href="/sandbox.html">Sandbox</a>
-  <bcgov-menu  name="Components">
-    <a href="/header.html">Header</a>
-    <a href="/menu.html" active>Menus</a>
-    <a href="/buttons.html">Buttons</a>
-    <a href="/footer.html">Footer</a>
-    <a href="/beta.html">Beta</a>
-    <a href="/callout.html">Callout</a>
-  </bcgov-menu>
-  <a href="/developer.html">Developer</a>
+<bcgov-menu id="main-navigation-sample-2" label="Main navigation" class="css-example" alignment="left">
+  <li><a href="/">Home</a></li>
+  <li><a active href="/sandbox.html">Sandbox</a></li>
+  <li>
+    <a href="/components.html">Components</a>
+    <ul>
+      <li><a href="/header.html">Header</a></li>
+      <li><a href="/menu.html" active>Menus</a></li>
+      <li><a href="/buttons.html">Buttons</a></li>
+      <li><a href="/footer.html">Footer</a></li>
+      <li><a href="/beta.html">Beta</a></li>
+      <li><a href="/callout.html">Callout</a></li>
+    </ul>
+  </li>
+  <li><a href="/developer.html">Developer</a></li>
 </bcgov-menu>
 </div>
 
@@ -150,21 +163,21 @@ As read using ChromeVox
   }
   </style>
 
-<bcgov-menu id="main-navigation-sample-2"   
-            class="css-example"  
-            alignment="left" 
-            breakpoint="0">
-  <a href="/">Home</a>
-  <a active href="/sandbox.html">Sandbox</a>
-  <bcgov-menu name="Components">
-    <a href="/header.html">Header</a>
-    <a href="/menu.html" active>Menus</a>
-    <a href="/buttons.html">Buttons</a>
-    <a href="/footer.html">Footer</a>
-    <a href="/beta.html">Beta</a>
-    <a href="/callout.html">Callout</a>
-  </bcgov-menu>
-  <a href="/developer.html">Developer</a>
+<bcgov-menu id="main-navigation-sample-2" label="Main navigation" class="css-example" alignment="left">
+  <li><a href="/">Home</a></li>
+  <li><a active href="/sandbox.html">Sandbox</a></li>
+  <li>
+    <a href="/components.html">Components</a>
+    <ul>
+      <li><a href="/header.html">Header</a></li>
+      <li><a href="/menu.html" active>Menus</a></li>
+      <li><a href="/buttons.html">Buttons</a></li>
+      <li><a href="/footer.html">Footer</a></li>
+      <li><a href="/beta.html">Beta</a></li>
+      <li><a href="/callout.html">Callout</a></li>
+    </ul>
+  </li>
+  <li><a href="/developer.html">Developer</a></li>
 </bcgov-menu>
 ```
 
@@ -211,28 +224,20 @@ As read using ChromeVox
 
 ## Properties
 
-| Property       | Attribute       | Description                                                            | Type      | Default                                                                                                                                         |
-| -------------- | --------------- | ---------------------------------------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `active`       | `active`        |                                                                        | `boolean` | `false`                                                                                                                                         |
-| `alignment`    | `alignment`     | Alignment of menu                                                      | `string`  | `"left"`                                                                                                                                        |
-| `allowHover`   | `allow-hover`   | Adds hover to submenues                                                | `boolean` | `false`                                                                                                                                         |
-| `breakpoint`   | `breakpoint`    | A number that represents mobile menu breakpoint in px;                 | `number`  | `0`                                                                                                                                             |
-| `hamburger`    | `hamburger`     | Automatically adds hamburger.                                          | `boolean` | `true`                                                                                                                                          |
-| `href`         | `href`          | Link for menu                                                          | `string`  | `undefined`                                                                                                                                     |
-| `instructions` | `instructions`  | Aria Instructions                                                      | `string`  | `` `Use arrow keys to navigate between menuitems,   spacebar to expand submenus, escape key to close submenus, enter to activate menuitems.` `` |
-| `menuId`       | `menu-id`       | Menu id used for instructions TODO: this might need more consideration | `string`  | `"menu"`                                                                                                                                        |
-| `menuTimeOut`  | `menu-time-out` | Changes timeout for submenu                                            | `number`  | `500`                                                                                                                                           |
-| `name`         | `name`          | Label for submenu                                                      | `string`  | `undefined`                                                                                                                                     |
-| `primary`      | `primary`       |                                                                        | `string`  | `undefined`                                                                                                                                     |
-| `sidebar`      | `sidebar`       |                                                                        | `string`  | `undefined`                                                                                                                                     |
+| Property     | Attribute    | Description                                                        | Type      | Default        |
+| ------------ | ------------ | ------------------------------------------------------------------ | --------- | -------------- |
+| `alignment`  | `alignment`  | Horizontal alignment of the top-level list.                        | `string`  | `"left"`       |
+| `breakpoint` | `breakpoint` | Viewport width at which the menu switches to desktop styling.      | `number`  | `0`            |
+| `label`      | `label`      | Accessible name for the navigation landmark.                       | `string`  | `"Navigation"` |
+| `primary`    | `primary`    | Apply primary header-navigation styling and a mobile close button. | `boolean` | `false`        |
+| `sidebar`    | `sidebar`    | Use the compact sidebar layout.                                    | `boolean` | `false`        |
 
 
 ## Slots
 
-| Slot             | Description      |
-| ---------------- | ---------------- |
-|                  | The default slot |
-| `"submenu-link"` |                  |
+| Slot | Description      |
+| ---- | ---------------- |
+|      | The default slot |
 
 
 ----------------------------------------------

@@ -1,251 +1,214 @@
-import { Host, h, } from "@stencil/core";
-import { menuElement, keys, findAncestor } from "../utils/utils";
+import { Host, h } from "@stencil/core";
+let submenuSequence = 0;
 export class BcgovMenu {
-    /** Alignment of menu */
+    /** Horizontal alignment of the top-level list. */
     alignment = "left";
-    primary;
-    sidebar;
-    /** Menu id used for instructions
-     * TODO: this might need more consideration
-     */
-    menuId = "menu";
-    /** Aria Instructions */
-    instructions = `Use arrow keys to navigate between menuitems,
-  spacebar to expand submenus, escape key to close submenus, enter to activate menuitems.`;
-    /** Link for menu */
-    href;
-    /** Label for submenu */
-    name;
-    /** A number that represents mobile menu breakpoint in px; */
+    /** Viewport width at which the menu switches to desktop styling. */
     breakpoint = 0;
-    /** Automatically adds hamburger. */
-    hamburger = true;
-    active = false;
-    /** Adds hover to submenues */
-    allowHover = false;
-    /** Changes timeout for submenu */
-    menuTimeOut = 500;
-    isSubmenu = false;
-    clone;
-    allTags;
-    bodyTag;
-    menuTimeOutState;
-    el;
+    /** Accessible name for the navigation landmark. */
+    label = "Navigation";
+    /** Apply primary header-navigation styling and a mobile close button. */
+    primary = false;
+    /** Use the compact sidebar layout. */
+    sidebar = false;
+    el = new HTMLElement();
     componentWillLoad() {
-        this.isSubmenu = "UL" === this.el.parentElement.nodeName;
-        [].forEach.call(this.el.querySelectorAll("a"), function (element) {
-            menuElement(element);
+        this.updateDesktop();
+        this.initializeDisclosures();
+        this.el.querySelectorAll("a[active]").forEach((link) => {
+            if (link.parentElement?.nodeName === "LI") {
+                link.parentElement.classList.add("active");
+            }
         });
-        const self = this;
-        this.bodyTag = document.getElementsByTagName("BODY")[0];
-        if (!this.isSubmenu) {
-            this.isDesktop();
-            window.addEventListener("resize", function () {
-                self.isDesktop();
-            });
-        }
     }
-    /**
-     * This sets up inital attributes for sub menus
-     */
-    componentDidRender() {
-        if (this.isSubmenu) {
-            this.el.setAttribute("aria-haspopup", true);
-            this.el.setAttribute("aria-expanded", false);
-            this.el.setAttribute("tabindex", -1);
-            const primaryMenu = this.el.closest("bcgov-menu[primary]");
-            if (null !== primaryMenu) {
-                this.allowHover =
-                    this.allowHover || primaryMenu.hasAttribute("allow-hover");
-                this.menuTimeOut = primaryMenu.hasAttribute("menu-time-out")
-                    ? primaryMenu.getAttribute("menu-time-out")
-                    : this.menuTimeOut;
-            }
-        }
-        else {
-            const firstChild = this.el.querySelector("ul > *:first-child");
-            if (null !== firstChild) {
-                firstChild.setAttribute("tabindex", 0);
-            }
-        }
-    }
-    isDesktop() {
-        let isdesktop = false;
-        if (!this.isSubmenu) {
-            if (window.innerWidth >= this.breakpoint) {
-                if (!this.el.classList.contains("is-desktop")) {
-                    this.el.classList.add("is-desktop");
-                }
-                if (undefined !== this.primary) {
-                    if (!this.bodyTag.classList.contains("bcgov-menu-primary-is-desktop")) {
-                        this.bodyTag.classList.add("bcgov-menu-primary-is-desktop");
-                    }
-                }
-                isdesktop = true;
-            }
-            else {
-                this.el.classList.remove("is-desktop");
-                if (undefined !== this.primary) {
-                    this.bodyTag.classList.remove("bcgov-menu-primary-is-desktop");
-                }
-            }
-        }
-        else {
-            let parent = findAncestor(this.el, "bcgov-menu");
-            if (null !== parent && parent.getAttribute("breakpoint")) {
-                const bp = parseInt(parent.getAttribute("breakpoint"));
-                isdesktop = window.innerWidth >= bp;
-            }
-        }
-        return isdesktop;
-    }
-    onMouseEnter(ev) {
-        if (this.isDesktop() && this.allowHover) {
-            const element = ev.target;
-            //element.focus();
-            this.showSubmenu(element, true);
-        }
-    }
-    onMouseLeave(event) {
-        if (this.isDesktop() && this.allowHover) {
-            const element = event.target;
-            const self = this;
-            clearTimeout(this.menuTimeOutState);
-            this.menuTimeOutState = setTimeout(function () {
-                self.showSubmenu(element, false);
-            }, self.menuTimeOut);
-            if (!this.isSubmenu) {
-                [].forEach.call(this.el.querySelectorAll("ul > *"), function (element) {
-                    element.setAttribute("tabindex", -1);
-                    element.blur();
-                });
-            }
-        }
+    onResize() {
+        this.updateDesktop();
     }
     onClick(event) {
-        const element = event.target;
-        const parent = findAncestor(element, "bcgov-menu");
-        if (null === element.closest(".bcgov-primary-menu-close")) {
-            this.showSubmenu(parent, !parent.classList.contains("expanded"));
+        const target = event.target;
+        if (target.closest(".bcgov-primary-menu-close")) {
+            this.el.classList.add("target-hidden");
+            return;
         }
-        if ("close-menu-mobile" === element.parentElement.getAttribute("id")) {
-            parent.classList.add("target-hidden");
+        const button = target.closest("button.disclosure-toggle");
+        if (button && this.el.contains(button)) {
+            this.setExpanded(button, button.getAttribute("aria-expanded") !== "true");
         }
+    }
+    onDocumentClick(event) {
+        const target = event.target;
+        if (target instanceof Node && this.el.contains(target)) {
+            return;
+        }
+        this.el
+            .querySelectorAll('button.disclosure-toggle[aria-expanded="true"]')
+            .forEach((button) => this.setExpanded(button, false));
+    }
+    onFocusOut(event) {
+        const nextTarget = event.relatedTarget;
+        this.el
+            .querySelectorAll('button.disclosure-toggle[aria-expanded="true"]')
+            .forEach((button) => {
+            const submenu = this.getSubmenu(button);
+            const item = button.parentElement;
+            if (submenu &&
+                item &&
+                nextTarget instanceof Node &&
+                !item.contains(nextTarget)) {
+                this.setExpanded(button, false);
+            }
+        });
     }
     onKeyDown(event) {
-        const current = event.srcElement;
-        if (!this.isSubmenu || true) {
-            switch (event.keyCode) {
-                case keys.enter:
-                    current.querySelector("a").click();
-                case keys.space:
-                    event.preventDefault();
-                    event.stopPropagation();
-                    this.showSubmenu(this.el, true);
-                    const firstFocus = this.el.querySelector("ul > li:first-child");
-                    firstFocus.focus();
-                    break;
-                case keys.esc:
-                    event.preventDefault();
-                    event.stopPropagation();
-                    this.showSubmenu(this.el, false);
-                    this.el.focus();
-                    break;
-                case keys.right:
-                    event.preventDefault();
-                    this.focusChange(current, "next");
-                    break;
-                case keys.left:
-                    event.preventDefault();
-                    this.focusChange(current, "prev");
-                    break;
-                case keys.up:
-                    event.preventDefault();
-                    this.focusChange(current, "up");
-                    break;
-                case keys.down:
-                    event.preventDefault();
-                    this.focusChange(current, "down");
-                    break;
-            }
-        }
-    }
-    focusChange(current, direction = "next") {
-        if (this.isSubmenu) {
-            //return;
-        }
-        let element;
-        if (current === this.el.querySelector("ul")) {
-            element = current.querySelector("li:first-child");
-            element = this.isDesktop() ? element.nextElementSibling : element;
-            current = element;
-        }
-        else {
-            if ("next" === direction || "down" === direction) {
-                element = current.nextElementSibling;
-            }
-            else if ("prev" == direction || "up" === direction) {
-                element = current.previousElementSibling;
-            }
-        }
-        const insideSub = null !== findAncestor(current, 'ul[role="menu"]');
-        const checkAllowed = (insideSub && ("up" === direction || "down" === direction)) ||
-            (!insideSub && ("prev" === direction || "next" === direction));
-        if (!checkAllowed) {
+        const target = event.target;
+        if (!target.matches("a, button") ||
+            target.closest(".bcgov-primary-menu-close")) {
             return;
         }
-        if (null != element &&
-            ("LI" === current.nodeName || "BCGOV-MENU" === current.nodeName)) {
-            current.setAttribute("tabindex", "-1");
-            element.setAttribute("tabindex", "0");
-            element.focus();
-        }
-    }
-    showSubmenu = (target, expanded) => {
-        if (!this.isSubmenu) {
+        if (event.key === "Escape") {
+            let item = target.closest("li");
+            while (item && this.el.contains(item)) {
+                const toggle = Array.from(item.children).find((child) => child.matches("button.disclosure-toggle"));
+                if (toggle?.getAttribute("aria-expanded") === "true") {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    this.setExpanded(toggle, false);
+                    toggle.focus();
+                    return;
+                }
+                item = item.parentElement?.closest("li") ?? null;
+            }
             return;
         }
-        if (expanded) {
-            target.classList.add("expanded");
-        }
-        else {
-            target.classList.remove("expanded");
-        }
-        target.setAttribute("aria-expanded", expanded ? "true" : "false");
-        target.setAttribute("tabindex", expanded ? "-1" : "0");
-        const submenu = target.querySelector("ul");
-        if (null !== submenu) {
-            submenu.setAttribute("aria-hidden", expanded ? "false" : "true");
-            if (expanded) {
-                const firstFocus = target.querySelector("ul > li:first-child");
-                firstFocus.setAttribute("tabindex", "0");
-                //firstFocus.focus();
+        const toggle = target.matches("button.disclosure-toggle")
+            ? target
+            : null;
+        const submenu = toggle ? this.getSubmenu(toggle) : null;
+        if (event.key === "ArrowDown" &&
+            submenu &&
+            toggle?.getAttribute("aria-expanded") === "true") {
+            const firstItem = this.getListItems(submenu)[0];
+            if (firstItem) {
+                event.preventDefault();
+                firstItem.focus();
             }
-            else {
-                //this.el.focus();
-            }
+            return;
         }
-    };
+        const list = target.closest("ul");
+        if (!list) {
+            return;
+        }
+        const items = this.getListItems(list);
+        const index = items.indexOf(target);
+        if (index < 0) {
+            return;
+        }
+        let destination;
+        switch (event.key) {
+            case "ArrowDown":
+                destination = index + 1;
+                break;
+            case "ArrowUp":
+                destination = index - 1;
+                break;
+            case "Home":
+                destination = 0;
+                break;
+            case "End":
+                destination = items.length - 1;
+                break;
+            default:
+                return;
+        }
+        if (destination >= 0 && destination < items.length) {
+            event.preventDefault();
+            items[destination].focus();
+        }
+    }
+    updateDesktop() {
+        const isDesktop = window.innerWidth >= this.breakpoint;
+        this.el.classList.toggle("is-desktop", isDesktop);
+        if (this.primary) {
+            document.body.classList.toggle("bcgov-menu-primary-is-desktop", isDesktop);
+        }
+    }
+    initializeDisclosures() {
+        this.el
+            .querySelectorAll("li > ul")
+            .forEach((submenu) => {
+            const item = submenu.parentElement;
+            const link = Array.from(item.children).find((child) => child.nodeName === "A");
+            let button = Array.from(item.children).find((child) => child.matches("button.disclosure-toggle"));
+            const generated = !button;
+            if (!button) {
+                button = document.createElement("button");
+                button.className = "disclosure-toggle";
+                button.type = "button";
+                item.insertBefore(button, submenu);
+            }
+            const id = button.getAttribute("aria-controls") ||
+                submenu.id ||
+                `bcgov-menu-submenu-${++submenuSequence}`;
+            submenu.id = id;
+            button.type = "button";
+            button.setAttribute("aria-controls", id);
+            button.classList.toggle("has-label", !link);
+            if (link && !button.hasAttribute("aria-label")) {
+                button.setAttribute("aria-label", `Toggle ${link.textContent?.trim() || "submenu"}`);
+            }
+            else if (!link &&
+                !button.hasAttribute("aria-label") &&
+                (generated || !button.textContent?.trim())) {
+                const label = Array.from(item.childNodes)
+                    .filter((child) => child !== submenu && child !== button)
+                    .map((child) => child.textContent?.trim())
+                    .filter(Boolean)
+                    .join(" ") || "submenu";
+                button.setAttribute("aria-label", `Toggle ${label}`);
+            }
+            const expanded = button.getAttribute("aria-expanded") === "true";
+            button.setAttribute("aria-expanded", String(expanded));
+            submenu.hidden = !expanded;
+            item.classList.toggle("expanded", expanded);
+        });
+    }
+    getSubmenu(button) {
+        const parent = button.parentElement;
+        if (!parent || parent.nodeName !== "LI") {
+            return null;
+        }
+        const submenu = Array.from(parent.children).find((child) => child.nodeName === "UL");
+        return submenu ? submenu : null;
+    }
+    setExpanded(button, expanded) {
+        const submenu = this.getSubmenu(button);
+        if (!submenu) {
+            throw new Error("Each disclosure-toggle button must share a list item with a nested ul.");
+        }
+        const list = button.parentElement.parentElement;
+        this.el
+            .querySelectorAll('button.disclosure-toggle[aria-expanded="true"]')
+            .forEach((openButton) => {
+            if (openButton !== button &&
+                openButton.parentElement.parentElement === list) {
+                this.setExpanded(openButton, false);
+            }
+        });
+        button.setAttribute("aria-expanded", String(expanded));
+        submenu.hidden = !expanded;
+        button.parentElement.classList.toggle("expanded", expanded);
+    }
+    getListItems(list) {
+        return Array.from(list.children).flatMap((item) => {
+            if (item.nodeName !== "LI") {
+                return [];
+            }
+            return Array.from(item.children).filter((child) => child.nodeType === 1 &&
+                (child.matches("a") || child.matches("button.disclosure-toggle")));
+        });
+    }
     render() {
-        const alignment = "align-" + this.alignment;
-        const instructionID = "bcgov-instructions-" + this.menuId;
-        let hostClass = "expandable";
-        if (this.isSubmenu) {
-            if (undefined !== this.active && this.active) {
-                hostClass += " active";
-            }
-            return (h(Host, { role: "menuitem", class: hostClass, "aria-label": this.name }, h("div", null, h("a", { href: this.href, tabindex: "-1" }, this.name), h("span", null), h("slot", { name: "submenu-link" })), h("ul", { role: "menu", "aria-hidden": "true" }, h("slot", null))));
-        }
-        else {
-            const props = { role: "menubar", tabindex: "0", class: alignment };
-            if (undefined !== this.primary) {
-                props["aria-labelledby"] = instructionID;
-            }
-            if (undefined !== this.sidebar) {
-                props["class"] += " sidebar-menu";
-            }
-            return (h(Host, null, h("ul", { ...props }, undefined !== this.primary && (h("li", { role: "menuitem", class: "bcgov-primary-menu-close", tabindex: "-1", "aria-hidden": "true", "aria-labelId": "close-menu-mobile" }, h("a", { href: "#", "aria-label": "Close Mobile Menu", id: "close-menu-mobile" }, h("span", null, "x")))), h("slot", null)), undefined !== this.primary && (h("div", { class: "sr-only", "aria-hidden": "true", id: instructionID }, this.instructions))));
-        }
+        return (h(Host, { key: '7be5fcd617d36d212acadbf642bc3807489d3d86' }, h("nav", { key: 'c0cec89e3a3c416319779a818138eb585b0f6c61', "aria-label": this.label }, this.primary && (h("button", { key: '913395147d53e809989e436fd1cd4e8f76b51a44', class: "bcgov-primary-menu-close", type: "button", "aria-label": "Close mobile navigation" }, h("span", { key: 'ad403657ace0023d46e02a3590ecbfc98cb5a09e', "aria-hidden": "true" }, "x"))), h("ul", { key: '7084b24e6b00211a8b41e5c63f9aa739e144479e', class: `align-${this.alignment}` }, h("slot", { key: '83f147f7378350b107f85acea04da3cd0fbb9e57' })))));
     }
     static get is() { return "bcgov-menu"; }
     static get properties() {
@@ -262,129 +225,13 @@ export class BcgovMenu {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "Alignment of menu"
+                    "text": "Horizontal alignment of the top-level list."
                 },
                 "getter": false,
                 "setter": false,
                 "reflect": false,
                 "attribute": "alignment",
                 "defaultValue": "\"left\""
-            },
-            "primary": {
-                "type": "string",
-                "mutable": false,
-                "complexType": {
-                    "original": "string",
-                    "resolved": "string",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": ""
-                },
-                "getter": false,
-                "setter": false,
-                "reflect": false,
-                "attribute": "primary"
-            },
-            "sidebar": {
-                "type": "string",
-                "mutable": false,
-                "complexType": {
-                    "original": "string",
-                    "resolved": "string",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": ""
-                },
-                "getter": false,
-                "setter": false,
-                "reflect": false,
-                "attribute": "sidebar"
-            },
-            "menuId": {
-                "type": "string",
-                "mutable": false,
-                "complexType": {
-                    "original": "string",
-                    "resolved": "string",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Menu id used for instructions\nTODO: this might need more consideration"
-                },
-                "getter": false,
-                "setter": false,
-                "reflect": false,
-                "attribute": "menu-id",
-                "defaultValue": "\"menu\""
-            },
-            "instructions": {
-                "type": "string",
-                "mutable": false,
-                "complexType": {
-                    "original": "string",
-                    "resolved": "string",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Aria Instructions"
-                },
-                "getter": false,
-                "setter": false,
-                "reflect": false,
-                "attribute": "instructions",
-                "defaultValue": "`Use arrow keys to navigate between menuitems,\n  spacebar to expand submenus, escape key to close submenus, enter to activate menuitems.`"
-            },
-            "href": {
-                "type": "string",
-                "mutable": false,
-                "complexType": {
-                    "original": "string",
-                    "resolved": "string",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Link for menu"
-                },
-                "getter": false,
-                "setter": false,
-                "reflect": false,
-                "attribute": "href"
-            },
-            "name": {
-                "type": "string",
-                "mutable": false,
-                "complexType": {
-                    "original": "string",
-                    "resolved": "string",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Label for submenu"
-                },
-                "getter": false,
-                "setter": false,
-                "reflect": false,
-                "attribute": "name"
             },
             "breakpoint": {
                 "type": "number",
@@ -398,7 +245,7 @@ export class BcgovMenu {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "A number that represents mobile menu breakpoint in px;"
+                    "text": "Viewport width at which the menu switches to desktop styling."
                 },
                 "getter": false,
                 "setter": false,
@@ -406,27 +253,27 @@ export class BcgovMenu {
                 "attribute": "breakpoint",
                 "defaultValue": "0"
             },
-            "hamburger": {
-                "type": "boolean",
+            "label": {
+                "type": "string",
                 "mutable": false,
                 "complexType": {
-                    "original": "boolean",
-                    "resolved": "boolean",
+                    "original": "string",
+                    "resolved": "string",
                     "references": {}
                 },
                 "required": false,
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "Automatically adds hamburger."
+                    "text": "Accessible name for the navigation landmark."
                 },
                 "getter": false,
                 "setter": false,
                 "reflect": false,
-                "attribute": "hamburger",
-                "defaultValue": "true"
+                "attribute": "label",
+                "defaultValue": "\"Navigation\""
             },
-            "active": {
+            "primary": {
                 "type": "boolean",
                 "mutable": false,
                 "complexType": {
@@ -438,15 +285,15 @@ export class BcgovMenu {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": ""
+                    "text": "Apply primary header-navigation styling and a mobile close button."
                 },
                 "getter": false,
                 "setter": false,
                 "reflect": false,
-                "attribute": "active",
+                "attribute": "primary",
                 "defaultValue": "false"
             },
-            "allowHover": {
+            "sidebar": {
                 "type": "boolean",
                 "mutable": false,
                 "complexType": {
@@ -458,62 +305,39 @@ export class BcgovMenu {
                 "optional": false,
                 "docs": {
                     "tags": [],
-                    "text": "Adds hover to submenues"
+                    "text": "Use the compact sidebar layout."
                 },
                 "getter": false,
                 "setter": false,
                 "reflect": false,
-                "attribute": "allow-hover",
+                "attribute": "sidebar",
                 "defaultValue": "false"
-            },
-            "menuTimeOut": {
-                "type": "number",
-                "mutable": false,
-                "complexType": {
-                    "original": "number",
-                    "resolved": "number",
-                    "references": {}
-                },
-                "required": false,
-                "optional": false,
-                "docs": {
-                    "tags": [],
-                    "text": "Changes timeout for submenu"
-                },
-                "getter": false,
-                "setter": false,
-                "reflect": false,
-                "attribute": "menu-time-out",
-                "defaultValue": "500"
             }
-        };
-    }
-    static get states() {
-        return {
-            "isSubmenu": {},
-            "clone": {},
-            "allTags": {},
-            "bodyTag": {},
-            "menuTimeOutState": {}
         };
     }
     static get elementRef() { return "el"; }
     static get listeners() {
         return [{
-                "name": "mouseenter",
-                "method": "onMouseEnter",
-                "target": undefined,
-                "capture": false,
-                "passive": true
-            }, {
-                "name": "mouseleave",
-                "method": "onMouseLeave",
-                "target": undefined,
+                "name": "resize",
+                "method": "onResize",
+                "target": "window",
                 "capture": false,
                 "passive": true
             }, {
                 "name": "click",
                 "method": "onClick",
+                "target": undefined,
+                "capture": false,
+                "passive": false
+            }, {
+                "name": "click",
+                "method": "onDocumentClick",
+                "target": "document",
+                "capture": false,
+                "passive": false
+            }, {
+                "name": "blur",
+                "method": "onFocusOut",
                 "target": undefined,
                 "capture": false,
                 "passive": false

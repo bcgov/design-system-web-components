@@ -33,7 +33,7 @@ export class BcgovTableRow {
         const rowClass = this.header
             ? "bcgov-table-row header-row"
             : "bcgov-table-row";
-        return (h(Host, { key: '0df9c58389d0bac118383ae32605f043ad689f31', class: rowClass, role: "listitem" }, h("slot", { key: '10c708fac9580957a1aea99158a2e002097e75f2' })));
+        return (h(Host, { key: '394a367f303e87b3a0279150c40f1cfccc6e655a', class: rowClass, role: "listitem" }, h("slot", { key: 'dcfc5f4d6a6d32921f27b708af4b1e12727cc69a' })));
     }
     static get is() { return "bcgov-table-row"; }
     static get properties() {
