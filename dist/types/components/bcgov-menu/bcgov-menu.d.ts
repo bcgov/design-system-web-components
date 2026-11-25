@@ -1,44 +1,25 @@
 export declare class BcgovMenu {
-    /** Alignment of menu */
+    /** Horizontal alignment of the top-level list. */
     alignment: string;
-    primary: string;
-    sidebar: string;
-    /** Menu id used for instructions
-     * TODO: this might need more consideration
-     */
-    menuId: string;
-    /** Aria Instructions */
-    instructions: string;
-    /** Link for menu */
-    href: string;
-    /** Label for submenu */
-    name: string;
-    /** A number that represents mobile menu breakpoint in px; */
+    /** Viewport width at which the menu switches to desktop styling. */
     breakpoint: number;
-    /** Automatically adds hamburger. */
-    hamburger: boolean;
-    active: boolean;
-    /** Adds hover to submenues */
-    allowHover: boolean;
-    /** Changes timeout for submenu */
-    menuTimeOut: number;
-    isSubmenu: boolean;
-    clone: Node;
-    allTags: NodeList;
-    bodyTag: Element;
-    menuTimeOutState: any;
-    el: any;
+    /** Accessible name for the navigation landmark. */
+    label: string;
+    /** Apply primary header-navigation styling and a mobile close button. */
+    primary: boolean;
+    /** Use the compact sidebar layout. */
+    sidebar: boolean;
+    el: HTMLElement;
     componentWillLoad(): void;
-    /**
-     * This sets up inital attributes for sub menus
-     */
-    componentDidRender(): void;
-    isDesktop(): boolean;
-    onMouseEnter(ev: Event): void;
-    onMouseLeave(event: Event): void;
+    onResize(): void;
     onClick(event: Event): void;
+    onDocumentClick(event: MouseEvent): void;
+    onFocusOut(event: FocusEvent): void;
     onKeyDown(event: KeyboardEvent): void;
-    focusChange(current: HTMLElement, direction?: string): void;
-    showSubmenu: (target: Element, expanded: boolean) => void;
+    private updateDesktop;
+    private initializeDisclosures;
+    private getSubmenu;
+    private setExpanded;
+    private getListItems;
     render(): any;
 }

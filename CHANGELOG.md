@@ -1,42 +1,15 @@
 # CHANGELOG
 
-## 2.0.0 November 9, 2026
+## 2.0.0 November 19, 2026
 
-- Removed the global focus-style override so the search button's focus indicator is visible.
-
-## 2.0.0 October 9, 2026
-
-- Migrated `bcgov-tabs` to Stencil 4 and added component tests.
-- Simplified the `bcgov-tabs` demo to show its unstyled, non-functional slot wrapper.
-- Migrated `bcgov-tab` to Stencil 4 and added component tests.
-- Migrated `bcgov-table` and `bcgov-table-row` from the upstream development branch with responsive Sass and Stencil 4-compatible tests.
-
-## 2.0.0 October 8, 2026
-
-- Migrated `bcgov-search` tests to Stencil 4/Vitest with browser-based behavior coverage.
-- Migrated `bcgov-menu` tests to Stencil 4/Vitest with browser-based behavior coverage.
-- Migrated `bcgov-header` tests to Stencil 4/Vitest with browser-based behavior coverage.
-- Migrated `bcgov-form` tests to Stencil 4/Vitest with browser-based behavior coverage.
-- Migrated `bcgov-footer` tests to Stencil 4/Vitest with browser-based behavior coverage.
-- Migrated `bcgov-carousel` tests to Stencil 4/Vitest with browser-based behavior coverage.
-- Migrated `bcgov-callout` tests to Stencil 4/Vitest with browser-based behavior coverage.
-- Migrated `bcgov-button` tests to Stencil 4/Vitest with browser-based behavior coverage.
-- Migrated `bcgov-beta` tests to Stencil 4/Vitest with browser-based behavior coverage.
-- Migrated bcgov-search tests to the Stencil 4 browser test suite.
-
-## 2.0.0 October 7, 2026
-
-- Added a workflow that runs component tests on pull requests and via manual dispatch.
-- Added a Stencil 2-to-4 component testing migration guide and a button test reference covering snapshots, mocked callbacks, and click behavior.
-- Expanded the component demo and README with examples of all ten available components.
-- Fixed markdownlint warnings in CHANGELOG
-
-## 2.0.0 September 30, 2026
-
-- Migrated the build and generated distribution files from Stencil 2 to Stencil 4.
-- Updated the package entry points, loader, custom-elements output, and generated type declarations.
-- Updated component test tooling to use Vitest and Playwright.
-- Removed the legacy page-level hydration CSS requirement; consuming sites must remove `html.hydrated` gating styles when upgrading.
+- Remove the global focus-style override so the search button's focus indicator is visible.
+- Add a workflow that runs component tests on pull requests and via manual dispatch.
+- Add a Stencil 2-to-4 component testing migration guide and a button test reference covering snapshots, mocked callbacks, and click behavior.
+- Migrate the build and generated distribution files from Stencil 2 to Stencil 4.
+- Update the package entry points, loader, custom-elements output, and generated type declarations.
+- Update component test tooling to use Vitest and Playwright.
+- Remove the legacy page-level hydration CSS requirement; consuming sites must remove `html.hydrated` gating styles when upgrading.
+- Update `bcgov-menu` component to use disclosure pattern.
 
 ## 1.3.3 May 9, 2022
 

@@ -1,7 +1,12 @@
 @use "sass:math";
+
 bcgov-menu {
   opacity: 0;
   visibility: hidden;
+  display: block;
+  position: relative;
+  padding: 0;
+
   &.hydrated {
     opacity: 1;
     visibility: visible;
@@ -11,9 +16,11 @@ bcgov-menu {
       $hydrate_transition_timing
     );
   }
-  padding: 0;
-  position: relative;
-  display: block;
+
+  nav {
+    position: relative;
+  }
+
   ul {
     list-style: none;
     position: relative;
@@ -21,338 +28,309 @@ bcgov-menu {
     margin: 0;
     padding: 0;
   }
-  a {
-    position: relative;
-    padding: math.div($padding-x,2) $padding-y math.div($padding-x,2) $padding-y;
-    display: block;
 
-    &:before {
+  ul > li {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  ul[hidden] {
+    display: none !important;
+  }
+
+  li > ul {
+    display: none;
+    width: 100%;
+
+    a {
+      width: 100%;
+    }
+  }
+
+  li.expanded > ul {
+    display: block;
+  }
+
+  a {
+    padding: math.div($padding-x, 2) $padding-y * 1.25;
+    flex-grow: 1;
+    width: auto;
+    display: block;
+  }
+
+  button.disclosure-toggle {
+    border: 0;
+    border-left: 1px solid var(--menu-border-color);
+    border-bottom: 1px solid var(--menu-border-color);
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+
+    &:after {
       content: " ";
-      position: absolute;
-      height: 100%;
-      border-left: 1px solid var(--menu-mobile-border-color);
-      right: $padding-x * 3;
-      top: 0;
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-left: 0.5em;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg);
+      transform-origin: top;
+    }
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: -2px;
+    }
+
+    &[aria-expanded="true"]:after {
+      transform: translateY(-5px) rotate(-135deg);
+      transform-origin: bottom;
     }
   }
-  /** Arrow for nav in primary and non primary **/
-  bcgov-menu {
-    > div {
-      span {
-        cursor: pointer;
-        &:after {
-          content: " ";
-          position: absolute;
-          cursor: pointer;
-          display: block;
-          width: 8px;
-          height: 8px;
-          top: 12px;
-          right: $padding-x * 1.25;
-          border-bottom-style: solid;
-          border-bottom-width: 2px;
-          border-right-style: solid;
-          border-right-width: 2px;
-          transform: rotateZ(45deg);
-          box-sizing: unset;
-        }
-      }
-    }
-    &.expandable {
-      &.expanded {
-        > div {
-          span {
-            &:after {
-              top: 18px;
-              transform: rotateZ(225deg);
-            }
-          }
-        }
-      }
-    }
-  }
+
   &[primary],
   &.primary {
-    /** Setup the defaults for all menu / submenu **/
     z-index: 11000;
-    color: var(--menu-mobile-color);
-    max-width: 500px;
-    width: 100%;
-    right: 0;
     position: absolute;
-    a {
-      &,
-      &:hover,
-      &:visited,
-      &:active,
-      &:focus {
-        color: var(--menu-mobile-color);
-        border-bottom: 1px solid var(--menu-mobile-border-color);
-        text-decoration: none;
+    right: 0;
+    width: 100%;
+    max-width: 500px;
+    color: var(--menu-mobile-color);
+
+    a,
+    a:hover,
+    a:visited,
+    a:active,
+    a:focus {
+      color: var(--menu-mobile-color);
+      border-bottom: 1px solid var(--menu-mobile-border-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--menu-mobile-color-hover);
+      background-color: var(--menu-mobile-background-active);
+      text-decoration: underline;
+    }
+
+    .bcgov-primary-menu-close {
+      display: block;
+      padding: math.div($padding-x, 2) $padding-y;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      opacity: 0.6;
+
+      span {
+        border: 2px solid var(--menu-mobile-color);
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
       }
+
       &:hover {
-        text-decoration: underline;
-        color: var(--menu-mobile-color-hover);
+        opacity: 1;
+      }
+    }
+
+    ul ul {
+      z-index: 11100;
+      background-color: var(--menu-mobile-submenu-background);
+    }
+
+    ul ul a,
+    ul ul a:hover,
+    ul ul a:visited,
+    ul ul a:focus,
+    ul ul a:active {
+      color: var(--menu-mobile-submenu-color);
+    }
+
+    ul ul a:hover {
+      color: var(--menu-mobile-submenu-color-hover);
+      background-color: var(--menu-mobile-submenu-background-active);
+    }
+
+    button.disclosure-toggle {
+      color: var(--menu-mobile-color);
+
+      &:hover {
         background-color: var(--menu-mobile-background-active);
       }
     }
 
-    ul {
-      li {
-        &.bcgov-primary-menu-close {
-          a {
-            opacity: 0.6;
-            span {
-              border: 2px solid var(--menu-mobile-color);
-              border-radius: 16px;
-              padding: 0.3px 9px 1px;
-              line-height: 1;
-            }
-            &:before {
-              content: "";
-              position: relative;
-              border: none;
-            }
-            &:hover {
-              opacity: 1;
-              background-color: inherit;
-            }
-          }
-        }
-      }
-      bcgov-menu {
-        ul {
-          z-index: 11100;
-          background-color: var(--menu-mobile-submenu-background);
-        }
-        > div {
-          span {
-            position: absolute;
-            top: 0;
-            right: 0;
-            height: 100%;
-            width: 45px;
-            &:after {
-              border-bottom-color: var(--menu-mobile-color);
-              border-right-color: var(--menu-mobile-color);
-            }
-          }
-        }
-        &,
-        li {
-          ul {
-            display: none;
-            background-color: var(--menu-mobile-submenu-background);
-          }
-          a {
-            &,
-            &:hover,
-            &:visited,
-            &:focus,
-            &:active {
-              color: var(--menu-mobile-submenu-color);
-            }
-            &:hover {
-              color: var(--menu-mobile-submenu-color-hover);
-              background-color: var(--menu-mobile-submenu-background-active);
-            }
-          }
-        }
-        &.expandable {
-          display: list-item;
-          &.expanded {
-            ul {
-              display: block;
-              li:hover {
-                background-color: var(--menu-mobile-background-active);
-              }
-            }
-            > div {
-              span {
-                &:after {
-                  top: 18px;
-                  transform: rotateZ(225deg);
-                }
-              }
-            }
-          }
-        }
-      }
-      > li.active,
-      bcgov-menu.active div {
-        > a {
-          background-color: var(--menu-mobile-background-active);
-          color: var(--menu-mobile-color-active);
-        }
-      }
-      bcgov-menu ul > li.active {
-        > a {
-          background-color: var(--menu-mobile-submenu-background-active);
-          color: var(--menu-mobile-submenu-color-active);
-        }
-      }
+    ul ul button.disclosure-toggle {
+      color: var(--menu-mobile-submenu-color);
+    }
+
+    button.disclosure-toggle.has-label:hover {
+      color: var(--menu-mobile-color-hover);
+      text-decoration: underline;
+    }
+
+    button.disclosure-toggle:focus-visible {
+      outline-color: var(--menu-mobile-color);
+    }
+
+    li.active > a {
+      color: var(--menu-mobile-color-active);
+      background-color: var(--menu-mobile-background-active);
+    }
+
+    li > ul li.active > a {
+      color: var(--menu-mobile-submenu-color-active);
+      background-color: var(--menu-mobile-submenu-background-active);
     }
   }
 
-  /** hide target **/
   &.target-hidden {
     display: none;
   }
 
-  /** Desktop mode **/
   &.is-desktop {
     display: block;
     position: relative;
     max-width: 100%;
-    ul {
+
+    nav > ul {
       @include flexbox();
       @include flex-wrap(wrap);
       @include align-items(center);
       position: relative;
-      &.align-right {
-        margin-right: -$padding-x;
-        @include justify-content(flex-end);
-      }
-      &.align-left {
-        @include justify-content(flex-start);
-        margin-left: -$padding-x;
-      }
-      &.align-center {
-        @include justify-content(center);
-      }
     }
+
+    nav > ul.align-right {
+      margin-right: -$padding-x;
+      @include justify-content(flex-end);
+    }
+
+    nav > ul.align-left {
+      margin-left: -$padding-x;
+      @include justify-content(flex-start);
+    }
+
+    nav > ul.align-center {
+      @include justify-content(center);
+    }
+
     a {
-      border: 1px solid transparent;
-      padding: math.div($padding-x,2) $padding-y * 1.25;
       margin: 0;
-      &:before {
-        content: "";
-        position: relative;
-        border: none;
+      border: 1px solid transparent;
+
+      &:has(~ button.disclosure-toggle) {
+        padding-right: math.div($padding-x, 2);
       }
     }
+
+
     &[primary],
     &.primary {
-      a {
-        &,
-        &:hover,
-        &:active,
-        &:focus,
-        &:visited {
-          color: var(--menu-color);
-        }
-        &:hover {
-          color: var(--menu-color-hover);
-          background-color: var(--menu-background-active);
-          border-color: var(--menu-border-color);
-        }
+      a,
+      a:hover,
+      a:active,
+      a:focus,
+      a:visited {
+        color: var(--menu-color);
       }
 
-      ul {
+      a:hover {
+        color: var(--menu-color-hover);
+        background-color: var(--menu-background-active);
+        border-color: var(--menu-border-color);
+      }
+
+      .bcgov-primary-menu-close {
+        display: none;
+      }
+
+      ul ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: none;
+        flex-direction: column;
+        width: 230px;
+        height: auto;
+        background-color: var(--menu-submenu-background);
+
         li {
-          &.bcgov-primary-menu-close {
-            display: none;
-          }
-        }
-        bcgov-menu {
-          > div {
-            span {
-              &:after {
-                border-bottom: 2px solid var(--menu-color);
-                border-right: 2px solid var(--menu-color);
-              }
-            }
+          border-top: 1px solid var(--menu-submenu-border-color);
+          border-right: 1px solid var(--menu-submenu-border-color);
+          border-left: 1px solid var(--menu-submenu-border-color);
 
-            a {
-              padding-right: $padding-y * 2.5;
-            }
-          }
-
-          li {
-            > div {
-              border: none;
-            }
-
-            a {
-              &,
-              &:hover,
-              &:active,
-              &:focus,
-              &:visited {
-                color: var(--menu-submenu-color);
-              }
-              &:hover {
-                color: var(--menu-submenu-color-hover);
-                background-color: var(--menu-submenu-background-active);
-              }
-            }
-          }
-
-          ul {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            width: 230px;
-            height: auto;
-            background-color: var(--menu-submenu-background);
-            li {
-              border-top: 1px solid var(--menu-submenu-border-color);
-              border-left: 1px solid var(--menu-submenu-border-color);
-              border-right: 1px solid var(--menu-submenu-border-color);
-              &:last-child {
-                border-bottom: 1px solid var(--menu-submenu-border-color);
-              }
-            }
-          }
-          &.expandable {
-            &.expanded {
-              ul {
-                li:hover {
-                  background-color: var(--menu-background-active);
-                }
-              }
-              > div {
-                span {
-                  &:after {
-                    top: 18px;
-                    transform: rotateZ(225deg);
-                  }
-                }
-              }
-            }
-          }
-        }
-        > li.active,
-        bcgov-menu.active div {
-          > a {
-            background-color: var(--menu-background-active);
-            color: var(--menu-color-active);
-            border: 1px solid var(--menu-border-color);
-          }
-        }
-        bcgov-menu ul > li.active {
-          > a {
-            background-color: var(--menu-submenu-background-active);
-            color: var(--menu-submenu-color-active);
+          &:last-child {
+            border-bottom: 1px solid var(--menu-submenu-border-color);
           }
         }
       }
-    }
-  }
-  &[sidebar] {
-    &.is-desktop {
-      ul {
-        display: block;
-        li a {
-          padding: 0.1rem !important;
-        }
+
+      li.expanded > ul {
+        display: flex;
+      }
+
+      ul ul a,
+      ul ul a:hover,
+      ul ul a:active,
+      ul ul a:focus,
+      ul ul a:visited {
+        color: var(--menu-submenu-color);
+      }
+
+      ul ul a:hover {
+        color: var(--menu-submenu-color-hover);
+        background-color: var(--menu-submenu-background-active);
+      }
+
+      button.disclosure-toggle {
+        color: var(--menu-color);
+        border-left: 0;
+        border-bottom: 0;
+      }
+
+      ul ul button.disclosure-toggle {
+        color: var(--menu-submenu-color);
+      }
+
+      button.disclosure-toggle.has-label:hover {
+        color: var(--menu-color-hover);
+        background-color: var(--menu-background-active);
+      }
+
+      li.active > a {
+        color: var(--menu-color-active);
+        background-color: var(--menu-background-active);
+        border-color: var(--menu-border-color);
+      }
+
+      li > ul li.active > a {
+        color: var(--menu-submenu-color-active);
+        background-color: var(--menu-submenu-background-active);
       }
     }
   }
+
+  &[sidebar].is-desktop {
+    ul {
+      display: block;
+    }
+
+    li > a {
+      padding: 0.1rem !important;
+    }
+  }
+
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     opacity: 1;
     visibility: visible;
   }
 }
+
 html[data-useragent*="MSIE 10.0"] {
 }

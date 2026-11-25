@@ -89,54 +89,30 @@ export namespace Components {
     }
     interface BcgovMenu {
         /**
-          * @default false
-         */
-        "active": boolean;
-        /**
-          * Alignment of menu
+          * Horizontal alignment of the top-level list.
           * @default "left"
          */
         "alignment": string;
         /**
-          * Adds hover to submenues
-          * @default false
-         */
-        "allowHover": boolean;
-        /**
-          * A number that represents mobile menu breakpoint in px;
+          * Viewport width at which the menu switches to desktop styling.
           * @default 0
          */
         "breakpoint": number;
         /**
-          * Automatically adds hamburger.
-          * @default true
+          * Accessible name for the navigation landmark.
+          * @default "Navigation"
          */
-        "hamburger": boolean;
+        "label": string;
         /**
-          * Link for menu
+          * Apply primary header-navigation styling and a mobile close button.
+          * @default false
          */
-        "href": string;
+        "primary": boolean;
         /**
-          * Aria Instructions
-          * @default `Use arrow keys to navigate between menuitems,   spacebar to expand submenus, escape key to close submenus, enter to activate menuitems.`
+          * Use the compact sidebar layout.
+          * @default false
          */
-        "instructions": string;
-        /**
-          * Menu id used for instructions TODO: this might need more consideration
-          * @default "menu"
-         */
-        "menuId": string;
-        /**
-          * Changes timeout for submenu
-          * @default 500
-         */
-        "menuTimeOut": number;
-        /**
-          * Label for submenu
-         */
-        "name": string;
-        "primary": string;
-        "sidebar": string;
+        "sidebar": boolean;
     }
     interface BcgovSearch {
         /**
@@ -357,54 +333,30 @@ declare namespace LocalJSX {
     }
     interface BcgovMenu {
         /**
-          * @default false
-         */
-        "active"?: boolean;
-        /**
-          * Alignment of menu
+          * Horizontal alignment of the top-level list.
           * @default "left"
          */
         "alignment"?: string;
         /**
-          * Adds hover to submenues
-          * @default false
-         */
-        "allowHover"?: boolean;
-        /**
-          * A number that represents mobile menu breakpoint in px;
+          * Viewport width at which the menu switches to desktop styling.
           * @default 0
          */
         "breakpoint"?: number;
         /**
-          * Automatically adds hamburger.
-          * @default true
+          * Accessible name for the navigation landmark.
+          * @default "Navigation"
          */
-        "hamburger"?: boolean;
+        "label"?: string;
         /**
-          * Link for menu
+          * Apply primary header-navigation styling and a mobile close button.
+          * @default false
          */
-        "href"?: string;
+        "primary"?: boolean;
         /**
-          * Aria Instructions
-          * @default `Use arrow keys to navigate between menuitems,   spacebar to expand submenus, escape key to close submenus, enter to activate menuitems.`
+          * Use the compact sidebar layout.
+          * @default false
          */
-        "instructions"?: string;
-        /**
-          * Menu id used for instructions TODO: this might need more consideration
-          * @default "menu"
-         */
-        "menuId"?: string;
-        /**
-          * Changes timeout for submenu
-          * @default 500
-         */
-        "menuTimeOut"?: number;
-        /**
-          * Label for submenu
-         */
-        "name"?: string;
-        "primary"?: string;
-        "sidebar"?: string;
+        "sidebar"?: boolean;
     }
     interface BcgovSearch {
         /**
@@ -471,17 +423,10 @@ declare namespace LocalJSX {
     }
     interface BcgovMenuAttributes {
         "alignment": string;
-        "primary": string;
-        "sidebar": string;
-        "menuId": string;
-        "instructions": string;
-        "href": string;
-        "name": string;
         "breakpoint": number;
-        "hamburger": boolean;
-        "active": boolean;
-        "allowHover": boolean;
-        "menuTimeOut": number;
+        "label": string;
+        "primary": boolean;
+        "sidebar": boolean;
     }
     interface BcgovSearchAttributes {
         "breakpoint": number;

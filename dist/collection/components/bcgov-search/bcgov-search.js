@@ -26,7 +26,7 @@ export class BcgovSearch {
         }
     }
     render() {
-        return (h(Host, { key: '0db28b3ea26404b398bf2766c7200aa56f915b80', class: "bcgov-search" }, h("div", { key: '92cb7b38d72e6e76dd29ae3662026a86c31fdee1', class: "search-container" }, h("slot", { key: '82a9ac49b7faa85de481bed847a9975d623a5bcd' }))));
+        return (h(Host, { key: 'b52d9789ad60323f1151e20f9e01e3fda2e880c6', class: "bcgov-search" }, h("div", { key: '3fdcc647583a46b964ebca04398325d4f324dced', class: "search-container" }, h("slot", { key: '95f6ddd142d0ddafcd42b09641503d0d0e01fd28' }))));
     }
     static get is() { return "bcgov-search"; }
     static get properties() {
